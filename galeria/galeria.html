@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+    <style>
+        /* Estilos gerais */
+        body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+        /* Estilos da galeria */
+        .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        background-color: blueviolet;
+        }
+
+        .gallery img {
+            width: 800px;
+            height: 500px;
+            background-color: aqua;
+        object-fit: cover;
+        margin: 10px;
+        }
+        .--welfare-menu{
+            width: 100px;
+            height: 100%;
+            background-color: chartreuse;
+            position: fixed;
+            top: 0;
+            left: 0;
+
+        }
+        
+    </style>
+    </head>
+    <body>
+    <nav class="--welfare-menu">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </nav>
+    <!-- Galeria -->
+    <div class="gallery">
+        <img src="image1.jpg" alt="Imagem 1">
+        <img src="image2.jpg" alt="Imagem 2">
+        <img src="image3.jpg" alt="Imagem 3">
+        <img src="image4.jpg" alt="Imagem 4">
+        <img src="image5.jpg" alt="Imagem 5">
+        <img src="image6.jpg" alt="Imagem 6">
+    </div>
+    </body>
+</html>

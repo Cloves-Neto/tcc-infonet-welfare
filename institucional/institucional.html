@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Resumo Institucional</title>
+	<style>
+		/* Estilos gerais */
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+			font-size: 14px;
+			line-height: 1.5;
+			background-color: #F8F8F8;
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 20px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		/* Estilos dos títulos */
+		h1, h2 {
+			margin: 0;
+			padding: 20px;
+			font-size: 36px;
+			font-weight: bold;
+			text-align: center;
+		}
+
+		h2 {
+			font-size: 24px;
+		}
+
+		/* Estilos das seções */
+		.section {
+			flex: 1 1 30%;
+			background-color: #FFF;
+			margin: 20px;
+			border-radius: 10px;
+			box-shadow: 0 2px 4px rgba(0,0,0,.1);
+			overflow: hidden;
+		}
+
+		.section img {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+			object-position: center;
+			transition: transform .2s;
+			cursor: pointer;
+		}
+
+		.section img:hover {
+			transform: scale(1.05);
+		}
+
+		.section h2 {
+			margin-top: 0;
+			padding: 20px;
+			font-size: 24px;
+			font-weight: bold;
+		}
+
+		.section p {
+			padding: 0 20px 20px;
+			font-size: 16px;
+			line-height: 1.5;
+		}
+
+		/* Estilos responsivos */
+		@media screen and (max-width: 768px) {
+			.section {
+				flex-basis: 100%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Título da página -->
+	<h1>Resumo Institucional</h1>
+
+	<!-- Container principal -->
+	<div class="container">
+		<!-- Seção 1 -->
+		<div class="section">
+			<img src="https://via.placeholder.com/400x300" alt="Imagem 1">
+			<h2>Missão</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut ante pharetra, facilisis augue ac, faucibus libero.</p>
+		</div>
+
+		<!-- Seção 2 -->
+		<div class="section">
+			<img src="https://via.placeholder.com/400x300" alt="Imagem 2">
+			<h2>Visão</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut ante pharetra, facilisis augue ac, faucibus libero.</p>
+		</div>
+
+		<!-- Seção 3 -->
+		<div class="section">
+			<img src="https://via.placeholder.com/400x300" alt="Imagem 3">
+			<h2>Valores</h2>
+			
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut ante pharetra, facilisis augue ac, faucibus libero.</p>
+		</div>
+	</div>
+</body>
+</html>

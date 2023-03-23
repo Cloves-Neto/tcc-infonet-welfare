@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            overflow: hidden;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+
+        }
+
+        .grande
+        {
+            background-color: lightgray;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .lado-direito
+        {
+            width: 50%;
+            background-color: lightgray;
+            margin: 10px;
+        }
+
+        .lado-esquerdo
+        {
+            width: 50%;
+            background-color: white;
+            margin: 10px;
+            
+        }
+
+        .login
+        {
+            background-color: lightgrey;
+            margin: auto;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+            height: 70%;
+        }
+
+        .input
+        {
+            width: 80%;
+            background-color: whitesmoke;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 15px;
+            padding: 25px 10px 10px;
+        }
+        
+        .lado-esquerdo{
+            display: flex;
+        }
+        
+        a.registro{
+            margin-top: 50px;
+            display: flex;
+            width: 100px;
+            height: 30px;
+            background-color: rgb(200, 200, 200);
+            border: solid 1px rgb(39, 39, 38);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            border-radius: 15px;
+            font-size: 16px;
+        }
+        a.registro:hover{
+            transition: background .2s ease-in;
+            background: red;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    
+     
+    <div class="grande">     
+    <div class="lado-esquerdo">
+        <form class="login" method="POST" action="login.php">
+            <div >
+                <h1>
+                    <label class="Email">
+                        <input type="text" name="nome" class="input" placeholder="Nome Completo">
+                    </label>
+                </h1> 
+                                                        <br>
+                                                        <br>
+                <h1>
+                    <h1>
+                        <label class="Email">
+                            <input type="email" name="Email" class="input" placeholder="Email">
+                        </label>
+                    </h1> 
+                                                            <br>
+                                                            <br>
+                    <h1>
+                        <h1>
+                            <label class="Email">
+                                <input type="number" name="telefone" class="input" placeholder="Telefone">
+                            </label>
+                        </h1> 
+                                                                <br>
+                                                                <br>
+                        <h1>
+               
+                    <label class="senha">
+                        <input type="password" name="senha" class="input" placeholder="Senha">
+                    </label>
+                </h1>
+                                                        <br>
+                                                        <br>
+                
+                        <h1 style="width: 100%; display:flex; align-items: center; justify-content: center; ">
+                        <a class="registro" href="../manutencao.html" >Registrar</a>
+                        </h1>
+                        <br><br>
+                        <a href="../login/login (2).html">Já tem conta? Entre aqui</a>
+            </div>
+        </form>
+    </div>
+    <div class="lado-direito">
+        <img src="" alt="">
+    </div>
+</body>
