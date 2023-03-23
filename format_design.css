@@ -23,26 +23,6 @@ ______________________________
     --destak_color:;
     --alert_color:;
     --alertvariant_color:;
-    --notification_color:;
-    --txtreference_color1:;
-    --txtreference_color2:;
-
-    /* Fontes do site e do sistema */
-    --font_family_master:;
-    --font_family_variant:;
-    --font_family_suplement:;
-
-    /* Variações de tamanhos de fontes */
-    --font_size_suplement:;
-    --font_size_variant:;
-    --font_size_title1:;
-    --font_size_title2:;
-    --font_size_subtitle:;
-    --font_size_destak:;
-    --font_size_auxiliartitle:;
-    --font_size_txtreferece:;
-
-    /*  */
 
 }
 
@@ -50,30 +30,3 @@ ______________________________
 /* Reset css - Redefinir configuração padrão e cookies do navegador */
 
 
-/* Classe universal */
-
-.button{}
-.button:hover{}
-
-.button-variant{}
-.button-variant:hover{}
-
-.btnexclui{}
-.btnexclui:hover{}
-
-.btneinsere{}
-.btneinsere:hover{}
-
-.btnaltera{}
-.btnaltera:hover{}
-
-.btnconsulta{}
-.btnconsulta:hover{}
-
-.main{}
-.header{}
-.footer{}
-.aside{}
-
-.none{}
-.flex{}
