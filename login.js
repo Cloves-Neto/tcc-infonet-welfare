@@ -18,7 +18,7 @@ var dados = $('#login').serialize(); //serialize id do form
         
         if (msg == 1){
 
-            window.open('../home/home_page.html');
+            window.open('./paginas/home/home.html');
         }
         else{
             alert("email ou senha incorreta");

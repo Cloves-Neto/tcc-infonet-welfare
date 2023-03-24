@@ -4,217 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style-index.css">
-    <title>Welfare SGO | Sistema de Gerenciamento Online</title>
-    
+    <title>Welfare | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/style.css">
+    <link rel="shortcut icon" href="./assets/logo.svg" type="image/x-icon">
 </head>
 <body>
-    <header> 
-        
-        <div class="section-menu">
-            <!-- logo-empresa -->
-            <div class="logo">
-            
+    <main class="container">
+        <!-- Seção-Esquerda | contém o formulário de Login-->
+        <form class="login  secao-esquerda" id="login" name="login" autocomplete="on">
+            <!-- Conteúdo superior do formulario | dados da Sessão -->
+            <div class="wrapper  interativo-container">
+                <!-- Container-Título -->
+                <div class="container_titulo">
+                    <h1 class="login_titulo">Login</h1>
+                </div>
+                <!-- Container-Usuario -->
+                <label class="container_usuario  login_label" for="usuario">
+                    <span>Usuário</span>
+                    <input class="input " type="text" name="usuario" id="usuario">
+                </label>
+                <!-- Container-Senha -->
+                <label class="container_senha  login_label" for="senha">
+                    <span>Senha</span>
+                    <input class="input " type="password" name="senha" id="senha">
+                </label>
+                <small><div onclick="lembrar()" class="lembrar">Lembrar acesso<div class="btn-rounded" id="btn-rounded"></div></div><a class="login_link" href=""#>Esqueceu a senha?</div></small>
             </div>
-            <!-- navmenu-links -->
-            <nav class="section-menu-content">
-                <ul>
-                    <li>
-                        <a href="#presentation-section" class="link-menu1 --welfare-link-menu">
-                            Welfare
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#photos-section" class="link-menu2 --welfare-link-menu">
-                            Sobre
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#pricing-section" class="link-menu3 --welfare-link-menu">
-                            Planos
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#contact-section" class="link-menu4 --welfare-link-menu">
-                            Contato
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <!-- Login area -->
-            <div class="--welfare-section-login">
-                <div class="circulo-usuario">
-                    <a href="login/formulario_simples-main/index.html">LOG</a>
-                </div>
+            <!-- Conteúdo inferior do formulario | Submit e Registrar nova conta -->
+            <div class="wrapper  submit_container">
+                <!-- Botão de enviar o formulario | Submit --> 
+                <button onclick="logarjs()" class="login_button"  disabled>
+                    Entrar
+                </button>
+                <!-- Link para registrar nova conta | Página de registro -->
+                <a href="#"  class="login_link">Ainda não tem acesso? <span>Registre-se</span></a> 
             </div>
-        </div>
-    </header>
-    <main>
-        <section class="section" id="presentation-section">
-                <div class="left">
-                    <div class="section-heading">
-                        <h1>Apresentação</h1>
-                    </div>
-                    <div class="section-content">
-                        <p>Aqui você pode apresentar o seu produto ou serviço, destacando as suas principais características e benefícios para o cliente.</p>
-                    <br>
-                    <a style="display: flex; font-size: 20px; justify-content: center; align-items: center;" class="button" href="./planos-e-precos/planos.html">Confira</a>
-                    </div>
-                </div>
-                <div class="right">
-                    <div class="img"></div>
-                </div>
+        </form>
+        <!-- Seção-Direita | contém a imagem do Login -->
+        <section class="wallpaper  secao-direita">
         </section>
-        <!-- Sessão de fotos | Sobre nós -->
-        <section class="section" id="photos-section">
-            <!-- cabeçalho da sessão - Fotos | Sobre  -->
-            <div class="section-heading">
-                <h1>Fotos</h1>
-            </div>
-            <!-- conteúdo da sessão - Fotos | Sobre  -->
-            <div class="section-content">
-                <div style="display: flex; width:100%; height:70%; background-color: red;">
-                        <!-- Imagem w1x/h2x -->
-                    <div style="width: 30%; background-color: rgba(15, 238, 156, 0.933); height: 70;">
-                        <div class="img"></div>
-                    </div>
-                    <div  style="display: flex; flex-direction: column; padding:0; width: 70%; height: 100%; background-color: rgb(233, 54, 185);">
-                            <!-- Imagem w2x/h1x -->
-                        <div style=" margin:0; width: 100%; height: 50%; background-color: gray;">
-                            <div class="img"></div>
-                        </div>
-                        <!-- Imagem w1x/h1x -->
-                        <div class="inner" style="display: flex; width: 100%; height: 50%; background-color: orange; margin:0;">
-                            <div class="img"></div>
-                            <div class="img"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Imagem w1x/h1x -->
-                <div style="display: flex; width: 100%; height: 30%; background-color: blueviolet;">
-                    <div class="img" ></div>
-                </div>
-
-            </div>
-        </section>
-        <!-- Price section -->
-        <section class="section" id="pricing-section">
-            <div class="section-heading">
-                <h1>Preços</h1>
-            </div>
-            <div class="section-content">
-                <div class="pricing-column">
-                    <h2>Plano Básico</h2>
-                    <p>Descrição do Plano Básico.</p>
-                    <p><strong>R$ 99,00</strong> por mês</p>
-                    <input class="button" type="button" value="Assinar Plano">
-                </div>
-                <div class="pricing-column">
-                    <h2>Plano Padrão</h2>
-                    <p>Descrição do Plano Padrão.</p>
-                    <p><strong>R$ 199,00</strong> por mês</p>
-                    <input class="button" type="button" value="Assinar Plano">
-                </div>
-                <div class="pricing-column">
-                    <h2>Plano Premium</h2>
-                    <p>Descrição do Plano Premium.</p>
-                    <p><strong>R$ 299,00</strong> por mês</p>
-                    <input class="button" type="button" value="Assinar Plano">
-                </div>
-            </div>
-        </section>
-        <!-- Sessão de comentários -->
-        <section class="section" id="testimonial-section">
-            <div class="section-heading">
-                <h1>Comentários</h1>
-            </div>
-            <div class="section-content">
-                <div class="testimonial">
-                    <p>"Ótimo produto! Recomendo para todos."</p>
-                    <p><em>João Silva, São Paulo</em></p>
-                </div>
-                <div class="testimonial">
-                    <p>"Excelente atendimento e suporte técnico de primeira."</p>
-                    <p><em>Maria Souza, Rio de Janeiro</em></p>
-                </div>
-            </div>
-        </section>
-        <!-- Sessão de contato -->
-        <section class="section" id="contact-section">
-            <div class="section-heading">
-                <h1>Fale Conosco</h1>
-            </div>
-            <div class="section-content">
-            <form action="manutencao.html">
-                <div class="form-field">
-                    <label for="name">Nome:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-field">
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-field">
-                    <label for="message">Mensagem:</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit">Enviar</button>
-            </form>
-            </div>
-        </section>
-    </main>   
-    <!-- Footer | Rodapé do site -->
-    <footer>
-        <div class="--welfare-colaboradores">
-            <ul>
-                <li>
-                    <img src="" alt="">
-                    <p>Andressa M.</p>
-                    <p>Design e estilização</p>
-                </li>
-                <li>
-                    <img src="" alt="">
-                    <p>Andrielly</p>
-                    <p>Documentação</p>
-                </li>
-                <li>
-                    <img src="" alt="">
-                    <p>Breno</p>
-                    <p>Programador - Backend</p>
-                </li>
-                <li>
-                    <img src="" alt="">
-                    <p>Cloves</p>
-                    <p>Programador - Webaster</p>
-                </li>
-                <li>
-                    <img src="" alt="">
-                    <p>João</p>
-                    <p>Programador - Backend</p>
-                </li>
-                <li>
-                    <img src="" alt="">
-                    <p>Julia</p>
-                    <p>Programadora - Frontend</p>
-                </li>
-                <li>
-                    <img src="" alt="">
-                    <p>Leonardo</p>
-                    <p>Design e estilização</p>
-                </li>
-                <li>
-                    <img src="" alt="">
-                    <p>Victor</p>
-                    <p>Documentação</p>
-                </li>
-            </ul>
-        </div>
-        <div class="--welfare-copy">
-            <h3>
-                Welfare SGO | INC &copy;2023. 
-            </h3>
-        </div>
-    </footer>
+    </main>
+    
+<script src="./src/script.js"></script>
+<script src="./login.js"></script>
+<script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
+<script  nomodule  src = "https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

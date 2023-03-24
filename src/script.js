@@ -1,3 +1,7 @@
+function lembrar(){
+    document.getElementById('btn-rounded').classList.toggle('btn-active');
+}
+
 const inputs = document.querySelectorAll(".input");
 const button = document.querySelector(".login_button")
 
@@ -18,17 +22,13 @@ const handleFocusOut = ({target}) =>{
 const handleChange = () =>{
     const [usuario, senha] = inputs;
     
-    if(usuario.value.length>1 && senha.value.length>= 8){
-        
-    } 
-    else {
+    if(usuario.value && senha.value.length>= 8){
+        button.removeAttribute('disabled');
+    } else {
         button.setAttribute('disabled', '');
     }
 }
 
-
 inputs.forEach((input) => input.addEventListener('focus', handleFocus));
 inputs.forEach((input) => input.addEventListener('focusout', handleFocusOut));
 inputs.forEach((input) => input.addEventListener('input', handleChange));
-
-// Esilizando atributo de validação do formulário manualmente
