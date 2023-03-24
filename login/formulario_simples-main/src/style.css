@@ -1,0 +1,152 @@
+
+@import url(reset.css);
+
+/* Espaço de definição de variaveis */
+:root{
+    --principal: #83E8BD;
+    --secundaria: #51BEAB;
+    --desativado: #DDE4E4;
+    --desativado_color: grey;
+    --palheta_1: white;
+    --palheta_2: black;
+    --palheta_3: rgb(88, 88, 88);
+    --palheta_4: #4B6E6D;
+
+}
+ /* Conteúdo alinhado lado a lado | divisão da seção esqueda e direita */
+.container{
+    display: flex;
+    flex-direction: row;
+}
+/* Formatação seção de Formulario de Login */
+.login{
+    /* direção do conteúdo interno  */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    /* tamanho da seção */
+        width: 100%;
+        max-width: 500px;
+        min-height: 100vh;
+    /* espaçamento interno */
+        /* clamp( min-medida, valor-desejavél, max-medida) */
+        padding: clamp(35px, 8%, 70px);
+    /* cor de fundo */
+        background-color: whitesmoke;
+}
+.container_titulo{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+.login_titulo{
+    color: var(--palheta_4);
+    font-size: 2rem;
+    font-weight: bolder;
+    cursor: default;
+}
+.login_label{
+    display: block;
+    width: 100%;
+    margin-bottom: 60px;
+    position: relative;
+}
+.login_label input{
+    width: 100%;
+    outline: none;
+    font-size: 0.9em;
+    border: none;
+    background-color: transparent;
+    border-bottom: solid 2px var(--palheta_4);
+    padding: 20px 5px 10px;
+    font-weight: 600;
+    color: var(--secundaria);
+    margin-top: 30px;
+}
+.login_label input:focus{   
+    border-bottom: solid  2px var(--principal);
+}
+
+.login_label span{
+    position: absolute;
+    top: 45px;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: var(--palheta_4);
+    cursor: text;
+    transition: all .5s ease;
+}
+.login_label .span-active{
+    position: absolute;
+    top: 30px;
+    color: var(--principal);
+    font-weight: 700;
+    font-size: 0.8em;
+}
+/* Disposição da area de Lembrar acesso e Esqueceu senha */
+.login_label small{
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 10px;
+    color: grey;
+    font-size: 0.8em;
+}
+.login_label small:hover{
+    color: var(--vermelho);
+    cursor: pointer;
+}
+/* Formatação do botão de Login */
+.login_button{
+    background-color: var(--principal);
+    color: var(--palheta_1);
+    width: 230px;
+    height: 60px;
+    border-radius: 80px;
+    cursor: pointer;
+    border: none;
+    font-weight: 800px;
+    letter-spacing: 1.5px;
+    transition: .2s ease;
+    font-size: 2em;
+
+}
+.login_button:disabled{
+    width: 230px;
+    color: var(--desativado_color);
+    background-color: var(--desativado);
+    border: none;
+    border-radius: 80px;
+    font-size: 2em;
+    font-weight: 800px;
+    letter-spacing: 1.5px;  
+}
+.login_link{
+    color: gray;
+    margin-top: 50px;
+    font-size: 0.9em;
+    text-decoration: none;
+}
+/* Disposição do conteúdo do formulario */
+.wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* Disposição da imagem da Seção-Direita */
+.wallpaper{
+    width: 100%;
+    background-color: var(--secundaria);
+    background-image: url('../assets/walpaper.svg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    flex: 1;
+}
+
