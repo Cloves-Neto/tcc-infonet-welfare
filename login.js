@@ -4,7 +4,7 @@ var dados = $('#login').serialize(); //serialize id do form
     
     $.ajax({
         method: 'GET',
-        url: 'login.php',
+        url: './login.php',
         data: dados,
 
         beforeSend: function () {
@@ -17,7 +17,6 @@ var dados = $('#login').serialize(); //serialize id do form
         $("#retorno").html(msg);
         
         if (msg == 1){
-
             window.open('./paginas/home/home.html');
         }
         else{
