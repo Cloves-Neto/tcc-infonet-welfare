@@ -71,8 +71,6 @@ input[type=number] {
     -moz-appearance:textfield;
 }
 
-
-
 /* Espaço de definição de variaveis */
 :root{
     --principal: #83E8BD;
@@ -105,7 +103,7 @@ input[type=number] {
         /* clamp( min-medida, valor-desejavél, max-medida) */
         padding: clamp(35px, 8%, 70px);
     /* cor de fundo */
-        background-color: whitesmoke;
+        background-color: var(--palheta_1);
 }
 .container_titulo{
     width: 100%;
