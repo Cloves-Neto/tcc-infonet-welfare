@@ -1,6 +1,6 @@
 <?php
 
-include_once 'modalregistro.php';
+include_once 'modalRegistro.php';
 
 $nome_funcionario=filter_input(INPUT_GET,'nome_funcionario');
 $email_funcionario=filter_input(INPUT_GET,'email_funcionario');
