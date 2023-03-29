@@ -1,6 +1,11 @@
 <?php
+<<<<<<< Updated upstream
 
 include_once ("conexao.php");
+=======
+include_once ('./BD/conexao.php')
+include_once 'modalRegistro.php';
+>>>>>>> Stashed changes
 
 //obtendo os valores do formulário
 $nome_funcionario = $_POST['nome_funcionario'];
