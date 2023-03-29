@@ -179,25 +179,7 @@
                             Telefone
                             <input type="number" id="tel" name="tel">
                         </label>
-                        <label for="">
-                            Cep
-                            <input type="number" id="cep" name="cep">
-                        </label>
-                    </div>
-                
-                    <div class="row">
-                        <label for="">
-                            UF
-                            <input type="text" id="uf" name="uf">
-                        </label>
-                        <label for="">
-                            Nº
-                            <input type="number" id="num" name="num">
-                        </label>
-                        <label for="">
-                            Logradouro
-                            <input type="text" id="rua" name="rua">
-                        </label>
+ 
                     </div>
                     <button class="btn" id="cadastrar" name="cadastrar" value="cadastrar">Cadastrar</button>
                     <br>
