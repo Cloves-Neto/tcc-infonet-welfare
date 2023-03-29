@@ -46,14 +46,11 @@
         <section class="wallpaper  secao-direita">
         </section>
     </main>   
+
+
 <script src="./paginas/src/script.js"></script>
 <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
 <script nomodule src="https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
 
-<?php
-if(isset($_GET['erro']) && $_GET['erro'] == 'senha-incorreta') {
-  echo "Senha incorreta. Por favor, tente novamente.";
-}
-?>  

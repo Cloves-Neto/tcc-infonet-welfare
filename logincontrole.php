@@ -22,7 +22,12 @@ if ($resultado->num_rows == 1) {
     header('Location: paginas/home/home.html');
 } else {
     // Login inválido
-    header('Location: index.html');
+    echo'
+    <script>
+        alert("Usuario ou senha inválido, verifique os dados e tente novamente!");
+        window.setTimeout( window.location.href="index.php", 5000)
+    </script>';
+    // header('Location: index.php');
     exit;
 }
 

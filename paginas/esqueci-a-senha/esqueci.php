@@ -11,12 +11,20 @@
  
     <div class="container">
         <main>
-            <form action="" method="get">
+            <form action="" method="post">
 
                 <label for="">
-                    email
+                    Usuario
+                    <input type="email" class="email" id="email">
                 </label>
-
+                <br>
+                <label for="">
+                    Nova Senha
+                    <input type="password" class="novasenha" id="novasenha">
+                </label>
+                <br>
+                <br>
+                <input type="submit" value="Enviar">
             </form>
         </main>
     </div>
@@ -25,3 +33,10 @@
 <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
 <script nomodule src="https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
+<!-- lógica do email -->
+<?php
+
+
+
+?>
