@@ -133,9 +133,9 @@
                                     .$user_data['dt_nascimento_paciente'].
                                 "</td>
                                 <td>
-                                    <a href='editar_cadastro.php?id=$user_data[id_paciente]' class='btn-sm' name='editar' id='editar'><img src='../node_modules/bootstrap-icons/icons/pencil-fill.svg' alt='editar-icone'></a>
-                                    <a href='editar_cadastro.php?id=$user_data[id_paciente]' class='btn-sm' name='excluir' id='excluir'><img src='../node_modules/bootstrap-icons/icons/trash-fill.svg' alt='ecluir-icone'></a>
-                                    <a href='editar_cadastro.php?id=$user_data[id_paciente]' class='btn-sm' name='visualizar' id='visualizar'><img src='../node_modules/bootstrap-icons/icons/eye-fill.svg' alt='visualizar-icone'></a>
+                                    <a href='editar_cadastro.php?id=$user_data[id_paciente]'  class='btn-sm' name='editar' id='editar'><img src='../node_modules/bootstrap-icons/icons/pencil-fill.svg' alt='editar-icone'></a>
+                                    <a href='excluir_cadastro.php?id=$user_data[id_paciente]' class='btn-sm' name='excluir' id='excluir'><img src='../node_modules/bootstrap-icons/icons/trash-fill.svg' alt='ecluir-icone'></a>
+                                    <a href='exibe_cadastro.php?id=$user_data[id_paciente]' class='btn-sm' name='visualizar' id='visualizar'><img src='../node_modules/bootstrap-icons/icons/eye-fill.svg' alt='visualizar-icone'></a>
                                 </td>
                             </tr>";
                     }
@@ -150,7 +150,7 @@
         <div id="popup" class="popup cadastro" >
             <fieldset>
                 <legend>Cadastro de Paciente    </legend>
-                <form  method="post">
+                <form  method="post" action="./paciente_cadastro.php">
                     <div class="row">
                         <label for="">
                             Nome
@@ -158,49 +158,57 @@
                         </label>
                         <label for="">
                             Cpf
-                            <input type="text" id="nome" name="nome">
+                            <input type="number" id="cpf" name="cpf">
+                        </label>
+                        <label for="">
+                            Rg
+                            <input type="number" id="rg" name="rg">
                         </label>
                         <label for="">
                             Dt Nascimento
-                            <input type="text" id="nome" name="nome">
+                            <input type="date" id="dtnas" name="dtnas">
                         </label>
                     </div>
                 
                     <div class="row">
                         <label for="">
                             Email
-                            <input type="text" id="nome" name="nome">
+                            <input type="email" id="email" name="email">
                         </label>
                         <label for="">
                             Telefone
-                            <input type="text" id="nome" name="nome">
+                            <input type="number" id="tel" name="tel">
                         </label>
                         <label for="">
                             Cep
-                            <input type="text" id="nome" name="nome">
+                            <input type="number" id="cep" name="cep">
                         </label>
                     </div>
                 
                     <div class="row">
                         <label for="">
                             UF
-                            <input type="text" id="nome" name="nome">
+                            <input type="text" id="uf" name="uf">
                         </label>
                         <label for="">
                             Nº
-                            <input type="text" id="nome" name="nome">
+                            <input type="number" id="num" name="num">
                         </label>
                         <label for="">
                             Logradouro
-                            <input type="text" id="nome" name="nome">
+                            <input type="text" id="rua" name="rua">
                         </label>
                     </div>
-                    <input type="submit" id="cadastrar" name="cadastrar" value="Cadastrar">
+                    <button class="btn" id="cadastrar" name="cadastrar" value="cadastrar">Cadastrar</button>
+                    <br>
+                    <a href="./cadastro.php" class="btn btn-sm"><img src="../node_modules/bootstrap-icons/icons/arrow-bar-left.svg" alt="voltar-icone">Voltar</a>
+
                 </form>
             </fieldset>
         </div>
         <footer>
             <input type="button" value="cadastrar" onclick="cadastrar()">
+            
         </footer>
     </div>
 
@@ -220,18 +228,3 @@
 </html> 
 
 <!-- Execução das funções-->
-
-<?php
-
-include_once('conexao.php'); 
-
-// Cadastro
-if(isset($_POST['cadastrar'])){
-    echo"<script>
-        alert('Cadastrado com sucesso!')
-    </script>";
-}
-
-
-
-?>
