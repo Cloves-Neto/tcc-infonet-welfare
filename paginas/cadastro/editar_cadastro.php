@@ -13,11 +13,11 @@ if(!empty($_GET['id'])){
     if($result->num_rows > 0){
         while ($user_data = mysqli_fetch_assoc($result)) {
 
-            $nome = $user_data['nome'];
-            $cpf = $user_data['cpf'];
+            $nome = $user_data['nome_paciente'];
+            $cpf = $user_data['cpf_paciente'];
             $email = $user_data['email'];
-            $tel = $user_data['tel'];
-            $dtnas = $user_data['dtnas'];
+            $tel = $user_data['contato_paciente'];
+            $dtnas = $user_data['dt_nascimento_paciente'];
         }
     }
 
@@ -64,6 +64,7 @@ if(!empty($_GET['id'])){
            </div>
            
            <br><br>
+           <input type="hidden" name="id" value="<?php echo $id?>">
            <input type="submit" id="alterar" class="alterar" name="alterar" value="alterar" >
         </form>
 
