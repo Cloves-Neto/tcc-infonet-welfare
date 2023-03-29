@@ -36,7 +36,9 @@
             <!-- Conteúdo inferior do formulario | Submit e Registrar nova conta -->
             <div class="wrapper  submit_container">
                 <!-- Botão de enviar o formulario | Submit --> 
-                <input type="submit" class="login_button" value="Entrar" disabled>
+                <input type="submit" class="login_button" value="Entrar" disabled> <br><br>
+                
+                <button><a href="../welfare1.1/paginas/Doc.html">Nome do Link</a></button>
                     
                 <!-- Link para registrar nova conta | Página de registro -->
                 <a href="./paginas/registro/registro.html" class="login_link">Ainda não tem acesso? <span>Registre-se</span></a> 

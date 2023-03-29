@@ -14,7 +14,6 @@ if(!empty($_GET['id'])){
             $cpf = $user_data['cpf_paciente'];
             $dtnas = $user_data['dt_nascimento_paciente'];
             $tel = $user_data['contato_paciente'];
-            $cep = $user_data['cep_paciente'];
         
         }
         print_r($nome);
@@ -65,8 +64,7 @@ if(!empty($_GET['id'])){
                 <label for="">
                     Cep
                     <input type="number" id="cep" name="cep" value="<?php echo $cep?>">
-                </label>
-           </div>
+
            
            <br><br>
            <input type="submit" id="alterar" class="alterar" name="alterar" value="alterar" >

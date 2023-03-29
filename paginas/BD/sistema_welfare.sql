@@ -30,6 +30,12 @@ cargo_funcionario varchar (40) not null,
 primary key (id_funcionario)
 );
 
+create table usuario (
+id_funcionario int (4) unsigned zerofill not null unique auto_increment,
+senha_funcionario varchar (20) not null,
+foreign key (id_funcionario) references funcionario(id_funcionario)
+);
+
 create table paciente (
 id_paciente int (3) unsigned zerofill not null unique auto_increment,
 nome_paciente varchar (80) not null,
@@ -37,17 +43,17 @@ nome_responsavel varchar (80),
 dt_nascimento_paciente date not null,
 dt_nascimento_responsavel date,
 cpf_paciente char (11) not null unique,
-rg_paciente char (9),
+rg_paciente char (9) not null,
 cpf_responsavel char (11),
 rg_responsavel char (9),
-sexo_paciente char (1),
+sexo_paciente char (1) not null,
 sexo_responsavel char (1),
 contato_paciente varchar (14) not null,
 contato_responsavel varchar (14),
 email varchar (80),
 uf char (2) not null,
-logradouro varchar (60),
-cep_paciente char (8),
+logradouro varchar (60) not null,
+cep_paciente char (8) not null,
 numero_casa_paciente varchar (10),
 primary key (id_paciente)
 );
@@ -131,6 +137,9 @@ valor_pedido_compra decimal (10,2) not null,
 primary key (id_pedido_compra),
 foreign key (id_funcionario) references funcionario(id_funcionario)
 );
+
+
+
 
 
 

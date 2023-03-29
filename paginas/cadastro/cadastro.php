@@ -137,6 +137,9 @@
                                     <a href='excluir_cadastro.php?id=$user_data[id_paciente]' class='btn-sm' name='excluir' id='excluir'><img src='../node_modules/bootstrap-icons/icons/trash-fill.svg' alt='ecluir-icone'></a>
                                     <a href='exibe_cadastro.php?id=$user_data[id_paciente]' class='btn-sm' name='visualizar' id='visualizar'><img src='../node_modules/bootstrap-icons/icons/eye-fill.svg' alt='visualizar-icone'></a>
                                 </td>
+                                <td>
+
+                                </td>
                             </tr>";
                     }
                 ?>
@@ -178,25 +181,6 @@
                         <label for="">
                             Telefone
                             <input type="number" id="tel" name="tel">
-                        </label>
-                        <label for="">
-                            Cep
-                            <input type="number" id="cep" name="cep">
-                        </label>
-                    </div>
-                
-                    <div class="row">
-                        <label for="">
-                            UF
-                            <input type="text" id="uf" name="uf">
-                        </label>
-                        <label for="">
-                            Nº
-                            <input type="number" id="num" name="num">
-                        </label>
-                        <label for="">
-                            Logradouro
-                            <input type="text" id="rua" name="rua">
                         </label>
                     </div>
                     <button class="btn" id="cadastrar" name="cadastrar" value="cadastrar">Cadastrar</button>
