@@ -8,102 +8,18 @@
     <link rel="stylesheet" href="./registro.css">
 </head>
 <body>
-    <main class="container">
-        <!-- Seção-Esquerda | contém o formulário de Login-->
-        <form class="login secao-esquerda" id="login" name="login" method="get" action="testeLogin.php" autocomplete="on">
-            <!-- Conteúdo superior do formulario | dados da Sessão -->
-            <div class="wrapper  interativo-container">
-                <!-- Container-Título -->
-                <div class="container_titulo">
-                    <h1 class="login_titulo">Registro</h1>
-                </div>
-                <div class="dados">
-                    <section class="sessao_dado 1">
-                        <!-- Container-Nome -->
-                        <label class="container_nome  login_label" for="nome">
-                            <span>Nome completo</span>
-                            <input maxlength="50" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" class="input " type="text" name="nome" id="nome">
-                        </label>
-                        <!-- Container-Cpf -->
-                        <label class="container_cpf  login_label" for="cpf">
-                            <span>Cpf</span>
-                            <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                            type = "number"
-                            maxlength = "11" class="input " name="cpf" id="cpf">
-                            <small>Digite o cpf sem ponto ou traço</small>
-                        </label>
-                        <!-- Container-Usuario -->
-                        <label class="container_usuario  login_label" for="usuario">
-                            <span>Email</span>
-                            <input class="input " maxlength="100" type="email" name="usuario" id="usuario">
-                        </label>
-                        <!-- Container-Senha -->
-                        <label class="container_senha  login_label" for="senha">
-                            <span>Senha</span>
-                            <input maxlength="60" class="input " type="password" name="senha" id="senha">
-                        </label>
-                      
-                    </section>
-                    <section class="sessao_dado 2">
-                        <!-- Container-Cod-Empresa -->
-                        <label class="container_cep  login_label" for="cep">
-                            <span>CEP</span>
-                            <input class="input " oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                            type = "number"
-                            maxlength = "8" name="cep" id="cep">
-                        </label>
-                        <!-- Container-endereço -->
-                        <label class="container_endereco  login_label">
-                            <div>
-                                <span>Uf</span>
-                                <input class="input " pattern="[A-Za-z]+$" readonly="true" maxlength="2" type="text" name="uf" id="uf">  
-                            </div>
-                            <div>
-                                <span>Nº</span>
-                                <input  class="input " oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                type = "number"
-                                maxlength = "6" type="number" class="input " name="numero" id="numero">  
-                            </div>
-                            <div>
-                                <span>Rua</span>
-                                <input class="input" readonly="true" type="text" name="rua" id="rua">  
-                            </div>
-                        </label>
-                        <!-- Container-Cod-Empresa -->
-                        <label class="container_codempresa  login_label" for="codempresa">
-                            <span>Cód Empresa</span>
-                            <input class="input " oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                            type = "number"
-                            maxlength = "2" type="number" name="codempresa" id="codempresa">
-                        </label>
-                        <!-- Container-Cargo -->
-                        <label class="container_cargo  login_label" for="cargo">
-                            <p>Cargo</p>
-                            <Select class="selecione" name="cargo" id="cargo">
-                                <option value="">...</option>
-                                <option value="1">Recpcionista</option>
-                                <option value="2">Médico</option>
-                                <option value="3">Farmaceutico</option>
-                                <option value="4">Dev Admiministrador</option>
-                                <option value="5">Limpeza</option>
-                            </Select>
-                        </label>
-                    </section>
-                </div>
-            </div>
-            <!-- Conteúdo inferior do formulario | Submit e Registrar nova conta -->
-            <div class="wrapper  submit_container">
-                <!-- Botão de enviar o formulario | Submit --> 
-                <input type="submit" class="login_button" value="Entrar" disabled>
-                    
-                <!-- Link para registrar nova conta | Página de registro -->
-                <a href="#" class="login_link">Já possui um acesso? <span>Faça login</span></a> 
-            </div>
-        </form>
-        <!-- Seção-Direita | contém a imagem do Login -->
-        <!-- <section class="wallpaper  secao-direita">
-        </section> -->
-    </main>
+ 
+    <div class="container">
+        <main>
+            <form action="" method="get">
+
+                <label for="">
+                    email
+                </label>
+
+            </form>
+        </main>
+    </div>
 
 <script src="../src/script.js"></script>
 <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
