@@ -223,11 +223,15 @@
 
 <?php
 
+include_once('conexao.php'); 
+
+// Cadastro
 if(isset($_POST['cadastrar'])){
     echo"<script>
         alert('Cadastrado com sucesso!')
     </script>";
 }
+
 
 
 ?>
