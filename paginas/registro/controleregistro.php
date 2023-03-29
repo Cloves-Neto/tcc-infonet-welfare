@@ -1,30 +1,24 @@
 <?php
 
-include_once 'modalRegistro.php';
+include_once ("conexao.php");
 
-$nome_funcionario=filter_input(INPUT_GET,'nome_funcionario');
-$email_funcionario=filter_input(INPUT_GET,'email_funcionario');
-$cpf_funcionario=filter_input(INPUT_GET,'cpf_funcionario');
-$cargo_funcionario=filter_input(INPUT_GET,'cargo_funcionario');
-$senha_funcionario=filter_input(INPUT_GET,'senha_funcionario');
+//obtendo os valores do formulário
+$nome_funcionario = $_POST['nome_funcionario'];
+$cpf_funcionario = $_POST['cpf_funcionario'];
+$email_funcionario = $_POST['email_funcionario'];
+$cargo_funcionario = $_POST['cargo_funcionario'];
+$senha_funcionario = $_POST['senha_funcionario'];
 
-$Prod = new Prod();
-//instanciando as classes e puxando os valor dentro do arquivo pegando a informação da variavel e jogando dentro do objeto Aluno
-$Prod->setcodprod($codprod);
-$Prod->setdescr($descr);
-$Prod->setvenc($venc);
-$Prod->setvalor($valor);
 
-//metodo de inserção
-if(isset($_GET["inserir"]))
-{
-    if($Prod->inserir())//executando o metodo inserir
-    {
-        echo 'Inclusao executado com sucesso';
-    }
-    else
-    {
-        echo 'Erro na inclusao, refazer a operação';
-    }
+//inserindo os valores no banco de dados
+$sql = "INSERT INTO funcionario (nome_funcionario, cpf_funcionario, email_funcionario, cargo_funcionario, senha_funcionario) VALUES
+                                ('$nome_funcionario', '$cpf_funcionario', '$email_funcionario', '$cargo_funcionario', '$senha_funcionario')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Dados inseridos com sucesso";
+} else {
+    echo "Erro ao inserir dados: " . $conn->error;
 }
+
+$conn->close();
 ?>
