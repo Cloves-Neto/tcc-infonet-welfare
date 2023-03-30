@@ -38,7 +38,7 @@
                 <!-- Botão de enviar o formulario | Submit --> 
                 <input type="submit" class="login_button" value="Entrar" disabled> <br><br>
                 
-                <button><a href="../welfare1.1/paginas/Doc.html">Nome do Link</a></button>
+                <button><a href="../welfare1.1/paginas/Doc.html">DOCUMENTO</a></button>
                     
                 <!-- Link para registrar nova conta | Página de registro -->
                 <a href="./paginas/registro/registro.html" class="login_link">Ainda não tem acesso? <span>Registre-se</span></a> 
