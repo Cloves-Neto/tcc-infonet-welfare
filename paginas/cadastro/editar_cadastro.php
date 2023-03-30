@@ -1,26 +1,25 @@
+
 <?php
-include_once('conexao.php');
+
 // Editar
+
 if(!empty($_GET['id'])){
 
+    include_once('conexao.php');
     $id = $_GET['id'];
     $sqlSelect = "SELECT * FROM paciente WHERE id_paciente=$id";
-    $result = $conn->query($sqlSelect);
+    $result = $conn->query($sqlSelect);}
 
     if($result->num_rows > 0){
-        while($user_data = mysqli_fetch_assoc($result)){
+        while ($user_data = mysqli_fetch_assoc($result)) {
+
             $nome = $user_data['nome_paciente'];
-            $email = $user_data['email'];
             $cpf = $user_data['cpf_paciente'];
-            $dtnas = $user_data['dt_nascimento_paciente'];
+            $email = $user_data['email'];
             $tel = $user_data['contato_paciente'];
-        
+            $dtnas = $user_data['dt_nascimento_paciente'];
         }
-        print_r($nome);
-    }else{
-        header('location: cadastro.php');
     }
-}
 
 ?>
 
@@ -35,7 +34,7 @@ if(!empty($_GET['id'])){
 <body>
     <div class="container">
 
-        <form  method="post">
+        <form  method="post" action="save.php">
            <div class="row">
                 <label for="">
                     Nome
@@ -59,21 +58,16 @@ if(!empty($_GET['id'])){
                 </label>
                 <label for="">
                     Telefone
-                    <input type="tel" id="tel" name="tel" value="<?php echo $email?>">
+                    <input type="tel" id="tel" name="tel" value="<?php echo $tel?>">
                 </label>
-                <label for="">
-                    Cep
-                    <input type="number" id="cep" name="cep" value="<?php echo $cep?>">
 
+           </div>
            
            <br><br>
+           <input type="hidden" name="id" value="<?php echo $id?>">
            <input type="submit" id="alterar" class="alterar" name="alterar" value="alterar" >
         </form>
 
     </div>
 </body>
 </html>
-
-
-<!-- FUNÇÃO DE ALTERAR DADAOS  -->
-
