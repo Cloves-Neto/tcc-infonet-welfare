@@ -31,7 +31,7 @@
                     <input class="input " type="password" name="senha_funcionario" id="senha_funcionario">
                 </label>
                 <small><div onclick="lembrar()" class="lembrar">Lembrar acesso<div class="btn-rounded" id="btn-rounded"></div></div>
-                    <a class="login_link" href="./paginas/esqueci-a-senha/esqueci.html">Esqueceu a senha?</a></small>
+                    <a class="login_link" href="../welfare1.1/paginas/esqueci-a-senha/esqueci.php">Esqueceu a senha?</a></small>
             </div>
             <!-- Conteúdo inferior do formulario | Submit e Registrar nova conta -->
             <div class="wrapper  submit_container">
