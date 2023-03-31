@@ -1,6 +1,6 @@
 <?php
 $usuario = 'André';
-
+$data_hoje = date('d/m/Y');
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +16,9 @@ $usuario = 'André';
       }
       
       body {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
           margin: 0;
           position: relative;
           font-family: Arial, sans-serif;
@@ -28,20 +31,40 @@ $usuario = 'André';
         background-color: rgb(46, 94, 78);
       }
       .container{
+        width: 100%;
+        height: 100%;
         flex: 1;
         display: flex;
         flex-direction: row;
         padding: 5px;
         background-color: rgb(230, 230, 230);
       }
-    .sessao-esquerda, .sessao-direita{
-      width: 50%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      background-color: rgb(230, 230, 230);
-    }
-
+      .sessao{
+        width: 100%;
+        height: 100%;
+        padding: 5px 20px 5px 5px;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(230, 230, 230);
+      }
+      .conntent.info-dia{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
+      .content.user{
+        width: 100%;
+        height: 60px;
+        background-color: blue;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 5px;
+      }
+      .card{
+        width: 50%;
+      }
     </style>
   </head>
   <body>
@@ -54,34 +77,109 @@ $usuario = 'André';
       </ul>
     </nav>
     <div class="container">
-        <main class="sessao-esquerda">
-            <div class="mensagem">Olá bem vindo<?php  echo ' '.$usuario;?>.</div>
-            <div class="row">
+        <main class="sessao">
+            <header class="content user">
+                <div class="mensagem">Olá bem vindo<?php  echo ' '.$usuario;?>.</div>
+                <nav>
+                    usuario
+                </nav>
+            </header>
+            <div class="content">
                 <div class="card list-funcionario">
-
+                    <div class="info">
+                        <span class="img-container">img</span>
+                        <div class="info-user">
+                          <p><b>Nome:</b> Marcos</p>
+                          <p><b>Cargo:</b> Aux.Administrativo</p>
+                          <p><b>Email:</b> andré@welfare.com.br</p>
+                          <p><b>Ramal:</b> 3003-0223</p>
+                        </div>
+                    </div>
                 </div>
+                <div class="card agenda"></div>
             </div>
-            <div class="row">
-                <div class="card">
+            <div class="content info-dia">
+                <div class="card consulta">
                   <fieldset>
-                    <legend></legend>
+                    <table>
+                          <caption>consultas <?php echo ' '.$data_hoje;?></caption>
+                          <thead>
+                              <tr>
+                                <th>Horario</th>
+                                <th>Nome Paciente</th>
+                                <th>Contato</th>
+                                <th>Nome Médico</th>
+                                <th>Especialidade</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr class="row">
+                                <td>11:00</td>
+                                <td>Maria de Lourdes</td>
+                                <td>(11) 95562-4312</td>
+                                <td>Edson Katsui</td>
+                                <td>Ortopedia</td>
+                              </tr>
+                              <tr class="row">
+                                <td>12:30</td>
+                                <td>Marlon Koggima</td>
+                                <td>(11) 94189-2527</td>
+                                <td>Rubens Osvaldo</td>
+                                <td>Clinico Geral</td>
+                              </tr>
+                              <tr class="row">
+                                <td>12:50</td>
+                                <td>Juan Marques</td>
+                                <td>(11) 92598-4652</td>
+                                <td>Edson Katsui</td>
+                                <td>Ortopedia</td>
+                              </tr>
+                          </tbody>
+                    </table>
                   </fieldset>
-                  <table class="table my-table">
-                    <tr>
-                      <th>Nome:</th>
-                    </tr>
-                  </table>
                 </div>
-                <div class="card"></div>
+                <div class="card exames">
+                    <fieldset>
+                    <table>
+                          <caption>Exame <?php echo ' '.$data_hoje;?></caption>
+                          <thead>
+                              <tr>
+                                <th>Horario</th>
+                                <th>Nome Paciente</th>
+                                <th>Contato</th>
+                                <th>Solicitante</th>
+                                <th>Tipo Exame</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr class="row">
+                                <td>11:00</td>
+                                <td>Maria de Lourdes</td>
+                                <td>(11) 95562-4312</td>
+                                <td>Edson Katsui</td>
+                                <td>Raio-X Inferior</td>
+                              </tr>
+                              <tr class="row">
+                                <td>12:30</td>
+                                <td>Marlon Koggima</td>
+                                <td>(11) 94189-2527</td>
+                                <td>Rubens Osvaldo</td>
+                                <td>Exame de Sangue (1)</td>
+                              </tr>
+                              <tr class="row">
+                                <td>12:50</td>
+                                <td>Juan Marques</td>
+                                <td>(11) 92598-4652</td>
+                                <td>Edson Katsui</td>
+                                <td>Ressonâcia Magnética</td>
+                              </tr>
+                          </tbody>
+                    </table>
+                  </fieldset>
+                </div>
             </div>
         </main>
-        <aside class="sessao-direita">
 
-            <div class="user"> usuario </div>
-            <div class="calendar"> calendario </div>
-            <div class="din"> R$ </div>
-
-        </aside>
     </div>
 
     <script src="script.js"></script>
