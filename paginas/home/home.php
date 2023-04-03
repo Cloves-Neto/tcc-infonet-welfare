@@ -74,6 +74,10 @@ $data_hoje = date('d/m/Y');
         <li>
             <a href="../cadastro/cadastro.php"><img style="width:50px; height: 50px; margin: 50px 0 0 10px;" src="../node_modules/bootstrap-icons/icons/person-add.svg" alt="add-icone"></a>
         </li>
+        <br><br>
+        <li>
+        <a href="/logout.php">sair</a>
+        </li>
       </ul>
     </nav>
     <div class="container">
@@ -186,3 +190,4 @@ $data_hoje = date('d/m/Y');
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </body>
 </html>
+

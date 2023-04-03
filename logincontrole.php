@@ -1,8 +1,12 @@
 <?php
 
 include_once ("conexao.php");
+
+// inicia sessão
+session_start();
+
 // Recebe os dados do formulário
-$email_funcionario = $_POST['email_funcionario'];
+ $_SESSION['email_funcionario'] = $_POST['email_funcionario'];
 $senha_funcionario = $_POST['senha_funcionario'];
 
 // Faz a validação no banco de dados

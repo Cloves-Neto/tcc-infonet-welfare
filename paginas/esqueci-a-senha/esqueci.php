@@ -14,17 +14,10 @@
             <form action="" method="post">
 
                 <label for="">
-                    Usuario
-                    <input type="email" class="email" id="email">
+                    Digite seu email de recuperação
+                    <input type="email" class="email_funcionario" id="email_funcionario">
                 </label>
                 <br>
-                <label for="">
-                    Nova Senha
-                    <input type="password" class="novasenha" id="novasenha">
-                </label>
-                <br>
-                <br>
-                <input type="submit" value="Enviar">
             </form>
         </main>
     </div>

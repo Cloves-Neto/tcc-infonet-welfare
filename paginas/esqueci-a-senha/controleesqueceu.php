@@ -1,7 +1,7 @@
 <?php
     include_once ("../welfare1.1/conexao.php");
 
-    if(isset($_POST[enviar]))
+    if(isset($_POST[$email_funcionario]))
     {
 
         $email_funcionario = $msqli->escape_string($_POST['email_funcionario']);
@@ -27,7 +27,7 @@
 
             if(mail($email_funcionario, "Sua nova senha" , "Sua nova senha: ". $novasenha))
             {
-                $sql_code = "UPDATE "
+                $sql_code = "UPDATE ";
             }
         };
     };
