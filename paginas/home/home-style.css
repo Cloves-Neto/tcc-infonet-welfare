@@ -1,2 +1,98 @@
 
-  
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+body {
+  background: white;
+}
+#calenderMain {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.main {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  color: white;
+  background: #007bff;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  border-radius: 0rem;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: none;
+}
+.month {
+  text-align: center;
+  padding: 10px;
+}
+.week {
+  display: inline-flex;
+  text-align: center;
+  padding: 10px;
+}
+.week .wDay {
+  padding: 10px;
+  margin: 10px;
+  color: silver;
+}
+.date {
+  color: silver;
+}
+#fillDate {
+  width: 100%;
+  color: silver;
+}
+#fillDate tr,
+td {
+  padding: 10px;
+  color: silver;
+}
+.date:hover {
+  background: white;
+  color: #007bff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.date td:hover {
+  background: white;
+  color: #007bff;
+  font-weight: bold;
+}
+.year,
+.month {
+  padding: 5px;
+  cursor: pointer;
+}
+.yearDiv {
+  position: relative;
+  font-size: 25px;
+  padding: 10px;
+}
+.monthDiv {
+  position: relative;
+  font-size: 20px;
+  padding: 10px;
+}
+.left {
+  position: absolute;
+  left: 10px;
+  cursor: pointer;
+}
+.right {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+.wDay {
+  cursor: default;
+}
+svg {
+  width: 16px;
+  height: 16px;
+}

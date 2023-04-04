@@ -1,5 +1,10 @@
 <?php
-$usuario = 'André';
+$imgperfil = '<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+</svg>'; 
+$usuario = 'Andressa';
+$cargo = 'Auxiliar Adm';
 $data_hoje = date('d/m/Y');
 ?>
 
@@ -10,180 +15,47 @@ $data_hoje = date('d/m/Y');
     <meta charset="UTF-8">
     <style>
       *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      
-      body {
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-          margin: 0;
-          position: relative;
-          font-family: Arial, sans-serif;
-          display: flex;
-          flex-direction: row;
-        }
-      .home-menu{
-        width: 60px;
-        height: 100vh;
-        background-color: rgb(46, 94, 78);
-      }
-      .container{
-        width: 100%;
-        height: 100%;
-        flex: 1;
-        display: flex;
-        flex-direction: row;
-        padding: 5px;
-        background-color: rgb(230, 230, 230);
-      }
-      .sessao{
-        width: 100%;
-        height: 100%;
-        padding: 5px 20px 5px 5px;
-        display: flex;
-        flex-direction: column;
-        background-color: rgb(230, 230, 230);
-      }
-      .conntent.info-dia{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-      }
-      .content.user{
-        width: 100%;
-        height: 60px;
-        background-color: blue;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 5px;
-      }
-      .card{
-        width: 50%;
+        list-style: none;
       }
     </style>
   </head>
   <body>
-    <!--Cabeçalho onde se encontra a tabela-->
-    <nav id="home-menu" class="home-menu" name="home-menu">
+    
+    <div class="container">
+    <!--Cabeçalho onde se encontra a tabela-->   
+      <nav id="home-menu" class="home-menu" name="home-menu">
       <ul>
         <li>
-            <a href="../cadastro/cadastro.php"><img style="width:50px; height: 50px; margin: 50px 0 0 10px;" src="../node_modules/bootstrap-icons/icons/person-add.svg" alt="add-icone"></a>
+            <a href="../cadastro/cadastro.php">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+              </svg>
+            </a>
         </li>
-        <br><br>
         <li>
-        <a href="/logout.php">sair</a>
+          
+        </li>
+        <li>
         </li>
       </ul>
-    </nav>
-    <div class="container">
-        <main class="sessao">
-            <header class="content user">
-                <div class="mensagem">Olá bem vindo<?php  echo ' '.$usuario;?>.</div>
-                <nav>
-                    usuario
-                </nav>
-            </header>
-            <div class="content">
-                <div class="card list-funcionario">
-                    <div class="info">
-                        <span class="img-container">img</span>
-                        <div class="info-user">
-                          <p><b>Nome:</b> Marcos</p>
-                          <p><b>Cargo:</b> Aux.Administrativo</p>
-                          <p><b>Email:</b> andré@welfare.com.br</p>
-                          <p><b>Ramal:</b> 3003-0223</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card agenda"></div>
-            </div>
-            <div class="content info-dia">
-                <div class="card consulta">
-                  <fieldset>
-                    <table>
-                          <caption>consultas <?php echo ' '.$data_hoje;?></caption>
-                          <thead>
-                              <tr>
-                                <th>Horario</th>
-                                <th>Nome Paciente</th>
-                                <th>Contato</th>
-                                <th>Nome Médico</th>
-                                <th>Especialidade</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr class="row">
-                                <td>11:00</td>
-                                <td>Maria de Lourdes</td>
-                                <td>(11) 95562-4312</td>
-                                <td>Edson Katsui</td>
-                                <td>Ortopedia</td>
-                              </tr>
-                              <tr class="row">
-                                <td>12:30</td>
-                                <td>Marlon Koggima</td>
-                                <td>(11) 94189-2527</td>
-                                <td>Rubens Osvaldo</td>
-                                <td>Clinico Geral</td>
-                              </tr>
-                              <tr class="row">
-                                <td>12:50</td>
-                                <td>Juan Marques</td>
-                                <td>(11) 92598-4652</td>
-                                <td>Edson Katsui</td>
-                                <td>Ortopedia</td>
-                              </tr>
-                          </tbody>
-                    </table>
-                  </fieldset>
-                </div>
-                <div class="card exames">
-                    <fieldset>
-                    <table>
-                          <caption>Exame <?php echo ' '.$data_hoje;?></caption>
-                          <thead>
-                              <tr>
-                                <th>Horario</th>
-                                <th>Nome Paciente</th>
-                                <th>Contato</th>
-                                <th>Solicitante</th>
-                                <th>Tipo Exame</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr class="row">
-                                <td>11:00</td>
-                                <td>Maria de Lourdes</td>
-                                <td>(11) 95562-4312</td>
-                                <td>Edson Katsui</td>
-                                <td>Raio-X Inferior</td>
-                              </tr>
-                              <tr class="row">
-                                <td>12:30</td>
-                                <td>Marlon Koggima</td>
-                                <td>(11) 94189-2527</td>
-                                <td>Rubens Osvaldo</td>
-                                <td>Exame de Sangue (1)</td>
-                              </tr>
-                              <tr class="row">
-                                <td>12:50</td>
-                                <td>Juan Marques</td>
-                                <td>(11) 92598-4652</td>
-                                <td>Edson Katsui</td>
-                                <td>Ressonâcia Magnética</td>
-                              </tr>
-                          </tbody>
-                    </table>
-                  </fieldset>
-                </div>
-            </div>
-        </main>
+      </nav>
+      <main>
+    <!-- User content -->
+        <header>
+            <div>
 
+            </div>
+            <details class="area-usuario">
+              <summary>
+                <p><?php echo '' .$imgperfil;?></p>
+              </summary>
+              <p>Nome: <?php echo '' .$usuario;?></p>
+              <p>Cargo: <?php echo '' .$cargo;?></p>
+              <a href="./sair.php">Sair</a>
+            </details>
+        </header>
+      </main>
     </div>
 
     <script src="script.js"></script>
