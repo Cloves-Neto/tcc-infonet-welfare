@@ -1,30 +1,31 @@
 <?php
 
-include_once ("conexao.php");
+    session_start();
 
-// inicia sessão
+    if(isset($_POST['submit']) && !empty($_POST['email_funcionario']) && !empty($_POST['senha_funcionario']))
+    {
+        include_once ("../welfare1.1/conexao.php");
 
-// Recebe os dados do formulário
-$email_funcionario = $_POST['email_funcionario'];
-$senha_funcionario = $_POST['senha_funcionario'];
+        $email_funcionario = $_POST['email_funcionario'];
+        $senha_funcionario = $_POST['senha_funcionario'];
 
-// Faz a validação no banco de dados
-$sql = "SELECT id_funcionario, nome_funcionario, email_funcionario FROM funcionario WHERE email_funcionario = '$email_funcionario' AND senha_funcionario = '$senha_funcionario'";
-$resultado = $conn->query($sql);
-
-if ($resultado->num_rows == 1) {
-    // Usuário autenticado com sucesso
-    header('Location: paginas/home/home.php');
-    
-} else {
-    // Login inválido
-    echo'
-    <script>
-        alert("Usuario ou senha inválido, verifique os dados e tente novamente!");
-        window.setTimeout( window.location.href="index.php", 5000)
-    </script>';
-    // header('Location: index.php');
-    exit;
-}
-
-if(isset($_POST['submit']) && !empty)
+        $sql = "SELECT id_funcionario, nome_funcionario, email_funcionario FROM funcionario WHERE email_funcionario = '$email_funcionario' AND senha_funcionario = '$senha_funcionario'";
+        $resultado = $conn->query($sql);
+        
+        if(mysqli_num_rows($resultado) < 1)
+        {
+            unset($_SESSION['email_funcionario']);
+            unset($_SESSION['senha_funcionario']);
+            header('Location: index.php');
+        }
+        else
+        {
+            $_SESSION['email_funcionario'] = $email_funcionario;
+            $_SESSION['senha_funcionario'] = $senha_funcionario;
+            header('Location: welfare1.1/paginas/home/home.php');
+        }
+    }
+    else
+    {
+        header('Location: index.php');
+    }

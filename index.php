@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    if((!isset($_SESSION['email_funcionario']) == true) and (!isset($_SESSION['senha_funcionario']) == true))
+    {
+        unset($_SESSION['email_funcionario']);
+        unset($_SESSION['senha_funcionario']);
+        header('Location: index.php');
+    }
+    $logado = $_SESSION['email_funcionario'];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
