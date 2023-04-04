@@ -3,10 +3,9 @@
 include_once ("conexao.php");
 
 // inicia sessão
-session_start();
 
 // Recebe os dados do formulário
- $_SESSION['email_funcionario'] = $_POST['email_funcionario'];
+$email_funcionario = $_POST['email_funcionario'];
 $senha_funcionario = $_POST['senha_funcionario'];
 
 // Faz a validação no banco de dados
@@ -28,3 +27,4 @@ if ($resultado->num_rows == 1) {
     exit;
 }
 
+if(isset($_POST['submit']) && !empty)
