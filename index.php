@@ -9,6 +9,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./paginas/src/style.css">
+    <style>
+        .doc-acompanhamento{
+            background-color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            justify-content: center;
+            align-items: center;
+            padding: 12px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+        .doc-acompanhamento svg{
+            width: 100%;
+            height: 100%;
+            color: #51BEAB;
+        }
+
+       
+        
+    </style>
 </head>
 <body>
     <main class="container">
@@ -38,7 +61,11 @@
                 <!-- Botão de enviar o formulario | Submit --> 
                 <input type="submit" class="login_button" value="Entrar" disabled> <br><br>
                 
-                <button><a href="../welfare1.1/paginas/Doc.html">DOCUMENTO</a></button>
+                <a href="../welfare1.1/paginas/Doc.html" class="doc-acompanhamento">
+                    <svg xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill="currentColor" class="bi bi-file-earmark-code-fill" viewBox="0 0 16 16">
+                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.646 7.646a.5.5 0 1 1 .708.708L5.707 10l1.647 1.646a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708l2-2zm2.708 0 2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 10 8.646 8.354a.5.5 0 1 1 .708-.708z"/>
+                    </svg>
+                </a>
                     
                 <!-- Link para registrar nova conta | Página de registro -->
                 <a href="./paginas/registro/registro.html" class="login_link">Ainda não tem acesso? <span>Registre-se</span></a> 
