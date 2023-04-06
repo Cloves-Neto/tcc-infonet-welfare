@@ -1,31 +1,44 @@
 <?php
 
-    session_start();
+include "conexao.php";
 
-    if(isset($_POST['submit']) && !empty($_POST['email_funcionario']) && !empty($_POST['senha_funcionario']))
+if(isset($_GET["nome_funcionario"])){$nome=$_GET["nome_funcionario"];}
+if(isset($_GET["email_funcionario"])){$email=$_GET["email_funcionario"];}
+if(isset($_GET["cpf_funcionario"])){$cpf=$_GET["cpf_funcionario"];}
+if(isset($_GET["cargo_funcionario"])){$cargo=$_GET["cargo_funcionario"];}
+if(isset($_GET["senha_funcionario"])){$senha=$_GET["senha_funcionario"];}
+
+try
+{
+    $Comando=$conexao->prepare("Insert into funcionario (nome_funcionario, email_funcionario, cpf_funcionario, cargo_funcionario, senha_funcionario) values (?, ?, ?, ?, ?)");
+    $Comando->bindParam(1, $nome);
+    $Comando->bindParam(2, $email);
+    $Comando->bindParam(3, $cpf);
+    $Comando->bindParam(4, $cargo);
+    $Comando->bindParam(5, $senha);
+
+
+    $Comando->execute();
+
+    if($Comando->rowCount() > 0)
     {
-        include_once ("../welfare1.1/conexao.php");
+        $nome = null;
+        $email = null;
+        $cpf = null;
+        $cargo = null;
+        $senha = null;
 
-        $email_funcionario = $_POST['email_funcionario'];
-        $senha_funcionario = $_POST['senha_funcionario'];
-
-        $sql = "SELECT id_funcionario, nome_funcionario, email_funcionario FROM funcionario WHERE email_funcionario = '$email_funcionario' AND senha_funcionario = '$senha_funcionario'";
-        $resultado = $conn->query($sql);
-        
-        if(mysqli_num_rows($resultado) < 1)
-        {
-            unset($_SESSION['email_funcionario']);
-            unset($_SESSION['senha_funcionario']);
-            header('Location: index.php');
-        }
-        else
-        {
-            $_SESSION['email_funcionario'] = $email_funcionario;
-            $_SESSION['senha_funcionario'] = $senha_funcionario;
-            header('Location: welfare1.1/paginas/home/home.php');
-        }
+        $RetornoJSON = "Inclusão efetuada com sucesso!";
     }
     else
     {
-        header('Location: home.php');
+        $RetornoJSON = "Erro ao tentar efetivar cadastro";
     }
+}
+catch (PDOException $erro)
+{
+    $RetornoJSON = "Erro:" . $erro->getMessage();
+}
+
+echo $RetornoJSON;
+?>

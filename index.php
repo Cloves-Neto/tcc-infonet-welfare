@@ -1,3 +1,6 @@
+<?php if (isset($error)) { ?>
+        <p><?php echo $error; ?></p>
+<?php } ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -37,7 +40,7 @@
 <body>
     <main class="container">
         <!-- Seção-Esquerda | contém o formulário de Login-->
-        <form class="login secao-esquerda" id="login" name="login" method="post" action="logincontrole.php" autocomplete="on">
+        <form class="login secao-esquerda" id="login" name="login" method="get" action="" autocomplete="on">
             <!-- Conteúdo superior do formulario | dados da Sessão -->
             <div class="wrapper  interativo-container">
                 <!-- Container-Título -->
@@ -60,7 +63,7 @@
             <!-- Conteúdo inferior do formulario | Submit e Registrar nova conta -->
             <div class="wrapper  submit_container">
                 <!-- Botão de enviar o formulario | Submit --> 
-                <input type="submit" class="login_button" value="Entrar" disabled> <br><br>
+                <input type="submit" class="login_button" value="Entrar" id="Cadastrar" name="Cadastrar" onclick="Cadastrar()" disabled> <br><br>
                 
                 <a href="../welfare1.1/paginas/Doc.html" class="doc-acompanhamento">
                     <svg xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill="currentColor" class="bi bi-file-earmark-code-fill" viewBox="0 0 16 16">
@@ -72,6 +75,11 @@
                 <a href="./paginas/registro/registro.html" class="login_link">Ainda não tem acesso? <span>Registre-se</span></a> 
             </div>
         </form>
+
+        <h2>$Retorno do JSON</h2>
+        <div id="Resposta">
+
+        </div>
         <!-- Seção-Direita | contém a imagem do Login -->
         <section class="wallpaper  secao-direita">
         </section>
@@ -82,5 +90,39 @@
 <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
 <script nomodule src="https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
+<script>
+    function Cadastrar()
+{
+
+    var dados = $('#cadastro').serialize();
+
+    $.ajax({
+        method: 'GET',
+        url: 'logincontrole.php',
+        data: dados,
+
+        beforeSend: function()
+        {
+        $("h2").html ("Processo em andamento.");
+        }
+    })
+
+
+    .done(function(msgPHP)
+    {
+
+        $("h2").html("Retorno da Inclusdo...");
+        $("#Resposta").html(msgPHP);
+        alert (msgPHP);
+    })
+
+    -fail(function(){
+        alert("Falha na Inclusao");
+    })
+
+return false;
+}
+</script>
 </html>
 

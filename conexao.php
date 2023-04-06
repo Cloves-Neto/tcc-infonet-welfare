@@ -1,13 +1,15 @@
 <?php
-// Conectar ao banco de dados
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "sistema_welfare";
-$conn = new mysqli($servername, $username, $password, $dbname);
+$Bco = 'sistema_welfare';
+$Usuario = 'root';
+$Senha = '';
 
-// Verificar conexão
-if ($conn->connect_error) {
-    die("Conexão falhou: " . $conn->connect_error);
+try
+{
+    $conexao = new PDO("mysql:host=localhost; dbname=$Bco", "$Usuario", "$Senha");
+    $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conexao->exec("set names utf8");
 }
-?>
+catch (PDOException $erro)
+{
+    echo "Erro na conexão:" . $erro->getMessage();
+}
