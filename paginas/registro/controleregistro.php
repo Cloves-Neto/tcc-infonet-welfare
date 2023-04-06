@@ -1,23 +1,43 @@
 <?php
-include_once ("conexao.php");
 
-//obtendo os valores do formulário
-$nome_funcionario = $_POST['nome_funcionario'];
-$cpf_funcionario = $_POST['cpf_funcionario'];
-$email_funcionario = $_POST['email_funcionario'];
-$cargo_funcionario = $_POST['cargo_funcionario'];
-$senha_funcionario = $_POST['senha_funcionario'];
+include_once "conexao.php";
 
+if(isset($_GET["nome_funcionario"])){$nome=$_GET["nome_funcionario"];}
+if(isset($_GET["email_funcionario"])){$email=$_GET["email_funcionario"];}
+if(isset($_GET["cpf_funcionario"])){$cpf=$_GET["cpf_funcionario"];}
+if(isset($_GET["cargo_funcionario"])){$cargo=$_GET["cargo_funcionario"];}
+if(isset($_GET["senha_funcionario"])){$senha=$_GET["senha_funcionario"];}
 
-//inserindo os valores no banco de dados
-$sql = "INSERT INTO funcionario (nome_funcionario, cpf_funcionario, email_funcionario, cargo_funcionario, senha_funcionario) VALUES
-                                ('$nome_funcionario', '$cpf_funcionario', '$email_funcionario', '$cargo_funcionario', '$senha_funcionario')";
+try
+{
+    $Comando=$conexao->prepare("Insert into funcionario (nome_funcionario, email_funcionario, cpf_funcionario, cargo_funcionario, senha_funcionario) values (?, ?, ?, ?, ?)");
+    $Comando->bindParam(1, $nome);
+    $Comando->bindParam(2, $email);
+    $Comando->bindParam(3, $cpf);
+    $Comando->bindParam(4, $cargo);
+    $Comando->bindParam(5, $senha);
 
-if ($conn->query($sql) === TRUE) {
-    echo "Dados inseridos com sucesso";
-} else {
-    echo "Erro ao inserir dados: " . $conn->error;
+    $Comando->execute();
+
+    if($Comando->rowCount() > 0)
+    {
+        $nome = null;
+        $email = null;
+        $cpf = null;
+        $cargo = null;
+        $senha = null;
+
+        $RetornoJSON = "Inclusão efetuada com sucesso!";
+    }
+    else
+    {
+        $RetornoJSON = "Erro ao tentar efetivar cadastro";
+    }
+}
+catch (PDOException $erro)
+{
+    $RetornoJSON = "Erro:" . $erro->getMessage();
 }
 
-$conn->close();
+echo $RetornoJSON;
 ?>

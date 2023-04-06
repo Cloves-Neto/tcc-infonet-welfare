@@ -10,7 +10,7 @@
 <body>
     <main class="container">
         <!-- Seção-Esquerda | contém o formulário de Login-->
-        <form class="login secao-esquerda" id="login" name="login" method="post" action="./controleregistro.php" autocomplete="on">
+        <form class="login secao-esquerda" id="cadastrar" name="cadastrar" method="get" action="" autocomplete="on">
             <!-- Conteúdo superior do formulario | dados da Sessão -->
             <div class="wrapper  interativo-container">
                 <!-- Container-Título -->
@@ -67,10 +67,14 @@
             <!-- Conteúdo inferior do formulario | Submit e Registrar nova conta -->
             <div class="wrapper  submit_container">
                 <!-- Botão de enviar o formulario | Submit --> 
-                <input type="submit" class="login_button" value="Cadastrar" disabled>
+                <input type="submit" id="cadastrar" class="login_button" onclick="Cadastrar()" value="Cadastrar" disabled>
                     
                 <!-- Link para registrar nova conta | Página de registro -->
                 <a href="#" class="login_link">Já possui um acesso? <span>Faça login</span></a> 
+            </div>
+            <h2>$Retorno do JSON</h2>
+            <div id="resposta">
+    
             </div>
         </form>
         <!-- Seção-Direita | contém a imagem do Login -->
@@ -81,4 +85,38 @@
 <script src="../src/script.js"></script>
 <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
 <script nomodule src="https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+<script>
+$(document).ready(function() {
+
+    $('#cadastrar').click(function() {
+        var dados = $('#cadastrar').serialize();
+
+        $.ajax({
+            method: 'GET',
+            url: 'controleregistro.php',
+            data: dados,
+
+            beforeSend: function()
+            {
+            $("h2").html ("Processo em andamento.");
+            }
+
+    })
+
+    .done(function(msg)
+    {
+        $("h2").html("Retorno da Inclusdo...");
+        $("#resposta").html(msg);
+        alert ("Dados cadastrados com sucesso!");
+    })
+
+    -fail(function(){
+        alert("Falha na Inclusao");
+    })
+
+return false;
+});
+</script>
 </body>

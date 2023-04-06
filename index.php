@@ -1,7 +1,3 @@
-<?php if (isset($error)) { ?>
-        <p><?php echo $error; ?></p>
-<?php } ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -74,12 +70,10 @@
                 <!-- Link para registrar nova conta | Página de registro -->
                 <a href="./paginas/registro/registro.html" class="login_link">Ainda não tem acesso? <span>Registre-se</span></a> 
             </div>
+
         </form>
 
-        <h2>$Retorno do JSON</h2>
-        <div id="Resposta">
 
-        </div>
         <!-- Seção-Direita | contém a imagem do Login -->
         <section class="wallpaper  secao-direita">
         </section>
@@ -91,38 +85,6 @@
 <script nomodule src="https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
-<script>
-    function Cadastrar()
-{
 
-    var dados = $('#cadastro').serialize();
-
-    $.ajax({
-        method: 'GET',
-        url: 'logincontrole.php',
-        data: dados,
-
-        beforeSend: function()
-        {
-        $("h2").html ("Processo em andamento.");
-        }
-    })
-
-
-    .done(function(msgPHP)
-    {
-
-        $("h2").html("Retorno da Inclusdo...");
-        $("#Resposta").html(msgPHP);
-        alert (msgPHP);
-    })
-
-    -fail(function(){
-        alert("Falha na Inclusao");
-    })
-
-return false;
-}
-</script>
 </html>
 
