@@ -24,11 +24,6 @@ $data_hoje = date('d/m/Y');
   <head>
     <link rel="stylesheet" href="home-style.css">
     <meta charset="UTF-8">
-    <style>
-      *{
-        list-style: none;
-      }
-    </style>
   </head>
   <body>
     
@@ -69,7 +64,7 @@ $data_hoje = date('d/m/Y');
       <main class="principal">
         <!-- User content -->
         <header class="user-data">
-            <div>
+            <div class="mensagem">
               <h2>Bem vindo(a) Andressa!</h2>
             </div>
             <details class="area-usuario">
@@ -84,13 +79,13 @@ $data_hoje = date('d/m/Y');
         <!-- Bd - info - data -->
         <div class="info-data">
           <div class="row1">
-            <section class="usuarios"><h3>usuarios</h3></section>
-            <section class="agenda"><h3>agenda</h3></section>
+            <section class="card usuarios"><h3>usuarios</h3></section>
+            <section class="card agenda"><h3>agenda</h3></section>
           </div>
           <div class="row2">
-            <section class="consulta"><h3>consulta</h3></section>
-            <section class="exame"><h3>exame</h3></section>
-            <section class="cash"><h3>cash</h3></section>
+            <section class="card consulta"><h3>consulta</h3></section>
+            <section class="card exame"><h3>exame</h3></section>
+            <section class="card cash"><h3>cash</h3></section>
           </div>
         </div>
       </main>
