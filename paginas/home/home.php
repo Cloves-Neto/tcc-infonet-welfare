@@ -9,15 +9,15 @@ $data_hoje = date('d/m/Y');
 ?>
 
 <?php
-    session_start();
-    if((!isset($_SESSION['email_funcionario']) == true) and (!isset($_SESSION['senha_funcionario']) == true))
-    {
-        unset($_SESSION['email_funcionario']);
-        unset($_SESSION['senha_funcionario']);
-        header('Location: login.php');
-    }
-    $logado = $_SESSION['email_funcionario'];
-?>
+    // session_start();
+    // if((!isset($_SESSION['email_funcionario']) == true) and (!isset($_SESSION['senha_funcionario']) == true))
+    // {
+    //     unset($_SESSION['email_funcionario']);
+    //     unset($_SESSION['senha_funcionario']);
+    //     header('Location: login.php');
+    // }
+    // $logado = $_SESSION['email_funcionario'];
+?> 
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -33,29 +33,44 @@ $data_hoje = date('d/m/Y');
   <body>
     
     <div class="container">
-    <!--Cabeçalho onde se encontra a tabela-->   
+      <!--Cabeçalho onde se encontra a tabela-->   
       <nav id="home-menu" class="home-menu" name="home-menu">
-      <ul>
-        <li>
-            <a href="../cadastro/cadastro.php">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
-                <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-              </svg>
-            </a>
-        </li>
-        <li>
-          
-        </li>
-        <li>
-        </li>
-      </ul>
-      </nav>
-      <main>
-    <!-- User content -->
-        <header>
-            <div>
+        <ul class="lista-menu">
+          <li class="item-menu">
+              <a class="link-menu" href="cadasto.php">
+                  <svg class="icone-menu" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+                  </svg>
+                  <span class="nome-menu">
+                      cadastro paciente
+                  </span>
+              </a>
+          </li>
+          <li>
+              cadastro médico
+          </li>
+          <li>
+              cadastro especialidade
+          </li>
+          <li>
+              agenda
+          </li>
+          <li>
+              financeiro
+          </li>
+          <li>
+              relatório
+          </li>
 
+        </ul>
+      </nav>
+      <!-- Conteúdo principal -->
+      <main class="principal">
+        <!-- User content -->
+        <header class="user-data">
+            <div>
+              <h2>Bem vindo(a) Andressa!</h2>
             </div>
             <details class="area-usuario">
               <summary>
@@ -66,6 +81,18 @@ $data_hoje = date('d/m/Y');
               <a href="./sair.php">Sair</a>
             </details>
         </header>
+        <!-- Bd - info - data -->
+        <div class="info-data">
+          <div class="row1">
+            <section class="usuarios"><h3>usuarios</h3></section>
+            <section class="agenda"><h3>agenda</h3></section>
+          </div>
+          <div class="row2">
+            <section class="consulta"><h3>consulta</h3></section>
+            <section class="exame"><h3>exame</h3></section>
+            <section class="cash"><h3>cash</h3></section>
+          </div>
+        </div>
       </main>
     </div>
 
@@ -73,4 +100,5 @@ $data_hoje = date('d/m/Y');
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </body>
 </html>
+
 

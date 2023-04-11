@@ -1,9 +1,92 @@
 
-@import url("https://fonts.googleapis.com/css?family=Raleway");
-body {
-  background: white;
+
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
-#calenderMain {
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(210, 255, 240);
+  overflow: hidden;
+}
+svg {
+  width: 24px;
+  height: 24px;
+}
+
+
+.container{
+  /* Centraliza */
+  margin: 0 auto;
+
+  /* Define Tamanho */
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+
+  /* Display Grid - separa o espaço de cada contúdo */
+  display: grid;
+  /* uma unica linha com 1fr(fração da tela) ou seja altura inteira /
+  2 colunas, uma com 60px e outra com o calc( restante da fração de tela )  */
+  grid-template-areas: "nav main";
+  grid-template-columns: 80px calc(100vw - 80px);
+}
+nav.home-menu{
+  grid-area: nav;
+  background-color: blueviolet;
+}
+main.principal{
+  /* definindo espaço na sessão */
+  grid-area: main;
+  background-color: tomato;
+  overflow-y: scroll;
+  
+  /* Display Grid - separa o espaço de cada conteúdo  */
+  display: grid;
+  grid-template-areas: "header header"
+                       "div div";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 80px calc(100vh - 80px);
+
+  /* Formatando espaço do conteudo */
+  padding: 5px; 
+  gap: 5px;
+}
+header.user-data{
+  grid-area: header;
+  background-color: turquoise;
+}
+div.info-data{
+  grid-area: div;
+  background-color: violet;
+
+  display: grid;
+  grid-template-areas: "row1 row1"
+                       "row2 row2";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 60% 40%;
+  gap: 5px;
+  padding: 5px;
+}
+
+div.row1{
+  grid-area: row1;
+  background-color: aliceblue;
+}
+div.row2{
+  grid-area: row2;
+  background-color: slateblue;
+}
+
+
+
+
+
+/* #calenderMain {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -91,8 +174,5 @@ td {
 }
 .wDay {
   cursor: default;
-}
-svg {
-  width: 16px;
-  height: 16px;
-}
+} */
+
