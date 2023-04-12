@@ -1,6 +1,6 @@
 <?php
 
-include_once "conexao.php";
+include_once("./conexao.php");
 
 if(isset($_GET["nome_funcionario"])){$nome=$_GET["nome_funcionario"];}
 if(isset($_GET["email_funcionario"])){$email=$_GET["email_funcionario"];}
