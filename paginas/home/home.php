@@ -33,10 +33,7 @@ $data_hoje = date('d/m/Y');
         <ul class="lista-menu">
           <li class="item-menu">
               <a class="link-menu" href="cadasto.php">
-                  <svg class="icone-menu" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
-                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
+                  
                   <span class="nome-menu">
                       cadastro paciente
                   </span>
@@ -67,14 +64,14 @@ $data_hoje = date('d/m/Y');
             <div class="mensagem">
               <h2>Bem vindo(a) Andressa!</h2>
             </div>
-            <details class="area-usuario">
-              <summary>
-                <p><?php echo '' .$imgperfil;?></p>
-              </summary>
-              <p>Nome: <?php echo '' .$usuario;?></p>
-              <p>Cargo: <?php echo '' .$cargo;?></p>
-              <a href="./sair.php">Sair</a>
-            </details>
+            <div class="area-usuario">
+              <p><?php echo '' .$imgperfil;?></p>
+              <span>
+                <p>Nome: <?php echo '' .$usuario;?></p>
+                <p>Cargo: <?php echo '' .$cargo;?></p>
+                <a href="./sair.php">Sair</a>
+              </span>
+            </div>
         </header>
         <!-- Bd - info - data -->
         <div class="info-data">
@@ -93,6 +90,8 @@ $data_hoje = date('d/m/Y');
 
     <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
 
