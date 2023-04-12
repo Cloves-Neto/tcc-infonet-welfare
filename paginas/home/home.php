@@ -33,26 +33,51 @@ $data_hoje = date('d/m/Y');
         <ul class="lista-menu">
           <li class="item-menu">
               <a class="link-menu" href="cadasto.php">
+                <ion-icon name="person-outline"></ion-icon>
+                  <span class="nome-menu none">
+                      cadastro Paciente
+                  </span>
+              </a>
+          </li>
+          <li>
+              <a class="link-menu" href="cadasto.php">
+              <ion-icon name="pulse-outline"></ion-icon>
+                  <span class="nome-menu none">
+                      cadastro Médico
+                  </span>
+              </a>          
+          </li>
+          <li>
+            <a class="link-menu" href="cadasto.php">
+                 <ion-icon name="reader-outline"></ion-icon>
+                  <span class="nome-menu none">
+                      Relatório
+                  </span>
+              </a>
+          </li>
+          <li>
+            <a class="link-menu" href="cadasto.php">
+                 <ion-icon name="today-outline"></ion-icon>
+                  <span class="nome-menu none">
+                      Agenda
+                  </span>
+              </a>
+          </li>
+          <li>
+            <a class="link-menu" href="cadasto.php">
                   
-                  <span class="nome-menu">
+                  <span class="nome-menu none">
                       cadastro paciente
                   </span>
               </a>
           </li>
           <li>
-              cadastro médico
-          </li>
-          <li>
-              cadastro especialidade
-          </li>
-          <li>
-              agenda
-          </li>
-          <li>
-              financeiro
-          </li>
-          <li>
-              relatório
+            <a class="link-menu" href="cadasto.php">
+                  
+                  <span class="nome-menu none">
+                      cadastro paciente
+                  </span>
+              </a>
           </li>
 
         </ul>

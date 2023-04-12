@@ -8,6 +8,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.none{
+  display: none;
+}
+
 html{
   width: 100vw;
   height: 100vh;
@@ -22,6 +26,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  list-style: none;
+
 }
 
 svg {
@@ -107,6 +113,7 @@ div.row1{
 
 .card{
   background-color: rgb(223, 223, 223);
+  border-radius: 10px;
 }
 
 .card.usuarios{
