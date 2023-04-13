@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welfare | Registro </title>
     <link rel="stylesheet" href="./registro.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
 </head>
 <body>
     <main class="container">
         <!-- Seção-Esquerda | contém o formulário de Login-->
-        <form class="login secao-esquerda" id="cadastrar" name="cadastrar" method="get" action="" autocomplete="on">
+        <form class="login secao-esquerda" id="cadastrar" name="cadastrar" method="get" action="controleregistro.php" autocomplete="on">
             <!-- Conteúdo superior do formulario | dados da Sessão -->
             <div class="wrapper  interativo-container">
                 <!-- Container-Título -->
@@ -71,8 +74,8 @@
                     
                 <!-- Link para registrar nova conta | Página de registro -->
                 <a href="#" class="login_link">Já possui um acesso? <span>Faça login</span></a> 
-            </div>
-            <h2>$Retorno do JSON</h2>
+            </div> 
+            
             <div id="resposta">
     
             </div>
@@ -103,7 +106,7 @@ $(document).ready(function() {
             $("h2").html ("Processo em andamento.");
             }
 
-    })
+    })})
 
     .done(function(msg)
     {
@@ -112,7 +115,7 @@ $(document).ready(function() {
         alert ("Dados cadastrados com sucesso!");
     })
 
-    -fail(function(){
+    .fail(function(){
         alert("Falha na Inclusao");
     })
 

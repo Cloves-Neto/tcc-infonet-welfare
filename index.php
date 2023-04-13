@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./paginas/src/style.css">
+    <link rel="stylesheet" href="./src/style.css">
     <style>
         .doc-acompanhamento{
             background-color: white;
@@ -54,21 +54,21 @@
                     <input class="input " type="password" name="senha_funcionario" id="senha_funcionario">
                 </label>
                 <small><div onclick="lembrar()" class="lembrar">Lembrar acesso<div class="btn-rounded" id="btn-rounded"></div></div>
-                    <a class="login_link" href="../welfare1.1/paginas/esqueci-a-senha/esqueci.php">Esqueceu a senha?</a></small>
+                    <a class="login_link" href="../welfare1.1/esqueci-a-senha/esqueci.php">Esqueceu a senha?</a></small>
             </div>
             <!-- Conteúdo inferior do formulario | Submit e Registrar nova conta -->
             <div class="wrapper  submit_container">
                 <!-- Botão de enviar o formulario | Submit --> 
                 <input type="submit" class="login_button" value="Entrar" id="Cadastrar" name="Cadastrar" onclick="Cadastrar()" disabled> <br><br>
                 
-                <a href="../welfare1.1/paginas/Doc.html" class="doc-acompanhamento">
+                <a href="./Doc.html" class="doc-acompanhamento">
                     <svg xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill="currentColor" class="bi bi-file-earmark-code-fill" viewBox="0 0 16 16">
                         <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.646 7.646a.5.5 0 1 1 .708.708L5.707 10l1.647 1.646a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708l2-2zm2.708 0 2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 10 8.646 8.354a.5.5 0 1 1 .708-.708z"/>
                     </svg>
                 </a>
                     
                 <!-- Link para registrar nova conta | Página de registro -->
-                <a href="./paginas/registro/registro.html" class="login_link">Ainda não tem acesso? <span>Registre-se</span></a> 
+                <a href="./registro/registro.html" class="login_link">Ainda não tem acesso? <span>Registre-se</span></a> 
             </div>
 
         </form>
@@ -80,9 +80,33 @@
     </main>   
 
 
-<script src="./paginas/src/script.js"></script>
+<script src="./src/script.js"></script>
 <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
 <script nomodule src="https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<?php
+
+include_once('./registro/conexao.php');
+
+$senha_funcionario = password_hash($_POST['senha_funcionario'], PASSWORD_DEFAULT);
+
+$sql = "SELECT id_funcionario, nome_funcionario, email_funcionario, senha_funcionario FROM funcionario WHERE email_funcionario = '$email_funcionario'";
+$resultado = $conn->query($sql);
+if(mysqli_num_rows($resultado) > 0)
+{
+    $linha = mysqli_fetch_assoc($resultado);
+    if(password_verify($_POST['senha_funcionario'], $linha['senha_funcionario'])) {
+        
+        header("./home/home.php");
+    } else {
+        header("./index.php");
+    }
+
+} else {
+    header("./index.php");
+}
+
+?>
 </body>
 
 
