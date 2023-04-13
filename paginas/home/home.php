@@ -87,7 +87,7 @@ $data_hoje = date('d/m/Y');
         <!-- User content -->
         <header class="user-data">
             <div class="mensagem">
-              <h2>Bem vindo(a) Andressa!</h2>
+              <h2 id="titulo">   Bem vindo(a) Andressa!</h2>
             </div>
             <div class="area-usuario">
               <p><?php echo '' .$imgperfil;?></p>
@@ -101,12 +101,704 @@ $data_hoje = date('d/m/Y');
         <!-- Bd - info - data -->
         <div class="info-data">
           <div class="row1">
-            <section class="card usuarios"><h3>usuarios</h3></section>
+            <section class="card usuarios">
+              <!-- titulo card -->
+              <h3 class="titulo-info">usuarios</h3>
+              <!-- cont-tabela -->
+              <div class="info">
+                <table >
+                  <!-- CABEÇALHO DA TABELA -->
+                  <thead>
+                    <tr >   
+                      <th>Hora</th>
+                      <th>Paciente</th>
+                      <th>Especialidade</th>
+                      <th> </th>
+                    </tr>
+                  </thead>
+                  <!-- CORPO DA TABELA ( INFORMAÇÕES DO BD)-->
+                  <tbody >
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas" class=""><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td>Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          </section>
             <section class="card agenda"><h3>agenda</h3></section>
           </div>
           <div class="row2">
-            <section class="card consulta"><h3>consulta</h3></section>
-            <section class="card exame"><h3>exame</h3></section>
+            <section class="card consulta">
+              <!-- titulo card -->
+              <h3 class="titulo-info">consulta</h3>
+              <!-- cont-tabela -->
+              <div class="info">
+                <table>
+                  <!-- CABEÇALHO DA TABELA -->
+                  <thead>
+                    <tr>   
+                      <th>Hora</th>
+                      <th>Paciente</th>
+                      <th>Especialidade</th>
+                      <th> </th>
+                    </tr>
+                  </thead>
+                  <!-- CORPO DA TABELA ( INFORMAÇÕES DO BD)-->
+                  <tbody>
+                  <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td>Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas" ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            <section class="card exame">
+              <!-- titulo card -->
+              <h3 class="titulo-info">exame</h3>
+              <!-- cont-tabela -->
+              <div class="info">
+                <table>
+                  <!-- CABEÇALHO DA TABELA -->
+                  <thead>
+                    <tr>   
+                      <th>Hora</th>
+                      <th>Paciente</th>
+                      <th>Especialidade</th>
+                      <th> </th>
+                    </tr>
+                  </thead>
+                  <!-- CORPO DA TABELA ( INFORMAÇÕES DO BD)-->
+                  <tbody>
+                  <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td>Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr><tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td>Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr><tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td>Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr><tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td>Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr><tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td>Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td >13:30</td>
+                      <td >Andressa Moreira</td>
+                      <td >Clinico Geral</td>
+                      <td ><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td>13:30</td>
+                      <td>Andressa Moreira</td>
+                      <td>Clinico Geral</td>
+                      <td><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td>13:30</td>
+                      <td>Andressa Moreira</td>
+                      <td>Clinico Geral</td>
+                      <td><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td>13:30</td>
+                      <td>Andressa Moreira</td>
+                      <td>Clinico Geral</td>
+                      <td><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td class="Bordatabelas">13:30</td>
+                      <td class="Bordatabelas">Andressa Moreira</td>
+                      <td class="Bordatabelas">Clinico Geral</td>
+                      <td class="Bordatabelas"><button>ver+</button></td>
+                    </tr>
+                    <tr>
+                      <td>13:30</td>
+                      <td>Andressa Moreira</td>
+                      <td>Clinico Geral</td>
+                      <td><button>ver+</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
             <section class="card cash"><h3>cash</h3></section>
           </div>
         </div>

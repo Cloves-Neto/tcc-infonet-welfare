@@ -52,13 +52,13 @@ svg {
 
 nav.home-menu{
   grid-area: nav;
-  background-color: blueviolet;
+  background-color: #51BEAB;
 }
 
 main.principal{
   /* definindo espaço na sessão */
   grid-area: main;
-  background-color: tomato;
+  background-color: white;
   overflow-y: scroll;
   
   /* Display Grid - separa o espaço de cada conteúdo  */
@@ -75,7 +75,7 @@ main.principal{
 
 header.user-data{
   grid-area: header;
-  background-color: turquoise;
+  background-color: white;
 
   display: flex;
   flex-direction: row;
@@ -85,7 +85,7 @@ header.user-data{
 
 div.info-data{
   grid-area: div;
-  background-color: violet;
+  background-color: white;
 
   display: grid;
   grid-template-areas: "row1 row1"
@@ -104,7 +104,7 @@ div.row1, div.row2{
 
 div.row1{
   grid-area: row1;
-  background-color: aliceblue;
+  background-color: white;
 
   grid-template-areas: "usuarios agenda";
   grid-template-columns: 50% 50%;
@@ -112,8 +112,35 @@ div.row1{
 }
 
 .card{
-  background-color: rgb(223, 223, 223);
+  background-color: #51BEAB;
   border-radius: 10px;
+
+  display: grid;
+  grid-template-areas: "titulo titulo"
+                       "info   info";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 20% 80%;
+  
+  padding: 10px;
+  overflow: hidden;
+}
+.titulo-info{
+  background-color: transparent;
+  grid-area: titulo;
+  margin-bottom: 5px;
+
+  color: white;
+  font-size: 2.4rem;
+  letter-spacing: 0.4rem;
+  text-transform: capitalize;
+  text-align: center;
+}   
+.info{
+  background-color: white;
+  grid-area: info;
+  gap: 0.2rem;
+
+  overflow-y: scroll;
 }
 
 .card.usuarios{
@@ -126,102 +153,25 @@ div.row1{
 
 div.row2{
   grid-area: row2;
-  background-color: slateblue;
+  background-color: white;
 
   grid-template-areas: "consulta exame cash";
 }
 
+#titulo{
 
+  font-size: 30px;
+  size: 20px;
+}
 
+.Bordatabelas{
 
+border-color: #51BEAB;
+border-bottom-style : solid;
+border-top-style: solid;
+}
 
-/* #calenderMain {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  z-index: 10000;
-  left: 0;
-  top: 0;
-  background: rgba(0, 0, 0, 0.5);
+#botaovermais {
+  border: none;
 }
-.main {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  color: white;
-  background: #007bff;
-  font-family: "Raleway", sans-serif;
-  text-align: center;
-  border-radius: 0rem;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  display: none;
-}
-.month {
-  text-align: center;
-  padding: 10px;
-}
-.week {
-  display: inline-flex;
-  text-align: center;
-  padding: 10px;
-}
-.week .wDay {
-  padding: 10px;
-  margin: 10px;
-  color: silver;
-}
-.date {
-  color: silver;
-}
-#fillDate {
-  width: 100%;
-  color: silver;
-}
-#fillDate tr,
-td {
-  padding: 10px;
-  color: silver;
-}
-.date:hover {
-  background: white;
-  color: #007bff;
-  font-weight: bold;
-  cursor: pointer;
-}
-.date td:hover {
-  background: white;
-  color: #007bff;
-  font-weight: bold;
-}
-.year,
-.month {
-  padding: 5px;
-  cursor: pointer;
-}
-.yearDiv {
-  position: relative;
-  font-size: 25px;
-  padding: 10px;
-}
-.monthDiv {
-  position: relative;
-  font-size: 20px;
-  padding: 10px;
-}
-.left {
-  position: absolute;
-  left: 10px;
-  cursor: pointer;
-}
-.right {
-  position: absolute;
-  right: 10px;
-  cursor: pointer;
-}
-.wDay {
-  cursor: default;
-} */
 
