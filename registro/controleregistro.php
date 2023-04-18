@@ -10,7 +10,9 @@ if(isset($_GET["senha_funcionario"])){$senha=$_GET["senha_funcionario"];}
 
 try
 {
-    $Comando=$conexao->prepare("Insert into funcionario (nome_funcionario, email_funcionario, cpf_funcionario, cargo_funcionario, senha_funcionario) values (?, ?, ?, ?, ?)");
+    
+    $Comando=$conexao->prepare("INSERT INTO funcionario (nome_funcionario, email_funcionario, cpf_funcionario, cargo_funcionario, senha_funcionario) 
+    VALUES ('$nome', '$email', '$cpf', '$cargo', '$senha')");
     $Comando->bindParam(1, $nome);
     $Comando->bindParam(2, $email);
     $Comando->bindParam(3, $cpf);
