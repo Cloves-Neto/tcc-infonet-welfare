@@ -106,7 +106,22 @@
                 <th scope="col">Dt Nacimento</th>
               </tr>
             </thead>
-            <tbody>
+
+            <tr>
+                <td scope='row'>#1</td>
+                <td scope='row'>Alana Huggart</td>
+                <td scope='row'>123.456.789.11</td>
+                <td scope='row'>exemplo@email.com</td>
+                <td scope='row'>(11)29458969</td>
+                <td scope='row'>10/20/23</td>
+                <td>
+                    <a href='editar_cadastro.php?id=$user_data[id_paciente]'  class='btn-sm' name='editar' id='editar'><img src='../node_modules/bootstrap-icons/icons/pencil-fill.svg' alt='editar-icone'></a>
+                    <a href='excluir_cadastro.php?id=$user_data[id_paciente]' class='btn-sm' name='excluir' id='excluir'><img src='../node_modules/bootstrap-icons/icons/trash-fill.svg' alt='ecluir-icone'></a>
+                    <a href='exibe_cadastro.php?id=$user_data[id_paciente]' class='btn-sm' name='visualizar' id='visualizar'><img src='../node_modules/bootstrap-icons/icons/eye-fill.svg' alt='visualizar-icone'></a>
+                </td>
+            </tr>
+
+           <!-- <tbody>
                 <?php
                 include_once ('conexao.php');
                 $sql = "SELECT * FROM paciente ORDER BY id_paciente";
@@ -142,8 +157,8 @@
                                 </td>
                             </tr>";
                     }
-                ?>
-            </tbody>
+                ?> 
+            </tbody>-->
           </table>
         <br>
         <!-- Após a função estiver "ok" - o cadastro pode ser exibido como um footer fixo e apenas a tabela -"consulta de dados" com scroll 

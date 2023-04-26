@@ -1,5 +1,5 @@
 
-@import url(reset.css);
+@import url(../reset.css);
 
 /* Espaço de definição de variaveis */
 :root{
@@ -11,7 +11,7 @@
     --palheta_2: black;
     --palheta_3: rgb(88, 88, 88);
     --palheta_4: #4B6E6D;
-
+    
 }
  /* Conteúdo alinhado lado a lado | divisão da seção esqueda e direita */
 .container{
