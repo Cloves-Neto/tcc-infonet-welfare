@@ -1,177 +1,45 @@
 
+@import url(../reset.css);
 
 
+/* Formatação da Home */
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
-.none{
-  display: none;
-}
+.granbox{
+  margin: auto;
+  padding: 10px;
 
-html{
-  width: 100vw;
+  width: 100%;
+  max-width: 1440px;
   height: 100vh;
 
-}
-
-body {
-  width: 100%;
-  height: 100%;
-  background-color: rgb(210, 255, 240);
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-
-}
-
-svg {
-  width: 24px;
-  height: 24px;
-}
-
-.container{
-  /* Define Tamanho */
-  width: 100%;
-  height: 100%;
-  max-width: 1440px;
-
-  /* Display Grid - separa o espaço de cada contúdo */
-  display: grid;
-
-  /* uma unica linha com 1fr(fração da tela) ou seja altura inteira /
-  2 colunas, uma com 60px e outra com o calc( restante da fração de tela )  */
-  grid-template-areas: "nav main";
-  grid-template-columns: 80px calc(100% - 80px);
-}
-
-nav.home-menu{
-  grid-area: nav;
-  background-color: #51BEAB;
-}
-
-main.principal{
-  /* definindo espaço na sessão */
-  grid-area: main;
-  background-color: white;
-  overflow-y: scroll;
-  
-  /* Display Grid - separa o espaço de cada conteúdo  */
-  display: grid;
-  grid-template-areas: "header header"
-                       "div div";
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 80px calc(100vh - 80px);
-
-  /* Formatando espaço do conteudo */
-  padding: 5px; 
-  gap: 5px;
-}
-
-header.user-data{
-  grid-area: header;
-  background-color: white;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-div.info-data{
-  grid-area: div;
-  background-color: white;
+  background-color: blueviolet;
 
   display: grid;
-  grid-template-areas: "row1 row1"
-                       "row2 row2";
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 60% 40%;
-  gap: 5px;
-  padding: 5px;
-}
-
-div.row1, div.row2{
-  display: grid;
-  gap: 5px;
-  padding: 5px;
-}
-
-div.row1{
-  grid-area: row1;
-  background-color: white;
-
-  grid-template-areas: "usuarios agenda";
-  grid-template-columns: 50% 50%;
+  grid-template-areas: 'm i';
+  grid-template-columns: 200px calc(100% - 200px);
   grid-template-rows: 100%;
+
 }
+aside.menu{
+  grid-area: m;
+  background-color: aqua;
 
-.card{
-  background-color: #51BEAB;
-  border-radius: 10px;
-
-  display: grid;
-  grid-template-areas: "titulo titulo"
-                       "info   info";
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 20% 80%;
-  
   padding: 10px;
-  overflow: hidden;
+  border-radius: 20px;
+
+
 }
-.titulo-info{
-  background-color: transparent;
-  grid-area: titulo;
-  margin-bottom: 5px;
-
-  color: white;
-  font-size: 2.4rem;
-  letter-spacing: 0.4rem;
-  text-transform: capitalize;
-  text-align: center;
-}   
-.info{
-  background-color: white;
-  grid-area: info;
-  gap: 0.2rem;
-
-  overflow-y: scroll;
+section.infosite{
+  grid-area: i;
+  padding: 10px;
 }
 
-.card.usuarios{
-  grid-area: usuarios;
+.img-perfil{
+  width: 50px;
+  height: 50px;
 }
-
-.card.agenda{
-  grid-area: agenda;
-}
-
-div.row2{
-  grid-area: row2;
-  background-color: white;
-
-  grid-template-areas: "consulta exame cash";
-}
-
-#titulo{
-
-  font-size: 30px;
-  size: 20px;
-}
-
-.Bordatabelas{
-
-border-color: #51BEAB;
-border-bottom-style : solid;
-border-top-style: solid;
-}
-
-#botaovermais {
-  border: none;
-}
-
