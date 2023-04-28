@@ -15,15 +15,17 @@
     
     <!-- conteudo proncipal da página -->
     <div class="granbox">
-        <nav class="menu">
+        <!-- Menu de navegação -->
+        <nav aria-label="menu de navegação principal do sistema" class="menu">
             <ul>
                 <li>
                     <a href="#"></a>
                 </li>
             </ul>
         </nav>
-        
+        <!-- Conteudo principal do sistema -->
         <main class="principal">
+            <!-- Cabeçalho da main -->
             <header class="header">
                 <h1>Cadastro Paciente</h1>
                 <div>
@@ -32,8 +34,9 @@
                     <span>H 19:36</span>
                 </div>
             </header>
+            <!-- Lista de contato dos funcionarios da clinica -->
             <div class="lista">
-            <table class="table">
+                <table class="table">
                     <!-- Cabeçalho da tabela -->
                     <thead>
                         <tr>
@@ -64,22 +67,82 @@
                     </tbody>
                 </table>
             </div>
+            <!-- Aside que exibe conteudo do botão ver mais -->
             <aside class="view">
+                <!-- cabeçalho - menu de busca -->
                 <header class="procurar">
                     <label for="busca">
                         <input type="search" name="busca" id="busca">
                         <ion-icon name="search-outline"></ion-icon>
                     </label>
                 </header>
+                <!-- Sessão que exibe dados do botão (ver+) da lista -->
                 <section class="exibe">
-
+                    <!-- >>>>> exibe o conteúdo aqui <<<<< -->
                 </section>
             </aside>
+            <!-- rodapé que contém o botão de cadastro -->
             <div class="footer">
                 <input type="button" value="Cadastrar">
-            </div>
+            </div> 
+
+            <!-- Div >>> POP UP <<< que é exibida deposi da rotina JS  -->
         </main>
+
+        <div id="popup" class="popup cadastro" >
+                <!-- Formulario de cadastro paciente -->
+                <form  method="post">
+                    <!-- wrap linha com os dados do form de cadastro  -->
+                    <div class="wrap">
+                        <label for="">
+                            Nome
+                            <input type="text" id="nome" name="nome">
+                        </label>
+                        <label for="">
+                            Cpf
+                            <input type="text" id="nome" name="nome">
+                        </label>
+                        <label for="">
+                            Dt Nascimento
+                            <input type="text" id="nome" name="nome">
+                        </label>
+                    </div>
+                    <!-- wrap linha com os dados do form de cadastro  -->
+                    <div class="wrap">
+                        <label for="">
+                            Email
+                            <input type="text" id="nome" name="nome">
+                        </label>
+                        <label for="">
+                            Telefone
+                            <input type="text" id="nome" name="nome">
+                        </label>
+                        <label for="">
+                            Cep
+                            <input type="text" id="nome" name="nome">
+                        </label>
+                    </div>
+                    <!-- wrap linha com os dados do form de cadastro  -->
+                    <div class="wrap">
+                        <label for="">
+                            UF
+                            <input type="text" id="nome" name="nome">
+                        </label>
+                        <label for="">
+                            Nº
+                            <input type="text" id="nome" name="nome">
+                        </label>
+                        <label for="">
+                            Logradouro
+                            <input type="text" id="nome" name="nome">
+                        </label>
+                    </div>
+                    <!-- BOTÃO CADASTRAR -->
+                    <input type="submit" id="salvar" name="salvar" value="salvar">
+                </form>
+        </div>
     </div>
+
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
