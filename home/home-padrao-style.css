@@ -6,8 +6,17 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-size: 1rem !important;
+    font-family: Arial, Helvetica, sans-serif;
   }
+  a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 2px;
 
+  }
+  /* Organização container */
   .granbox{
     margin: auto;
     padding: 15px;
@@ -16,8 +25,6 @@
     max-width: 1440px;
     height: 100vh;
   
-    background-color: rgb(226, 198, 43);
-  
     display: grid;
     grid-template-areas: 'm i';
     grid-template-columns: 200px calc(100% - 200px);
@@ -25,27 +32,121 @@
     gap: 10px;
   
   }
+  /* Organização aside - menu */
   aside.menu{
     grid-area: m;
-    background-color: aqua;
-  
+    background-color: rgb(81, 189, 138);
+    position: relative;
     padding: 10px;
-    border-radius: 20px;
-  
+    border-radius: 10px;
   
   }
+  aside.menu .user-profile{
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+  }
+  
+  aside.menu .user-profile a{
+    display: block;
+    padding: 5px;
+    border-radius: 10pc;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;   
+  }
+  aside.menu .user-profile a img{
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+  }
+
+
+
+  aside.menu nav{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    gap: 5px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  aside.menu nav ul{ 
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 30px;
+}
+
+  /* Organização da section infosite - conteudo principal */
   section.infosite{
-    grid-area: i;
-    background-color: tomato;
-    
-    padding: 10px;
+    grid-area: i;    
+    padding: 15px;
     display: grid;
+    gap: 5px;
     grid-template-areas: 
     'ih'
     'im';
-    grid-template-rows: 60% 40%;
+    grid-template-rows: 35% 65%;
     grid-template-columns: 100%;
   }
+
+  /* Header - mensagem */
   .infoheader{
-    
+    grid-area: ih;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: flex-end;
   }
+  .infoheader .banner{
+    width: 100%;
+    height: 80%;
+    background-color: rgb(81, 189, 138);  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+/* Organização infomain - conteudo principal (lista e botões) */
+
+.infomain{
+    padding: 10px;
+    gap: 5px;
+    display: flex;
+    background-color: aqua;
+}
+.lista, .btns{
+    width: 50%;
+    height: 100%;
+    background-color: tomato;
+}
+.lista{
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.btns{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.btns .card{
+    width: 60%;
+    height: 130px;
+    background-color: rgb(81, 189, 138);  
+    color: white;
+    padding: 15px;
+    font-size: 1.6rem !important;
+    text-transform: capitalize;
+}
+.btns .card span{
+    
+}
+
