@@ -36,7 +36,7 @@
 <body>
     <main class="container">
         <!-- Seção-Esquerda | contém o formulário de Login-->
-        <form class="login secao-esquerda" id="login" name="login" method="get" action="logincontrole.php" autocomplete="on">
+        <form class="login secao-esquerda" id="login" name="login" method="post" action="logincontrole.php" autocomplete="on">
             <!-- Conteúdo superior do formulario | dados da Sessão -->
             <div class="wrapper  interativo-container">
                 <!-- Container-Título -->

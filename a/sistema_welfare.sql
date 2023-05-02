@@ -1,55 +1,40 @@
 create database sistema_welfare;
+drop database sistema_welfare;
 use sistema_welfare;
 show tables;
-select * from usuario;
-/*
+
 create table adm (
-id_adm int (4) ,
-nome_adm varchar (80) ,
-email_adm varchar (80) ,
-senha_user varchar (20) ,
+id_adm int (4) unsigned zerofill not null unique auto_increment,
+nome_adm varchar (80) not null,
+email_adm varchar (80) not null,
+senha_user varchar (20) not null,
 primary key (id_adm)
 );
 
-INSERT INTO adm (id_adm, nome_adm, email_adm, senha_user)
-VALUES (2, 'Julia', 'admin@welfare.com', 'adm123');
-*/
-/*
 create table medico (
 id_medico varchar (10) not null unique,
 nome_medico varchar (80) not null,
 email_medico varchar(80) not null,
 senha_medico varchar (20) not null,
 especialidade varchar (40) not null,
-status_medico char (1) not null,
 primary key (id_medico)
 );
-*/
-
 
 create table funcionario (
 id_funcionario int (4) unsigned zerofill not null unique auto_increment,
 nome_funcionario varchar (80) not null,
 email_funcionario varchar (80) not null,
-senha_funcionario varchar (20) not null,
 cpf_funcionario char (11) not null unique,
-cargo_funcionario varchar (40) not null, /*deve ser registrado apenas os cargos especificados no tipo_usuario*/
-tipo_usuario enum ('administrador', 'enfermeiro', 'medico', 'recepcionista') not null,
-status_funcionario char (1) not null, /*Adicionado status Ativo/Inativo*/
-foto_funcionario blob, /*foto do funcionario*/
+senha_funcionario varchar (20) not null,
+cargo_funcionario varchar (40) not null,
 primary key (id_funcionario)
 );
 
 create table usuario (
 id_funcionario int (4) unsigned zerofill not null unique auto_increment,
-email_usuario varchar (80) not null,
 senha_funcionario varchar (20) not null,
-tipo_usuario enum ('administrador', 'enfermeiro', 'medico', 'recepcionista') not null,
 foreign key (id_funcionario) references funcionario(id_funcionario)
 );
-insert into usuario (id_funcionario, email_usuario, senha_funcionario, tipo_usuario)
-values (1, 'admin@welfare.com', 'adm123', 'administrador');
-
 
 create table paciente (
 id_paciente int (3) unsigned zerofill not null unique auto_increment,
@@ -124,22 +109,6 @@ valor_consulta decimal (4,2),
 primary key (id_consulta),
 foreign key (id_funcionario) references funcionario(id_funcionario)
 );
-
-/*criação tabela movimento*/
-create table movimento_consulta (
-id_movimento int(5) unsigned zerofill not null unique auto_increment,
-id_consulta int(5) unsigned zerofill not null,
-id_funcionario int(4) not null,
-dt_consulta date not null,
-valor_pago decimal(4,2),
-status_pagamento enum('pago', 'pendente', 'cancelado') not null default 'pendente',
-primary key (id_movimento),
-foreign key (id_consulta) references pagamento_consulta(id_consulta),
-foreign key (id_funcionario) references funcionario(id_funcionario),
-foreign key (dt_consulta) references pagamento_consulta(dt_consulta)
-);
-/*criação tabela movimento*/
-
 
 create table fornecedor (
 id_fornecedor int (5) unsigned zerofill not null unique auto_increment,
