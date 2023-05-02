@@ -1,31 +1,22 @@
-<?php
-    // session_start();
-    // if((!isset($_SESSION['email_funcionario']) == true) and (!isset($_SESSION['senha_funcionario']) == true))
-    // {
-    //     unset($_SESSION['email_funcionario']);
-    //     unset($_SESSION['senha_funcionario']);
-    //     header('Location: login.php');
-    // }
-    // $logado = $_SESSION['email_funcionario'];
-?> 
-
-<!-- HOME RECEPÇÃO -->
-
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <link rel="stylesheet" href="home-style.css">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-  </head>
-  <body>
-    
-      <!-- Container que limita o tamanho máximo do conteudo do site -->
-      <div class="granbox">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home-adm-style.css">
+
+</head>
+<body>
+    <!-- Div que limita o tamanho do conteúdo -->
+    <div class="granbox">
+        <!-- Menu lateral do sistema (Home adm) -->
         <aside class="menu">
             <nav>
               <div class="user-profile">
                   <a href="#" aria-label="area de informaçãoes do usuario">
-                    <img class="img-perfil" src="../assets/user.png" alt="imagem de perfil do usuario">
+                   img
                   </a>
               </div>
               <ul>
@@ -71,6 +62,7 @@
               </div>
             </nav>
         </aside>
+        <!-- Conteudo principal da página -->
         <section class="infosite">
             <!-- Header -->
               <header class="infoheader">
@@ -89,8 +81,8 @@
                         </figure>
                     </div>
               </header>
-              <!-- Conteudo principal da página -->
-              <main>
+            <!-- Conteudo principal da página -->
+              <main class="infomain">
                 <!-- Lista de ramal dos funcionarios -->
                     <section class="lista"></section>
                 <!-- Area dos botões informativos -->
@@ -98,12 +90,5 @@
               </main>
         </section>
       </div>
-
-    <script src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  </body>
+</body>
 </html>
-
-

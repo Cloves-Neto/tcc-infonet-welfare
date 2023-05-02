@@ -1,0 +1,51 @@
+@import url(../reset.css);
+
+
+/* Formatação da Home */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .granbox{
+    margin: auto;
+    padding: 15px;
+  
+    width: 100%;
+    max-width: 1440px;
+    height: 100vh;
+  
+    background-color: rgb(226, 198, 43);
+  
+    display: grid;
+    grid-template-areas: 'm i';
+    grid-template-columns: 200px calc(100% - 200px);
+    grid-template-rows: 100%;
+    gap: 10px;
+  
+  }
+  aside.menu{
+    grid-area: m;
+    background-color: aqua;
+  
+    padding: 10px;
+    border-radius: 20px;
+  
+  
+  }
+  section.infosite{
+    grid-area: i;
+    background-color: tomato;
+    
+    padding: 10px;
+    display: grid;
+    grid-template-areas: 
+    'ih'
+    'im';
+    grid-template-rows: 60% 40%;
+    grid-template-columns: 100%;
+  }
+  .infoheader{
+    
+  }
