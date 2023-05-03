@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['email_funcionario'])) {
+  // Se não estiver logado, redireciona o usuário para a página de login
+  header('Location: index.php');
+  exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,11 +64,8 @@
             <!-- Header -->
               <header class="infoheader">
                 <!-- Banner de mensagens -->
-                    <h1 class="mensagem-usuario">Olá, seja bem-vindo <span id="nome_funcionario"></span></h1>
-                    <script>
-                        const nomeUsuarioElemento = document.getElementById("nome_funcionario");
+                    <h1 class="mensagem-usuario">Olá, seja bem-vindo </h1>
 
-                      </script>
                     <div class="banner">
                         <!-- Lista de mensagens -->
                         <div id="carouselExampleSlidesOnly" class="carousel slide msgSlide" data-bs-ride="carousel">

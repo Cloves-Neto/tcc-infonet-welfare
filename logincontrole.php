@@ -29,3 +29,16 @@ try {
 } catch (PDOException $e) {
     echo "Erro ao conectar ao banco de dados: " . $e->getMessage();
 }
+
+
+function verificarLogin() {
+    // Inicia a sessão
+    session_start();
+
+    // Verifica se a sessão está definida e se o usuário está logado
+    if (!isset($_SESSION['email_funcionario']) || !isset($_SESSION['senha_funcionario'])) {
+        // Se não estiver logado, redireciona para a página de login
+        header('Location: index.php');
+        exit;
+    }
+}
