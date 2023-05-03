@@ -7,7 +7,7 @@ if (!isset($_SESSION['email_funcionario'])) {
   header('Location: index.php');
   exit;
 }
-
+?>
 
 <!-- HOME RECEPÇÃO -->
 

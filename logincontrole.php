@@ -8,7 +8,6 @@ $email_funcionario = $_POST['email_funcionario'];
 $senha_funcionario = $_POST['senha_funcionario'];
 try {
 
-<<<<<<< Updated upstream
     // Faz a validação no banco de dados
     $sql = "SELECT * FROM funcionario WHERE email_funcionario = '$email_funcionario' AND senha_funcionario = '$senha_funcionario'";
     $resultado = $conexao->query($sql);

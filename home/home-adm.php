@@ -45,7 +45,7 @@ if (!isset($_SESSION['email_funcionario'])) {
                     <a href="#">Cargo</a>
                 </li>
                 <li>
-                    <a href="#">Funcionario</a>
+                    <a href="../registro/registro.html">Funcionario</a>
                 </li>
                 <li>
                     <a href="#">Agenda</a>
