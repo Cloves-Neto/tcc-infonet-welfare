@@ -15,7 +15,7 @@ if ($resultado->num_rows == 1) {
     $_SESSION['id_funcionario'] = $usuario['id_funcionario'];
     $_SESSION['email_funcionario'] = $usuario['email_funcionario'];
     $_SESSION['senha_funcionario'] = $usuario['senha_funcionario'];
-    header('Location: ./home/home.php');    
+    header('Location: ./home/red.html');    
 } else {
     echo "login invalido";
 }
