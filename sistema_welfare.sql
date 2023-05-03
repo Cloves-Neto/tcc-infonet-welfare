@@ -35,7 +35,7 @@ senha_funcionario varchar (20) not null,
 cpf_funcionario char (11) not null unique,
 cargo_funcionario varchar (40) not null, /*deve ser registrado apenas os cargos especificados no tipo_usuario*/
 tipo_usuario enum ('administrador', 'enfermeiro', 'medico', 'recepcionista') not null,
-status_funcionario char (1) not null, /*Adicionado status Ativo/Inativo*/
+status_funcionario char (1), /*Adicionado status Ativo/Inativo*/
 foto_funcionario blob, /*foto do funcionario*/
 primary key (id_funcionario)
 );

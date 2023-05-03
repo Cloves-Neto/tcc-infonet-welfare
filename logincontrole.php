@@ -1,23 +1,29 @@
+
 <?php
+session_start(); // Inicia a sessão
 
-include_once ("../welfare1.1/conexao.php");
-
-$email_funcionario = $_POST["email_funcionario"];
-$senha_funcionario = $_POST["senha_funcionario"];
-
-$sql = "SELECT id_funcionario, email_funcionario, senha_funcionario FROM funcionario WHERE email_funcionario = '$email_funcionario' AND senha_funcionario = '$senha_funcionario'";
-$resultado = $conn->query($sql);
-
-if ($resultado->num_rows == 1) {
-    // Usuário autenticado com sucesso
-    $usuario = $resultado->fetch_assoc();
-    session_start();
-    $_SESSION['id_funcionario'] = $usuario['id_funcionario'];
-    $_SESSION['email_funcionario'] = $usuario['email_funcionario'];
-    $_SESSION['senha_funcionario'] = $usuario['senha_funcionario'];
-    header('Location: ./home/red.html');    
-} else {
-    echo "login invalido";
+if(isset($_SESSION['logged_in'])) { // Verifica se o usuário já está logado
+    header('Location: home/red.html'); // Redireciona para a página de home
+    exit;
 }
+
+if(isset($_POST['login'])) { // Verifica se o formulário de login foi submetido
+    $email = $_POST['email_funcionario'];
+    $password = $_POST['senha_funcionario'];
+
+    // Verifica se o email e senha estão corretos
+    $sql = "SELECT email_funcionario, senha_funcionario FROM funcionario WHERE email_funcionario = '$email_funcionario' AND senha_funcionario = '$senha_funcionario'";
+    $resultado = $conexao->query($sql);
+    
+    if ($email_funcionario == 'email_funcionario' && $senha_funcionario == 'senha_funcionario') {
+        $_SESSION['logged_in'] = true; // Marca o usuário como logado
+        header('Location: home/red.html'); // Redireciona para a página de home
+        exit;
+    } else {
+        $error = 'Email ou senha incorretos'; // Mensagem de erro para exibir no formulário
+    }
+}
+?>
+
 
 

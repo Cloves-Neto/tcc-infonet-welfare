@@ -1,6 +1,6 @@
 <?php
 
-include_once ("../conexao.php");
+include '../a/conexao.php';
 
 if(isset($_GET["nome_funcionario"])){$nome=$_GET["nome_funcionario"];}
 if(isset($_GET["email_funcionario"])){$email=$_GET["email_funcionario"];}
@@ -12,7 +12,7 @@ try
 {
     
     $Comando=$conexao->prepare("INSERT INTO funcionario (nome_funcionario, email_funcionario, cpf_funcionario, cargo_funcionario, senha_funcionario) 
-    VALUES ('$nome', '$email', '$cpf', '$cargo', '$senha')");
+    VALUES (?, ?, ?, ?, ?)");
     $Comando->bindParam(1, $nome);
     $Comando->bindParam(2, $email);
     $Comando->bindParam(3, $cpf);
