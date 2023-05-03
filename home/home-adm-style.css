@@ -59,7 +59,7 @@
 }
 .lista .linha section.indice p{
     font-weight: 600;
-    margin: 0 !important;
+    margin-bottom: 10px;
 }
 .lista .linha section.indice p,
 .lista .linha section.indice small span{
