@@ -6,10 +6,9 @@ include_once("conexao.php");
 // Recebe os dados do formulário
 $email_funcionario = $_POST['email_funcionario'];
 $senha_funcionario = $_POST['senha_funcionario'];
-
-
 try {
 
+<<<<<<< Updated upstream
     // Faz a validação no banco de dados
     $sql = "SELECT * FROM funcionario WHERE email_funcionario = '$email_funcionario' AND senha_funcionario = '$senha_funcionario'";
     $resultado = $conexao->query($sql);
@@ -31,14 +30,3 @@ try {
 }
 
 
-function verificarLogin() {
-    // Inicia a sessão
-    session_start();
-
-    // Verifica se a sessão está definida e se o usuário está logado
-    if (!isset($_SESSION['email_funcionario']) || !isset($_SESSION['senha_funcionario'])) {
-        // Se não estiver logado, redireciona para a página de login
-        header('Location: index.php');
-        exit;
-    }
-}
