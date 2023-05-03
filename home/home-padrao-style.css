@@ -135,5 +135,18 @@
 .lista{
     overflow: hidden;
     overflow-y: scroll;
+    padding: 15px;
+}
+.lista .linha{
+  width: 100%;
+  height: 150px;
+   display: grid;
+   grid-template-areas: 
+   'aside'
+   'main';
+   grid-template-columns: 15% calc(1fr - 15%);
+   grid-template-rows: 40px;
+   /* background-color: aqua; */
+   border-bottom: solid 2px gray;
 }
 
