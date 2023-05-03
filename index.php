@@ -67,8 +67,6 @@
                     </svg>
                 </a>
                     
-                <!-- Link para registrar nova conta | Página de registro -->
-                <a href="./registro/registro.html" class="login_link">Ainda não tem acesso? <span>Registre-se</span></a> 
             </div>
 
         </form>
