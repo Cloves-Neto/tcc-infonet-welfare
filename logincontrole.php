@@ -1,29 +1,28 @@
 
 <?php
-session_start(); // Inicia a sessão
 
-if(isset($_SESSION['logged_in'])) { // Verifica se o usuário já está logado
-    header('Location: home/red.html'); // Redireciona para a página de home
+include_once ("conexao.php");
+// Recebe os dados do formulário
+$email_funcionario = $_POST['email_funcionario'];
+$senha_funcionario = $_POST['senha_funcionario'];
+
+// Conecta ao banco de dados
+$conexao = new PDO("mysql:host=localhost; dbname=$Bco", "$Usuario", "$Senha"); 
+
+// Faz a validação no banco de dados
+$sql = "SELECT id_funcionario, nome_funcionario, email_funcionario FROM funcionario WHERE email_funcionario = '$email_funcionario' AND senha_funcionario = '$senha_funcionario'";
+$resultado = $conexao->query($sql);
+
+if ($resultado->num_rows == 1) {
+    // Usuário autenticado com sucesso
+    $usuario = $resultado->fetch_assoc();
+    session_start();
+    $_SESSION['usuario_id'] = $usuario['id_funcionario'];
+    $_SESSION['usuario_nome'] = $usuario['nome_funcionario'];
+    $_SESSION['usuario_email'] = $usuario['email_funcionario'];
+    header('Location: ./home/red.php');
+} else {
+    // Login inválido
+    header('Location:  ./home/red.html');
     exit;
 }
-
-if(isset($_POST['login'])) { // Verifica se o formulário de login foi submetido
-    $email = $_POST['email_funcionario'];
-    $password = $_POST['senha_funcionario'];
-
-    // Verifica se o email e senha estão corretos
-    $sql = "SELECT email_funcionario, senha_funcionario FROM funcionario WHERE email_funcionario = '$email_funcionario' AND senha_funcionario = '$senha_funcionario'";
-    $resultado = $conexao->query($sql);
-    
-    if ($email_funcionario == 'email_funcionario' && $senha_funcionario == 'senha_funcionario') {
-        $_SESSION['logged_in'] = true; // Marca o usuário como logado
-        header('Location: home/red.html'); // Redireciona para a página de home
-        exit;
-    } else {
-        $error = 'Email ou senha incorretos'; // Mensagem de erro para exibir no formulário
-    }
-}
-?>
-
-
-

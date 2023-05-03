@@ -1,7 +1,6 @@
 create database sistema_welfare;
 use sistema_welfare;
 show tables;
-select * from usuario;
 /*
 create table adm (
 id_adm int (4) ,
@@ -32,7 +31,7 @@ id_funcionario int (4) unsigned zerofill not null unique auto_increment,
 nome_funcionario varchar (80) not null,
 email_funcionario varchar (80) not null,
 senha_funcionario varchar (20) not null,
-cpf_funcionario char (11) not null unique,
+cpf_funcionario char (11) not null,
 cargo_funcionario varchar (40) not null, /*deve ser registrado apenas os cargos especificados no tipo_usuario*/
 tipo_usuario enum ('administrador', 'enfermeiro', 'medico', 'recepcionista') not null,
 status_funcionario char (1), /*Adicionado status Ativo/Inativo*/

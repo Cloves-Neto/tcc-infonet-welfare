@@ -1,13 +1,4 @@
-<?php
-session_start();
 
-// Verifica se o usuário está logado
-if (!isset($_SESSION['email_funcionario'])) {
-  // Se não estiver logado, redireciona o usuário para a página de login
-  header('Location: index.php');
-  exit;
-}
-?>
 
 <!-- HOME RECEPÇÃO -->
 

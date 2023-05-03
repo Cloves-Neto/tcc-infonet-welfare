@@ -59,7 +59,7 @@
             <!-- Conteúdo inferior do formulario | Submit e Registrar nova conta -->
             <div class="wrapper  submit_container">
                 <!-- Botão de enviar o formulario | Submit --> 
-                <input type="submit" class="login_button" value="Entrar" id="entrar" name="entrar" disabled> <br><br>
+                <input type="submit" class="login_button" value="Entrar" id="entrar" name="entrar" onclick="entrar()" disabled> <br><br>
                 
                 <a href="./Doc.html" class="doc-acompanhamento">
                     <svg xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill="currentColor" class="bi bi-file-earmark-code-fill" viewBox="0 0 16 16">
@@ -84,6 +84,38 @@
 <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
 <script nomodule src="https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+<script>
+$(document).ready(function() {
+
+    $('#entrar').click(function() {
+        var dados = $('#entrar').serialize();
+
+        $.ajax({
+            method: 'post',
+            url: 'logincontrole.php',
+            data: dados,
+
+            beforeSend: function()
+            {
+            $("h2").html ("Processo em andamento.");
+            }
+
+    })})
+
+    .done(function(msg)
+    {
+        $("h2").html("Retorno do login...");
+        $("#resposta").html(msg);
+        alert ("Login Valido");
+    })
+
+    .fail(function(){
+        alert("Falha ao acessar, tente novamente");
+    })
+
+return false;
+});
+</script>
 </body>
 
 
