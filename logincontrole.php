@@ -26,7 +26,7 @@ try {
         session_start();
         $_SESSION['email_funcionario'] = $usuario['email_funcionario'];
         $_SESSION['senha_funcionario'] = $usuario['senha_funcionario'];
-        header('Location: ');
+        header('Location: ./home/red.html');
     } else {
         // Login inválido
         header('Location: index.php');
