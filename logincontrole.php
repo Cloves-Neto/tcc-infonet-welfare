@@ -1,7 +1,6 @@
-
 <?php
 
-include_once("conexao.php");
+include 'conexao.php';
 
 // Recebe os dados do formulário
 $email_funcionario = $_POST['email_funcionario'];
@@ -27,5 +26,3 @@ try {
 } catch (PDOException $e) {
     echo "Erro ao conectar ao banco de dados: " . $e->getMessage();
 }
-
-

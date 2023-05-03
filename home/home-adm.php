@@ -64,8 +64,23 @@ if (!isset($_SESSION['email_funcionario'])) {
             <!-- Header -->
               <header class="infoheader">
                 <!-- Banner de mensagens -->
-                    <h1 class="mensagem-usuario">Olá, seja bem-vindo </h1>
-
+                    <h1 class="mensagem-usuario">Olá, seja bem-vindo <span id="nomeUsuario"></span></h1>
+                       <script>
+                        const nomeUsuarioElemento = document.getElementById("nomeUsuario");
+                        <?php
+                            $conexao = mysqli_connect("localhost", "root", "", "sistema_welfare");
+                            $query = "SELECT nome_funcionario FROM funcionario WHERE id = ?"; // substitua "1" pelo ID do usuário desejado
+                            $resultado = mysqli_query($conexao, $query);
+                            if ($resultado) {
+                            $linha = mysqli_fetch_assoc($resultado);
+                            $nomeUsuario = $linha["nome_funcionario"];
+                            echo "nomeUsuarioElemento.innerText = '{$nomeUsuario}';";
+                            } else {
+                            echo "console.error('Ocorreu um erro ao recuperar o nome do usuário.');";
+                            }
+                            mysqli_close($conexao);
+                        ?>
+                        </script>
                     <div class="banner">
                         <!-- Lista de mensagens -->
                         <div id="carouselExampleSlidesOnly" class="carousel slide msgSlide" data-bs-ride="carousel">
