@@ -1,2 +1,38 @@
 @import url(./home-padrao-style.css);
 
+
+.btns{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.btns .card{
+    width: 70%;
+    height: 130px;
+    background-color: rgb(81, 189, 138);  
+    color: white;
+    padding: 15px;
+    font-size: 1.6rem !important;
+    text-transform: capitalize;
+    letter-spacing: 3px;
+}
+.btns .card span{
+    display: block;
+    line-height: 80px;
+    font-size: 4rem !important;
+}
+
+.lista{
+    background-color: tomato;
+    display: grid;
+}
+.lista aside{
+    
+    padding: 15px;
+
+}
+.lista aside img{
+    width: 100px;
+    height: 100px;
+}
