@@ -98,7 +98,7 @@ body{
 
 /* Pop up disparado com Função no Js */
 .popup{
-    display:none;
+    display: none;
     padding: 15px;
 }
 .popup form{

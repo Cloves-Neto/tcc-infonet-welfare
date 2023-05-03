@@ -139,7 +139,7 @@
                     </div>
                     <!-- BOTÃO CADASTRAR -->
                     <input type="submit" id="salvar" name="salvar" value="salvar">
-                    <input type="button" value="Fechar" id="fecha" onclick="fecha()">
+                    <input type="button" value="Fechar" id="fecha" onclick="voltar()">
                 </form>
         </div>
     </div>
@@ -156,12 +156,12 @@
     const fechar = document.getElementById('fecha');
     function abre(){
         cadastrar.addEventListener("click", ()=>{
-            document.getElementById('popup').classList.add('ativo')
+            document.getElementById('popup').classList.add('ativo');
         })
     }
-    function fecha(){
+    function voltar(){
         fechar.addEventListener("click", ()=>{
-            document.getElementById('popup').classList.remove('ativo')
+            document.getElementById('popup').classList.remove('ativo');
         })
     }
 </script>
