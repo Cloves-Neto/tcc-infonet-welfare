@@ -1,53 +1,54 @@
 create database sistema_welfare;
 use sistema_welfare;
 show tables;
-/*
-create table adm (
-id_adm int (4) ,
-nome_adm varchar (80) ,
-email_adm varchar (80) ,
-senha_user varchar (20) ,
-primary key (id_adm)
-);
-
-INSERT INTO adm (id_adm, nome_adm, email_adm, senha_user)
-VALUES (2, 'Julia', 'admin@welfare.com', 'adm123');
-*/
-/*
-create table medico (
-id_medico varchar (10) not null unique,
-nome_medico varchar (80) not null,
-email_medico varchar(80) not null,
-senha_medico varchar (20) not null,
-especialidade varchar (40) not null,
-status_medico char (1) not null,
-primary key (id_medico)
-);
-*/
-
 
 create table funcionario (
 id_funcionario int (4) unsigned zerofill not null unique auto_increment,
 nome_funcionario varchar (80) not null,
 email_funcionario varchar (80) not null,
 senha_funcionario varchar (20) not null,
-cpf_funcionario char (11) not null,
-cargo_funcionario varchar (40) not null, /*deve ser registrado apenas os cargos especificados no tipo_usuario*/
-tipo_usuario enum ('administrador', 'enfermeiro', 'medico', 'recepcionista') not null,
-status_funcionario char (1), /*Adicionado status Ativo/Inativo*/
+cpf_funcionario char (11) not null unique,
+status_funcionario char (1) , /*Adicionado status Ativo/Inativo*/
 foto_funcionario blob, /*foto do funcionario*/
-primary key (id_funcionario)
+cargo_funcionario varchar (40) not null,
+primary key (id_funcionario),
+foreign key (cargo_funcionario) references cargo (cargo_funcionario)
 );
+insert into funcionario (id_funcionario, nome_funcionario, email_funcionario, senha_funcionario, cpf_funcionario, cargo_funcionario)
+values (1, 'Joao', 'admin@welfare.com', 'adm123456', '12345678900', 'administrador');
 
-create table usuario (
-id_funcionario int (4) unsigned zerofill not null unique auto_increment,
-email_usuario varchar (80) not null,
-senha_funcionario varchar (20) not null,
-tipo_usuario enum ('administrador', 'enfermeiro', 'medico', 'recepcionista') not null,
-foreign key (id_funcionario) references funcionario(id_funcionario)
+
+create table cargo (
+id_cargo int (4) unsigned zerofill not null unique auto_increment,
+cargo_funcionario varchar (40) not null, /*deve ser registrado apenas os cargos especificados no tipo_usuario*/
+primary key (id_cargo)
 );
-insert into usuario (id_funcionario, email_usuario, senha_funcionario, tipo_usuario)
-values (1, 'admin@welfare.com', 'adm123', 'administrador');
+insert into cargo (id_cargo, cargo_funcionario) values
+(1, 'administrador'),
+(2, 'medico'),
+(3, 'recepcionista');
+select * from cargo;
+
+
+create table especialidade (
+id_especialidade int (4) unsigned zerofill not null unique auto_increment,
+tipo_especialidade varchar (50) not null,
+primary key (id_especialidade)
+);
+insert into especialidade (id_especialidade, tipo_especialidade) values
+(1, 'alergologia'),
+(2, 'cardiologia'),
+(3, 'dermatologia'),
+(4, 'endocrinologia'),
+(5, 'gastroenterologia'),
+(6, 'ginecologia'),
+(7, 'neurologia'),
+(8, 'nutrição'),
+(9, 'obstetrícia'),
+(10 ,'ortopedia e traumatologia'),
+(11 ,'pediatria'),
+(12 ,'urologia');
+
 
 
 create table paciente (
@@ -71,13 +72,13 @@ cep_paciente char (8) not null,
 numero_casa_paciente varchar (10),
 primary key (id_paciente)
 );
-
+/*
 create table categoria (
 id_categoria int (5) unsigned zerofill not null auto_increment,
 nome_categoria varchar (50) not null,
 primary key (id_categoria)
 );
-
+*/
 create table agendamento (
 id_agendamento int (5) unsigned zerofill not null unique auto_increment,
 id_paciente int (3) not null,
@@ -86,11 +87,12 @@ nome_responsavel varchar (80),
 cpf_paciente char (11) not null,
 data_consulta datetime not null,
 observacoes text,
-id_medico varchar (10) not null unique,
-nome_categoria varchar (50) not null,
+id_funcionario int (4) not null,
+id_especialidade int (4) not null,
 primary key (id_agendamento),
 foreign key (id_paciente) references paciente(id_paciente),
-foreign key (id_medico) references medico(id_medico)
+foreign key (id_funcionario) references funcionario(id_funcionario),
+foreign key (id_especialidade) references especialidade(id_especialidade)
 );
 
 
@@ -104,36 +106,36 @@ nome_responsavel varchar (80) not null,
 estado_consulta char (1) not null,
 tipo_consulta char (1) not null,
 relatorio_consulta text not null,
-id_categoria int (5) not null,
+id_especialidade int (5) not null,
 dt_consulta date not null,
 receita_consulta varchar (50) not null,
 cargo_funcionario varchar (20) not null,
 primary key (id_consulta),
-foreign key (id_funcionario) references funcionario(id_funcionario),
-foreign key (id_categoria) references categoria(id_categoria),
-foreign key (id_paciente) references paciente(id_paciente),
-foreign key (id_medico) references medico (id_medico)
+foreign key (id_funcionario) references funcionario (id_funcionario),
+foreign key (id_especialidade) references especialidade (id_especialidade),
+foreign key (id_paciente) references paciente (id_paciente),
+foreign key (cargo_funcionario) references funcionario (cargo_funcionario)
 );
 
 create table pagamento_consulta (
-id_consulta int (5) unsigned zerofill not null unique auto_increment,
+id_pagamento int (5) unsigned zerofill not null unique auto_increment,
 id_funcionario int (4) not null,
 dt_consulta date not null,
 valor_consulta decimal (4,2),
-primary key (id_consulta),
+primary key (id_pagamento),
 foreign key (id_funcionario) references funcionario(id_funcionario)
 );
 
 /*criação tabela movimento*/
 create table movimento_consulta (
 id_movimento int(5) unsigned zerofill not null unique auto_increment,
-id_consulta int(5) unsigned zerofill not null,
+id_pagamento int(5) not null,
 id_funcionario int(4) not null,
 dt_consulta date not null,
 valor_pago decimal(4,2),
 status_pagamento enum('pago', 'pendente', 'cancelado') not null default 'pendente',
 primary key (id_movimento),
-foreign key (id_consulta) references pagamento_consulta(id_consulta),
+foreign key (id_pagamento) references pagamento_consulta(id_pagamento),
 foreign key (id_funcionario) references funcionario(id_funcionario),
 foreign key (dt_consulta) references pagamento_consulta(dt_consulta)
 );
@@ -167,6 +169,30 @@ valor_pedido_compra decimal (10,2) not null,
 primary key (id_pedido_compra),
 foreign key (id_funcionario) references funcionario(id_funcionario)
 );
+/*possível alteração nas tabelas categoria, agendamento e consulta, agora com tabela especialidade não será necessário tabela categoria, assim havendo alterações nas tabelas agendamento e consulta*/
+/*
+create table adm (
+id_adm int (4) ,
+nome_adm varchar (80) ,
+email_adm varchar (80) ,
+senha_user varchar (20) ,
+primary key (id_adm)
+);
+
+INSERT INTO adm (id_adm, nome_adm, email_adm, senha_user)
+VALUES (2, 'Julia', 'admin@welfare.com', 'adm123');
+*/
+/*
+create table medico (
+id_medico varchar (10) not null unique,
+nome_medico varchar (80) not null,
+email_medico varchar(80) not null,
+senha_medico varchar (20) not null,
+especialidade varchar (40) not null,
+status_medico char (1) not null,
+primary key (id_medico)
+);
+*/
 
 
 
