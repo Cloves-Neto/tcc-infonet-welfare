@@ -50,20 +50,39 @@
                     </thead>
                     <!-- Corpo da tabela -->
                     <tbody>
-                        <tr>
-                            <td scope='row'>#1</td>
-                            <td scope='row'>Alana Huggart</td>
-                            <td scope='row'>123.456.789.11</td>
-                            <td scope='row'>exemplo@email.com</td>
-                            <td scope='row'>(11)29458969</td>
-                            <td scope='row'>10/20/23</td>
-                            <td>
-                                <a href='editar_cadastro.php?id=$user_data[id_paciente]'  class='btn-sm' name='editar' id='editar'><img src='../node_modules/bootstrap-icons/icons/pencil-fill.svg' alt='editar-icone'></a>
-                                <a href='excluir_cadastro.php?id=$user_data[id_paciente]' class='btn-sm' name='excluir' id='excluir'><img src='../node_modules/bootstrap-icons/icons/trash-fill.svg' alt='ecluir-icone'></a>
-                                <a href='exibe_cadastro.php?id=$user_data[id_paciente]' class='btn-sm' name='visualizar' id='visualizar'><img src='../node_modules/bootstrap-icons/icons/eye-fill.svg' alt='visualizar-icone'></a>
-                            </td>
-                            
-                        </tr>
+                    <?php
+                include_once ('conexao.php');
+                $sql = "SELECT * FROM paciente ORDER BY id_paciente";
+                $result = $conn->query($sql);
+                    while($user_data = mysqli_fetch_assoc($result))
+                    {
+                        echo"<tr>
+                                <td scope='row'>"
+                                    .$user_data['id_paciente'].
+                                "</td>
+                                <td scope='row'>"
+                                    .$user_data['nome_paciente'].
+                                "</td>
+                                <td scope='row'>"
+                                    .$user_data['cpf_paciente'].
+                                "</td>
+                                <td scope='row'>"
+                                    .$user_data['email'].
+                                "</td>
+                                <td scope='row'>"
+                                    .$user_data['contato_paciente'].
+                                    "</td>
+                                <td scope='row'>"
+                                    .$user_data['dt_nascimento_paciente'].
+                                "</td>
+                                <td>
+                                    <a href='editar_cadastro.php?id=$user_data[id_paciente]' class='btn-sm' name='editar' id='editar'><img src='../node_modules/bootstrap-icons/icons/pencil-fill.svg' alt='editar-icone'></a>
+                                    <a href='editar_cadastro.php?id=$user_data[id_paciente]' class='btn-sm' name='excluir' id='excluir'><img src='../node_modules/bootstrap-icons/icons/trash-fill.svg' alt='ecluir-icone'></a>
+                                    <a href='editar_cadastro.php?id=$user_data[id_paciente]' class='btn-sm' name='visualizar' id='visualizar'><img src='../node_modules/bootstrap-icons/icons/eye-fill.svg' alt='visualizar-icone'></a>
+                                </td>
+                            </tr>";
+                    }
+                ?>
                     </tbody>
                 </table>
             </div>
