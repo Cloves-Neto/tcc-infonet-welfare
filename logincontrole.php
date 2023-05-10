@@ -1,24 +1,37 @@
-
 <?php
-
-include_once("conexao.php");
+include 'conexao.php';
 
 // Recebe os dados do formulário
 $email_funcionario = $_POST['email_funcionario'];
 $senha_funcionario = $_POST['senha_funcionario'];
+
 try {
-
     // Faz a validação no banco de dados
-    $sql = "SELECT * FROM funcionario WHERE email_funcionario = '$email_funcionario' AND senha_funcionario = '$senha_funcionario'";
-    $resultado = $conexao->query($sql);
+    $sql = "SELECT * FROM funcionario WHERE email_funcionario = :email_funcionario AND senha_funcionario = :senha_funcionario";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bindParam(':email_funcionario', $email_funcionario);
+    $stmt->bindParam(':senha_funcionario', $senha_funcionario);
+    $stmt->execute();
 
-    if ($resultado->rowCount() == 1) {
+    if ($stmt->rowCount() == 1) {
         // Usuário autenticado com sucesso
-        $usuario = $resultado->fetch(PDO::FETCH_ASSOC);
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
         session_start();
         $_SESSION['email_funcionario'] = $usuario['email_funcionario'];
         $_SESSION['senha_funcionario'] = $usuario['senha_funcionario'];
-        header('Location: ./home/red.html');
+
+        if ($usuario['cargo_funcionario'] == 'administrador') {
+            header('Location: ./home/home-adm.php');
+            exit;
+        } elseif ($usuario['cargo_funcionario'] == 'recepcionista') {
+            header('Location: ./home/home.php');
+            exit;
+        } elseif ($usuario['cargo_funcionario'] == 'medico') {
+            header('Location: ./registro/registro.html');
+            exit;
+        } else {
+            echo "cadastro não encontrado";
+        }
     } else {
         // Login inválido
         header('Location: index.php');
@@ -27,5 +40,4 @@ try {
 } catch (PDOException $e) {
     echo "Erro ao conectar ao banco de dados: " . $e->getMessage();
 }
-
-
+?>
