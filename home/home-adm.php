@@ -1,21 +1,31 @@
-<?php
-session_start();
+
+<!-- session_start();
 
 // Verifica se o usuário está logado
 if (!isset($_SESSION['email_funcionario'])) {
   // Se não estiver logado, redireciona o usuário para a página de login
   header('Location: index.php');
   exit;
-}
+} -->
+
+<?php
+
+    // Buscando nome do funcionario Logado no Db (criar lógica para buscar o logado, pois nesse exemplo esta pegando apenas a primeira linha)
+    $conn = mysqli_connect('localhost', 'root', '', 'sistema_welfare');
+    $sqlSelect = "SELECT * FROM funcionario";
+    $result = $conn->query($sqlSelect);
+    $user_data = mysqli_fetch_assoc($result);
+
 ?>
 
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Welfare | Adm</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="home-adm-style.css">
 
@@ -33,6 +43,9 @@ if (!isset($_SESSION['email_funcionario'])) {
                   </a>
               </div>
               <ul>
+                <li>
+                    <a href="#">Mensagem</a>
+                </li>
                 <li>
                     <a href="../cadastro/cadastro.php">Paciente</a>
                 </li>
@@ -64,23 +77,8 @@ if (!isset($_SESSION['email_funcionario'])) {
             <!-- Header -->
               <header class="infoheader">
                 <!-- Banner de mensagens -->
-                    <h1 class="mensagem-usuario">Olá, seja bem-vindo <span id="nomeUsuario"></span></h1>
-                       <script>
-                        const nomeUsuarioElemento = document.getElementById("nomeUsuario");
-                        <?php
-                            $conexao = mysqli_connect("localhost", "root", "", "sistema_welfare");
-                            $query = "SELECT nome_funcionario FROM funcionario WHERE id = ?"; // substitua "1" pelo ID do usuário desejado
-                            $resultado = mysqli_query($conexao, $query);
-                            if ($resultado) {
-                            $linha = mysqli_fetch_assoc($resultado);
-                            $nomeUsuario = $linha["nome_funcionario"];
-                            echo "nomeUsuarioElemento.innerText = '{$nomeUsuario}';";
-                            } else {
-                            echo "console.error('Ocorreu um erro ao recuperar o nome do usuário.');";
-                            }
-                            mysqli_close($conexao);
-                        ?>
-                        </script>
+                    <h1 class="mensagem-usuario">Olá, seja bem-vindo <span id="nomeUsuario"><?php echo $user_data['nome_funcionario'];?></span></h1>
+                       
                     <div class="banner">
                         <!-- Lista de mensagens -->
                         <div id="carouselExampleSlidesOnly" class="carousel slide msgSlide" data-bs-ride="carousel">
@@ -113,106 +111,27 @@ if (!isset($_SESSION['email_funcionario'])) {
               <main class="infomain">
                 <!-- Lista de ramal dos funcionarios -->
                     <section class="lista">
-                        <div class="linha">
-                            <aside class="perfil">
-                                <img src="../assets/user.png" alt="imagem perfil">
-                            </aside>
-                            <section class="indice">
-                                <p class="nome">André Fonseca</p>
-                                <small class="email"><span>email: </span> andre.f@email.com</small> 
-                                <br>
-                                <small class="ramal"><span>ramal: </span> 1023</small>
-                            </section>
-                        </div>
-
-                        <div class="linha">
-                            <aside class="perfil">
-                                <img src="../assets/user.png" alt="imagem perfil">
-                            </aside>
-                            <section class="indice">
-                                <p class="nome">André Fonseca</p>
-                                <small class="email"><span>email: </span> andre.f@email.com</small> 
-                                <br>
-                                <small class="ramal"><span>ramal: </span> 1023</small>
-                            </section>
-                        </div>
-                        <div class="linha">
-                            <aside class="perfil">
-                                <img src="../assets/user.png" alt="imagem perfil">
-                            </aside>
-                            <section class="indice">
-                                <p class="nome">André Fonseca</p>
-                                <small class="email"><span>email: </span> andre.f@email.com</small> 
-                                <br>
-                                <small class="ramal"><span>ramal: </span> 1023</small>
-                            </section>
-                        </div>
-                        <div class="linha">
-                            <aside class="perfil">
-                                <img src="../assets/user.png" alt="imagem perfil">
-                            </aside>
-                            <section class="indice">
-                                <p class="nome">André Fonseca</p>
-                                <small class="email"><span>email: </span> andre.f@email.com</small> 
-                                <br>
-                                <small class="ramal"><span>ramal: </span> 1023</small>
-                            </section>
-                        </div>
-                        <div class="linha">
-                            <aside class="perfil">
-                                <img src="../assets/user.png" alt="imagem perfil">
-                            </aside>
-                            <section class="indice">
-                                <p class="nome">André Fonseca</p>
-                                <small class="email"><span>email: </span> andre.f@email.com</small> 
-                                <br>
-                                <small class="ramal"><span>ramal: </span> 1023</small>
-                            </section>
-                        </div>
-                        <div class="linha">
-                            <aside class="perfil">
-                                <img src="../assets/user.png" alt="imagem perfil">
-                            </aside>
-                            <section class="indice">
-                                <p class="nome">André Fonseca</p>
-                                <small class="email"><span>email: </span> andre.f@email.com</small> 
-                                <br>
-                                <small class="ramal"><span>ramal: </span> 1023</small>
-                            </section>
-                        </div>
-                        <div class="linha">
-                            <aside class="perfil">
-                                <img src="../assets/user.png" alt="imagem perfil">
-                            </aside>
-                            <section class="indice">
-                                <p class="nome">André Fonseca</p>
-                                <small class="email"><span>email: </span> andre.f@email.com</small> 
-                                <br>
-                                <small class="ramal"><span>ramal: </span> 1023</small>
-                            </section>
-                        </div>
-                        <div class="linha">
-                            <aside class="perfil">
-                                <img src="../assets/user.png" alt="imagem perfil">
-                            </aside>
-                            <section class="indice">
-                                <p class="nome">André Fonseca</p>
-                                <small class="email"><span>email: </span> andre.f@email.com</small> 
-                                <br>
-                                <small class="ramal"><span>ramal: </span> 1023</small>
-                            </section>
-                        </div>
-                        <div class="linha">
-                            <aside class="perfil">
-                                <img src="../assets/user.png" alt="imagem perfil">
-                            </aside>
-                            <section class="indice">
-                                <p class="nome">André Fonseca</p>
-                                <small class="email"><span>email: </span> andre.f@email.com</small> 
-                                <br>
-                                <small class="ramal"><span>ramal: </span> 1023</small>
-                            </section>
-                        </div>
+                        <?php
+                            $conn = mysqli_connect('localhost', 'root', '', 'sistema_welfare');
+                            $sqlSelect = "SELECT * FROM funcionario";
+                            $result = $conn->query($sqlSelect);
+                            $user_data = mysqli_fetch_assoc($result);
+                            while($user_data = mysqli_fetch_assoc($result))
+                            {
+                                echo "
+                                    <div class='linha'>
+                                    <aside class='perfil'>
+                                        <img src='../assets/user.png' alt='imagem perfil'>
+                                    </aside>
+                                    <section class='indice'>
+                                        <p class='nome'>".$user_data['nome_funcionario']."</p>
+                                        <small class='email'><span>email: </span>".$user_data['email_funcionario']."</small> 
+                                        <br>
+                                        <small class='ramal'><span>ramal: </span>".$user_data['id_funcionario']."</small>
+                                    </section>
+                                </div>";
+                            }
+                        ?>
                         <div class="linha">
                             <aside class="perfil">
                                 <img src="../assets/user.png" alt="imagem perfil">
