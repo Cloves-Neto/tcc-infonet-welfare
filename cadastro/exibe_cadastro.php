@@ -5,7 +5,7 @@ if(!empty($_GET['id'])){
 
     $id = $_GET['id'];
     $sqlSelect = "SELECT * FROM paciente WHERE id_paciente=$id";
-    $result = $conn->query($sqlSelect);
+    $result = $conexao->query($sqlSelect);
 
     while ($linha = mysqli_fetch_assoc($result)) {
         echo $linha["nome_paciente"] .

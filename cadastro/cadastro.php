@@ -50,39 +50,7 @@
                     </thead>
                     <!-- Corpo da tabela -->
                     <tbody>
-                    <?php
-                include_once ('conexao.php');
-                $sql = "SELECT * FROM paciente ORDER BY id_paciente";
-                $result = $conn->query($sql);
-                    while($user_data = mysqli_fetch_assoc($result))
-                    {
-                        echo"<tr>
-                                <td scope='row'>"
-                                    .$user_data['id_paciente'].
-                                "</td>
-                                <td scope='row'>"
-                                    .$user_data['nome_paciente'].
-                                "</td>
-                                <td scope='row'>"
-                                    .$user_data['cpf_paciente'].
-                                "</td>
-                                <td scope='row'>"
-                                    .$user_data['email'].
-                                "</td>
-                                <td scope='row'>"
-                                    .$user_data['contato_paciente'].
-                                    "</td>
-                                <td scope='row'>"
-                                    .$user_data['dt_nascimento_paciente'].
-                                "</td>
-                                <td>
-                                    <a href='editar_cadastro.php?id=$user_data[id_paciente]' class='btn-sm' name='editar' id='editar'><img src='../node_modules/bootstrap-icons/icons/pencil-fill.svg' alt='editar-icone'></a>
-                                    <a href='editar_cadastro.php?id=$user_data[id_paciente]' class='btn-sm' name='excluir' id='excluir'><img src='../node_modules/bootstrap-icons/icons/trash-fill.svg' alt='ecluir-icone'></a>
-                                    <a href='editar_cadastro.php?id=$user_data[id_paciente]' class='btn-sm' name='visualizar' id='visualizar'><img src='../node_modules/bootstrap-icons/icons/eye-fill.svg' alt='visualizar-icone'></a>
-                                </td>
-                            </tr>";
-                    }
-                ?>
+//
                     </tbody>
                 </table>
             </div>
@@ -110,50 +78,82 @@
 
         <div id="popup" class="popup cadastro" >
                 <!-- Formulario de cadastro paciente -->
-                <form  method="post">
+                <form  method="post" action="cadastrar.php">
                     <!-- wrap linha com os dados do form de cadastro  -->
                     <div class="wrap">
+                        <h5>Informações Paciente</h5>
                         <label for="">
-                            Nome
-                            <input type="text" id="nome" name="nome">
-                        </label>
+                            NOME COMPLETO
+                            <input type="text" id="nome_paciente" name="nome_paciente">
+                        </label><br>
                         <label for="">
-                            Cpf
-                            <input type="text" id="nome" name="nome">
-                        </label>
+                            DATA DE NASCIMENTO
+                            <input type="date" id="dt_nascimento_paciente" name="dt_nascimento_paciente">
+                        </label><br>
                         <label for="">
-                            Dt Nascimento
-                            <input type="text" id="nome" name="nome">
-                        </label>
-                    </div>
-                    <!-- wrap linha com os dados do form de cadastro  -->
-                    <div class="wrap">
+                            CPF
+                            <input type="text" id="cpf_paciente" name="cpf_paciente">
+                        </label><br>
                         <label for="">
-                            Email
-                            <input type="text" id="nome" name="nome">
-                        </label>
+                            RG
+                            <input type="text" id="rg_paciente" name="rg_paciente">
+                        </label><br>
                         <label for="">
-                            Telefone
-                            <input type="text" id="nome" name="nome">
-                        </label>
+                            SEXO <br>
+                            <input type="radio" id="sexo_paciente" name="sexo_paciente" value="f" >Feminino <br>
+                            <input type="radio" id="sexo_paciente" name="sexo_paciente" value="m">Masculino <br>
+                            <input type="radio" id="sexo_paciente" name="sexo_paciente" value="o">Outro <br>
+                        </label><br>
+
                         <label for="">
-                            Cep
-                            <input type="text" id="nome" name="nome">
-                        </label>
-                    </div>
-                    <!-- wrap linha com os dados do form de cadastro  -->
-                    <div class="wrap">
+                            TELEFONE
+                            <input type="text" id="contato_paciente" name="contato_paciente">
+                        </label><br>
+                        <label for="">
+                            EMAIL
+                            <input type="text" id="email" name="email">
+                        </label><br><br>
+
+                        <h5>Informações responsável</h5>
+                        <label for="">
+                            NOME COMPLETO
+                            <input type="text" id="nome_responsavel" name="nome_responsavel">
+                        </label><br>
+                        <label for="">
+                            DATA DE NASCIMENTO
+                            <input type="date" id="dt_nascimento_responsavel" name="dt_nascimento_responsavel">
+                        </label><br>
+                        <label for="">
+                            CPF
+                            <input type="text" id="cpf_responsavel" name="cpf_responsavel">
+                        </label><br>
+                        <label for="">
+                            RG
+                            <input type="text" id="rg_responsavel" name="rg_responsavel">
+                        </label><br>
+                        <label for="">
+                            SEXO <br>
+                            <input type="radio" id="sexo_responsavel" name="sexo_responsavel" value="f" >Feminino <br>
+                            <input type="radio" id="sexo_responsavel" name="sexo_responsavel" value="m">Masculino <br>
+                            <input type="radio" id="sexo_responsavel" name="sexo_responsavel" value="o">Outro <br>
+                        </label><br>
+
+                        <h5>Endereço</h5>
                         <label for="">
                             UF
-                            <input type="text" id="nome" name="nome">
-                        </label>
+                            <input type="text" id="uf" name="uf">
+                        </label><br>
                         <label for="">
-                            Nº
-                            <input type="text" id="nome" name="nome">
-                        </label>
+                            LOGADOURO
+                            <input type="text" id="logradouro" name="logradouro">
+                        </label><br>
                         <label for="">
-                            Logradouro
-                            <input type="text" id="nome" name="nome">
+                            CEP
+                            <input type="text" id="cep_paciente" name="cep_paciente">
+                        </label><br>
+                        <label for="">
+                            N°
+                            <input type="text" id="numero_casa_paciente" name="numero_casa_paciente">
                         </label>
                     </div>
                     <!-- BOTÃO CADASTRAR -->

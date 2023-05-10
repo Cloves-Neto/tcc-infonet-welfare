@@ -100,13 +100,14 @@ body{
 .popup{
     display: none;
     padding: 15px;
+    width: 1000px;
+    height: 1000px;
 }
 .popup form{
     background-color: aqua;
-    padding: 15px;
     border-radius: 10px;
-    width: 400px;
-    height: 500px;
+    width: 1000px;
+    height: 1000px;
 }
 
 
