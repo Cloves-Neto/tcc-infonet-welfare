@@ -25,7 +25,6 @@ primary key (id_medico)
 );
 */
 
-
 create table funcionario (
 id_funcionario int (4) unsigned zerofill not null unique auto_increment,
 nome_funcionario varchar (80) not null,
@@ -38,6 +37,7 @@ status_funcionario char (1), /*Adicionado status Ativo/Inativo*/
 foto_funcionario blob, /*foto do funcionario*/
 primary key (id_funcionario)
 );
+select* from funcionario;
 
 create table usuario (
 id_funcionario int (4) unsigned zerofill not null unique auto_increment,
