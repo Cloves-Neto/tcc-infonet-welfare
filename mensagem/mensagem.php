@@ -8,10 +8,10 @@
 </head>
 <body>
     <div class="container">
-        <form action="controle-mensagem.php" method="GET">
-                <textarea id="mensagem" name="mensagem" rows="5" cols="30" placeholder="digite aqui a mensagem que deseja exibir!"></textarea> 
+        <form action="controle-mensagem.php" method="POST">
+                <textarea id="salva" name="salva" rows="5" cols="30" placeholder="digite aqui a mensagem que deseja exibir!"></textarea> 
             <br>
-            <button>Salvar</button>
+            <input type="submit" value="Salvar">
         </form>
         <br>
         <br>
@@ -19,9 +19,10 @@
         <div class="lista-de-mensagem">
             
             <?php
-                $conn = mysqli_connect('localhost', 'root', '', 'sistema_welfare');
+                include_once('./a/conexao.php');
+                // $conn = mysqli_connect('localhost', 'root', '', 'sistema_welfare');
                 $sqlSelect = "SELECT * FROM salvamsg";
-                $result = $conn->query($sqlSelect);
+                $result = $conexao->query($sqlSelect);
                 $lista_msg = mysqli_fetch_assoc($result);
 
                 while($lista_msg = mysqli_fetch_assoc($result))

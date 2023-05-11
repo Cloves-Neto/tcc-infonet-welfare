@@ -44,30 +44,30 @@ if (!isset($_SESSION['email_funcionario'])) {
               </div>
               <ul>
                 <li>
-                    <a href="#">Mensagem</a>
+                    <a href="../mensagem/mensagem.php">Mensagem</a>
                 </li>
                 <li>
                     <a href="../cadastro/cadastro.php">Paciente</a>
                 </li>
                 
                 <li>
-                    <a href="#">Especialidade</a>
+                    <a href="../especialidade/especialidade.php">Especialidade</a>
                 </li>
                 
                 <li>
-                    <a href="#">Cargo</a>
+                    <a href="../cargo/cargo.php">Cargo</a>
                 </li>
                 <li>
                     <a href="../registro/registro.html">Funcionario</a>
                 </li>
                 <li>
-                    <a href="#">Agenda</a>
+                    <a href="../agenda/agenda.php">Agenda</a>
                 </li>
                 <li>
-                    <a href="#">Financeiro</a>
+                    <a href="../financeiro/financeiro.php">Financeiro</a>
                 </li>
                 <li>
-                    <a href="#">Relatório</a>
+                    <a href="../relatorio/relatorio.php">Relatório</a>
                 </li>
               </ul>
             </nav>
