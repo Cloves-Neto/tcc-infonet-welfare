@@ -22,8 +22,8 @@
                 include_once('./a/conexao.php');
                 // $conn = mysqli_connect('localhost', 'root', '', 'sistema_welfare');
                 $sqlSelect = "SELECT * FROM salvamsg";
-                $result = $conexao->query($sqlSelect);
-                $lista_msg = mysqli_fetch_assoc($result);
+                $resultado = $conexao->query($sqlSelect);
+                $lista_msg = mysqli_fetch_all(myslqi_result$resultado);
 
                 while($lista_msg = mysqli_fetch_assoc($result))
                 {
