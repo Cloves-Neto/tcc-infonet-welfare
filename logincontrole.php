@@ -24,7 +24,7 @@ try {
             header('Location: ./home/home-adm.php');
             exit;
         } elseif ($usuario['cargo_funcionario'] == '2') {
-            header('Location: ./home/home.php');
+            header('Location: ../home/home.php');
             exit;
         } elseif ($usuario['cargo_funcionario'] == '3') {
             header('Location: ./home/home.php');
