@@ -13,7 +13,7 @@
 <body>
     <main class="container">
         <!-- Seção-Esquerda | contém o formulário de Login-->
-        <form class="login secao-esquerda" id="cadastrar" name="cadastrar" method="get" action="controleregistro.php" autocomplete="on">
+        <form class="login secao-esquerda" id="cadastrar" name="cadastrar" method="" action="controleregistro.php" autocomplete="on">
             <!-- Conteúdo superior do formulario | dados da Sessão -->
             <div class="wrapper  interativo-container">
                 <!-- Container-Título -->
@@ -54,9 +54,6 @@
                                 <option value="">...</option>
                                 <option value="1">Recpcionista</option>
                                 <option value="2">Médico</option>
-                                <option value="3">Farmaceutico</option>
-                                <option value="4">Dev Admiministrador</option>
-                                <option value="5">Limpeza</option>
                             </Select>
                         </label>
                         <!-- Container-Senha -->
@@ -66,11 +63,12 @@
                         </label>
                     </section>
                 </div>
+                <h2></h2>
             </div>
             <!-- Conteúdo inferior do formulario | Submit e Registrar nova conta -->
             <div class="wrapper  submit_container">
                 <!-- Botão de enviar o formulario | Submit --> 
-                <input type="submit" id="cadastrar" class="login_button" onclick="Cadastrar()" value="Cadastrar" disabled>
+                <input type="submit" id="cadastrar" class="login_button" value="Cadastrar" disabled>
                     
                 <!-- Link para registrar nova conta | Página de registro -->
                 <a href="#" class="login_link">Já possui um acesso? <span>Faça login</span></a> 
@@ -92,34 +90,29 @@
 
 <script>
 $(document).ready(function() {
+    $('#cadastrar').submit(function(event) {
+        event.preventDefault(); // Evita o comportamento padrão do formulário
 
-    $('#cadastrar').click(function() {
-        var dados = $('#cadastrar').serialize();
+        var dados = $(this).serialize();
 
         $.ajax({
             method: 'GET',
             url: 'controleregistro.php',
             data: dados,
-
-            beforeSend: function()
-            {
-            $("h2").html ("Processo em andamento.");
+            beforeSend: function() {
+                $("#resposta").html("Processo em andamento...");
             }
-
-    })})
-
-    .done(function(msg)
-    {
-        $("h2").html("Retorno da Inclusdo...");
-        $("#resposta").html(msg);
-        alert ("Dados cadastrados com sucesso!");
-    })
-
-    .fail(function(){
-        alert("Falha na Inclusao");
-    })
-
-return false;
+        })
+        .done(function(msg) {
+            $("#resposta").html("Retorno da Inclusão...");
+            $("#resposta").html(msg);
+            alert("Dados cadastrados com sucesso!");
+        })
+        .fail(function() {
+            alert("Falha na Inclusão");
+        });
+    });
 });
+
 </script>
 </body>
