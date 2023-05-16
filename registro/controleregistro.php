@@ -23,11 +23,6 @@ try
 
     if($Comando->rowCount() > 0)
     {
-        $nome = null;
-        $email = null;
-        $cpf = null;
-        $cargo = null;
-        $senha = null;
 
         $RetornoJSON = "Inclusão efetuada com sucesso!";
     }

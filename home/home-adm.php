@@ -132,17 +132,7 @@ if (!isset($_SESSION['email_funcionario'])) {
                                 </div>";
                             }
                         ?>
-                        <div class="linha">
-                            <aside class="perfil">
-                                <img src="../assets/user.png" alt="imagem perfil">
-                            </aside>
-                            <section class="indice">
-                                <p class="nome">André Fonseca</p>
-                                <small class="email"><span>email: </span> andre.f@email.com</small> 
-                                <br>
-                                <small class="ramal"><span>ramal: </span> 1023</small>
-                            </section>
-                        </div>
+
                     </section>
                 <!-- Area dos botões informativos -->
                     <section class="btns">
