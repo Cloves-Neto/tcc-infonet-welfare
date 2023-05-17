@@ -2,11 +2,11 @@
 session_start();
 
 // Verifica se o usuário está logado
-if (!isset($_SESSION['email_funcionario'])) {
-  // Se não estiver logado, redireciona o usuário para a página de login
-  header('Location: index.php');
-  exit;
-}
+// if (!isset($_SESSION['email_funcionario'])) {
+//   // Se não estiver logado, redireciona o usuário para a página de login
+//   header('Location: index.php');
+//   exit;
+// }
 ?>
 
 <!-- HOME RECEPÇÃO -->
@@ -14,7 +14,7 @@ if (!isset($_SESSION['email_funcionario'])) {
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <link rel="stylesheet" href="home-style.css">
+    <link rel="stylesheet" href="../home/homestyle/home-style.css">
     <meta charset="UTF-8">
   </head>
   <body>

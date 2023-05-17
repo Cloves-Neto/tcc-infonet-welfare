@@ -93,19 +93,16 @@ exit;
 
                                     //==============RETORNA DADOS DO BD EM ARRAY=================//  
 
-                            
                                             include_once('../a/conexao.php');
                                         
                                             $bd = new ConexaoBd();
                                             $pdo = $bd->getconexao();
                                             $query = "SELECT * FROM salvamsg";
-
-                                        
                                             
                                             $buscarmsg = $pdo->prepare($query);
-
+                                            
                                             $buscarmsg->execute();
-
+                                            
                                             while($msg = $buscarmsg->fetch(PDO::FETCH_ASSOC)){
                                             echo "
                                             <div class='carousel-item msgCard slidePrincipal'>
