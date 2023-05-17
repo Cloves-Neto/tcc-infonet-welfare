@@ -80,20 +80,11 @@ exit;
                     <div class="banner">
                         <!-- Lista de mensagens -->
                         <div id="carouselExampleSlidesOnly" class="carousel slide msgSlide" data-bs-ride="carousel">
-                            <div class="carousel-inner msgContainer">
+                            <div class="carousel-inner msgContainer" id="msgContainer">
                                 <div class="carousel-item active msgCard slide-principal">
                                         <p>Centro de mensagens e atualizações!</p>
                                 </div>
-                                <!-- Essa parte da mensagem deve ser buscada por AJAX pois a requisição esta deixando a página lenta -->
-                                <?php
-                                    $exibe_msg = $executaHome->exibeMensagem();
-                                    while($exibe_msg){
-                                            echo'
-                                            <div class="carousel-item msgCard">
-                                                <p>'.$exibe_msg['msg'].'</p>
-                                            </div>';
-                                    }
-                                ?>
+                                
                             </div>
                             <!-- Indicador de slide -->
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -148,5 +139,24 @@ exit;
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+
+        $.ajax({
+            url: "metodo.php",
+            method: "post",
+            data: "metodo=Listar_msg",
+            beforeSend:function(){
+
+            },
+            success: function(data){
+                $('#msgContainer').html(data);
+            }
+        });
+
+    
+    });
+</script>
 </body>
 </html>

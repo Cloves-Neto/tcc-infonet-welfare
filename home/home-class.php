@@ -42,21 +42,21 @@ class executaHome{
     }
 
 
-    public function exibeMensagem(){
+    // public function exibeMensagem(){
 
-        $bd = new ConexaoBd();
-        $pdo = $bd->getconexao(); 
+    //     $bd = new ConexaoBd();
+    //     $pdo = $bd->getconexao(); 
 
-        $query = "SELECT * FROM salvamsg"; //query para ser executada no bd (substitui o valor do email teste pelo $SESSION['email_funcionario'])
+    //     $query = "SELECT * FROM salvamsg"; //query para ser executada no bd (substitui o valor do email teste pelo $SESSION['email_funcionario'])
 
-        $buscamsg = $pdo->prepare($query); // prepara a query criada para ser executada
+    //     $buscamsg = $pdo->prepare($query); // prepara a query criada para ser executada
 
-        $buscamsg->execute(); // executa a query preparada diretamente com o metodo de conexao da class
+    //     $buscamsg->execute(); // executa a query preparada diretamente com o metodo de conexao da class
 
-        $msg_data = $buscamsg->fetch(PDO::FETCH_ASSOC); // retorna os dados em array pela funcão 'fetch-ASSOC'   
-        // $msg_data $buscamsg->rowcount();
-        return $msg_data; 
-    }
+    //     $msg_data = $buscamsg->fetch(PDO::FETCH_ASSOC); // retorna os dados em array pela funcão 'fetch-ASSOC'   
+    //     // $msg_data $buscamsg->rowcount();
+    //     return $msg_data; 
+    // }
 
                                     // while($msg_data){
                                     //     echo'
