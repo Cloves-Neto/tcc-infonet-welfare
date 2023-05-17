@@ -79,23 +79,54 @@ exit;
                     
                     <div class="banner">
                         <!-- Lista de mensagens -->
-                        <div id="carouselExampleSlidesOnly" class="carousel slide msgSlide" data-bs-ride="carousel">
+                        <div id="carouselExampleAutoplaying" class="carousel slide msgSlide" data-bs-ride="carousel">
                             <div class="carousel-inner msgContainer" id="msgContainer">
-                                <div class="carousel-item active msgCard slide-principal">
-                                        <p>Centro de mensagens e atualizações!</p>
+                                <div class="carousel-item active msgCard slidePrincipal">
+                                    <p>Centro de mensagens e atualizações!</p>
                                 </div>
+
+                                <div class="carousel-item msgCard slidePrincipal">
+                                    <p>Atualizações!</p>
+                                </div>
+
+                                <?php
+
+                                    //==============RETORNA DADOS DO BD EM ARRAY=================//  
+
+                            
+                                            include_once('../a/conexao.php');
+                                        
+                                            $bd = new ConexaoBd();
+                                            $pdo = $bd->getconexao();
+                                            $query = "SELECT * FROM salvamsg";
+
+                                        
+                                            
+                                            $buscarmsg = $pdo->prepare($query);
+
+                                            $buscarmsg->execute();
+
+                                            while($msg = $buscarmsg->fetch(PDO::FETCH_ASSOC)){
+                                            echo "
+                                            <div class='carousel-item msgCard slidePrincipal'>
+                                                    <p>".$msg['msg']."</p>
+                                            </div>";
+                                            }
+
+                                    ?>
+
                                 
                             </div>
-                            <!-- Indicador de slide -->
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
-                        </div>
+                        </div> 
+
                         <!-- Ilustração -->
                         <figure class="figura">
                             <img src="" alt="imagem ilustrativa">
@@ -103,27 +134,65 @@ exit;
                         </figure>
                     </div>
             </header>
+            <?php
+            
+            //     echo'TESTE';
+            // exit;
+    
+                // include_once('../a/conexao.php');
+                
+                // $bd = new ConexaoBd();
+                // $pdo = $bd->getconexao();
+                // $query = "SELECT * FROM salvamsg";
+
+                
+                
+                // $buscarmsg = $pdo->prepare($query);
+
+                // $buscarmsg->execute();
+
+                // while($msg = $buscarmsg->fetch(PDO::FETCH_ASSOC)){
+                //     echo $msg['msg'];
+                // }
+                
+            
+            ?>
             <!-- Conteudo principal da página -->
             <main class="infomain">
                 <!-- Lista de ramal dos funcionarios -->
                     <section class="lista">
                         <?php
-                            // $query = "SELECT * FROM funcionario ORDER BY `id_funcionario`"; //query para ser executada no bd
-                            // while($user_data)
-                            // {
-                            //     echo "
-                            //         <div class='linha'>
-                            //         <aside class='perfil'>
-                            //             <img src='../assets/user.png' alt='imagem perfil'>
-                            //         </aside>
-                            //         <section class='indice'>
-                            //             <p class='nome'>".$user_data['nome_funcionario']."</p>
-                            //             <small class='email'><span>email: </span>".$user_data['email_funcionario']."</small> 
-                            //             <br>
-                            //             <small class='ramal'><span>ramal: </span>".$user_data['id_funcionario']."</small>
-                            //         </section>
-                            //     </div>";
-                            // }
+                        
+
+
+
+
+                           //==============RETORNA DADOS DO BD EM ARRAY=================//  
+
+                            include_once('../a/conexao.php');
+                    
+                            $bd = new ConexaoBd();
+                            $pdo = $bd->getconexao();
+                            $query = "SELECT * FROM funcionario ORDER BY id_funcionario";
+                            
+                            $buscarusuario = $pdo->prepare($query);
+                            $buscarusuario->execute();
+
+                            while($usuario = $buscarusuario->fetch(PDO::FETCH_ASSOC)){
+                            echo "
+                                <div class='linha'>
+                                    <aside class='perfil'>
+                                        <img src='../assets/user.png' alt='imagem perfil'>
+                                    </aside>
+                                    <section class='indice'>
+                                        <p class='nome'>".$usuario['nome_funcionario']."</p>
+                                        <small class='email'><span>email: </span>".$usuario['email_funcionario']."</small> 
+                                        <br>
+                                        <small class='ramal'><span>ramal: </span>".$usuario['id_funcionario']."</small>
+                                    </section>
+                                </div>";
+                            }
+
                         ?>
 
                     </section>
@@ -139,12 +208,11 @@ exit;
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-<script>
+<!-- <script>
     $(document).ready(function() {
 
         $.ajax({
-            url: "metodo.php",
+            url: "http://localhost/github-repo/welfare1.1/home/metodo.php",
             method: "post",
             data: "metodo=Listar_msg",
             beforeSend:function(){
@@ -157,6 +225,6 @@ exit;
 
     
     });
-</script>
+</script> -->
 </body>
 </html>

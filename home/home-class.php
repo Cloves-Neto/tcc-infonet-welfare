@@ -21,6 +21,7 @@ class executaHome{
 
 
 
+    // ============RETORNA O NOME DO USUARIO LOGADO FAZENDO A VERIFICAÇÃO DO EMAIL===============//
 
     public function buscaNome(){
 
@@ -42,29 +43,43 @@ class executaHome{
     }
 
 
-    // public function exibeMensagem(){
+    // //==============RETORNA DADOS DO BD EM ARRAY=================//  
 
-    //     $bd = new ConexaoBd();
-    //     $pdo = $bd->getconexao(); 
+    // public function buscaDados(){
 
-    //     $query = "SELECT * FROM salvamsg"; //query para ser executada no bd (substitui o valor do email teste pelo $SESSION['email_funcionario'])
+    //     $bd = new ConexaoBd(); //seleciona a class do do conexao.php 
+    //     $pdo = $bd->getconexao(); // busca o método criado para conexão com o bd
 
-    //     $buscamsg = $pdo->prepare($query); // prepara a query criada para ser executada
+    //     $query ="SELECT * FROM funcionario"; //Busca e compara dados do bd com o session
+        
+    //     $buscarusuario = $pdo->prepare($query); // prepara a query criada para ser executada
+        
+    //     $buscarusuario->execute(); // executa a query preparada diretamente com o metodo de conexao da class
+    //     $user_data = $buscarusuario->fetch(PDO::FETCH_ASSOC); // retorna os dados em array pela funcão 'fetch-ASSOC'
 
-    //     $buscamsg->execute(); // executa a query preparada diretamente com o metodo de conexao da class
-
-    //     $msg_data = $buscamsg->fetch(PDO::FETCH_ASSOC); // retorna os dados em array pela funcão 'fetch-ASSOC'   
-    //     // $msg_data $buscamsg->rowcount();
-    //     return $msg_data; 
+    //     return $user_data;
     // }
 
-                                    // while($msg_data){
-                                    //     echo'
-                                    //     <div class="carousel-item active msgCard">
-                                    //         <p>'.$msg_data['msg'].'</p>
-                                    //     </div>
-                                    //     ';
-                                    // }
+
+
+    // ================BUSCA OS DADOS SALVOS DE MENSAGENS NO BD=========//
+    public function exibeMensagem(){
+
+        $bd = new ConexaoBd();
+        $pdo = $bd->getconexao(); 
+
+        $query = "SELECT * FROM salvamsg"; //query para ser executada no bd (substitui o valor do email teste pelo $SESSION['email_funcionario'])
+
+        $buscamsg = $pdo->prepare($query); // prepara a query criada para ser executada
+
+        $buscamsg->execute(); // executa a query preparada diretamente com o metodo de conexao da class
+
+        $msg_data = $buscamsg->fetch(PDO::FETCH_ASSOC); // retorna os dados em array pela funcão 'fetch-ASSOC'   
+
+        return $msg_data; 
+    }
+
+
 
 }
 
