@@ -51,6 +51,7 @@ class Mensagem
         $conn = $bd->getconexao();
         $msg = $this->Id;
         $query = "DELETE FROM salvamsg WHERE id_msg=?";
+        
         $stm = $conn->prepare($query);
         $stm->bindValue(1,$msg);
 
