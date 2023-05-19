@@ -85,35 +85,29 @@
 <script nomodule src="https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script>
 $(document).ready(function() {
-
-    $('#entrar').click(function() {
-        var dados = $('#entrar').serialize();
-
+    $('#login').submit(function(event) {
+        event.preventDefault(); // Evita o envio tradicional do formulário
+        var dados = $(this).serialize();
+        
         $.ajax({
             method: 'post',
             url: 'logincontrole.php',
             data: dados,
-
-            beforeSend: function()
-            {
-            $("h2").html ("Processo em andamento.");
+            beforeSend: function() {
+                $("h2").html("Processo em andamento.");
             }
-
-    })})
-
-    .done(function(msg)
-    {
-        $("h2").html("Retorno do login...");
-        $("#resposta").html(msg);
-        alert ("Login Valido");
-    })
-
-    .fail(function(){
-        alert("Falha ao acessar, tente novamente");
-    })
-
-return false;
+        })
+        .done(function(msg) {
+            $("h2").html("Retorno do login...");
+            $("#resposta").html(msg);
+            alert("Login válido");
+        })
+        .fail(function() {
+            alert("Falha ao acessar, tente novamente");
+        });
+    });
 });
+
 </script>
 </body>
 

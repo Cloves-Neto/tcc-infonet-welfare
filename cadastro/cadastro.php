@@ -78,7 +78,7 @@
 
         <div id="popup" class="popup cadastro" >
                 <!-- Formulario de cadastro paciente -->
-                <form  method="post" action="cadastrar.php">
+                <form  method="get" action="cadastrar.php">
                     <!-- wrap linha com os dados do form de cadastro  -->
                     <div class="wrap">
                         <h5>Informações Paciente</h5>
@@ -157,7 +157,7 @@
                         </label>
                     </div>
                     <!-- BOTÃO CADASTRAR -->
-                    <input type="submit" id="salvar" name="salvar" value="salvar">
+                    <input type="submit" id="cadastrar" name="cadastrar" value="cadastrar">
                     <input type="button" value="Fechar" id="fecha" onclick="voltar()">
                 </form>
         </div>
@@ -170,6 +170,38 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+<script>
+$(document).ready(function() {
+
+    $('#cadastrar').submit(function() {
+        var dados = $('#cadastrar').serialize();
+
+        $.ajax({
+            method: 'post',
+            url: 'logincontrole.php',
+            data: dados,
+
+            beforeSend: function()
+            {
+            $("h2").html ("Processo em andamento.");
+            }
+
+    })})
+
+    .done(function(msg)
+    {
+        $("h2").html("Retorno do login...");
+        $("#resposta").html(msg);
+        alert ("Login Valido");
+    })
+
+    .fail(function(){
+        alert("Falha ao acessar, tente novamente");
+    })
+
+return false;
+});
+</script>
 <script>
     const  cadastrar = document.getElementById('cadastra');
     const fechar = document.getElementById('fecha');
