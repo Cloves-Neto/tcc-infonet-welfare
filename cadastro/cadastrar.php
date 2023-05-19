@@ -1,24 +1,24 @@
 <?php
 require_once '../conexao.php';
 
-$nome_paciente = $_POST["nome_paciente"];
-$dt_nascimento_paciente = $_POST["dt_nascimento_paciente"];
-$cpf_paciente = $_POST["cpf_paciente"];
-$rg_paciente = $_POST["rg_paciente"];
-$sexo_paciente = $_POST["sexo_paciente"];
-$contato_paciente = $_POST["contato_paciente"];
-$email = $_POST["email"];
-$nome_responsavel = $_POST["nome_responsavel"];
-$dt_nascimento_responsavel = $_POST["dt_nascimento_responsavel"];
-$cpf_responsavel = $_POST["cpf_responsavel"];
-$rg_responsavel = $_POST["rg_responsavel"];
-$sexo_responsavel = $_POST["sexo_responsavel"];
-$uf = $_POST["uf"];
-$logradouro = $_POST["logradouro"];
-$cep_paciente = $_POST["cep_paciente"];
-$numero_casa_paciente = $_POST["numero_casa_paciente"];
+$nome_paciente = $_GET["nome_paciente"];
+$dt_nascimento_paciente = $_GET["dt_nascimento_paciente"];
+$cpf_paciente = $_GET["cpf_paciente"];
+$rg_paciente = $_GET["rg_paciente"];
+$sexo_paciente = $_GET["sexo_paciente"];
+$contato_paciente = $_GET["contato_paciente"];
+$email = $_GET["email"];
+$nome_responsavel = $_GET["nome_responsavel"];
+$dt_nascimento_responsavel = $_GET["dt_nascimento_responsavel"];
+$cpf_responsavel = $_GET["cpf_responsavel"];
+$rg_responsavel = $_GET["rg_responsavel"];
+$sexo_responsavel = $_GET["sexo_responsavel"];
+$uf = $_GET["uf"];
+$logradouro = $_GET["logradouro"];
+$cep_paciente = $_GET["cep_paciente"];
+$numero_casa_paciente = $_GET["numero_casa_paciente"];
 
-
+try {
     $Comando = $conexao->prepare("INSERT INTO paciente (nome_paciente, dt_nascimento_paciente, cpf_paciente, rg_paciente, sexo_paciente, contato_paciente, email,
     nome_responsavel, dt_nascimento_responsavel, cpf_responsavel, rg_responsavel, sexo_responsavel, uf, logradouro, cep_paciente, numero_casa_paciente)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -44,6 +44,3 @@ $numero_casa_paciente = $_POST["numero_casa_paciente"];
     } else {
         $RetornoJSON = "Erro ao tentar efetivar cadastro";
     }
-
-
-?>
