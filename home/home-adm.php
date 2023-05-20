@@ -45,7 +45,7 @@ exit;
                     <a href="../mensagem/mensagem.php">Mensagem</a>
                 </li>
                 <li>
-                    <a href="../cadastro/cadastro.php">Paciente</a>
+                    <a href="../cadastro/cadastrarpac.php">Paciente</a>
                 </li>
                 
                 <li>

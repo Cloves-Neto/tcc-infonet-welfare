@@ -1,6 +1,6 @@
 <?php
 
-include '../a/conexao.php';
+require_once '../conexao.php';
 
 if(isset($_GET["nome_funcionario"])){$nome=$_GET["nome_funcionario"];}
 if(isset($_GET["email_funcionario"])){$email=$_GET["email_funcionario"];}
@@ -23,12 +23,6 @@ try
 
     if($Comando->rowCount() > 0)
     {
-        $nome = null;
-        $email = null;
-        $cpf = null;
-        $cargo = null;
-        $senha = null;
-
         $RetornoJSON = "Inclusão efetuada com sucesso!";
     }
     else
