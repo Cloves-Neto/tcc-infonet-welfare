@@ -12,26 +12,58 @@
 <h2>Tabela de Dados</h2>
 <table>
     <tr>
-        <th>Nome</th>
+        <th>Nome do Paciente</th>
+        <th>Data de Nascimento</th>
+        <th>CPF Paciente</th>
+        <th>RG Paciente</th>
+        <th>Sexo</th>
+        <th>Contato</th>
         <th>Email</th>
+        <th>Nome Responsável</th>
+        <th>Data de Nascimento</th>
+        <th>CPF Responsável</th>
+        <th>RG Responsável</th>
+        <th>Sexo</th>
+        <th>UF</th>
+        <th>Logadouro</th>
+        <th>CEP</th>
+        <th>N°</th>
+
     </tr>
     <?php
-    require "../conexao.php";
+require "../conexao.php";
 
-    $query = "SELECT * FROM paciente";
-    $result = $conexao->query($query);
+$query = "SELECT * FROM paciente WHERE id_paciente";
+$result = $conexao->query($query);
 
-    if ($result->num_rows > 0) { 
-        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            echo "<tr>";
-            echo "<td>" . $row["nome_paciente"] . "</td>";
-            echo "<td>" . $row["email_paciente"] . "</td>";
-            echo "</tr>";
-        }
-    } else {
-        echo "<tr><td colspan='2'>Nenhum resultado encontrado.</td></tr>";
+$rows = $result->fetchAll(PDO::FETCH_ASSOC);
+
+if (count($rows) > 0) {
+    foreach ($rows as $row) {
+        echo "<tr>";
+        echo "<td>" . $row["nome_paciente"] . "</td>";
+        echo "<td>" . $row["dt_nascimento_paciente"] . "</td>";
+        echo "<td>" . $row["cpf_paciente"] . "</td>";
+        echo "<td>" . $row["rg_paciente"] . "</td>";
+        echo "<td>" . $row["sexo_paciente"] . "</td>";
+        echo "<td>" . $row["contato_paciente"] . "</td>";
+        echo "<td>" . $row["email"] . "</td>";
+        echo "<td>" . $row["nome_responsavel"] . "</td>";
+        echo "<td>" . $row["dt_nascimento_responsavel"] . "</td>";
+        echo "<td>" . $row["cpf_responsavel"] . "</td>";
+        echo "<td>" . $row["rg_responsavel"] . "</td>";
+        echo "<td>" . $row["sexo_responsavel"] . "</td>";
+        echo "<td>" . $row["uf"] . "</td>";
+        echo "<td>" . $row["logadouro"] . "</td>";
+        echo "<td>" . $row["cep_paciente"] . "</td>";
+        echo "<td>" . $row["numero_casa_paciente"] . "</td>";
+        echo "</tr>";
     }
-    ?>
+} else {
+    echo "<tr><td colspan='2'>Nenhum resultado encontrado.</td></tr>";
+}
+?>
+
 </table>
     <form method="post" action="" id="cad_pac" name="cad_pac">
         <!-- wrap linha com os dados do form de cadastro  -->
