@@ -26,7 +26,7 @@
 .lista{
     overflow: hidden;
     overflow-y: scroll;
-    border: solid 2px aqua;
+    border: solid 2px rgb(210, 252, 252);
     border-radius: 5px;
     
 }

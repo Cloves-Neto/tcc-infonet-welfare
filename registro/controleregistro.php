@@ -1,39 +1,31 @@
 <?php
-
 require_once '../conexao.php';
 
-if(isset($_GET["nome_funcionario"])){$nome=$_GET["nome_funcionario"];}
-if(isset($_GET["email_funcionario"])){$email=$_GET["email_funcionario"];}
-if(isset($_GET["cpf_funcionario"])){$cpf=$_GET["cpf_funcionario"];}
-if(isset($_GET["cargo_funcionario"])){$cargo=$_GET["cargo_funcionario"];}
-if(isset($_GET["senha_funcionario"])){$senha=$_GET["senha_funcionario"];}
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $nome_funcionario = isset($_POST["nome_funcionario"]) ? $_POST["nome_funcionario"] : "";
+    $email_funcionario = isset($_POST["email_funcionario"]) ? $_POST["email_funcionario"] : "";
+    $cpf_funcionario = isset($_POST["cpf_funcionario"]) ? $_POST["cpf_funcionario"] : "";
+    $cargo_funcionario = isset($_POST["cargo_funcionario"]) ? $_POST["cargo_funcionario"] : "";
+    $senha_funcionario = isset($_POST["senha_funcionario"]) ? $_POST["senha_funcionario"] : "";
 
-try
-{
-    
-    $Comando=$conexao->prepare("INSERT INTO funcionario (nome_funcionario, email_funcionario, cpf_funcionario, cargo_funcionario, senha_funcionario) 
-    VALUES (?, ?, ?, ?, ?)");
-    $Comando->bindParam(1, $nome);
-    $Comando->bindParam(2, $email);
-    $Comando->bindParam(3, $cpf);
-    $Comando->bindParam(4, $cargo);
-    $Comando->bindParam(5, $senha);
+    try {
+        $Comando = $conexao->prepare("INSERT INTO funcionario (nome_funcionario, email_funcionario, cpf_funcionario, cargo_funcionario, senha_funcionario)
+        VALUES (?, ?, ?, ?, ?)");
+        $Comando->bindParam(1, $nome_funcionario);
+        $Comando->bindParam(2, $email_funcionario);
+        $Comando->bindParam(3, $cpf_funcionario);
+        $Comando->bindParam(4, $cargo_funcionario);
+        $Comando->bindParam(5, $senha_funcionario);
 
-    $Comando->execute();
-
-    if($Comando->rowCount() > 0)
-    {
-        $RetornoJSON = "Inclusão efetuada com sucesso!";
+        if ($Comando->execute()) {
+            $RetornoJSON = json_encode(array('success' => true));
+        } else {
+            $RetornoJSON = json_encode(array('success' => false));
+        }        
+    } catch (PDOException $erro) {
+        $RetornoJSON = "Erro: " . $erro->getMessage();
     }
-    else
-    {
-        $RetornoJSON = "Erro ao tentar efetivar cadastro";
-    }
-}
-catch (PDOException $erro)
-{
-    $RetornoJSON = "Erro:" . $erro->getMessage();
-}
 
-echo $RetornoJSON;
+    echo $RetornoJSON;
+}
 ?>

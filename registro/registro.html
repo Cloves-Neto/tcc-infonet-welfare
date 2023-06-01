@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welfare | Registro </title>
     <link rel="stylesheet" href="./registro.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 </head>
 <body>
     <main class="container">
         <!-- Seção-Esquerda | contém o formulário de Login-->
-        <form class="login secao-esquerda" id="cadastrar" name="cadastrar" method="get" action="controleregistro.php" autocomplete="on">
+        <form class="login secao-esquerda" id="cadastrar" name="cadastrar" method="post" action="" autocomplete="on">
             <!-- Conteúdo superior do formulario | dados da Sessão -->
             <div class="wrapper  interativo-container">
                 <!-- Container-Título -->
@@ -91,33 +90,32 @@
 <script>
 $(document).ready(function() {
 
-    $('#cadastrar').click(function() {
-        var dados = $('#cadastrar').serialize();
+$('#cadastrar').submit(function(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
 
-        $.ajax({
-            method: 'GET',
-            url: 'controleregistro.php',
-            data: dados,
+    var dados = new FormData(this); // Serializa os dados do formulário
 
-            beforeSend: function()
-            {
-            $("h2").html ("Processo em andamento.");
-            }
-
-    })})
-
-    .done(function(msg)
-    {
-        $("h2").html("Retorno da Inclusdo...");
+    $.ajax({
+        method: 'POST',
+        url: 'controleregistro.php',
+        data: dados,
+        contentType: false,
+        processData: false,
+        beforeSend: function() {
+            $("h2").html("Processo em andamento.");
+        }
+    })
+    .done(function(msg) {
+        $("h2").html("Retorno da Inclusão...");
         $("#resposta").html(msg);
-        alert ("Dados cadastrados com sucesso!");
+        alert("Dados cadastrados com sucesso!");
     })
-
-    .fail(function(){
-        alert("Falha na Inclusao");
-    })
-
-return false;
+    .fail(function() {
+        alert("Falha na inclusão");
+    });
 });
+
+});
+
 </script>
 </body>

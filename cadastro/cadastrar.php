@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $rg_responsavel = isset($_POST["rg_responsavel"]) ? $_POST["rg_responsavel"] : "";
     $sexo_responsavel = isset($_POST["sexo_responsavel"]) ? $_POST["sexo_responsavel"] : "";
     $uf = isset($_POST["uf"]) ? $_POST["uf"] : "";
-    $logadouro = isset($_POST["logadouro"]) ? $_POST["logadouro"] : "";
+    $logradouro = isset($_POST["logradouro"]) ? $_POST["logradouro"] : "";
     $cep_paciente = isset($_POST["cep_paciente"]) ? $_POST["cep_paciente"] : "";
     $numero_casa_paciente = isset($_POST["numero_casa_paciente"]) ? $_POST["numero_casa_paciente"] : "";
 
@@ -36,7 +36,7 @@ try {
     $Comando->bindParam(11, $rg_responsavel);
     $Comando->bindParam(12, $sexo_responsavel);
     $Comando->bindParam(13, $uf);
-    $Comando->bindParam(14, $logadouro);
+    $Comando->bindParam(14, $logradouro);
     $Comando->bindParam(15, $cep_paciente);
     $Comando->bindParam(16, $numero_casa_paciente);
 
@@ -49,8 +49,9 @@ try {
 catch (PDOException $erro)
 {
     $RetornoJSON = "Erro:" . $erro->getMessage();
+    echo $RetornoJSON;
 }
 
-echo $RetornoJSON;
+
 }
 ?>

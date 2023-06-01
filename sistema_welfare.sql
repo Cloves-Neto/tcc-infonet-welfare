@@ -1,7 +1,9 @@
 create database sistema_welfare;
 use sistema_welfare;
 show tables;
+select*from relatorio;
 
+/*Tela de login*/
 create table funcionario (
 id_funcionario int (4) unsigned zerofill not null unique auto_increment,
 nome_funcionario varchar (80) not null,
@@ -16,9 +18,10 @@ foreign key (cargo_funcionario) references cargo (cargo_funcionario)
 );
 insert into funcionario (id_funcionario, nome_funcionario, email_funcionario, senha_funcionario, cpf_funcionario, cargo_funcionario)
 values (1, 'Joao', 'admin@welfare.com', 'adm123456', '12345678900', 'administrador');
+/*Tela de login*/
 
 
-
+/*Tabela de cargos dos funcionarios inserido apenas os cargos presentes na empresa*/
 create table cargo (
 id_cargo int (4) unsigned zerofill not null unique auto_increment,
 cargo_funcionario varchar (40) not null, /*deve ser registrado apenas os cargos especificados no tipo_usuario*/
@@ -28,9 +31,9 @@ insert into cargo (id_cargo, cargo_funcionario) values
 (1, 'administrador'),
 (2, 'medico'),
 (3, 'recepcionista');
-select * from cargo;
+/*Tabela de cargos dos funcionarios inserido apenas os cargos presentes na empresa*/
 
-
+/*Especialidade de cada médico*/
 create table especialidade (
 id_especialidade int (4) unsigned zerofill not null unique auto_increment,
 tipo_especialidade varchar (50) not null,
@@ -49,12 +52,15 @@ insert into especialidade (id_especialidade, tipo_especialidade) values
 (10 ,'ortopedia e traumatologia'),
 (11 ,'pediatria'),
 (12 ,'urologia');
+/*Especialidade de cada médico*/
 
-
-
+/*Tabela de dados do paciente*/
 create table paciente (
 id_paciente int (3) unsigned zerofill not null unique auto_increment,
 nome_paciente varchar (80) not null,
+enfermidades varchar (50),
+medicamentos text,
+alergias text,
 nome_responsavel varchar (80),
 dt_nascimento_paciente date not null,
 dt_nascimento_responsavel date,
@@ -73,6 +79,9 @@ cep_paciente char (8) not null,
 numero_casa_paciente varchar (10),
 primary key (id_paciente)
 );
+/*Tabela de dados do paciente*/
+
+
 /*
 create table categoria (
 id_categoria int (5) unsigned zerofill not null auto_increment,
@@ -80,6 +89,8 @@ nome_categoria varchar (50) not null,
 primary key (id_categoria)
 );
 */
+
+/*Tabela agendamento do paciente/cliente feito pelo recepcionista*/
 create table agendamento (
 id_agendamento int (5) unsigned zerofill not null unique auto_increment,
 id_paciente int (3) not null,
@@ -95,6 +106,7 @@ foreign key (id_paciente) references paciente(id_paciente),
 foreign key (id_funcionario) references funcionario(id_funcionario),
 foreign key (id_especialidade) references especialidade(id_especialidade)
 );
+/*Tabela agendamento do paciente/cliente feito pelo recepcionista*/
 
 
 create table consulta (
@@ -106,7 +118,7 @@ nome_paciente varchar (80) not null,
 nome_responsavel varchar (80) not null,
 estado_consulta char (1) not null,
 tipo_consulta char (1) not null,
-relatorio_consulta text not null,
+relatorio_do_medico text not null,
 id_especialidade int (5) not null,
 dt_consulta date not null,
 receita_consulta varchar (50) not null,
@@ -118,8 +130,22 @@ foreign key (id_paciente) references paciente (id_paciente),
 foreign key (cargo_funcionario) references funcionario (cargo_funcionario)
 );
 
+/*
+join
+*/
+CREATE VIEW relatorio_gerado_medico AS
+SELECT p.id_paciente, p.nome_paciente, c.id_consulta, c.dt_consulta
+FROM paciente p
+INNER JOIN consulta c ON p.id_paciente = c.id_paciente;
+/*
+join
+*/
+
 create table pagamento_consulta (
 id_pagamento int (5) unsigned zerofill not null unique auto_increment,
+nome_pagador varchar (80) not null,
+cpf_pagador char (11) not null,
+status_pagamento enum('pago', 'pendente', 'cancelado') not null default 'pendente',
 id_funcionario int (4) not null,
 dt_consulta date not null,
 valor_consulta decimal (4,2),
@@ -127,18 +153,39 @@ primary key (id_pagamento),
 foreign key (id_funcionario) references funcionario(id_funcionario)
 );
 
+DELIMITER //
+CREATE TRIGGER atualizar_status_pagamento
+BEFORE INSERT ON movimento_consulta
+FOR EACH ROW
+BEGIN
+    DECLARE total_pago DECIMAL(4,2);
+    
+    SELECT SUM(valor_pago) INTO total_pago
+    FROM movimento_consulta
+    WHERE id_pagamento = NEW.id_pagamento;
+    
+    IF total_pago >= NEW.valor_consulta THEN
+        SET NEW.status_pagamento = 'pago';
+    ELSE
+        SET NEW.status_pagamento = 'pendente';
+    END IF;
+END //
+DELIMITER ;
+
+
 /*criação tabela movimento*/
 create table movimento_consulta (
 id_movimento int(5) unsigned zerofill not null unique auto_increment,
 id_pagamento int(5) not null,
+nome_pagador varchar (80) not null,
+cpf_pagador char (11) not null,
 id_funcionario int(4) not null,
 dt_consulta date not null,
 valor_pago decimal(4,2),
 status_pagamento enum('pago', 'pendente', 'cancelado') not null default 'pendente',
 primary key (id_movimento),
 foreign key (id_pagamento) references pagamento_consulta(id_pagamento),
-foreign key (id_funcionario) references funcionario(id_funcionario),
-foreign key (dt_consulta) references pagamento_consulta(dt_consulta)
+foreign key (id_funcionario) references funcionario(id_funcionario)
 );
 /*criação tabela movimento*/
 

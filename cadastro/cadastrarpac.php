@@ -54,7 +54,7 @@ if (count($rows) > 0) {
         echo "<td>" . $row["rg_responsavel"] . "</td>";
         echo "<td>" . $row["sexo_responsavel"] . "</td>";
         echo "<td>" . $row["uf"] . "</td>";
-        echo "<td>" . $row["logadouro"] . "</td>";
+        echo "<td>" . $row["logradouro"] . "</td>";
         echo "<td>" . $row["cep_paciente"] . "</td>";
         echo "<td>" . $row["numero_casa_paciente"] . "</td>";
         echo "</tr>";
@@ -133,7 +133,7 @@ if (count($rows) > 0) {
             </label><br>
             <label for="">
                 Logadouro
-                <input type="text" id="logadouro" name="logadouro">
+                <input type="text" id="logradouro" name="logradouro">
             </label><br>
             <label for="">
                 CEP
