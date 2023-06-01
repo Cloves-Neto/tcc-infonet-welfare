@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welfare | Agenda</title>
+    <style>
+        /* Reset */
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        *,
+        *::after,
+        *::before{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, 
+        blockquote:after,
+        q:before,
+        q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+
+        /* Formatação da Home */
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-size: 1rem !important;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            letter-spacing: 2px;
+
+        }
+        /* Organização container */
+        .granbox{
+            margin: auto;
+            padding: 15px;
+        
+            width: 100%;
+            max-width: 1440px;
+            height: 100vh;
+        
+            display: grid;
+            grid-template-areas: 'm i';
+            grid-template-columns: 200px calc(100% - 200px);
+            grid-template-rows: 100%;
+            gap: 10px;
+        
+        }
+        /* Organização aside - menu */
+        aside.menu{
+            grid-area: m;
+            background-color: rgb(81, 189, 138);
+            position: relative;
+            padding: 10px;
+            border-radius: 10px;
+        
+        }
+        aside.menu .user-profile{
+            width: 120px;
+            height: 120px;
+            margin-bottom: 10px;
+        }
+        
+        aside.menu .user-profile a{
+            display: block;
+            padding: 5px;
+            border-radius: 10pc;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;   
+        }
+        aside.menu .user-profile a img{
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+        }
+        aside.menu nav{
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            gap: 5px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        aside.menu nav ul{ 
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            gap: 30px;
+        }
+
+        /* Organização da section infosite - conteudo principal */
+        section.infosite{
+            grid-area: i;    
+            padding: 15px;
+            display: grid;
+            gap: 5px;
+            grid-template-areas: 
+            'ih'
+            'im';
+            grid-template-rows: 20% 80%;
+            grid-template-columns: 100%;
+        }   
+        section.infosite header{
+            grid-area: ih;
+            background-color: aqua;
+        }
+        section.infosite main{
+            grid-area: im;
+            background-color: cadetblue;
+            padding: 10px;
+        }
+        section.infosite main .cadastrar-area{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            height: 60px;
+            margin: 10px 0 20px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="granbox">
+        <aside class="menu">
+            <nav>
+                <div class="user-profile">
+                    <a href="#" aria-label="area de informaçãoes do usuario">
+                        <img class="img-perfil" src="../assets/user.png" alt="imagem de perfil do usuario">
+                    </a>
+                </div>
+                <ul>
+                    <li>
+                    <h2>Cadastro</h2>
+                    <ul>
+                            <!--   AREA DO ADMINISTRADOR
+                        <li>
+                        <a href="#">Cadastro Médico</a>
+                        </li> -->
+                        
+                        <li>
+                        <a href="#">Paciente</a>
+                        </li>
+                    <!--     AREA DO ADMINISTRADOR
+                        <li>
+                        <a href="#">Cadastro Especialidade</a>
+                        </li> -->
+                    </ul>
+                    </li>
+                    
+                    <li>
+                    <h2>Dados</h2>
+                    <ul>
+                        <li>
+                        <a href="#">Agenda</a>
+                        </li>
+
+                        <li>
+                        <a href="#">Relatório</a>
+                        </li>
+                        
+                        <li>
+                        <a href="#">Financeiro</a>
+                        </li>
+                    </ul>
+                    </li>
+                </ul>
+                <div class="exit">
+                    <a href="#">
+                    <ion-icon name="exit-outline"></ion-icon>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+        <section class="infosite">
+            <header>
+                <h2>Agenda</h2>
+            </header>
+            <main>
+                <div class="cadastrar-area">
+                    <input type="text" name="especialidade" id="especialidade" placeholder="Digite aqui a especialidade...">
+                    <input type="button" name="cadastrar" id="cadastrar" value="Cadastrar">
+
+                </div>
+                <div>
+                    <!-- row-data conteúdo gerado conforme SQL RowCount() ou método de verificação de dados no bd-->
+                    <div class="row-data">
+                        <span># 001</span>
+                        <span>Nome especialidade</span>
+                        <span><button>Excluir</button></span> <!-- botão chamando função para excluir especialidade-->
+                    </div>
+                    
+                </div>
+            </main>
+        </section>
+    </div>
+</body>
+</html>
