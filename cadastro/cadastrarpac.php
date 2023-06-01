@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
 </head>
 <body>
 <h2>Tabela de Dados</h2>
@@ -31,7 +33,7 @@
 
     </tr>
     <?php
-require "../conexao.php";
+require "./conexao.php";
 
 $query = "SELECT * FROM paciente WHERE id_paciente";
 $result = $conexao->query($query);
@@ -65,8 +67,8 @@ if (count($rows) > 0) {
 ?>
 
 </table>
+
     <form method="post" action="" id="cad_pac" name="cad_pac">
-        <!-- wrap linha com os dados do form de cadastro  -->
         <div>
         <h5>INFORMAÇÕES DO PACIENTE</h5>
             <label for="">
@@ -150,34 +152,35 @@ if (count($rows) > 0) {
         <input type="button" value="Fechar" id="fecha">
     </form>
 
-
     <script>
-        $(document).ready(function() {
-            $('#cad_pac').submit(function(event) {
-                event.preventDefault(); 
-                var dados = $(this).serialize();
-                
-                $.ajax({
-                    method: 'post',
-                    url: 'cadastrar.php',
-                    data: dados,
-                    beforeSend: function() {
-                        $("h2").html("Processo em andamento.");
-                    }
-                })
-                .done(function(msg) {
-                    $("h2").html("Retorno do cadastro..."); 
-                    $("#resposta").html(msg);
-                })
-                .fail(function() {
-                    alert("Falha ao acessar, tente novamente");
-                });
-            });
+$(document).ready(function() {
 
-            $('#fecha').click(function() {
-                // Lógica para fechar o formulário
-            });
+    $('#cad_pac').submit(function(event) {
+        event.preventDefault(); // Impede o envio padrão do formulário
+
+        var dados = new FormData(this); // Serializa os dados do formulário
+
+        $.ajax({
+            method: 'POST',
+            url: 'cadastrar.php',
+            data: dados,
+            contentType: false,
+            processData: false,
+            beforeSend: function() {
+                $("h2").html("Processo em andamento.");
+            }
+        })
+        .done(function(msg) {
+            $("h2").html("Retorno da Inclusão...");
+            $("#resposta").html(msg);
+            alert("Dados cadastrados com sucesso!");
+        })
+        .fail(function() {
+            alert("Falha na inclusão");
         });
-    </script>
+    });
+
+});
+</script>
 </body>
 </html>
