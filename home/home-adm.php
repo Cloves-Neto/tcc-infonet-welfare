@@ -59,7 +59,7 @@ exit;
                     <a href="../registro/registro.html">Funcionario</a>
                 </li>
                 <li>
-                    <a href="../agenda/agenda.php">Agenda</a>
+                    <a href="../agenda/agenda.html">Agenda</a>
                 </li>
                 <li>
                     <a href="../financeiro/financeiro.php">Financeiro</a>
