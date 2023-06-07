@@ -236,16 +236,42 @@
             <main>
                 <div class="select-area">
                     <select name="medico" id="medico">
-                        <option value="Yuji kogima">Yuji Kogima</option>
-                        <option value="Mauro Canheira">Mauro Canheira</option>
-                        <option value="Rubens Marley">Rubens Marley</option>
+                    <?php
+                        include_once('../a/conexao.php');
+
+                        $bd = new ConexaoBd();
+                        $pdo = $bd->getconexao();
+                        $query = "SELECT * FROM funcionario ORDER BY id_msg";
+
+                        $buscarusuario = $pdo->prepare($query);
+                        $buscarusuario->execute();
+
+                        while($usuario = $buscarusuario->fetch(PDO::FETCH_ASSOC)){
+                        echo '
+                        <div class="linha-exibe">
+                            <p class="dados-exibe">'.
+                                $usuario["msg"]
+                            .'</p>
+                            <a href="./exclui-mensagem.php?id='.$usuario["id_msg"].'" id="apagar" name="apagar" class="apagar">EXCLUIR</a>
+                        </div>
+                        <br>
+                        ';
+                        }
+                    ?>
+                        <option value="1">Yuji Kogima</option>
+                        <option value="2">Mauro Canheira</option>
+                        <option value="3">Rubens Marley</option>
                     </select>
-                    <select name="data" id="datat">
-                        <option value="dia">01/06/2023</option>
-                        <option value="dia">02/06/2023</option>
-                        <option value="dia">03/06/2023</option>
-                        <option value="dia">04/06/2023</option>
+                    <select name="data" id="data">
+                        <?php
+                        include_once('./controleagenda.php');
+                        
+                        for($item = 0; $item<60; $item++){
+                            echo'<option>'. $dataAgenda[$item] .'</option>';
+                        }
+                        ?>
                     </select>
+
                 </div>
                 <div>
                     <!-- row-data conteúdo gerado conforme agendamento resgistrado -->
