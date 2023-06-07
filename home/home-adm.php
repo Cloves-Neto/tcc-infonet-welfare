@@ -1,19 +1,20 @@
 <?php
     include_once('../home/home-controle.php'); 
 
+    session_start();
+
+  //  Verifica se o usuário está logado
+    if (!isset($_SESSION['email_funcionario'])) {
+ //   Se não estiver logado, redireciona o usuário para a página de login
+    header('Location: index.php');
+    exit;
+    } 
+    
+    $_SESSION['email_funcionario']
 
 
 ?>
-<!-- session_start();
 
-// Verifica se o usuário está logado
-if (!isset($_SESSION['email_funcionario'])) {
-// Se não estiver logado, redireciona o usuário para a página de login
-header('Location: index.php');
-exit;
-} -->
-
-<!-- $_SESSION['email_funcionario'] -->
 
 
 

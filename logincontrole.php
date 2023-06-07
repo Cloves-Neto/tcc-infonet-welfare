@@ -20,7 +20,7 @@ try {
         $_SESSION['email_funcionario'] = $usuario['email_funcionario'];
         $_SESSION['senha_funcionario'] = $usuario['senha_funcionario'];
 
-        if ($usuario['cargo_funcionario'] == 'administrador') {
+        if ($usuario['cargo_funcionario'] == '1') {
             header('Location: ./home/home-adm.php');
             exit;
         } elseif ($usuario['cargo_funcionario'] == '2') {
