@@ -43,7 +43,7 @@
                 
                 <?php
 
-                    include_once('../a/conexao.php');
+                    include_once('../conexao.php');
                 
                     $bd = new ConexaoBd();
                     $pdo = $bd->getconexao();

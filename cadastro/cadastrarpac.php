@@ -8,6 +8,7 @@
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="cadastrarpac.css">
 
 </head>
 <body>
@@ -49,7 +50,7 @@ if (count($rows) > 0) {
         echo "<td>" . $row["cep_paciente"] . "</td>";
         
         // Edit button
-        echo "<td><a href='edit_patient.php?id=" . $row["cpf_paciente"] . "'>Editar</a></td>";
+        echo "<td><a href='editar_cadastro.php?cpf_paciente=" . $row["cpf_paciente"] . "'>Editar</a></td>";
     
         // Delete button
         echo "<td><a href='delete_patient.php?id=" . $row["cpf_paciente"] . "'>Excluir</a></td>";
