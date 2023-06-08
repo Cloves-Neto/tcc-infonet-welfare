@@ -6,9 +6,6 @@ class Agenda{
 
 // Busca médico
 
-    public function(){
-        
-    }
 
 
 // Data 

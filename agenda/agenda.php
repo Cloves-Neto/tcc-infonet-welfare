@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -236,44 +236,38 @@
             <main>
                 <div class="select-area">
                     <select name="medico" id="medico">
-                    <?php
-                        include_once('../a/conexao.php');
-
-                        $bd = new ConexaoBd();
-                        $pdo = $bd->getconexao();
-                        $query = "SELECT * FROM funcionario ORDER BY id_msg";
-
-                        $buscarusuario = $pdo->prepare($query);
-                        $buscarusuario->execute();
-
-                        while($usuario = $buscarusuario->fetch(PDO::FETCH_ASSOC)){
-                        echo '
-                        <div class="linha-exibe">
-                            <p class="dados-exibe">'.
-                                $usuario["msg"]
-                            .'</p>
-                            <a href="./exclui-mensagem.php?id='.$usuario["id_msg"].'" id="apagar" name="apagar" class="apagar">EXCLUIR</a>
-                        </div>
-                        <br>
-                        ';
-                        }
-                    ?>
-                        <option value="1">Yuji Kogima</option>
-                        <option value="2">Mauro Canheira</option>
-                        <option value="3">Rubens Marley</option>
+                        <option value="5">teste</option>
+                        
                     </select>
+
                     <select name="data" id="data">
+                        <option value="5">10/02/2023</option>
                         <?php
                         include_once('./controleagenda.php');
-                        
                         for($item = 0; $item<60; $item++){
                             echo'<option>'. $dataAgenda[$item] .'</option>';
                         }
-                        ?>
+
+                    ?>
                     </select>
 
                 </div>
                 <div>
+                <?php
+                    include_once('../conexao.php');
+
+                    $query = "SELECT * FROM `funcionario` WHERE cargo_funcionario = 'medico'";
+                    $buscarusuario = $conexao->prepare($query);
+                    $buscarusuario->execute();
+                    
+                    while($funcionario = $buscarusuario->fetch(PDO::FETCH_ASSOC)){
+                        echo 
+                        '<div value="'.$funcionario["id_funcionario"].'">'.    
+                            $funcionario["nome_funcionario"].
+                        '</div>';
+                    }
+                    ?>
+                    
                     <!-- row-data conteúdo gerado conforme agendamento resgistrado -->
                     <div class="row-data">
                         <span>10:30</span>

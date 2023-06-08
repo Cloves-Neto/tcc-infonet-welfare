@@ -10,7 +10,6 @@ $classAgenda = new Agenda();
 // ---------------------------------------- //
 
 $dataAgenda = ($classAgenda->dataCount());
-$dataMedico = '';
-$infoConsulta = '';
+
 
 ?>
