@@ -1,16 +1,16 @@
 <?php
-    include_once('../home/home-controle.php'); 
+//     include_once('../home/home-controle.php'); 
 
-    session_start();
+//     session_start();
 
-  //  Verifica se o usuário está logado
-    if (!isset($_SESSION['email_funcionario'])) {
- //   Se não estiver logado, redireciona o usuário para a página de login
-    header('Location: index.php');
-    exit;
-    } 
+//   //  Verifica se o usuário está logado
+//     if (!isset($_SESSION['email_funcionario'])) {
+//  //   Se não estiver logado, redireciona o usuário para a página de login
+//     header('Location: index.php');
+//     exit;
+//     } 
     
-    $_SESSION['email_funcionario']
+//     $_SESSION['email_funcionario']
 
 
 ?>
@@ -68,6 +68,11 @@
                 <li>
                     <a href="../relatorio/relatorio.php">Relatório</a>
                 </li>
+                <li>
+                    <a href="#">
+                        <ion-icon name="exit-outline" style="color: white; "></ion-icon>
+                    </a>
+                </li>
             </ul>
             </nav>
         </aside>
@@ -76,7 +81,7 @@
             <!-- Header -->
             <header class="infoheader">
                 <!-- Banner de mensagens -->
-                    <h1 class="mensagem-usuario">Olá, seja bem-vindo <span id="nomeUsuario" name="nomeUsuario"><?php  echo $executaHome->buscaNome();?></span></h1>
+                    <h1 class="mensagem-usuario">Olá, seja bem-vindo <span id="nomeUsuario" name="nomeUsuario"><?php include_once('home-controle.php'); echo $dadoUsuario; ?></span></h1>
                     
                     <div class="banner">
                         <!-- Lista de mensagens -->
@@ -94,20 +99,20 @@
 
                                     //==============RETORNA DADOS DO BD EM ARRAY=================//  
 
-                                            include_once('../a/conexao.php');
+                                            require '../conexao.php';
                                         
-                                            $bd = new ConexaoBd();
-                                            $pdo = $bd->getconexao();
+                                            $bd = $conexao;
+
                                             $query = "SELECT * FROM salvamsg";
                                             
-                                            $buscarmsg = $pdo->prepare($query);
+                                            $buscarmsg = $bd->prepare($query);
                                             
                                             $buscarmsg->execute();
                                             
                                             while($msg = $buscarmsg->fetch(PDO::FETCH_ASSOC)){
                                             echo "
                                             <div class='carousel-item msgCard slidePrincipal'>
-                                                    <p>".$msg['msg']."</p>
+                                                    <p>" . $msg['msg'] . "</p>
                                             </div>";
                                             }
 
@@ -167,13 +172,13 @@
 
                            //==============RETORNA DADOS DO BD EM ARRAY=================//  
 
-                            include_once('../a/conexao.php');
+                            require ('../conexao.php');
                     
-                            $bd = new ConexaoBd();
-                            $pdo = $bd->getconexao();
+                            $bd = $conexao;
+
                             $query = "SELECT * FROM funcionario ORDER BY id_funcionario";
                             
-                            $buscarusuario = $pdo->prepare($query);
+                            $buscarusuario = $bd->prepare($query);
                             $buscarusuario->execute();
 
                             while($usuario = $buscarusuario->fetch(PDO::FETCH_ASSOC)){
@@ -206,6 +211,9 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <!-- <script>
     $(document).ready(function() {
 

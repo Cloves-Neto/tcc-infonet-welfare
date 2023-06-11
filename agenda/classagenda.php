@@ -1,12 +1,21 @@
 <?php
-// include_once('./a/conexao.php');
 
 
 class Agenda{
 
-// Busca médico
+// Busca médico 
+    
+public function buscaMedico(){
+        require "../conexao.php";
 
+        $query = "SELECT * FROM `funcionario` WHERE cargo_funcionario = 'medico' " ;
 
+        $buscarDados = $conexao->query($query);
+
+        $buscarDados->execute();
+
+        return $buscarDados;
+}
 
 // Data 
     public function dataCount(){
@@ -24,37 +33,6 @@ class Agenda{
 
 
 
-
-
-
-    // =======================================================
-
-    public function SalvaMensagem(){
-        
-        $bd = new ConexaoBd();
-        $conn = $bd->getconexao();
-        $msg = $this->Mensagem;
-        $query = "INSERT INTO salvamsg (msg) VALUES (?)";
-        
-        $stm = $conn->prepare($query);
-        $stm->bindValue(1,$msg);
-
-        $stm->execute();
-        return $stm->rowCount();
-    }
-
-    public function ExcluiMensagem(){
-        $bd = new ConexaoBd();
-        $conn = $bd->getconexao();
-        $msg = $this->Id;
-        $query = "DELETE FROM salvamsg WHERE id_msg=?";
-        
-        $stm = $conn->prepare($query);
-        $stm->bindValue(1,$msg);
-
-        $stm->execute();
-        return $stm->rowCount();        
-    }
 
 }
 

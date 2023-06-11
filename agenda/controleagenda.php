@@ -11,5 +11,7 @@ $classAgenda = new Agenda();
 
 $dataAgenda = ($classAgenda->dataCount());
 
+$buscaMedico = ($classAgenda->buscaMedico()); 
+
 
 ?>

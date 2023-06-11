@@ -65,7 +65,6 @@
             border-spacing: 0;
         }
 
-
         /* Formatação da Home */
         *{
             padding: 0;
@@ -159,21 +158,134 @@
         }   
         section.infosite header{
             grid-area: ih;
-            background-color: aqua;
+        }
+        section.infosite header h2{
+            font-size: 3rem !important;
+            font-weight: 600;
+            color: cadetblue;
+            letter-spacing: 1px;
+            margin-bottom: 0;
         }
         section.infosite main{
             grid-area: im;
+            position: relative;
             background-color: cadetblue;
-            padding: 10px;
+            border-bottom: solid 2px cadetblue;
+            overflow: hidden;
         }
         section.infosite main .select-area{
             width: 100%;
+            height: 60px;
+            background-color: white;
             display: flex;
+            gap: 10px;
             flex-direction: row;
             justify-content: flex-end;
-            height: 60px;
-            margin: 10px 0 20px 0;
         }
+        section.infosite main .select-area select{
+            width: 200px;
+            height: 40px;
+            padding-left: 5px;
+            color: cadetblue;
+            border: solid 2px cadetblue;
+            border-radius: 100px;
+        }
+
+
+        section.infosite main .area-agenda{
+            width: 100%;
+            height: 380px;
+            background-color: cadetblue;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 5px;
+        }
+        section.infosite main .area-agenda .area-scroll{
+            width: 100%;
+            overflow-y: scroll;
+            height: 100%;
+        }
+
+        section.infosite main .area-agenda .area-scroll .row-data{
+            width: 100%;
+            height: 60px !important;
+            padding: 0 5px 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            border: solid 2px cadetblue;
+            background-color: white;
+            display: flex;
+            gap: 5px;
+        }
+        section.infosite main .area-agenda .area-scroll .row-data span{
+            width: 20%;
+            height: 90%;
+            display: flex;
+            font-size: .8rem !important;
+            font-weight: 600;
+            align-items: center;
+            justify-content: center;
+            color: cadetblue;
+            border-left: solid 1px cadetblue;
+            overflow: hidden;
+        }
+        section.infosite main .area-agenda .area-scroll .row-data span:nth-child(1){
+            justify-content: center;
+            font-weight: 700;
+            background-color: cadetblue;
+            color: white;
+            border-radius: 5px;
+        }
+        section.infosite main .area-agenda .area-scroll .row-data.cabecalho span{
+            background-color: white;
+            justify-content: center;
+            border-left: solid 2px cadetblue;
+            color: cadetblue;
+            font-weight: 800;
+            padding: 5px;
+            font-size: 1rem !important;
+        }
+        section.infosite main .area-agenda .area-scroll .row-data.cabecalho span:nth-child(1){
+            border: transparent;
+            border-radius: 0;
+        }
+
+        .cancelar,
+        .agendar{
+            width: 60%;
+            height: 70%;
+            outline: none;
+            color: white;
+            padding: 0 2px 0 2px;
+            border: solid 2px transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: .2s;
+        }
+        .cancelar{
+            background-color: red;
+        }
+        .cancelar:hover{
+            background-color: white;
+            color: red;
+            border: solid 2px red;
+            transition: .2s;
+        }
+        .agendar{
+            background-color: green;
+        }
+        .agendar:hover{
+            background-color: white;
+            color: green;
+            border: solid 2px green;
+            transition: .2s;
+        }
+
+
+
+
 
     </style>
 </head>
@@ -234,53 +346,143 @@
                 <h2>Agenda</h2>
             </header>
             <main>
+                <!-- Select Area - listagem de datas e Médicos -->
                 <div class="select-area">
+                    <!-- Select - Medico Cadastrado no sistema -->
                     <select name="medico" id="medico">
-                        <option value="5">teste</option>
+                        <option value="">Selecione o médico...</option>
                         
-                    </select>
-
-                    <select name="data" id="data">
-                        <option value="5">10/02/2023</option>
                         <?php
-                        include_once('./controleagenda.php');
-                        for($item = 0; $item<60; $item++){
-                            echo'<option>'. $dataAgenda[$item] .'</option>';
-                        }
+                        
+                            include_once ('controleagenda.php');
+                            
+                            $buscaDados = $buscaMedico;
 
-                    ?>
+                            while($result = $buscaDados->fetch(PDO::FETCH_ASSOC)){
+                                echo 
+                                '<option value="'.$result["id_funcionario"].'">'.    
+                                    $result["nome_funcionario"].
+                                '</option>';
+                            }
+                        
+                        ?>
+                    </select>
+
+                    <!-- Select - Data lista -->
+                    <select name="data" id="data">
+                        <option value="5">Selecione a data...</option>
+                        
+                        <?php
+                            include_once('./controleagenda.php');
+
+                            for($item = 0; $item<60; $item++)
+                            {
+                                echo'<option>'. $dataAgenda[$item] .'</option>';
+                            }
+                        ?>
                     </select>
 
                 </div>
-                <div>
-                <?php
-                    include_once('../conexao.php');
+                <!-- Div - area de listagem de datas disponiveis e agendamentos marcados -->
+                <div class="area-agenda">
+                    <div class="area-scroll">
+                        <!-- Busca ibnfo dos horarios disponíveis e agendamentos marcados -->
+                        <?php
 
-                    $query = "SELECT * FROM `funcionario` WHERE cargo_funcionario = 'medico'";
-                    $buscarusuario = $conexao->prepare($query);
-                    $buscarusuario->execute();
-                    
-                    while($funcionario = $buscarusuario->fetch(PDO::FETCH_ASSOC)){
-                        echo 
-                        '<div value="'.$funcionario["id_funcionario"].'">'.    
-                            $funcionario["nome_funcionario"].
-                        '</div>';
-                    }
-                    ?>
-                    
-                    <!-- row-data conteúdo gerado conforme agendamento resgistrado -->
-                    <div class="row-data">
-                        <span>10:30</span>
-                        <span>Nome Paciente</span>
-                        <span><button>Cancelar</button></span> <!-- botão chamando função para excluir agendamendo-->
-                    </div>
-                    <!-- row-data conteúdo gerado conforme a disponibilidade se não tiver nenhum agendamento resgistrado -->
-                    <div class="row-data">
-                        <span>10:50</span>
-                        <span>Disponível</span>
-                        <span><button>Agendar</button></span> <!-- botão chamando função para fazer agendamendo / redireciona p/ outra página -->
+                        
+                        ?>
+                        <div class="row-data cabecalho">
+                            <span>Horario</span>
+                            <span>Paciente</span>
+                            <span>Contato</span>
+                            <span>Especialidade</span>
+                            <span>Médico</span>
+                            <span>Disponibilidade</span> <!-- botão chamando função para excluir agendamendo-->
+                        </div>
+                        <!-- row-data conteúdo gerado conforme agendamento resgistrado -->
+                        <div class="row-data">
+                            <span>10:30 - 11:00</span>
+                            <span>Andressa Moreira</span>
+                            <span>dessa@email.com</span>
+                            <span>Oftalmolofia</span>
+                            <span>Julia Vilha</span>
+                            <span><button class="cancelar">Cancelar</button></span> <!-- botão chamando função para excluir agendamendo-->
+                        </div>
+                        <!-- row-data conteúdo gerado conforme a disponibilidade se não tiver nenhum agendamento resgistrado -->
+                        <div class="row-data">
+                            <span>11:00 - 12:00</span>
+                            <span> --- </span>
+                            <span> --- </span>
+                            <span>Oftalmolofia</span>
+                            <span>Julia Vilha</span>
+                            <span><button class="agendar">Agendar</button></span> <!-- botão chamando função para fazer agendamendo / redireciona p/ outra página -->
+                        </div>
+
+                        <div class="row-data">
+                            <span>11:00 - 12:00</span>
+                            <span> --- </span>
+                            <span> --- </span>
+                            <span>Oftalmolofia</span>
+                            <span>Julia Vilha</span>
+                            <span><button class="agendar">Agendar</button></span> <!-- botão chamando função para fazer agendamendo / redireciona p/ outra página -->
+                        </div>
+
+                        <div class="row-data">
+                            <span>11:00 - 12:00</span>
+                            <span> --- </span>
+                            <span> --- </span>
+                            <span>Oftalmolofia</span>
+                            <span>Julia Vilha</span>
+                            <span><button class="agendar">Agendar</button></span> <!-- botão chamando função para fazer agendamendo / redireciona p/ outra página -->
+                        </div>
+
+                        <div class="row-data">
+                            <span>11:00 - 12:00</span>
+                            <span> --- </span>
+                            <span> --- </span>
+                            <span>Oftalmolofia</span>
+                            <span>Julia Vilha</span>
+                            <span><button class="agendar">Agendar</button></span> <!-- botão chamando função para fazer agendamendo / redireciona p/ outra página -->
+                        </div>
+
+                        <div class="row-data">
+                            <span>11:00 - 12:00</span>
+                            <span> --- </span>
+                            <span> --- </span>
+                            <span>Oftalmolofia</span>
+                            <span>Julia Vilha</span>
+                            <span><button class="agendar">Agendar</button></span> <!-- botão chamando função para fazer agendamendo / redireciona p/ outra página -->
+                        </div>
+
+                        <div class="row-data">
+                            <span>11:00 - 12:00</span>
+                            <span> --- </span>
+                            <span> --- </span>
+                            <span>Oftalmolofia</span>
+                            <span>Julia Vilha</span>
+                            <span><button class="agendar">Agendar</button></span> <!-- botão chamando função para fazer agendamendo / redireciona p/ outra página -->
+                        </div>
+
+                        <div class="row-data">
+                            <span>11:00 - 12:00</span>
+                            <span> --- </span>
+                            <span> --- </span>
+                            <span>Oftalmolofia</span>
+                            <span>Julia Vilha</span>
+                            <span><button class="agendar">Agendar</button></span> <!-- botão chamando função para fazer agendamendo / redireciona p/ outra página -->
+                        </div>
+
+                        <div class="row-data">
+                            <span>11:00 - 12:00</span>
+                            <span> --- </span>
+                            <span> --- </span>
+                            <span>Oftalmolofia</span>
+                            <span>Julia Vilha</span>
+                            <span><button class="agendar">Agendar</button></span> <!-- botão chamando função para fazer agendamendo / redireciona p/ outra página -->
+                        </div>
                     </div>
                 </div>
+                
             </main>
         </section>
     </div>

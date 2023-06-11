@@ -9,7 +9,7 @@
 
     $executaHome->setEmailFuncionario($email_funcionario);
 
-
+    $dadoUsuario = ($executaHome->buscaNome());
     
 ?>
 
