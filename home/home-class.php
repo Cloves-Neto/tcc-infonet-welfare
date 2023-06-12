@@ -40,9 +40,8 @@ class executaHome{
         
         $buscarusuario->execute(); // executa a query preparada diretamente com o metodo de conexao da class
         $user_data = $buscarusuario->fetch(PDO::FETCH_ASSOC); // retorna os dados em array pela funcão 'fetch-ASSOC'
-        $username = $user_data['nome_funcionario'];
-
-        return $username;
+        
+        return $user_data;
     }
 
 

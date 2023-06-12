@@ -37,10 +37,9 @@
         <aside class="menu">
             <nav>
             <div class="user-profile">
-                <a href="#" class="user-img" aria-label="area de informaçãoes do usuario">
+                <a href="../img/editar_foto.php" class="user-img" aria-label="area de informaçãoes do usuario">
                     <img src="../assets/user.png" alt="imagem de usuario">
                 </a>
-                <a href="../img/editar_foto.php">editar</a>
             </div>
             <ul>
                 <li>
@@ -50,9 +49,9 @@
                     <a href="../cadastro/cadastrarpac.php">Paciente</a>
                 </li>
                 
-                <li>
+                <!-- <li>
                     <a href="../especialidade/especialidade.php">Especialidade</a>
-                </li>
+                </li> -->
                 
                 <li>
                     <a href="../cargo/cargo.php">Cargo</a>
@@ -61,14 +60,14 @@
                     <a href="../registro/registro.html">Funcionario</a>
                 </li>
                 <li>
-                    <a href="../agenda/agenda.html">Agenda</a>
+                    <a href="../agenda/agenda.php">Agenda</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="../financeiro/financeiro.php">Financeiro</a>
                 </li>
                 <li>
                     <a href="../relatorio/relatorio.php">Relatório</a>
-                </li>
+                </li> -->
                 <li>
                     <a href="#">
                         <ion-icon name="exit-outline" style="color: white; "></ion-icon>
@@ -82,7 +81,7 @@
             <!-- Header -->
             <header class="infoheader">
                 <!-- Banner de mensagens -->
-                    <h1 class="mensagem-usuario">Olá, seja bem-vindo <span id="nomeUsuario" name="nomeUsuario"><?php include_once('home-controle.php'); echo $dadoUsuario; ?></span></h1>
+                    <h1 class="mensagem-usuario">Olá, seja bem-vindo <span id="nomeUsuario" name="nomeUsuario">João Lacerda</span></h1>
                     
                     <div class="banner">
                         <!-- Lista de mensagens -->
@@ -104,7 +103,7 @@
                                         
                                             $bd = $conexao;
 
-                                            $query = "SELECT * FROM salvamsg";
+                                            $query = "SELECT * FROM `mensagem`";
                                             
                                             $buscarmsg = $bd->prepare($query);
                                             
@@ -133,8 +132,8 @@
 
                         <!-- Ilustração -->
                         <figure class="figura">
-                            <img src="" alt="imagem ilustrativa">
-                            <figcaption class="none">imagem ilustrativa</figcaption>
+                            <!-- <img src="" alt="imagem ilustrativa"> -->
+                            <!-- <figcaption class="none">imagem ilustrativa</figcaption> -->
                         </figure>
                     </div>
             </header>
