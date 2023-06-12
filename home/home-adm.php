@@ -40,6 +40,7 @@
                 <a href="#" class="user-img" aria-label="area de informaçãoes do usuario">
                     <img src="../assets/user.png" alt="imagem de usuario">
                 </a>
+                <a href="../img/editar_foto.php">editar</a>
             </div>
             <ul>
                 <li>
