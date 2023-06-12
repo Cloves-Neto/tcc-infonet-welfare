@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,25 +11,20 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-    $(function() {
-        $("#edit-dialog").dialog({
-            autoOpen: false,
-            width: 400,
-            height: 300,
-            modal: true
-        });
+        $(function() {
+            $("#edit-dialog").dialog({
+                autoOpen: false,
+                width: 400,
+                height: 300,
+                modal: true
+            });
 
-        $(".edit-link").on("click", function(e) {
-            e.preventDefault();
-            var id = $(this).data("id_cargo");
-            $("#edit-dialog").dialog("open");
-            $("#edit-dialog").load("edit_cargo.php?id_cargo=" + id);
-        });
-
-        $(".delete-link").on("click", function(e) {
-            e.preventDefault();
-            var id = $(this).data("id_cargo");
-            confirmDelete(id);
+            $(".edit-link").on("click", function(e) {
+                e.preventDefault();
+                var id = $(this).data("id");
+                $("#edit-dialog").dialog("open");
+                $("#edit-dialog").load("editar_cargo.php?id=" + id);
+            });
         });
 
         function confirmDelete(id) {
@@ -36,10 +32,9 @@
 
             if (result) {
                 // Redireciona para delete_cargo.php com o ID selecionado
-                window.location.href = "delete_cargo.php?id_cargo=" + id;
+                window.location.href = "delete_cargo.php?id=" + id;
             }
         }
-    });
     </script>
 </head>
 <body>
@@ -101,8 +96,8 @@
                             foreach ($rows as $row) {
                                 echo "<tr>";
                                 echo "<td>" . $row["cargo_funcionario"] . "</td>";
-                                echo "<td><a href='edit_cargo.php?id=" . $row["id_cargo"] . "' class='edit-link'>Editar</a></td>";
-                                echo "<td><a href='#' class='delete-link' data-id='" . $row["id_cargo"] . "'>Excluir</a></td>";
+                                echo "<td><a href='#' onclick='openEditPopup(" . $row["id_cargo"] . ")'>Editar</a></td>";
+                                echo "<td><a href='#' onclick='confirmDelete(" . $row["id_cargo"] . ")'>Excluir</a></td>";
                                 echo "</tr>";
                             }
                         } else {
@@ -114,6 +109,10 @@
             </main>
         </section>
     </div>
-    <div id="edit-dialog" title="Editar Cargo" style="display: none;"></div>
+
+    <!-- Popup de Edição -->
+    <div id="editPopup" style="display: none;">
+        <input type="text" name="editCargo" id="editCargo" placeholder="Digite o cargo...">
+    </div>
 </body>
 </html>
