@@ -99,15 +99,16 @@
         /* Organização aside - menu */
         aside.menu{
             grid-area: m;
-            background-color: rgb(81, 189, 138);
+            background-color: cadetblue;
             position: relative;
             padding: 10px;
             border-radius: 10px;
         
         }
+
         aside.menu .user-profile{
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             margin-bottom: 10px;
         }
         
@@ -123,26 +124,72 @@
             height: 100%;   
         }
         aside.menu .user-profile a img{
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             object-fit: cover;
         }
         aside.menu nav{
+            width: 100%;
+            height: 100%;
             display: flex;
-            flex-direction: column;
             padding: 15px;
+            flex-direction: column;
             gap: 5px;
             justify-content: space-between;
             align-items: center;
         }
         aside.menu nav ul{ 
-            margin-top: 20px;
+            margin-top: 25px;
             display: flex;
             flex-direction: column;
             height: 100%;
             width: 100%;
-            gap: 30px;
+            gap: 20px;
         }
+        aside.menu nav ul li{
+            width: 100%;
+            height: 30px;
+            padding-left: 5px;
+            gap: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+        } 
+        aside.menu nav ul li ion-icon{
+            font-size: 1.4rem !important; 
+            color: white;
+            cursor: pointer;
+        }
+        aside.menu nav ul li:hover{
+            background-color: white;
+            border-radius: 5px;
+            transition: .2s;
+        }
+
+        aside.menu nav ul li:hover a,
+        aside.menu nav ul li:hover ion-icon{
+            color: cadetblue;
+        }
+        aside.menu nav a.sair{
+            width: 50px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            background-color: white;
+        }
+        aside.menu nav a.sair ion-icon{
+            color: cadetblue !important;
+            font-size: 1.6rem !important;
+            padding-left: 5px;
+        }
+            
+
+
+
+
 
         /* Organização da section infosite - conteudo principal */
         section.infosite{
@@ -190,8 +237,6 @@
             border: solid 2px cadetblue;
             border-radius: 100px;
         }
-
-
         section.infosite main .area-agenda{
             width: 100%;
             height: 380px;
@@ -283,6 +328,55 @@
             transition: .2s;
         }
 
+        .select-area button.agendar{
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            gap: 5%;
+            max-width: 200px;
+            font-weight: 500;
+            font-size: .8rem !important;
+            text-transform: uppercase;
+        }
+        .select-area button.agendar ion-icon{
+            font-size: 1.4rem !important;
+        }
+        .select-area .buscar-container{
+            width: 100%;
+            height: 70%;
+            border-radius: 10px;
+            background-color: white;
+            border: solid 2px cadetblue !important;
+            display: flex;
+            flex-direction: center;
+            justify-content: center;
+            padding: 2px;
+        }
+        .select-area .buscar-container input[type="search"]{
+            width: 100%;
+            border-radius: 10px;
+            outline: none;
+            background-color: white;
+            border: none;
+            padding-left: 5px;
+            padding-right: 5px;
+
+        }
+        .select-area .buscar-container button{
+            width: 10%;
+            border: none;
+            background-color: cadetblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+
+        }
+        .select-area .buscar-container button ion-icon{
+            color: white;
+            font-size: 1.4rem !important;
+        }
 
 
 
@@ -291,54 +385,40 @@
 </head>
 <body>
     <div class="granbox">
-        <aside class="menu">
+    <aside class="menu">
             <nav>
+
                 <div class="user-profile">
-                    <a href="#" aria-label="area de informaçãoes do usuario">
-                        <img class="img-perfil" src="../assets/user.png" alt="imagem de perfil do usuario">
+                    <a href="#" class="user-img" aria-label="area de informaçãoes do usuario">
+                        <img src="../assets/user.png" alt="imagem de usuario">
                     </a>
                 </div>
+
                 <ul>
                     <li>
-                    <h2>Cadastro</h2>
-                    <ul>
-                            <!--   AREA DO ADMINISTRADOR
-                        <li>
-                        <a href="#">Cadastro Médico</a>
-                        </li> -->
-                        
-                        <li>
-                        <a href="#">Paciente</a>
-                        </li>
-                    <!--     AREA DO ADMINISTRADOR
-                        <li>
-                        <a href="#">Cadastro Especialidade</a>
-                        </li> -->
-                    </ul>
+                        <ion-icon name="person-outline"></ion-icon>
+                        <a href="../cadastro/cadastrarpac.php">Paciente</a>
                     </li>
-                    
-                    <li>
-                    <h2>Dados</h2>
-                    <ul>
-                        <li>
-                        <a href="#">Agenda</a>
-                        </li>
 
-                        <li>
-                        <a href="#">Relatório</a>
-                        </li>
-                        
-                        <li>
-                        <a href="#">Financeiro</a>
-                        </li>
-                    </ul>
+                    <li>
+                        <ion-icon name="calendar-number-outline"></ion-icon>
+                        <a href="../agenda/agenda.php">Agenda</a>
+                    </li>
+
+                    <li>
+                        <ion-icon name="cash-outline"></ion-icon>
+                        <a href="../financeiro/financeiro.php">Financeiro</a>
+                    </li>
+
+                    <li>
+                        <ion-icon name="document-text-outline"></ion-icon>
+                        <a href="../relatorio/relatorio.php">Relatório</a>
                     </li>
                 </ul>
-                <div class="exit">
-                    <a href="#">
-                    <ion-icon name="exit-outline"></ion-icon>
-                    </a>
-                </div>
+                
+                <a class="sair" href="#">
+                    <ion-icon name="exit-outline" style="color: white; "></ion-icon>
+                </a>
             </nav>
         </aside>
         <section class="infosite">
@@ -348,19 +428,32 @@
             <main>
                 <!-- Select Area - listagem de datas e Médicos -->
                 <div class="select-area">
+                    <button class="agendar">
+                        Novo agendamento
+                        <ion-icon name="add-circle-outline"></ion-icon>
+                    </button>
+
+                    <div class="buscar-container">
+                        <input type="search" placeholder="pesquise aqui...">
+                        <button class="buscar">
+                            <ion-icon name="search-outline"></ion-icon>
+                        </button>
+                    </div>
                     <!-- Select - Medico Cadastrado no sistema -->
                     <select name="medico" id="medico">
                         <option value="">Selecione o médico...</option>
                         
                         <?php
                         
-                            include_once ('controleagenda.php');
+                            include_once ('./controleagenda.php');
                             
                             $buscaDados = $buscaMedico;
 
+                            echo'sem erro';
+
                             while($result = $buscaDados->fetch(PDO::FETCH_ASSOC)){
                                 echo 
-                                '<option value="'.$result["id_funcionario"].'">'.    
+                                '<option id="select_medico" value="'.$result["id_funcionario"].'">'.    
                                     $result["nome_funcionario"].
                                 '</option>';
                             }
@@ -370,14 +463,14 @@
 
                     <!-- Select - Data lista -->
                     <select name="data" id="data">
-                        <option value="5">Selecione a data...</option>
+                        <option value="">Selecione a data...</option>
                         
                         <?php
                             include_once('./controleagenda.php');
 
                             for($item = 0; $item<60; $item++)
                             {
-                                echo'<option>'. $dataAgenda[$item] .'</option>';
+                                echo'<option id="select_data">'. $dataAgenda[$item] .'</option>';
                             }
                         ?>
                     </select>
@@ -387,104 +480,89 @@
                 <div class="area-agenda">
                     <div class="area-scroll">
                         <!-- Busca ibnfo dos horarios disponíveis e agendamentos marcados -->
-                        <?php
-
                         
-                        ?>
                         <div class="row-data cabecalho">
                             <span>Horario</span>
                             <span>Paciente</span>
-                            <span>Contato</span>
+                            <span>RMED</span>
                             <span>Especialidade</span>
                             <span>Médico</span>
-                            <span>Disponibilidade</span> <!-- botão chamando função para excluir agendamendo-->
+                            <span>-----</span> <!-- botão chamando função para excluir agendamendo-->
                         </div>
                         <!-- row-data conteúdo gerado conforme agendamento resgistrado -->
-                        <div class="row-data">
-                            <span>10:30 - 11:00</span>
+                        <div class=row-data>
+                            <span class="hora">08:00 - 09:00</span>
                             <span>Andressa Moreira</span>
-                            <span>dessa@email.com</span>
+                            <span>001</span>
                             <span>Oftalmolofia</span>
                             <span>Julia Vilha</span>
                             <span><button class="cancelar">Cancelar</button></span> <!-- botão chamando função para excluir agendamendo-->
                         </div>
-                        <!-- row-data conteúdo gerado conforme a disponibilidade se não tiver nenhum agendamento resgistrado -->
+
                         <div class="row-data">
-                            <span>11:00 - 12:00</span>
-                            <span> --- </span>
-                            <span> --- </span>
+                            <span value="0800/0900">08:00 - 09:00</span>
+                            <span>Andressa Moreira</span>
+                            <span>002</span>
                             <span>Oftalmolofia</span>
                             <span>Julia Vilha</span>
-                            <span><button class="agendar">Agendar</button></span> <!-- botão chamando função para fazer agendamendo / redireciona p/ outra página -->
+                            <span><button class="cancelar">Cancelar</button></span> <!-- botão chamando função para excluir agendamendo-->
                         </div>
 
                         <div class="row-data">
-                            <span>11:00 - 12:00</span>
-                            <span> --- </span>
-                            <span> --- </span>
+                            <span value="0800/0900">08:00 - 09:00</span>
+                            <span>Andressa Moreira</span>
+                            <span>002</span>
                             <span>Oftalmolofia</span>
                             <span>Julia Vilha</span>
-                            <span><button class="agendar">Agendar</button></span> <!-- botão chamando função para fazer agendamendo / redireciona p/ outra página -->
+                            <span><button class="cancelar">Cancelar</button></span> <!-- botão chamando função para excluir agendamendo-->
                         </div>
 
                         <div class="row-data">
-                            <span>11:00 - 12:00</span>
-                            <span> --- </span>
-                            <span> --- </span>
+                            <span value="0800/0900">08:00 - 09:00</span>
+                            <span>Andressa Moreira</span>
+                            <span>002</span>
                             <span>Oftalmolofia</span>
                             <span>Julia Vilha</span>
-                            <span><button class="agendar">Agendar</button></span> <!-- botão chamando função para fazer agendamendo / redireciona p/ outra página -->
+                            <span><button class="cancelar">Cancelar</button></span> <!-- botão chamando função para excluir agendamendo-->
                         </div>
 
                         <div class="row-data">
-                            <span>11:00 - 12:00</span>
-                            <span> --- </span>
-                            <span> --- </span>
+                            <span value="0800/0900">08:00 - 09:00</span>
+                            <span>Andressa Moreira</span>
+                            <span>002</span>
                             <span>Oftalmolofia</span>
                             <span>Julia Vilha</span>
-                            <span><button class="agendar">Agendar</button></span> <!-- botão chamando função para fazer agendamendo / redireciona p/ outra página -->
+                            <span><button class="cancelar">Cancelar</button></span> <!-- botão chamando função para excluir agendamendo-->
                         </div>
 
                         <div class="row-data">
-                            <span>11:00 - 12:00</span>
-                            <span> --- </span>
-                            <span> --- </span>
+                            <span value="0800/0900">08:00 - 09:00</span>
+                            <span>Andressa Moreira</span>
+                            <span>002</span>
                             <span>Oftalmolofia</span>
                             <span>Julia Vilha</span>
-                            <span><button class="agendar">Agendar</button></span> <!-- botão chamando função para fazer agendamendo / redireciona p/ outra página -->
+                            <span><button class="cancelar">Cancelar</button></span> <!-- botão chamando função para excluir agendamendo-->
                         </div>
 
                         <div class="row-data">
-                            <span>11:00 - 12:00</span>
-                            <span> --- </span>
-                            <span> --- </span>
+                            <span value="0800/0900">08:00 - 09:00</span>
+                            <span>Andressa Moreira</span>
+                            <span>002</span>
                             <span>Oftalmolofia</span>
                             <span>Julia Vilha</span>
-                            <span><button class="agendar">Agendar</button></span> <!-- botão chamando função para fazer agendamendo / redireciona p/ outra página -->
+                            <span><button class="cancelar">Cancelar</button></span> <!-- botão chamando função para excluir agendamendo-->
                         </div>
 
-                        <div class="row-data">
-                            <span>11:00 - 12:00</span>
-                            <span> --- </span>
-                            <span> --- </span>
-                            <span>Oftalmolofia</span>
-                            <span>Julia Vilha</span>
-                            <span><button class="agendar">Agendar</button></span> <!-- botão chamando função para fazer agendamendo / redireciona p/ outra página -->
-                        </div>
 
-                        <div class="row-data">
-                            <span>11:00 - 12:00</span>
-                            <span> --- </span>
-                            <span> --- </span>
-                            <span>Oftalmolofia</span>
-                            <span>Julia Vilha</span>
-                            <span><button class="agendar">Agendar</button></span> <!-- botão chamando função para fazer agendamendo / redireciona p/ outra página -->
-                        </div>
+                        
                     </div>
                 </div>
                 
             </main>
         </section>
     </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

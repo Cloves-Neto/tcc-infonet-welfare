@@ -3,9 +3,11 @@
 
 class Agenda{
 
+
 // Busca médico 
     
 public function buscaMedico(){
+
         require "../conexao.php";
 
         $query = "SELECT * FROM `funcionario` WHERE cargo_funcionario = 'medico' " ;
@@ -30,7 +32,6 @@ public function buscaMedico(){
         }
         return $data; 
     }
-
 
 
 
