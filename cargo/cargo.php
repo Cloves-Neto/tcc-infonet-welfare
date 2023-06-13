@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +9,10 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <script>
         $(function() {
-            $("#edit-dialog").dialog({
+            $("#editPopup").dialog({
                 autoOpen: false,
                 width: 400,
                 height: 300,
@@ -21,9 +21,9 @@
 
             $(".edit-link").on("click", function(e) {
                 e.preventDefault();
-                var id = $(this).data("id");
-                $("#edit-dialog").dialog("open");
-                $("#edit-dialog").load("editar_cargo.php?id=" + id);
+                var id = $(this).data("id_cargo");
+                $("#editPopup").dialog("open");
+                $("#editPopup").load("editar-cargo.php?id_cargo=" + id);
             });
         });
 
@@ -36,13 +36,22 @@
             }
         }
     </script>
+    <script>
+        function openEditForm(id) {
+            // Get the edit form container
+            var editFormContainer = document.getElementById("editFormContainer");
+
+            // Set the display property to block to show the popup
+            editFormContainer.style.display = "block";
+        }
+    </script>
 </head>
 <body>
     <div class="granbox">
         <aside class="menu">
             <nav>
                 <div class="user-profile">
-                    <a href="#" class="user-img" aria-label="área de informações do usuário">
+                    <a href="../img/editar_foto.php" class="user-img" aria-label="área de informações do usuário">
                         <img src="../assets/user.png" alt="imagem de usuário">
                     </a>
                 </div>
@@ -54,22 +63,18 @@
                         <a href="../cadastro/cadastrarpac.php">Paciente</a>
                     </li>
                     <li>
-                        <a href="../especialidade/especialidade.php">Especialidade</a>
-                    </li>
-                    <li>
-                        <a href="../cargo/cargo.html">Cargo</a>
+                        <a href="../cargo/cargo.php">Cargo</a>
                     </li>
                     <li>
                         <a href="../registro/registro.html">Funcionário</a>
                     </li>
                     <li>
-                        <a href="../agenda/agenda.html">Agenda</a>
+                        <a href="../agenda/agenda.php">Agenda</a>
                     </li>
                     <li>
-                        <a href="../financeiro/financeiro.php">Financeiro</a>
-                    </li>
-                    <li>
-                        <a href="../relatorio/relatorio.php">Relatório</a>
+                        <a href="#">
+                            <ion-icon name="exit-outline" style="color: white;"></ion-icon>
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -80,8 +85,17 @@
             </header>
             <main>
                 <div class="cadastrar-area">
-                    <input type="text" name="cargo" id="cargo" placeholder="Digite aqui o cargo...">
-                    <input type="button" name="cadastrar" id="cadastrar" value="Cadastrar">
+                    <?php
+                echo "<h2>Adicionar novo cargo</h2>";
+
+                    // Hidden div that contains the add form
+                    echo "<div id='addFormContainer'>";
+                    echo "<form method='POST' action='add_cargo.php'>";
+                    echo "<input type='text' name='cargo_funcionario' placeholder='Digite o novo cargo...' required>";
+                    echo "<input type='submit' name='add' value='Adicionar'>";
+                    echo "</form>";
+                    echo "</div>";
+                    ?>
                 </div>
                 <div class="row-data">
                     <table>
@@ -96,7 +110,7 @@
                             foreach ($rows as $row) {
                                 echo "<tr>";
                                 echo "<td>" . $row["cargo_funcionario"] . "</td>";
-                                echo "<td><a href='#' onclick='openEditPopup(" . $row["id_cargo"] . ")'>Editar</a></td>";
+                                echo "<td><a href='#' class='edit-link' data-id_cargo='" . $row["id_cargo"] . "'>Editar</a></td>";
                                 echo "<td><a href='#' onclick='confirmDelete(" . $row["id_cargo"] . ")'>Excluir</a></td>";
                                 echo "</tr>";
                             }

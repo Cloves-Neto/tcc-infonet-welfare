@@ -1,6 +1,6 @@
 <?php
 
-include_once('../a/conexao.php');
+include_once('../conexao.php');
 
 
 class Mensagem
@@ -34,12 +34,12 @@ class Mensagem
 
     public function SalvaMensagem(){
         
-        $bd = new ConexaoBd();
-        $conn = $bd->getconexao();
-        $msg = $this->Mensagem;
-        $query = "INSERT INTO salvamsg (msg) VALUES (?)";
+        require '../conexao.php';
         
-        $stm = $conn->prepare($query);
+        $msg = $this->Mensagem;
+        $query = "INSERT INTO mensagem (msg) VALUES (?)";
+        
+        $stm = $conexao->prepare($query);
         $stm->bindValue(1,$msg);
 
         $stm->execute();
@@ -47,12 +47,12 @@ class Mensagem
     }
 
     public function ExcluiMensagem(){
-        $bd = new ConexaoBd();
-        $conn = $bd->getconexao();
-        $msg = $this->Id;
-        $query = "DELETE FROM salvamsg WHERE id_msg=?";
+        require '../conexao.php';   
         
-        $stm = $conn->prepare($query);
+        $msg = $this->Id;
+        $query = "DELETE FROM mensagem WHERE id_msg=?";
+        
+        $stm = $conexao->prepare($query);
         $stm->bindValue(1,$msg);
 
         $stm->execute();

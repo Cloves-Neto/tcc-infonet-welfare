@@ -1,33 +1,3 @@
-<?php
-//     include_once('../home/home-controle.php'); 
-
-<<<<<<< HEAD
-//     session_start();
-
-//   //  Verifica se o usuário está logado
-//     if (!isset($_SESSION['email_funcionario'])) {
-//  //   Se não estiver logado, redireciona o usuário para a página de login
-//     header('Location: index.php');
-//     exit;
-//     } 
-    
-//     $_SESSION['email_funcionario']
-=======
->>>>>>> parent of 8366284 (aaaaaaaa)
-
-
-?>
-<!-- session_start();
-
-// Verifica se o usuário está logado
-if (!isset($_SESSION['email_funcionario'])) {
-// Se não estiver logado, redireciona o usuário para a página de login
-header('Location: index.php');
-exit;
-} -->
-
-<!-- $_SESSION['email_funcionario'] -->
-
 
 
 <!DOCTYPE html>
@@ -81,7 +51,7 @@ exit;
                     <a href="../relatorio/relatorio.php">Relatório</a>
                 </li> -->
                 <li>
-                    <a href="#">
+                    <a href="../index.php">
                         <ion-icon name="exit-outline" style="color: white; "></ion-icon>
                     </a>
                 </li>
