@@ -50,7 +50,7 @@ if (isset($_SESSION['email_funcionario'])) {
             <nav>
             <div class="user-profile">
                 <a href="../img/editar_foto.php" class="user-img" aria-label="area de informaçãoes do usuario">
-                    
+                    <img src="../assets/user.png" alt="imagem de usuario">
                 </a>
             </div>
             <ul>

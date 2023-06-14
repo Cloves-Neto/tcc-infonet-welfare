@@ -189,22 +189,51 @@
 </head>
 <body>
 <div class="granbox">
-    <aside class="menu">
-        <nav>
-        <div class="profile">
-        <div class="user-profile">
-                <a href="#" aria-label="area de informaçãoes do usuario">
-                    <img class="img-perfil" src="../assets/user.png" alt="imagem de perfil do usuario">
-            <!-- Aqui você pode adicionar informações do perfil do usuário -->
-        </div>
-        <ul>
-            <li><a href="#">Início</a></li>           
-            <li><a href="#">Agenda</a></li>
-            <li><a href="#">Relatórios</a></li>
-            <li><a href="#">Financeiro</a></li>
-        </ul>
-        </nav>
-    </aside>
+<aside class="menu">
+            <nav>
+            <div class="user-profile">
+                <a href="../img/editar_foto.php" class="user-img" aria-label="area de informaçãoes do usuario">
+                    <img src="../assets/user.png" alt="imagem de usuario">
+                </a>
+            </div>
+            <ul>
+                 <li>
+                    <a href="../home/home-adm.php">Início</a>
+                </li>
+                <li>
+                    <a href="../mensagem/mensagem.php">Mensagem</a>
+                </li>
+                <li>
+                    <a href="../cadastro/cadastrarpac.php">Paciente</a>
+                </li>
+                
+                <li>
+                    <a href="../especialidade/especialidade.php">Especialidade</a>
+                </li>
+                
+                <li>
+                    <a href="../cargo/cargo.php">Cargo</a>
+                </li>
+                <li>
+                    <a href="../registro/registro.html">Funcionario</a>
+                </li>
+                <li>
+                    <a href="../agenda/agenda.php">Agenda</a>
+                </li>
+                <!-- <li>
+                    <a href="../financeiro/financeiro.php">Financeiro</a>
+                </li>
+                <li>
+                    <a href="../relatorio/relatorio.php">Relatório</a>
+                </li> -->
+                <li>
+                    <a href="../index.php">
+                        <ion-icon name="exit-outline" style="color: white; "></ion-icon>
+                    </a>
+                </li>
+            </ul>
+            </nav>
+        </aside>
 
     <div class="info">
         <!-- titulo da sessao -->
