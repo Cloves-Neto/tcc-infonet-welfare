@@ -49,34 +49,45 @@
 <body>
     <div class="granbox">
         <aside class="menu">
-            <nav>
-                <div class="user-profile">
-                    <a href="../img/editar_foto.php" class="user-img" aria-label="área de informações do usuário">
-                        <img src="../assets/user.png" alt="imagem de usuário">
+        <nav>
+            <div class="user-profile">
+                <a href="../img/editar_foto.php" class="user-img" aria-label="area de informaçãoes do usuario">
+                    <img src="../assets/user.png" alt="imagem de usuario">
+                </a>
+            </div>
+            <ul>
+                <li>
+                    <a href="../mensagem/mensagem.php">Mensagem</a>
+                </li>
+                <li>
+                    <a href="../cadastro/cadastrarpac.php">Paciente</a>
+                </li>
+                
+                <!-- <li>
+                    <a href="../especialidade/especialidade.php">Especialidade</a>
+                </li> -->
+                
+                <li>
+                    <a href="../cargo/cargo.php">Cargo</a>
+                </li>
+                <li>
+                    <a href="../registro/registro.html">Funcionario</a>
+                </li>
+                <li>
+                    <a href="../agenda/agenda.php">Agenda</a>
+                </li>
+                <!-- <li>
+                    <a href="../financeiro/financeiro.php">Financeiro</a>
+                </li>
+                <li>
+                    <a href="../relatorio/relatorio.php">Relatório</a>
+                </li> -->
+                <li>
+                    <a href="../index.php">
+                        <ion-icon name="exit-outline" style="color: white; "></ion-icon>
                     </a>
-                </div>
-                <ul>
-                    <li>
-                        <a href="../mensagem/mensagem.php">Mensagem</a>
-                    </li>
-                    <li>
-                        <a href="../cadastro/cadastrarpac.php">Paciente</a>
-                    </li>
-                    <li>
-                        <a href="../cargo/cargo.php">Cargo</a>
-                    </li>
-                    <li>
-                        <a href="../registro/registro.html">Funcionário</a>
-                    </li>
-                    <li>
-                        <a href="../agenda/agenda.php">Agenda</a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <ion-icon name="exit-outline" style="color: white;"></ion-icon>
-                        </a>
-                    </li>
-                </ul>
+                </li>
+            </ul>
             </nav>
         </aside>
         <section class="infosite">
