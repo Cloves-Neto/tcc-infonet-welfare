@@ -21,6 +21,9 @@
                 </a>
             </div>
             <ul>
+                 <li>
+                    <a href="../home/home-adm.php">Início</a>
+                </li>
                 <li>
                     <a href="../mensagem/mensagem.php">Mensagem</a>
                 </li>
@@ -28,9 +31,9 @@
                     <a href="../cadastro/cadastrarpac.php">Paciente</a>
                 </li>
                 
-                <!-- <li>
+                <li>
                     <a href="../especialidade/especialidade.php">Especialidade</a>
-                </li> -->
+                </li>
                 
                 <li>
                     <a href="../cargo/cargo.php">Cargo</a>

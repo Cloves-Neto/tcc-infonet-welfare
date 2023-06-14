@@ -1,4 +1,34 @@
+<?php
+session_start(); // Inicia a sessão
 
+include_once "../conexao.php";
+
+// Verifica se o usuário está logado e recupera o nome
+if (isset($_SESSION['email_funcionario'])) {
+    $email_funcionario = $_SESSION['email_funcionario'];
+    
+    // Consulta o banco de dados para obter o nome do funcionário com base no email
+    $query = "SELECT nome_funcionario FROM funcionario WHERE email_funcionario = :email";
+    $stmt = $conexao->prepare($query);
+    $stmt->bindValue(':email', $email_funcionario);
+    $stmt->execute();
+    
+    // Verifica se encontrou um funcionário com o email fornecido
+    if ($stmt->rowCount() > 0) {
+        $dados_funcionario = $stmt->fetch(PDO::FETCH_ASSOC);
+        $nome_funcionario = $dados_funcionario['nome_funcionario'];
+    } else {
+        // Redireciona o usuário para a página de login ou trata o caso em que o usuário não está logado
+        header("Location: index.php");
+        exit();
+    }
+} else {
+    // Redireciona o usuário para a página de login ou trata o caso em que o usuário não está logado
+    header("Location: index.php");
+    exit();
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -20,10 +50,13 @@
             <nav>
             <div class="user-profile">
                 <a href="../img/editar_foto.php" class="user-img" aria-label="area de informaçãoes do usuario">
-                    <img src="../assets/user.png" alt="imagem de usuario">
+                    
                 </a>
             </div>
             <ul>
+                 <li>
+                    <a href="../home/home-adm.php">Início</a>
+                </li>
                 <li>
                     <a href="../mensagem/mensagem.php">Mensagem</a>
                 </li>
@@ -63,8 +96,8 @@
             <!-- Header -->
             <header class="infoheader">
                 <!-- Banner de mensagens -->
-                    <h1 class="mensagem-usuario">Olá, seja bem-vindo <span id="nomeUsuario" name="nomeUsuario">João Lacerda</span></h1>
-                    
+                <h1 class="mensagem-usuario">Olá, seja bem-vindo <?php echo $nome_funcionario ?></h1>
+
                     <div class="banner">
                         <!-- Lista de mensagens -->
                         <div id="carouselExampleAutoplaying" class="carousel slide msgSlide" data-bs-ride="carousel">
@@ -80,8 +113,6 @@
                                 <?php
 
                                     //==============RETORNA DADOS DO BD EM ARRAY=================//  
-
-                                            require '../conexao.php';
                                         
                                             $bd = $conexao;
 
@@ -119,42 +150,14 @@
                         </figure>
                     </div>
             </header>
-            <?php
-            
-            //     echo'TESTE';
-            // exit;
-    
-                // include_once('../a/conexao.php');
-                
-                // $bd = new ConexaoBd();
-                // $pdo = $bd->getconexao();
-                // $query = "SELECT * FROM salvamsg";
 
-                
-                
-                // $buscarmsg = $pdo->prepare($query);
-
-                // $buscarmsg->execute();
-
-                // while($msg = $buscarmsg->fetch(PDO::FETCH_ASSOC)){
-                //     echo $msg['msg'];
-                // }
-                
-            
-            ?>
             <!-- Conteudo principal da página -->
             <main class="infomain">
                 <!-- Lista de ramal dos funcionarios -->
                     <section class="lista">
                         <?php
-                        
-
-
-
 
                            //==============RETORNA DADOS DO BD EM ARRAY=================//  
-
-                            require ('../conexao.php');
                     
                             $bd = $conexao;
 

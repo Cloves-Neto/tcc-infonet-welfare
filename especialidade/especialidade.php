@@ -32,7 +32,7 @@
 
             if (result) {
                 // Redireciona para delete_cargo.php com o ID selecionado
-                window.location.href = "delete_especialidade.php?id=" + id;
+                window.location.href = "delete_especialidade.php?id_especialidade=" + id;
             }
         }
     </script>
@@ -56,6 +56,9 @@
                 </a>
             </div>
             <ul>
+                 <li>
+                    <a href="../home/home-adm.php">Início</a>
+                </li>
                 <li>
                     <a href="../mensagem/mensagem.php">Mensagem</a>
                 </li>

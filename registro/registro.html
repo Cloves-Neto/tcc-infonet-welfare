@@ -13,6 +13,7 @@
     <main class="container">
         <!-- Seção-Esquerda | contém o formulário de Login-->
         <form class="login secao-esquerda" id="cadastrar" name="cadastrar" method="post" action="" autocomplete="on">
+
             <!-- Conteúdo superior do formulario | dados da Sessão -->
             <div class="wrapper  interativo-container">
                 <!-- Container-Título -->
@@ -21,7 +22,7 @@
                 </div>
                 <div class="dados">
 
-                    <section class="sessao_dado 1">
+                    <section class="sessao_dado p1">
                         <!-- Container-Nome -->
                         <label class="container_nome  login_label" for="nome_funcionario">
                             <span>Nome completo</span>
@@ -42,35 +43,35 @@
                             <span>Email</span>
                             <input class="input " maxlength="100" type="email" name="email_funcionario" id="email_funcionario">
                         </label>
-                      
-                    </section>
-                    <section class="sessao_dado 2">
 
-                        <!-- Container-Cargo -->
-                        <label class="container_cargo  login_label" for="cargo_funcionario">
-                            <p>Cargo</p>
-                            <Select class="selecione" name="cargo_funcionario" id="cargo_funcionario">
-                                <option value="">...</option>
-                                <option value="3">Recpcionista</option>
-                                <option value="2">Médico</option>
-                                <option value="1">Admiministrador</option>
-                            </Select>
-                        </label>
                         <!-- Container-Senha -->
                         <label class="container_senha  login_label" for="senha_funcionario">
                             <span>Senha</span>
                             <input maxlength="60" class="input " type="password" name="senha_funcionario" id="senha_funcionario">
                         </label>
+                     
+                        <!-- Container-Cargo -->
+                        <label class="container_cargo  login_label" for="cargo_funcionario">
+                        <p>Cargo</p>
+                        <Select class="selecione" name="cargo_funcionario" id="cargo_funcionario">
+                            <option value="">...</option>
+                            <option value="3">Recpcionista</option>
+                            <option value="2">Médico</option>
+                            <option value="1">Admiministrador</option>
+                        </Select>
+                        </label>
+                    
+                        
                     </section>
+
                 </div>
             </div>
+
             <!-- Conteúdo inferior do formulario | Submit e Registrar nova conta -->
             <div class="wrapper  submit_container">
                 <!-- Botão de enviar o formulario | Submit --> 
-                <input type="submit" id="cadastrar" class="login_button" onclick="Cadastrar()" value="Cadastrar" disabled>
-                    
-                <!-- Link para registrar nova conta | Página de registro -->
-                <a href="#" class="login_link">Já possui um acesso? <span>Faça login</span></a> 
+                <input type="submit" id="cadastrar" class="login_button" onclick="Cadastrar()" value="Registrar" disabled>
+               
             </div> 
             
             <div id="resposta">
@@ -78,8 +79,8 @@
             </div>
         </form>
         <!-- Seção-Direita | contém a imagem do Login -->
-        <!-- <section class="wallpaper  secao-direita">
-        </section> -->
+        <section class="wallpaper  secao-direita">
+        </section>
     </main>
 
 <script src="../src/script.js"></script>

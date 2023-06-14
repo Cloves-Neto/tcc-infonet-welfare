@@ -1,7 +1,7 @@
 create database sistema_welfare;
 use sistema_welfare;
 show tables;
-select*from relatorio;
+select*from funcionario;
 
 /*Tela de login*/
 create table funcionario (

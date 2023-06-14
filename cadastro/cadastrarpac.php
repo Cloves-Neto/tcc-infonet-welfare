@@ -8,20 +8,20 @@
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="cadastrarpac.css">
-        <style>
-            
+    <link rel="stylesheet" href="./cadastrarpac.css">
+    <style>
+        /* Reset */
         html, body, div, span, applet, object, iframe,
-        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        h1, h3, h4, h5, h6, p, blockquote, pre,
         a, abbr, acronym, address, big, cite, code,
         del, dfn, em, img, ins, kbd, q, s, samp,
         small, strike, strong, sub, sup, tt, var,
         b, u, i, center,
-        dl, dt, dd, ol, ul, li,
+        dl, dt, dd, ol, ul, 
         fieldset, form, label, legend,
-        table, caption, tbody, tfoot, thead, tr, th, td,
+        table, caption, tbody, tfoot, thead, 
         article, aside, canvas, details, embed, 
-        figure, figcaption, footer, header, hgroup, 
+        figure, figcaption, footer, hgroup, 
         menu, nav, output, ruby, section, summary,
         time, mark, audio, video {
             margin: 0;
@@ -69,50 +69,29 @@
             border-spacing: 0;
         }
 
+
         /* Formatação da Home */
-        *{
+        * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
-            font-size: 1rem !important;
+            font-size: 1rem;
             font-family: Arial, Helvetica, sans-serif;
         }
-
-        /* Popup */
-            .popup {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            top: 0;
-            left: 0;
+        a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+        /* Organização do container */
+        .granbox {
+            margin: auto;
+            padding: 15px;
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            }
-
-            .popup-content {
-            background-color: #fff;
-            width: 300px;
-            padding: 20px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            }
-
-            .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            }
-
-            .close:hover {
-            color: black;
-            }
-
-
+            max-width: 1440px;
+        }
+        /* Organização container */
         .granbox{
             margin: auto;
             padding: 15px;
@@ -128,20 +107,18 @@
             gap: 10px;
         
         }
-
         /* Organização aside - menu */
         aside.menu{
             grid-area: m;
-            background-color: cadetblue;
+            background-color: rgb(81, 189, 138);
             position: relative;
             padding: 10px;
             border-radius: 10px;
         
         }
-
         aside.menu .user-profile{
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             margin-bottom: 10px;
         }
         
@@ -157,325 +134,287 @@
             height: 100%;   
         }
         aside.menu .user-profile a img{
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             object-fit: cover;
         }
         aside.menu nav{
-            width: 100%;
-            height: 100%;
             display: flex;
-            padding: 15px;
             flex-direction: column;
+            padding: 15px;
             gap: 5px;
             justify-content: space-between;
             align-items: center;
         }
         aside.menu nav ul{ 
-            margin-top: 25px;
+            margin-top: 20px;
             display: flex;
             flex-direction: column;
             height: 100%;
             width: 100%;
-            gap: 20px;
-        }
-        aside.menu nav ul li{
-            width: 100%;
-            height: 30px;
-            padding-left: 5px;
-            gap: 10px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-start;
-        } 
-        aside.menu nav ul li ion-icon{
-            font-size: 1.4rem !important; 
-            color: white;
-            cursor: pointer;
-        }
-        aside.menu nav ul li:hover{
-            background-color: white;
-            border-radius: 5px;
-            transition: .2s;
+            gap: 30px;
         }
 
-        aside.menu nav ul li:hover a,
-        aside.menu nav ul li:hover ion-icon{
-            color: cadetblue;
+        /* Organização da section infosite - conteudo principal */
+        section.infosite{
+            grid-area: i;    
+            padding: 15px;
+            display: grid;
+            gap: 5px;
+            grid-template-areas: 
+            'ih'
+            'im';
+            grid-template-rows: 20% 80%;
+            grid-template-columns: 100%;
+        }   
+        section.infosite header{
+            grid-area: ih;
+            background-color: aqua;
         }
-        aside.menu nav a.sair{
-            width: 50px;
-            height: 80px;
+        section.infosite main{
+            grid-area: im;
+            background-color: cadetblue;
+            padding: 10px;
+        }
+        section.infosite main .cadastrar-area{
+            width: 100%;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 5px;
-            background-color: white;
+            flex-direction: row;
+            justify-content: flex-end;
+            height: 60px;
+            margin: 10px 0 20px 0;
         }
-        aside.menu nav a.sair ion-icon{
-            color: cadetblue !important;
-            font-size: 1.6rem !important;
-            padding-left: 5px;
-        }
-            
 
     </style>
 </head>
-
 <body>
 <div class="granbox">
     <aside class="menu">
-    <nav>
-            <div class="user-profile">
-                <a href="../img/editar_foto.php" class="user-img" aria-label="area de informaçãoes do usuario">
-                    <img src="../assets/user.png" alt="imagem de usuario">
-                </a>
-            </div>
-            <ul>
-                <li>
-                    <a href="../mensagem/mensagem.php">Mensagem</a>
-                </li>
-                <li>
-                    <a href="../cadastro/cadastrarpac.php">Paciente</a>
-                </li>
-                
-                <li>
-                    <a href="../especialidade/especialidade.php">Especialidade</a>
-                </li>
-                
-                <li>
-                    <a href="../cargo/cargo.php">Cargo</a>
-                </li>
-                <li>
-                    <a href="../registro/registro.html">Funcionario</a>
-                </li>
-                <li>
-                    <a href="../agenda/agenda.php">Agenda</a>
-                </li>
-                <!-- <li>
-                    <a href="../financeiro/financeiro.php">Financeiro</a>
-                </li>
-                <li>
-                    <a href="../relatorio/relatorio.php">Relatório</a>
-                </li> -->
-                <li>
-                    <a href="../index.php">
-                        <ion-icon name="exit-outline" style="color: white; "></ion-icon>
-                    </a>
-                </li>
-            </ul>
-            </nav>
-        </aside>
+        <nav>
+        <div class="profile">
+        <div class="user-profile">
+                <a href="#" aria-label="area de informaçãoes do usuario">
+                    <img class="img-perfil" src="../assets/user.png" alt="imagem de perfil do usuario">
+            <!-- Aqui você pode adicionar informações do perfil do usuário -->
+        </div>
+        <ul>
+            <li><a href="#">Início</a></li>           
+            <li><a href="#">Agenda</a></li>
+            <li><a href="#">Relatórios</a></li>
+            <li><a href="#">Financeiro</a></li>
+        </ul>
+        </nav>
+    </aside>
 
-        <section class="infosite">
+    <div class="info">
+        <!-- titulo da sessao -->
+        <h2 style="text-align: center;">cadastrar paciente</h2>
+        <!-- tabela de info -->
+        <table>
+            <tr>
+                <th>Nome do Paciente</th>
+                <th>Data de Nascimento</th>
+                <th>CPF Paciente</th>
+                <th>Sexo</th>
+                <th>Contato</th>
+                <th>Email</th>
+                <th>Nome Responsável</th>
+                <th>Data de Nascimento</th>
+                <th>RG Responsável</th>
+                <th>CEP</th>
 
-            <header>
-                <h2>Pacientes</h2>
-            </header>
+            </tr>
+            <?php
+                require "./conexao.php";
 
-            <main>
-                <table>
-                    <tr>
-                        <th>Nome do Paciente</th>
-                        <th>Data de Nascimento</th>
-                        <th>CPF Paciente</th>
-                        <th>Sexo</th>
-                        <th>Contato</th>
-                        <th>Email</th>
-                        <th>Nome Responsável</th>
-                        <th>Data de Nascimento</th>
-                        <th>RG Responsável</th>
-                        <th>CEP</th>
+                $query = "SELECT * FROM paciente WHERE id_paciente";
+                $result = $conexao->query($query);
 
-                    </tr>
-                    <?php
-                        require "./conexao.php";
+                $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
-                        $query = "SELECT * FROM paciente WHERE id_paciente";
-                        $result = $conexao->query($query);
-
-                        $rows = $result->fetchAll(PDO::FETCH_ASSOC);
-
-                        if (count($rows) > 0) {
-                            foreach ($rows as $row) {
-                                echo "<tr>";
-                                echo "<td>" . $row["nome_paciente"] . "</td>";
-                                echo "<td>" . $row["dt_nascimento_paciente"] . "</td>";
-                                echo "<td>" . $row["cpf_paciente"] . "</td>";
-                                echo "<td>" . $row["sexo_paciente"] . "</td>";
-                                echo "<td>" . $row["contato_paciente"] . "</td>";
-                                echo "<td>" . $row["email"] . "</td>";
-                                echo "<td>" . $row["nome_responsavel"] . "</td>";
-                                echo "<td>" . $row["dt_nascimento_responsavel"] . "</td>";
-                                echo "<td>" . $row["cpf_responsavel"] . "</td>";
-                                echo "<td>" . $row["cep_paciente"] . "</td>";
-                                
-                                // Edit button
-                                echo "<td><a href='editar_cadastro.php?cpf_paciente=" . $row["cpf_paciente"] . "'>Editar</a></td>";
-                            
-                                // Delete button
-                                echo "<td><a href='delete_patient.php?id=" . $row["cpf_paciente"] . "'>Excluir</a></td>";
-                            
-                                echo "</tr>";
-                            }
-                            
-                        } else {
-                            echo "<tr><td colspan='2'>Nenhum resultado encontrado.</td></tr>";
-                        }
-                    ?>
-                </table>
-            <br><br>
-                    <button onclick="openPopup()">Cadastrar paciente</button>
-
-                    <div id="popup" class="popup">
-                        <div class="popup-content">
-                            <span class="close" onclick="closePopup()">&times;</span>
-                            <h2>Formulário</h2>
-                            <form method="post" action="" id="cad_pac" name="cad_pac">
-                                <div>
-                                <h5>INFORMAÇÕES DO PACIENTE</h5>
-                                    <label for="">
-                                        Nome
-                                        <input type="text" id="nome_paciente" name="nome_paciente">
-                                    </label><br>
-                                    <label for="">
-                                        Data de nascimento
-                                        <input type="date" id="dt_nascimento_paciente" name="dt_nascimento_paciente">
-                                    </label><br>
-                                    <label for="">
-                                        CPF
-                                        <input type="text" id="cpf_paciente" name="cpf_paciente">
-                                    </label><br>
-                                    <label for="">
-                                        RG
-                                        <input type="text" id="rg_paciente" name="rg_paciente">
-                                    </label><br>
-                                    <label for="">
-                                        Sexo <br>
-                                        <input type="radio" id="sexo_paciente" name="sexo_paciente" value="f" >Feminino <br>
-                                        <input type="radio" id="sexo_paciente" name="sexo_paciente" value="m">Masculino <br>
-                                        <input type="radio" id="sexo_paciente" name="sexo_paciente" value="o">Outro <br>
-                                    </label><br>
-
-                                    <h5>INFORMAÇÕES DO RESPONSÁVEL</h5>
-                                    <label for="">
-                                        Nome
-                                        <input type="text" id="nome_responsavel" name="nome_responsavel">
-                                    </label><br>
-                                    <label for="">
-                                        Data de nascimento
-                                        <input type="date" id="dt_nascimento_responsavel" name="dt_nascimento_responsavel">
-                                    </label><br>
-                                    <label for="">
-                                        CPF
-                                        <input type="text" id="cpf_responsavel" name="cpf_responsavel">
-                                    </label><br>
-                                    <label for="">
-                                        RG
-                                        <input type="text" id="rg_responsavel" name="rg_responsavel">
-                                    </label><br>
-                                    <label for="">
-                                        Sexo <br>
-                                        <input type="radio" id="sexo_responsavel" name="sexo_responsavel" value="f">Feminino <br>
-                                        <input type="radio" id="sexo_responsavel" name="sexo_responsavel" value="m">Masculino <br>
-                                        <input type="radio" id="sexo_responsavel" name="sexo_responsavel" value="o">Outro <br>
-                                    </label><br>
-
-                                    <h5>INFORMAÇÕES PARA CONTATO</h5>
-                                    <label for="">
-                                        Telefone
-                                        <input type="text" id="contato_paciente" name="contato_paciente">
-                                    </label><br>
-                                    <label for="">
-                                        Email
-                                        <input type="text" id="email" name="email">
-                                    </label><br><br>
-
-                                    <h5>INFORMAÇÕES DE ENDEREÇO</h5>
-                                    <label for="">
-                                        UF
-                                        <input type="text" id="uf" name="uf">
-                                    </label><br>
-                                    <label for="">
-                                        Logadouro
-                                        <input type="text" id="logradouro" name="logradouro">
-                                    </label><br>
-                                    <label for="">
-                                        CEP
-                                        <input type="text" id="cep_paciente" name="cep_paciente">
-                                    </label><br>
-                                    <label for="">
-                                        N°
-                                        <input type="text" id="numero_casa_paciente" name="numero_casa_paciente">
-                                    </label>
-                    </div>
-
-                    <div id="resposta"></div> 
+                if (count($rows) > 0) {
+                    foreach ($rows as $row) {
+                        echo "<tr>";
+                        echo "<td>" . $row["nome_paciente"] . "</td>";
+                        echo "<td>" . $row["dt_nascimento_paciente"] . "</td>";
+                        echo "<td>" . $row["cpf_paciente"] . "</td>";
+                        echo "<td>" . $row["sexo_paciente"] . "</td>";
+                        echo "<td>" . $row["contato_paciente"] . "</td>";
+                        echo "<td>" . $row["email"] . "</td>";
+                        echo "<td>" . $row["nome_responsavel"] . "</td>";
+                        echo "<td>" . $row["dt_nascimento_responsavel"] . "</td>";
+                        echo "<td>" . $row["cpf_responsavel"] . "</td>";
+                        echo "<td>" . $row["cep_paciente"] . "</td>";
+                        
+                                                // Edit button
+                        echo "<td><a href='edit_patient.php?id=" . $row["cpf_paciente"] . "'>Editar</a></td>";
                     
-                    <!-- BOTÃO CADASTRAR -->
+                        // Delete button
+                        echo "<td><a href='delete_patient.php?id=" . $row["cpf_paciente"] . "'>Excluir</a></td>";
+                    
+                      
+
+                        echo "</tr>";
+                    }
+                    
+                } else {
+                    echo "<tr><td colspan='2'>Nenhum resultado encontrado.</td></tr>";
+                }
+            ?>
+        </table>
+        <br><br>
+        <!-- btn chama pop up -->
+        <button onclick="openPopup()">Cadastrar paciente</button>
+        <!-- pop up drop form -->
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup()">x</span>
+
+                <h2 class="titulo-form">Formulário</h2>
+                
+                <form method="post" action="" id="cad_pac" name="cad_pac">
+
+                <div class="wrapper">
+                    <h5>INFORMAÇÕES DO PACIENTE</h5>
+                    
+                    <label class="lbl_container" for="nome_paciente" >
+                        Nome
+                        <input type="text" id="nome_paciente" name="nome_paciente">
+                    </label>
+                    <label class="lbl_container" for="dt_nascimento_paciente">
+                        Data de nascimento
+                        <input type="date" id="dt_nascimento_paciente" name="dt_nascimento_paciente">
+                    </label>
+                    <label class="lbl_container" for="cpf_paciente">
+                        CPF
+                        <input type="text" id="cpf_paciente" name="cpf_paciente">
+                    </label>
+                    <label class="lbl_container" for="rg_paciente">
+                        RG
+                        <input type="text" id="rg_paciente" name="rg_paciente">
+                    </label>
+                    <label>
+                        Sexo
+                        <div>
+                            <input type="radio" id="sexo_paciente" name="sexo_paciente" value="f" >Feminino
+                            <input type="radio" id="sexo_paciente" name="sexo_paciente" value="m">Masculino
+                            <input type="radio" id="sexo_paciente" name="sexo_paciente" value="o">Outro 
+                        </div>
+                        
+                    </label>
+
+                    <h5>INFORMAÇÕES DO RESPONSÁVEL</h5>
+                    <label class="lbl_container" for="nome_responsavel">
+                        Nome
+                        <input type="text" id="nome_responsavel" name="nome_responsavel">
+                    </label>
+                    <label class="lbl_container" for="dt_nascimento_responsavel">
+                        Data de nascimento
+                        <input type="date" id="dt_nascimento_responsavel" name="dt_nascimento_responsavel">
+                    </label>
+                    <label class="lbl_container" for="cpf_responsavel">
+                        CPF
+                        <input type="text" id="cpf_responsavel" name="cpf_responsavel">
+                    </label>
+                    <label class="lbl_container" for="rg_responsavel">
+                        RG
+                        <input type="text" id="rg_responsavel" name="rg_responsavel">
+                    </label>
+                    <label class="lbl_container" for="">
+                        Sexo <br>
+                        <div>
+                        <input type="radio" id="sexo_responsavel" name="sexo_responsavel" value="f">Feminino 
+                        <input type="radio" id="sexo_responsavel" name="sexo_responsavel" value="m">Masculino 
+                        <input type="radio" id="sexo_responsavel" name="sexo_responsavel" value="o">Outro 
+                        </div>
+                    </label>
+
+                    <h5>INFORMAÇÕES PARA CONTATO</h5>
+                    <label class="lbl_container" for="contato_paciente">
+                        Telefone
+                        <input type="text" id="contato_paciente" name="contato_paciente">
+                    </label>
+                    <label class="lbl_container" for="email">
+                        Email
+                        <input type="text" id="email" name="email">
+                    </label>
+
+                    <h5>INFORMAÇÕES DE ENDEREÇO</h5>
+                    <label class="lbl_container" for="uf">
+                        UF
+                        <input type="text" id="uf" name="uf">
+                    </label>
+                    <label class="lbl_container" for="logradouro">
+                        Logadouro
+                        <input type="text" id="logradouro" name="logradouro">
+                    </label>
+                    <label class="lbl_container" for="cep_paciente">
+                        CEP
+                        <input type="text" id="cep_paciente" name="cep_paciente">
+                    </label>
+                    <label class="lbl_container" for="numero_casa_paciente">
+                        N°
+                        <input type="text" id="numero_casa_paciente" name="numero_casa_paciente">
+                    </label>
+                </div>
+
+                <div id="resposta"></div> 
+
+                <!-- BOTÃO CADASTRAR -->
+                <div class="button wrapper" >
                     <input type="submit" id="cadastrar" name="cadastrar" value="cadastrar">
-                    <input type="button" value="Fechar" id="fecha">
+                </div>
+                
                 </form>
-            </main>
-        </section>
+                
+            </div>
+        </div>
     </div>
-
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body>
-
-
-
-
-
-
-        </div>
-        </div>
-
-        <script>
-            function openPopup() {
-            var popup = document.getElementById("popup");
-            popup.style.display = "block";
-            }
-
-            function closePopup() {
-            var popup = document.getElementById("popup");
-            popup.style.display = "none";
-            }
-
-        </script>
+</div>
 
 
     <script>
-$(document).ready(function() {
+        function openPopup() {
+        var popup = document.getElementById("popup");
+        popup.style.display = "flex";
+        }
 
-    $('#cad_pac').submit(function(event) {
-        event.preventDefault(); // Impede o envio padrão do formulário
+        function closePopup() {
+        var popup = document.getElementById("popup");
+        popup.style.display = "none";
+        }
 
-        var dados = new FormData(this); // Serializa os dados do formulário
+    </script>
 
-        $.ajax({
-            method: 'POST',
-            url: 'cadastrar.php',
-            data: dados,
-            contentType: false,
-            processData: false,
-            beforeSend: function() {
-                $("h2").html("Processo em andamento.");
-            }
-        })
-        .done(function(msg) {
-            $("h2").html("Retorno da Inclusão...");
-            $("#resposta").html(msg);
-            alert("Dados cadastrados com sucesso!");
-        })
-        .fail(function() {
-            alert("Falha na inclusão");
+    <script>
+        $(document).ready(function() {
+
+        $('#cad_pac').submit(function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            var dados = new FormData(this); // Serializa os dados do formulário
+
+            $.ajax({
+                method: 'POST',
+                url: 'cadastrar.php',
+                data: dados,
+                contentType: false,
+                processData: false,
+                beforeSend: function() {
+                    $("h2").html("Processo em andamento.");
+                }
+            })
+            .done(function(msg) {
+                $("h2").html("Retorno da Inclusão...");
+                $("#resposta").html(msg);
+                alert("Dados cadastrados com sucesso!");
+            })
+            .fail(function() {
+                alert("Falha na inclusão");
+            });
         });
-    });
 
-});
-</script>
+        });
+    </script>
 </body>
 </html>
