@@ -31,9 +31,9 @@
                     <a href="../cadastro/cadastrarpac.php">Paciente</a>
                 </li>
                 
-                <!-- <li>
+                <li>
                     <a href="../especialidade/especialidade.php">Especialidade</a>
-                </li> -->
+                </li>
                 
                 <li>
                     <a href="../cargo/cargo.php">Cargo</a>
