@@ -109,59 +109,59 @@ $nome_funcionario = 'jão';
         <!-- Header -->
         <header class="infoheader">
             <!-- Banner de mensagens -->
-            <h1 class="mensagem-usuario">Olá, seja bem-vindo <?php echo $nome_funcionario ?></h1>
+            <h2 class="mensagem">Olá, seja bem-vindo <?php echo $nome_funcionario ?></h2>
 
-                <div class="banner">
-                    <!-- Lista de mensagens -->
-                    <div id="carouselExampleAutoplaying" class="carousel slide msgSlide" data-bs-ride="carousel">
-                        <div class="carousel-inner msgContainer" id="msgContainer">
-                            <div class="carousel-item active msgCard slidePrincipal">
-                                <p>Centro de mensagens e atualizações!</p>
-                            </div>
-
-                            <div class="carousel-item msgCard slidePrincipal">
-                                <p>Atualizações!</p>
-                            </div>
-
-                            <?php
-
-                                //==============RETORNA DADOS DO BD EM ARRAY=================//  
-                                    
-                                        // $bd = $conexao;
-
-                                        // $query = "SELECT * FROM `mensagem`";
-                                        
-                                        // $buscarmsg = $bd->prepare($query);
-                                        
-                                        // $buscarmsg->execute();
-                                        
-                                        // while($msg = $buscarmsg->fetch(PDO::FETCH_ASSOC)){
-                                        // echo "
-                                        // <div class='carousel-item msgCard slidePrincipal'>
-                                        //         <p>" . $msg['msg'] . "</p>
-                                        // </div>";
-                                        // }
-
-                                ?>
-
-                            
+            <div class="banner">
+                <!-- Lista de mensagens -->
+                <div id="carouselExampleAutoplaying" class="carousel slide msgSlide" data-bs-ride="carousel">
+                    <div class="carousel-inner msgContainer" id="msgContainer">
+                        <div class="carousel-item active msgCard slidePrincipal">
+                            <p>Centro de mensagens e atualizações!</p>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div> 
 
-                    <!-- Ilustração -->
-                    <figure class="figura">
-                        <!-- <img src="" alt="imagem ilustrativa"> -->
-                        <!-- <figcaption class="none">imagem ilustrativa</figcaption> -->
-                    </figure>
-                </div>
+                        <div class="carousel-item msgCard slidePrincipal">
+                            <p>Atualizações!</p>
+                        </div>
+
+                        <?php
+
+                            //==============RETORNA DADOS DO BD EM ARRAY=================//  
+                                
+                                    // $bd = $conexao;
+
+                                    // $query = "SELECT * FROM `mensagem`";
+                                    
+                                    // $buscarmsg = $bd->prepare($query);
+                                    
+                                    // $buscarmsg->execute();
+                                    
+                                    // while($msg = $buscarmsg->fetch(PDO::FETCH_ASSOC)){
+                                    // echo "
+                                    // <div class='carousel-item msgCard slidePrincipal'>
+                                    //         <p>" . $msg['msg'] . "</p>
+                                    // </div>";
+                                    // }
+
+                            ?>
+
+                        
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div> 
+
+                <!-- Ilustração -->
+                <figure class="figura">
+                    <!-- <img src="" alt="imagem ilustrativa"> -->
+                    <!-- <figcaption class="none">imagem ilustrativa</figcaption> -->
+                </figure>
+            </div>
         </header>
 
         <!-- Conteudo principal da página -->
@@ -175,6 +175,8 @@ $nome_funcionario = 'jão';
                     <span class="item">Setor</span>
                     <span class="item">Ramal</span>
                 </div>
+
+                <!-- Info gerada com php - dados do bd -->
                 <div class='linha'>
                     <span class="item">
                         <img src='../assets/user.png' alt='imagem perfil'>
@@ -192,6 +194,151 @@ $nome_funcionario = 'jão';
                         001
                     </span>
                 </div>
+
+                <div class='linha'>
+                    <span class="item">
+                        <img src='../assets/user.png' alt='imagem perfil'>
+                    </span>
+                    <span class="item">
+                        João Lacerda
+                    </span>
+                    <span class="item">
+                        jão@email.com
+                    </span>
+                    <span class="item">
+                        Administração
+                    </span>
+                    <span class="item">
+                        001
+                    </span>
+                </div>
+
+                <div class='linha'>
+                    <span class="item">
+                        <img src='../assets/user.png' alt='imagem perfil'>
+                    </span>
+                    <span class="item">
+                        João Lacerda
+                    </span>
+                    <span class="item">
+                        jão@email.com
+                    </span>
+                    <span class="item">
+                        Administração
+                    </span>
+                    <span class="item">
+                        001
+                    </span>
+                </div>
+
+                <div class='linha'>
+                    <span class="item">
+                        <img src='../assets/user.png' alt='imagem perfil'>
+                    </span>
+                    <span class="item">
+                        João Lacerda
+                    </span>
+                    <span class="item">
+                        jão@email.com
+                    </span>
+                    <span class="item">
+                        Administração
+                    </span>
+                    <span class="item">
+                        001
+                    </span>
+                </div>
+
+                <div class='linha'>
+                    <span class="item">
+                        <img src='../assets/user.png' alt='imagem perfil'>
+                    </span>
+                    <span class="item">
+                        João Lacerda
+                    </span>
+                    <span class="item">
+                        jão@email.com
+                    </span>
+                    <span class="item">
+                        Administração
+                    </span>
+                    <span class="item">
+                        001
+                    </span>
+                </div>
+
+                <div class='linha'>
+                    <span class="item">
+                        <img src='../assets/user.png' alt='imagem perfil'>
+                    </span>
+                    <span class="item">
+                        João Lacerda
+                    </span>
+                    <span class="item">
+                        jão@email.com
+                    </span>
+                    <span class="item">
+                        Administração
+                    </span>
+                    <span class="item">
+                        001
+                    </span>
+                </div>
+
+                <div class='linha'>
+                    <span class="item">
+                        <img src='../assets/user.png' alt='imagem perfil'>
+                    </span>
+                    <span class="item">
+                        João Lacerda
+                    </span>
+                    <span class="item">
+                        jão@email.com
+                    </span>
+                    <span class="item">
+                        Administração
+                    </span>
+                    <span class="item">
+                        001
+                    </span>
+                </div>
+
+                <div class='linha'>
+                    <span class="item">
+                        <img src='../assets/user.png' alt='imagem perfil'>
+                    </span>
+                    <span class="item">
+                        João Lacerda
+                    </span>
+                    <span class="item">
+                        jão@email.com
+                    </span>
+                    <span class="item">
+                        Administração
+                    </span>
+                    <span class="item">
+                        001
+                    </span>
+                </div>
+
+                <div class='linha'>
+                    <span class="item">
+                        <img src='../assets/user.png' alt='imagem perfil'>
+                    </span>
+                    <span class="item">
+                        João Lacerda
+                    </span>
+                    <span class="item">
+                        jão@email.com
+                    </span>
+                    <span class="item">
+                        Administração
+                    </span>
+                    <span class="item">
+                        001
+                    </span>
+                </div>
+
                 <?php
 
                     //==============RETORNA DADOS DO BD EM ARRAY=================//  
@@ -204,18 +351,24 @@ $nome_funcionario = 'jão';
                     // $buscarusuario->execute();
 
                     // while($usuario = $buscarusuario->fetch(PDO::FETCH_ASSOC)){
-                    // echo "
-                    //     <div class='linha'>
-                    //         <aside class='perfil'>
-                    //             <img src='../assets/user.png' alt='imagem perfil'>
-                    //         </aside>
-                    //         <section class='indice'>
-                    //             <p class='nome'>".$usuario['nome_funcionario']."</p>
-                    //             <small class='email'><span>email: </span>".$usuario['email_funcionario']."</small> 
-                    //             <br>
-                    //             <small class='ramal'><span>ramal: </span>".$usuario['id_funcionario']."</small>
-                    //         </section>
-                    //     </div>";
+                    //  echo 
+                    // '<div class="linha">
+                            // <span class="item">
+                            //     <img src="../assets/user.png" alt="imagem perfil">
+                            // </span>
+                            // <span class="item">
+                            //     '.$usuario["nome_funcionario"].'
+                            // </span>
+                            // <span class="item">
+                            //     '.$usuario["email_funcionario"].'
+                            // </span>
+                            // <span class="item">
+                            //     '.$usuario["cargo_funcionario"].'
+                            // </span>
+                            // <span class="item">
+                            //     '.$usuario["id_funcionario"].'
+                            // </span>
+                        // </div>';
                     // }
 
                 ?>
