@@ -1,0 +1,26 @@
+/* Variaveis */
+:root{
+
+/* Formatação de cores do site */
+--corPrincipal: cadetblue;
+
+/* Titulo da página */
+--tituloPaginaColor: cadetblue
+--tituloPaginaWeight: 600;
+--tituloPaginaSize: 2rem;
+
+/* Padrão de botões */
+--confirma: green;
+--cancela: red;
+
+/* Index e Registro */
+    --principal: #83E8BD;
+    --secundaria: #51BEAB;
+    --desativado: #DDE4E4;
+    --desativado_color: grey;
+    --palheta_1: white;
+    --palheta_2: black;
+    --palheta_3: rgb(88, 88, 88);
+    --palheta_4: #4B6E6D;
+
+}

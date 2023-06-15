@@ -1,0 +1,38 @@
+@import url(./reset.css);
+@import url(./var.css);
+
+/* Organização da section infosite - conteudo principal */
+section.infosite{
+    grid-area: i;    
+
+    padding: 5px;
+
+    display: grid;
+    gap: 5px;
+    grid-template-areas: 
+    'ih'
+    'im';
+    grid-template-rows: 20% 80%;
+    grid-template-columns: 100%;
+}   
+section.infosite header{
+    grid-area: ih;
+    padding: 5px;
+    background-color: white;
+}
+section.infosite header .titulo-pagina{
+    width: 100%;
+    text-align: start;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--corPrincipal);
+} 
+
+section.infosite main{
+    grid-area: im;
+    background-color: white;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

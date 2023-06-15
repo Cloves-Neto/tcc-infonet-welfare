@@ -1,0 +1,162 @@
+@import url(../reset.css);
+@import url(../nav.css);
+@import url(../layout.css);
+@import url(../var.css);
+
+section.infosite main .select-area{
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+section.infosite main .select-area select{
+    width: 200px;
+    height: 40px;
+    padding-left: 5px;
+    color: cadetblue;
+    border: solid 2px cadetblue;
+    border-radius: 100px;
+}
+section.infosite main .area-agenda{
+    width: 100%;
+    height: 380px;
+    background-color: cadetblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 5px;
+}
+section.infosite main .area-agenda .area-scroll{
+    width: 100%;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+section.infosite main .area-agenda .area-scroll .row-data{
+    width: 100%;
+    height: 60px !important;
+    padding: 0 5px 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: solid 2px cadetblue;
+    background-color: white;
+    display: flex;
+    gap: 5px;
+}
+section.infosite main .area-agenda .area-scroll .row-data span{
+    width: 20%;
+    height: 90%;
+    display: flex;
+    font-size: .8rem !important;
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+    color: cadetblue;
+    border-left: solid 1px cadetblue;
+    overflow: hidden;
+}
+section.infosite main .area-agenda .area-scroll .row-data span:nth-child(1){
+    justify-content: center;
+    font-weight: 700;
+    background-color: cadetblue;
+    color: white;
+    border-radius: 5px;
+}
+section.infosite main .area-agenda .area-scroll .row-data.cabecalho span{
+    background-color: white;
+    justify-content: center;
+    border-left: solid 2px cadetblue;
+    color: cadetblue;
+    font-weight: 800;
+    padding: 5px;
+    font-size: 1rem !important;
+}
+section.infosite main .area-agenda .area-scroll .row-data.cabecalho span:nth-child(1){
+    border: transparent;
+    border-radius: 0;
+}
+
+.cancelar,
+.agendar{
+    width: 60%;
+    height: 70%;
+    outline: none;
+    color: white;
+    padding: 0 2px 0 2px;
+    border: solid 2px transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+}
+.cancelar{
+    background-color: red;
+}
+.cancelar:hover{
+    background-color: white;
+    color: red;
+    border: solid 2px red;
+    transition: .2s;
+}
+.agendar{
+    background-color: green;
+}
+.agendar:hover{
+    background-color: white;
+    color: green;
+    border: solid 2px green;
+    transition: .2s;
+}
+
+.select-area button.agendar{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    max-width: 200px;
+    font-weight: 500;
+    font-size: .8rem !important;
+    text-transform: uppercase;
+}
+.select-area button.agendar ion-icon{
+    font-size: 1.4rem !important;
+}
+.select-area .buscar-container{
+    width: 100%;
+    height: 70%;
+    border-radius: 10px;
+    background-color: white;
+    border: solid 2px cadetblue !important;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    padding: 2px;
+}
+.select-area .buscar-container input[type="search"]{
+    width: 100%;
+    border-radius: 10px;
+    outline: none;
+    background-color: white;
+    border: none;
+    padding-left: 5px;
+    padding-right: 5px;
+
+}
+.select-area .buscar-container button{
+    width: 10%;
+    border: none;
+    background-color: cadetblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+
+}
+.select-area .buscar-container button ion-icon{
+    color: white;
+    font-size: 1.4rem !important;
+}

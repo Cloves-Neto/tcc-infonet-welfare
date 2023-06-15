@@ -13,6 +13,12 @@
     --palheta_4: #4B6E6D;
     
 }
+
+body{
+    width: unset;
+    height: unset;
+    display: unset;
+}
  /* Conteúdo alinhado lado a lado | divisão da seção esqueda e direita */
 .container{
     display: flex;

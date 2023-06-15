@@ -30,9 +30,6 @@
             height: 100%;
             color: #51BEAB;
         }
-
-       
-        
     </style>
 </head>
 <body>
@@ -64,8 +61,6 @@
                 <input type="submit" class="login_button" value="Entrar" id="entrar" name="entrar" onclick="entrar()" disabled> <br><br>
                 
                 <a href="C:\wamp64i\www\welfare1.1\DellaTorreFinal.docx" download>Download do arquivo Word</a>
-
-                    
             </div>
 
         </form>

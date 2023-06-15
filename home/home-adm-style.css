@@ -1,0 +1,127 @@
+@import url(../reset.css);
+@import url(../nav.css);
+@import url(../layout.css);
+@import url(../var.css);
+
+/* Header - mensagem */
+/*  */
+body{
+    overflow: hidden;
+}
+.infoheader .banner{
+    width: 100%;
+    height: 80%;
+    background-color: rgb(81, 189, 138);  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+/* Organização infomain - conteudo principal (lista e botões) */
+
+.infomain{
+    grid-area: im;
+    background-color: var(--corPrincipal);
+    display: flex;
+    flex-direction: column;
+}
+.btns{
+    width: 100%;
+    height: 30%;
+}   
+
+.lista{
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 15px;
+    overflow: hidden;
+    overflow-y: scroll;
+    border: solid 2px var(--corPrincipal);
+    border-radius: 5px;
+}
+.lista .linha{
+    width: 100%;
+    height: 60px;
+    margin-bottom: 10px;
+    display:flex;
+    align-items: center;
+    background-color: aqua;
+}
+.lista .linha aside.perfil{
+    grid-area: perfil;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding-left: 5px;
+}
+.lista .linha .item img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5pc;
+    border: solid 3px var(--corPrincipal);
+}
+.lista .linha section.indice{
+    /* font-size: 24px !important; */
+    color: rgb(90, 164, 135);
+}
+.lista .linha section.indice p{
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.lista .linha section.indice p,
+.lista .linha section.indice small span{
+    color: rgb(9, 62, 48);
+} 
+
+
+/* Organização infomain - conteudo principal (lista e botões) */
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 10px;
+}
+.btns .card{
+    width: 100%;
+    height: 120px;
+    background-color: cadetblue;  
+    color: white;
+    padding: 15px;
+    font-size: 1.4rem !important;
+    text-transform: capitalize;
+    letter-spacing: 3px;
+}
+.btns .card span{
+    display: block;
+    line-height: 80px;
+    font-size: 4rem !important;
+}
+
+
+
+.msgSlide{
+    width: 500px;
+    height: 100%;
+    background-color: aliceblue;
+    padding-left: -10px;
+}
+.msgContainer{
+    width: 100%;
+    height: 100%;
+}
+.msgCard{
+    background-color: aqua;
+    height: 100%;
+}
+.msgCard p{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

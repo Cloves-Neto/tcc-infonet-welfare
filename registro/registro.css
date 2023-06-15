@@ -1,111 +1,45 @@
-/* Reset */
+@import url(../reset.css);
+@import url(../var.css);
 
-
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-    font-family: Arial, Helvetica, sans-serif;
-}
-*,
-*::after,
-*::before{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-body {
-    line-height: 1;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
-ol, ul {
-    list-style: none;
-}
-blockquote, q {
-    quotes: none;
-}
-blockquote:before, 
-blockquote:after,
-q:before,
-q:after {
-    content: '';
-    content: none;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-}
 
 input[type=number] {
     -moz-appearance:textfield;
 }
+body{
+    width: 100vw;
+    height: 100vh;
 
-
-/* Meu Css começa aqui */
-
-/* Espaço de definição de variaveis */
-:root{
-    --principal: #83E8BD;
-    --secundaria: #51BEAB;
-    --desativado: #DDE4E4;
-    --desativado_color: grey;
-    --palheta_1: white;
-    --palheta_2: black;
-    --palheta_3: rgb(88, 88, 88);
-    --palheta_4: #4B6E6D;
-
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
  /* Conteúdo alinhado lado a lado | divisão da seção esqueda e direita */
 .container{
     display: flex;
     flex-direction: row;
+    width: 100%;
+    max-width: 1440px;
+    height: 100%;
+    max-height: 1200px;
+    margin: 0 auto;
 }
+
 /* Formatação seção de Formulario de Login */
 .login{
     /* direção do conteúdo interno  */
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
     /* tamanho da seção */
-        width: 100%;
+        width: 50%;
         max-width: 850px;
-        min-height: 100vh;
+        min-height: 90%;
     /* espaçamento interno */
         /* clamp( min-medida, valor-desejavél, max-medida) */
-        padding: clamp(35px, 8%, 70px);
+        padding: clamp(30px, 6%, 60px);
     /* cor de fundo */
         background-color: var(--palheta_1);
 }
@@ -114,7 +48,6 @@ input[type=number] {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    margin-bottom: 30px;
 }
 .login_titulo{
     color: var(--palheta_4);
@@ -124,11 +57,12 @@ input[type=number] {
 }
 .login_label{
     display: inline-block;
-    width: 100%;
+    width: 90%;
+    height: 40px;
     position: relative;
 }
 .login_label input{
-    width: 90%;
+    width: 100%;
     outline: none;
     font-size: 0.9em;
     border: none;
@@ -158,7 +92,6 @@ input[type=number] {
     font-weight: 700;
     font-size: 0.8em;
 }
-
 
 /* Formatação do botão de Login */
 .login_button{
@@ -194,29 +127,33 @@ input[type=number] {
 .login_link:hover{
     color: var(--principal);
 }
-.submit_container .login_link{
-    margin-top: 50px;
+.submit_container {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
 
 }
 
 /* Disposição do conteúdo do formulario */
 .wrapper{
     width: 100%;
-    max-width: 550px !important; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 /* Disposição da imagem da Seção-Direita */
 .wallpaper{
-    width: 100%;
+    width: 50%;
     background-color: var(--secundaria);
     background-image: url('../assets/walpaper.svg');
-    background-size: 80;
+    background-size: 900px;
     background-repeat: no-repeat;
-    background-position: top;
+    background-position: center;
     position: relative;
     flex: 1;
 }
@@ -224,15 +161,14 @@ input[type=number] {
 /* Edit layout registro */
 .interativo-container{
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-.interativo-container .dados{
-    display: flex;
+    width: 100%;
+    height: 100%;
 }
 .dados{
+    display: flex;
     width: 95%; 
-    height: 600px;
+    height: 100%;
+    overflow: hidden;
     padding: 5px;
 }
 .container_endereco{
@@ -240,15 +176,12 @@ input[type=number] {
     flex-direction: row;
 }
 .sessao_dado{
-    width: 50%;
-    height: 90%;
-}
-.sessao_dado.p1{
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
 }
 .container_cpf{
     display: flex;
@@ -257,29 +190,30 @@ input[type=number] {
     gap: 10px;
 }
 .container_cpf small{
-    width: 90%;
+    width: 100%;
     text-align: end;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     color: var(--palheta_4);
-    margin-top: 5px;
 }
-
 .container_cargo{
-    height: 40px;
+    height: 60px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 }
 .container_cargo p{
     color: #4B6E6D;
 }
 .container_cargo select{
-    width: 90%;
-    height: 40px;
+    width: 100%;
+    height: 50px;
+    padding-left: 15px;
+    padding-right: 10px;
     outline: none;
-    background-color: ;
     border: var(--palheta_4) 3px solid;
-    border-radius: 10px;
+    color: #4B6E6D;
+    border-radius: 100px;
 }
 .container_cargo select:hover{
     border: var(--principal) 3px solid;
