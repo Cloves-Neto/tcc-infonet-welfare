@@ -239,9 +239,112 @@ if (isset($_SESSION['email_funcionario'])) {
             
         </main>
     </section>
+    
+    <style>
+        .popup{
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.29);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <div class="popup">
+        <div class="popup-content">
+            <form id="cadpac">
+                <div class="row-form">
+                    <label for="">
+                        cpf:
+                        <input type="number" id="cpf">
+                    </label>
+                    <label for="">
+                        nome:
+                        <input type="text" id="nome">
+                    </label>
+                </div>
+
+                <div class="row-form">
+                    <label for="">
+                        email:
+                        <input type="text" id="email">
+                    </label>
+                    <label for="">
+                        contato:
+                        <input type="text" id="nome">
+                    </label>
+                    
+                </div>
+                
+                <div class="row-form">
+                    <label for="">
+                        medico:
+                        <select name="medico" id="medico">
+                            <option value="">Selecione o médico...</option>
+                            
+                            <?php
+                            
+                                include_once ('./controleagenda.php');
+                                
+                                $buscaDados = $buscaMedico;
+
+                                while($result = $buscaDados->fetch(PDO::FETCH_ASSOC)){
+                                    var_dump($result);
+                                    echo 
+                                    '<option id="select_medico" value="'.$id_funcionario.'">'.    
+                                        $nome_funcionario.
+                                    '</option>';
+                                }
+                            
+                            ?>
+                        </select>
+                    </label>
+                    <label for="">
+                        especialidade:
+                        <input type="text" id="email">
+                    </label>
+                </div>
+                
+                <div class="row-form">
+                    <label for="">
+                        data:
+                        <select name="" id="">
+                            <option value="">Selecione a data...</option>
+                            <?php
+                    
+                                include_once('./controleagenda.php');
+        
+                                for($item = 0; $item<60; $item++)
+                                {
+                                    echo'<option id="select_data">'. $dataAgenda[$item].'</option>';
+                                }
+                            ?>
+                        ?>
+                        </select>
+                        
+                    </label>
+                    <label for="">
+                        hora:
+                        <select type="text" id="hora">
+                            <option value="">Selecione o horario...</option>
+                            <?php
+                                for($i=8; $i<18; $i++){
+                                    echo'<option value="'.$i.'">'.$i.':00h'.' ás '.($i+1).':00h'.'</option>';
+                                }
+                            ?>
+                        </select>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 </body>
 </html>

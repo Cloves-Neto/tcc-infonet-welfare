@@ -3,6 +3,9 @@
 @import url(../layout.css);
 @import url(../var.css);
 
+body{
+    overflow: hidden    ;
+}
 section.infosite main .select-area{
     width: 100%;
     height: 60px;

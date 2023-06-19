@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $numero_casa_paciente = isset($_POST["numero_casa_paciente"]) ? $_POST["numero_casa_paciente"] : "";
 
     try {
+        $Comando2 =$conexao->prepare( "UPDATE `paciente` SET `rem_paciente`=FLOOR(5 + RAND()*(5999-1001))");
         $Comando = $conexao->prepare("INSERT INTO paciente (nome_paciente, dt_nascimento_paciente, cpf_paciente, rg_paciente, sexo_paciente, contato_paciente, email,
         nome_responsavel, dt_nascimento_responsavel, cpf_responsavel, rg_responsavel, sexo_responsavel, uf, logradouro, cep_paciente, numero_casa_paciente)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -40,8 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $Comando->bindParam(15, $cep_paciente);
         $Comando->bindParam(16, $numero_casa_paciente);
     
-        if ($Comando->execute()) {
-            $RetornoJSON = json_encode(array('success' => true));
+        if ($Comando->execute() && $Comando2->execute()) {
+            // $RetornoJSON = json_encode(array('success' => true));
         } else {
             $RetornoJSON = json_encode(array('success' => false));
         }        
