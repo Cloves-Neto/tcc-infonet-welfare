@@ -6,17 +6,18 @@ include_once "../conexao.php";
 // Verifica se o usuário está logado e recupera o nome
 if (isset($_SESSION['email_funcionario'])) {
     $email_funcionario = $_SESSION['email_funcionario'];
-    
-    // Consulta o banco de dados para obter o nome do funcionário com base no email
-    $query = "SELECT nome_funcionario FROM funcionario WHERE email_funcionario = :email";
+
+    // Consulta o banco de dados para obter o nome e a foto do funcionário com base no email
+    $query = "SELECT nome_funcionario, foto_funcionario FROM funcionario WHERE email_funcionario = :email";
     $stmt = $conexao->prepare($query);
     $stmt->bindValue(':email', $email_funcionario);
     $stmt->execute();
-    
+
     // Verifica se encontrou um funcionário com o email fornecido
     if ($stmt->rowCount() > 0) {
         $dados_funcionario = $stmt->fetch(PDO::FETCH_ASSOC);
         $nome_funcionario = $dados_funcionario['nome_funcionario'];
+        $foto_funcionario = $dados_funcionario['foto_funcionario'];
     } else {
         // Redireciona o usuário para a página de login ou trata o caso em que o usuário não está logado
         header("Location: index.php");
@@ -27,6 +28,7 @@ if (isset($_SESSION['email_funcionario'])) {
     header("Location: index.php");
     exit();
 }
+?>
 
 ?>
 <!DOCTYPE html>
@@ -41,11 +43,14 @@ if (isset($_SESSION['email_funcionario'])) {
       <div class="granbox">
       <aside class="menu">
             <nav>
-            <div class="user-profile">
-                <a href="../img/editar_foto.php" class="user-img" aria-label="area de informaçãoes do usuario">
-                    <img src="../assets/user.png" alt="imagem de usuario">
-                </a>
-            </div>
+        <div class="user-profile">
+            <a href="../img/editar_foto.php" class="user-img" aria-label="área de informações do usuário">
+            <?php if (!empty($foto_funcionario)) : ?>
+                <img src="data:image/jpeg;base64,<?php echo base64_encode($foto_funcionario); ?>" alt="Foto do funcionário">
+            <?php endif; ?>
+            </a>
+        </div>
+
             <ul>
                  <li>
                     <a href="../home/home.php">Início</a>

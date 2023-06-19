@@ -1,3 +1,34 @@
+<?php
+session_start(); // Inicia a sessão
+
+include_once "../conexao.php";
+
+// Verifica se o usuário está logado e recupera o nome
+if (isset($_SESSION['email_funcionario'])) {
+    $email_funcionario = $_SESSION['email_funcionario'];
+
+    // Consulta o banco de dados para obter o nome e a foto do funcionário com base no email
+    $query = "SELECT nome_funcionario, foto_funcionario FROM funcionario WHERE email_funcionario = :email";
+    $stmt = $conexao->prepare($query);
+    $stmt->bindValue(':email', $email_funcionario);
+    $stmt->execute();
+
+    // Verifica se encontrou um funcionário com o email fornecido
+    if ($stmt->rowCount() > 0) {
+        $dados_funcionario = $stmt->fetch(PDO::FETCH_ASSOC);
+        $nome_funcionario = $dados_funcionario['nome_funcionario'];
+        $foto_funcionario = $dados_funcionario['foto_funcionario'];
+    } else {
+        // Redireciona o usuário para a página de login ou trata o caso em que o usuário não está logado
+        header("Location: index.php");
+        exit();
+    }
+} else {
+    // Redireciona o usuário para a página de login ou trata o caso em que o usuário não está logado
+    header("Location: index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -15,48 +46,60 @@
         <!-- Menu lateral do sistema (Home adm) -->
         <aside class="menu">
         <nav>
-            <div class="user-profile">
-                <a href="../img/editar_foto.php" class="user-img" aria-label="area de informaçãoes do usuario">
-                    <img src="../assets/user.png" alt="imagem de usuario">
-                </a>
-            </div>
+        <div class="user-profile">
+            <a href="../img/editar_foto.php" class="user-img" aria-label="área de informações do usuário">
+            <?php if (!empty($foto_funcionario)) : ?>
+                <img src="data:image/jpeg;base64,<?php echo base64_encode($foto_funcionario); ?>" alt="Foto do funcionário">
+            <?php endif; ?>
+            </a>
+        </div>
+
+
             <ul>
-                 <li>
+                <li>
+                    <ion-icon name="home-outline"></ion-icon>
                     <a href="../home/home-adm.php">Início</a>
                 </li>
                 <li>
+                    <ion-icon name="megaphone-outline"></ion-icon>
                     <a href="../mensagem/mensagem.php">Mensagem</a>
                 </li>
                 <li>
+                    <ion-icon name="person-add-outline"></ion-icon>
                     <a href="../cadastro/cadastrarpac.php">Paciente</a>
                 </li>
                 
                 <li>
+                    <ion-icon name="pulse-outline"></ion-icon>
                     <a href="../especialidade/especialidade.php">Especialidade</a>
                 </li>
                 
                 <li>
+                    <ion-icon name="alert-circle-outline"></ion-icon>
                     <a href="../cargo/cargo.php">Cargo</a>
                 </li>
                 <li>
+                    <ion-icon name="duplicate-outline"></ion-icon>
                     <a href="../registro/registro.html">Funcionario</a>
                 </li>
                 <li>
+                    <ion-icon name="calendar-number-outline"></ion-icon>
                     <a href="../agenda/agenda.php">Agenda</a>
                 </li>
-                <!-- <li>
+                <li>
+                    <ion-icon name="bar-chart-outline"></ion-icon>
                     <a href="../financeiro/financeiro.php">Financeiro</a>
                 </li>
                 <li>
+                    <ion-icon name="reader-outline"></ion-icon>
                     <a href="../relatorio/relatorio.php">Relatório</a>
-                </li> -->
-                <li>
-                    <a href="../index.php">
-                        <ion-icon name="exit-outline" style="color: white; "></ion-icon>
-                    </a>
                 </li>
             </ul>
-            </nav>
+
+            <a class="sair" href="../index.php">
+                <ion-icon name="exit-outline"></ion-icon>
+            </a>
+        </nav>
         </aside>
     <div class="container">
         <header>

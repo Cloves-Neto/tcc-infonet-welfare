@@ -1,35 +1,35 @@
 <?php
-// session_start(); // Inicia a sessão
+session_start(); // Inicia a sessão
 
-// include_once "../conexao.php";
+include_once "../conexao.php";
 
-// // Verifica se o usuário está logado e recupera o nome
-// if (isset($_SESSION['email_funcionario'])) {
-//     $email_funcionario = $_SESSION['email_funcionario'];
-    
-//     // Consulta o banco de dados para obter o nome do funcionário com base no email
-//     $query = "SELECT nome_funcionario FROM funcionario WHERE email_funcionario = :email";
-//     $stmt = $conexao->prepare($query);
-//     $stmt->bindValue(':email', $email_funcionario);
-//     $stmt->execute();
-    
-//     // Verifica se encontrou um funcionário com o email fornecido
-//     if ($stmt->rowCount() > 0) {
-//         $dados_funcionario = $stmt->fetch(PDO::FETCH_ASSOC);
-//         $nome_funcionario = $dados_funcionario['nome_funcionario'];
-//     } else {
-//         // Redireciona o usuário para a página de login ou trata o caso em que o usuário não está logado
-//         header("Location: index.php");
-//         exit();
-//     }
-// } else {
-//     // Redireciona o usuário para a página de login ou trata o caso em que o usuário não está logado
-//     header("Location: index.php");
-//     exit();
-// }
+// Verifica se o usuário está logado e recupera o nome
+if (isset($_SESSION['email_funcionario'])) {
+    $email_funcionario = $_SESSION['email_funcionario'];
 
-$nome_funcionario = 'jão';
+    // Consulta o banco de dados para obter o nome e a foto do funcionário com base no email
+    $query = "SELECT nome_funcionario, foto_funcionario FROM funcionario WHERE email_funcionario = :email";
+    $stmt = $conexao->prepare($query);
+    $stmt->bindValue(':email', $email_funcionario);
+    $stmt->execute();
+
+    // Verifica se encontrou um funcionário com o email fornecido
+    if ($stmt->rowCount() > 0) {
+        $dados_funcionario = $stmt->fetch(PDO::FETCH_ASSOC);
+        $nome_funcionario = $dados_funcionario['nome_funcionario'];
+        $foto_funcionario = $dados_funcionario['foto_funcionario'];
+    } else {
+        // Redireciona o usuário para a página de login ou trata o caso em que o usuário não está logado
+        header("Location: index.php");
+        exit();
+    }
+} else {
+    // Redireciona o usuário para a página de login ou trata o caso em que o usuário não está logado
+    header("Location: index.php");
+    exit();
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -51,11 +51,14 @@ $nome_funcionario = 'jão';
     <!-- Menu lateral do sistema (Home adm) -->
     <aside class="menu">
         <nav>
-            <div class="user-profile">
-                <a href="../img/editar_foto.php" class="user-img" aria-label="area de informaçãoes do usuario">
-                    <img src="../assets/user.png" alt="imagem de usuario">
-                </a>
-            </div>
+        <div class="user-profile">
+            <a href="../img/editar_foto.php" class="user-img" aria-label="área de informações do usuário">
+            <?php if (!empty($foto_funcionario)) : ?>
+                <img src="data:image/jpeg;base64,<?php echo base64_encode($foto_funcionario); ?>" alt="Foto do funcionário">
+            <?php endif; ?>
+            </a>
+        </div>
+
 
             <ul>
                 <li>
@@ -177,201 +180,37 @@ $nome_funcionario = 'jão';
                 </div>
 
                 <!-- Info gerada com php - dados do bd -->
-                <div class='linha'>
-                    <span class="item">
-                        <img src='../assets/user.png' alt='imagem perfil'>
-                    </span>
-                    <span class="item">
-                        João Lacerda
-                    </span>
-                    <span class="item">
-                        jão@email.com
-                    </span>
-                    <span class="item">
-                        Administração
-                    </span>
-                    <span class="item">
-                        001
-                    </span>
-                </div>
-
-                <div class='linha'>
-                    <span class="item">
-                        <img src='../assets/user.png' alt='imagem perfil'>
-                    </span>
-                    <span class="item">
-                        João Lacerda
-                    </span>
-                    <span class="item">
-                        jão@email.com
-                    </span>
-                    <span class="item">
-                        Administração
-                    </span>
-                    <span class="item">
-                        001
-                    </span>
-                </div>
-
-                <div class='linha'>
-                    <span class="item">
-                        <img src='../assets/user.png' alt='imagem perfil'>
-                    </span>
-                    <span class="item">
-                        João Lacerda
-                    </span>
-                    <span class="item">
-                        jão@email.com
-                    </span>
-                    <span class="item">
-                        Administração
-                    </span>
-                    <span class="item">
-                        001
-                    </span>
-                </div>
-
-                <div class='linha'>
-                    <span class="item">
-                        <img src='../assets/user.png' alt='imagem perfil'>
-                    </span>
-                    <span class="item">
-                        João Lacerda
-                    </span>
-                    <span class="item">
-                        jão@email.com
-                    </span>
-                    <span class="item">
-                        Administração
-                    </span>
-                    <span class="item">
-                        001
-                    </span>
-                </div>
-
-                <div class='linha'>
-                    <span class="item">
-                        <img src='../assets/user.png' alt='imagem perfil'>
-                    </span>
-                    <span class="item">
-                        João Lacerda
-                    </span>
-                    <span class="item">
-                        jão@email.com
-                    </span>
-                    <span class="item">
-                        Administração
-                    </span>
-                    <span class="item">
-                        001
-                    </span>
-                </div>
-
-                <div class='linha'>
-                    <span class="item">
-                        <img src='../assets/user.png' alt='imagem perfil'>
-                    </span>
-                    <span class="item">
-                        João Lacerda
-                    </span>
-                    <span class="item">
-                        jão@email.com
-                    </span>
-                    <span class="item">
-                        Administração
-                    </span>
-                    <span class="item">
-                        001
-                    </span>
-                </div>
-
-                <div class='linha'>
-                    <span class="item">
-                        <img src='../assets/user.png' alt='imagem perfil'>
-                    </span>
-                    <span class="item">
-                        João Lacerda
-                    </span>
-                    <span class="item">
-                        jão@email.com
-                    </span>
-                    <span class="item">
-                        Administração
-                    </span>
-                    <span class="item">
-                        001
-                    </span>
-                </div>
-
-                <div class='linha'>
-                    <span class="item">
-                        <img src='../assets/user.png' alt='imagem perfil'>
-                    </span>
-                    <span class="item">
-                        João Lacerda
-                    </span>
-                    <span class="item">
-                        jão@email.com
-                    </span>
-                    <span class="item">
-                        Administração
-                    </span>
-                    <span class="item">
-                        001
-                    </span>
-                </div>
-
-                <div class='linha'>
-                    <span class="item">
-                        <img src='../assets/user.png' alt='imagem perfil'>
-                    </span>
-                    <span class="item">
-                        João Lacerda
-                    </span>
-                    <span class="item">
-                        jão@email.com
-                    </span>
-                    <span class="item">
-                        Administração
-                    </span>
-                    <span class="item">
-                        001
-                    </span>
-                </div>
-
                 <?php
 
-                    //==============RETORNA DADOS DO BD EM ARRAY=================//  
+                $bd = $conexao;
 
-                    // $bd = $conexao;
+                $query = "SELECT * FROM funcionario ORDER BY id_funcionario";
 
-                    // $query = "SELECT * FROM funcionario ORDER BY id_funcionario";
-                    
-                    // $buscarusuario = $bd->prepare($query);
-                    // $buscarusuario->execute();
+                $buscarusuario = $bd->prepare($query);
+                $buscarusuario->execute();
 
-                    // while($usuario = $buscarusuario->fetch(PDO::FETCH_ASSOC)){
-                    //  echo 
-                    // '<div class="linha">
-                            // <span class="item">
-                            //     <img src="../assets/user.png" alt="imagem perfil">
-                            // </span>
-                            // <span class="item">
-                            //     '.$usuario["nome_funcionario"].'
-                            // </span>
-                            // <span class="item">
-                            //     '.$usuario["email_funcionario"].'
-                            // </span>
-                            // <span class="item">
-                            //     '.$usuario["cargo_funcionario"].'
-                            // </span>
-                            // <span class="item">
-                            //     '.$usuario["id_funcionario"].'
-                            // </span>
-                        // </div>';
-                    // }
+                while ($usuario = $buscarusuario->fetch(PDO::FETCH_ASSOC)) {
+                    echo '<div class="linha">
+                            <span class="item">
+                                <img src="data:image/jpeg;base64,' . base64_encode($usuario["foto_funcionario"]) . '" alt="Foto do funcionário">
+                            </span>
+                            <span class="item">
+                                ' . $usuario["nome_funcionario"] . '
+                            </span>
+                            <span class="item">
+                                ' . $usuario["email_funcionario"] . '
+                            </span>
+                            <span class="item">
+                                ' . $usuario["cargo_funcionario"] . '
+                            </span>
+                            <span class="item">
+                                ' . $usuario["id_funcionario"] . '
+                            </span>
+                        </div>';
+                }
 
                 ?>
+
 
             </section>
             <!-- Area dos botões informativos -->

@@ -1,4 +1,4 @@
-create database sistema_welfare;
+
 use sistema_welfare;
 show tables;
 select*from funcionario;
@@ -17,7 +17,7 @@ primary key (id_funcionario),
 foreign key (cargo_funcionario) references cargo (cargo_funcionario)
 );
 insert into funcionario (id_funcionario, nome_funcionario, email_funcionario, senha_funcionario, cpf_funcionario, cargo_funcionario)
-values (1, 'Joao', 'admin@welfare.com', 'adm123456', '12345678900', 'administrador');
+values (1, 'Joao', 'admin@welfare.com', 'adm123456', '12345678900', '1');
 /*Tela de login*/
 
 
