@@ -3,6 +3,19 @@ session_start(); // Inicia a sessão
 
 include_once "../conexao.php";
 
+// Função de logout
+function logout() {
+    // Limpa todas as variáveis de sessão
+    $_SESSION = array();
+
+    // Destroi a sessão
+    session_destroy();
+
+    // Redireciona o usuário para a página de login
+    header("Location: ");
+    exit();
+}
+
 // Verifica se o usuário está logado e recupera o nome
 if (isset($_SESSION['email_funcionario'])) {
     $email_funcionario = $_SESSION['email_funcionario'];
@@ -19,23 +32,20 @@ if (isset($_SESSION['email_funcionario'])) {
         $nome_funcionario = $dados_funcionario['nome_funcionario'];
         $foto_funcionario = $dados_funcionario['foto_funcionario'];
     } else {
-        // Redireciona o usuário para a página de login ou trata o caso em que o usuário não está logado
-        header("Location: index.php");
-        exit();
+        // Realiza o logout se o funcionário não for encontrado
+        logout();
     }
 } else {
-    // Redireciona o usuário para a página de login ou trata o caso em que o usuário não está logado
-    header("Location: index.php");
-    exit();
+    // Realiza o logout se o usuário não estiver logado
+    logout();
 }
 ?>
 
-?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <link rel="stylesheet" href="../home/homestyle/home-style.css">
-    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../home/home-adm-style.css"><meta charset="UTF-8">
   </head>
   <body>
     
@@ -56,7 +66,7 @@ if (isset($_SESSION['email_funcionario'])) {
                     <a href="../home/home.php">Início</a>
                 </li>
                 <li>
-                    <a href="../home/cad/cadastrarpac.php">Paciente</a>
+                    <a href="../cadastro/cadastrarpac_rec.php">Paciente</a>
                 </li>
                 <li>
                     <a href="../agenda/agenda.php">Agenda</a>
@@ -68,10 +78,11 @@ if (isset($_SESSION['email_funcionario'])) {
                     <a href="../relatorio/relatorio.php">Relatório</a>
                 </li> -->
                 <li>
-                    <a href="../index.php">
-                        <ion-icon name="exit-outline" style="color: white; "></ion-icon>
+                   <a href="logout.php">
+                       <ion-icon name="exit-outline" style="color: white;"></ion-icon>
                     </a>
                 </li>
+
             </ul>
             </nav>
         </aside>
@@ -109,4 +120,3 @@ if (isset($_SESSION['email_funcionario'])) {
 </html>
 
 
-?>

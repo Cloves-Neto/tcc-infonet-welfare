@@ -1,4 +1,4 @@
-
+create database sistema_welfare;
 use sistema_welfare;
 show tables;
 select*from funcionario;
