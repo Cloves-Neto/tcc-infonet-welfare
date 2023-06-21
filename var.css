@@ -2,10 +2,11 @@
 :root{
 
 /* Formatação de cores do site */
---corPrincipal: cadetblue;
+--corPrincipal: #51BEAB;
+--corSecundaria: #83E8BD;
 
 /* Titulo da página */
---tituloPaginaColor: cadetblue
+--tituloPaginaColor: #51BEAB;
 --tituloPaginaWeight: 600;
 --tituloPaginaSize: 2rem;
 

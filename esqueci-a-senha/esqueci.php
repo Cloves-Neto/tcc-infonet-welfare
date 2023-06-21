@@ -10,17 +10,18 @@
 <body>
 
     <div class="granbox">
-        <main>
             <form action="./controleesqueceu.php" method="POST">
+                <p>Recuperar acesso</p>
 
-                <label for="">
-                    Digite seu email de recuperação
-                    <input type="email" class="email_funcionario" id="email_funcionario">
+                <label for="email">
+                    <input type="email" class="email_funcionario" id="email_funcionario" name="email_funcionario" placeholder="seuemail@email.com">
+                    <small>Digite o email vinculado ao seu usuario</small>
                 </label>
                 <br>
                 <input type="submit" value="enviar">
+                
+                <a href="http://localhost/welfare/">Já tem acesso? Acesse aqui sua conta</a>
             </form>
-        </main>
     </div>
 
 <script src="../src/script.js"></script>

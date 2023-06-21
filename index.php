@@ -11,26 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/style.css">
-    <style>
-        .doc-acompanhamento{
-            background-color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50px;
-            justify-content: center;
-            align-items: center;
-            padding: 12px;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 10;
-        }
-        .doc-acompanhamento svg{
-            width: 100%;
-            height: 100%;
-            color: #51BEAB;
-        }
-    </style>
+
 </head>
 <body>
     <main class="container">
@@ -60,7 +41,7 @@
                 <!-- Botão de enviar o formulario | Submit --> 
                 <input type="submit" class="login_button" value="Entrar" id="entrar" name="entrar" onclick="entrar()" disabled> <br><br>
                 
-                <a href="C:\wamp64i\www\welfare1.1\DellaTorreFinal.docx" download>Download do arquivo Word</a>
+                <a href="http://localhost/welfare/esqueci-a-senha/esqueci.php" >Esqueceu sue senha? Altere aqui</a>
             </div>
 
         </form>

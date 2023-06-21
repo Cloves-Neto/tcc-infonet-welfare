@@ -1,18 +1,6 @@
 
 @import url(../reset.css);
-
-/* Espaço de definição de variaveis */
-:root{
-    --principal: #83E8BD;
-    --secundaria: #51BEAB;
-    --desativado: #DDE4E4;
-    --desativado_color: grey;
-    --palheta_1: white;
-    --palheta_2: black;
-    --palheta_3: rgb(88, 88, 88);
-    --palheta_4: #4B6E6D;
-    
-}
+@import url(../var.css);
 
 body{
     width: unset;
@@ -202,3 +190,9 @@ small .btn-rounded::after{
     flex: 1;
 }
 
+.submit_container a{
+    color: grey;
+}
+.submit_container a:hover{
+    color: var(--corPrincipal);
+}
