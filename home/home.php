@@ -149,8 +149,8 @@ if (isset($_SESSION['email_funcionario'])) {
 
         <main>
             <div class="botoes">
-                <a class="btn-agendar" href="agendar.php">Agendar</a>
-                <a class="btn-cadastrar" href="cadastrar.php">Cadastrar</a>
+                <a class="btn-agendar" href="../agenda/agenda_rec.php">Agendar</a>
+                <a class="btn-cadastrar" href="../cadastro/cadastrarpac_rec.php">Cadastrar</a>
             </div>
         </main>
 
