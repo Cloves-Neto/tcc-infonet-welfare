@@ -130,20 +130,20 @@ if (isset($_SESSION['email_funcionario'])) {
 
                             //==============RETORNA DADOS DO BD EM ARRAY=================//  
                                 
-                                    // $bd = $conexao;
+                                     $bd = $conexao;
 
-                                    // $query = "SELECT * FROM `mensagem`";
+                                     $query = "SELECT * FROM `mensagem`";
                                     
-                                    // $buscarmsg = $bd->prepare($query);
+                                     $buscarmsg = $bd->prepare($query);
                                     
-                                    // $buscarmsg->execute();
+                                     $buscarmsg->execute();
                                     
-                                    // while($msg = $buscarmsg->fetch(PDO::FETCH_ASSOC)){
-                                    // echo "
-                                    // <div class='carousel-item msgCard slidePrincipal'>
-                                    //         <p>" . $msg['msg'] . "</p>
-                                    // </div>";
-                                    // }
+                                     while($msg = $buscarmsg->fetch(PDO::FETCH_ASSOC)){
+                                     echo "
+                                     <div class='carousel-item msgCard slidePrincipal'>
+                                             <p>" . $msg['msg'] . "</p>
+                                     </div>";
+                                     }
 
                             ?>
 
