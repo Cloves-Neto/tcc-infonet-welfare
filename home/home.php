@@ -147,7 +147,13 @@ if (isset($_SESSION['email_funcionario'])) {
             </div>
         </header>
 
-        aqui!
+        <main>
+            <div class="botoes">
+                <a class="btn-agendar" href="agendar.php">Agendar</a>
+                <a class="btn-cadastrar" href="cadastrar.php">Cadastrar</a>
+            </div>
+        </main>
+
 
         
             

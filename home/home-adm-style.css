@@ -150,3 +150,22 @@ body{
     font-size: 4rem !important;
 }
 
+.botoes {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-agendar, .btn-cadastrar {
+    background-color: cadetblue;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.btn-agendar:hover, .btn-cadastrar:hover {
+    background-color: cadetblue;
+}
