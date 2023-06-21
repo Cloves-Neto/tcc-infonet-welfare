@@ -2,8 +2,8 @@
 
 include_once('classagenda.php');
 
-$classAgenda = new Agenda();
 
+$classAgenda = new Agenda();
 
 // ------------R E T O R N O --------------- //
 

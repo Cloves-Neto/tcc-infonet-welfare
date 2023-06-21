@@ -53,9 +53,11 @@ if (isset($_SESSION['email_funcionario'])) {
         <nav>
         <div class="user-profile">
             <a href="../img/editar_foto.php" class="user-img" aria-label="área de informações do usuário">
-            <?php if (!empty($foto_funcionario)) : ?>
-                <img src="data:image/jpeg;base64,<?php echo base64_encode($foto_funcionario); ?>" alt="Foto do funcionário">
-            <?php endif; ?>
+            <?php 
+                if(!empty($foto_funcionario)){
+                echo'<img src="data:image/jpeg;base64,'.base64_encode($foto_funcionario).'" alt="Foto do funcionário">';
+                }
+            ?>
             </a>
         </div>
 
@@ -122,30 +124,26 @@ if (isset($_SESSION['email_funcionario'])) {
                             <p>Centro de mensagens e atualizações!</p>
                         </div>
 
-                        <div class="carousel-item msgCard slidePrincipal">
-                            <p>Atualizações!</p>
-                        </div>
-
                         <?php
-
                             //==============RETORNA DADOS DO BD EM ARRAY=================//  
                                 
-                                     $bd = $conexao;
+                                    require '../conexao.php';
 
-                                     $query = "SELECT * FROM `mensagem`";
-                                    
-                                     $buscarmsg = $bd->prepare($query);
-                                    
-                                     $buscarmsg->execute();
-                                    
-                                     while($msg = $buscarmsg->fetch(PDO::FETCH_ASSOC)){
-                                     echo "
-                                     <div class='carousel-item msgCard slidePrincipal'>
-                                             <p>" . $msg['msg'] . "</p>
-                                     </div>";
-                                     }
+                                    $query = "SELECT * FROM `mensagem`";
 
-                            ?>
+                                    $buscarmsg = $conexao->prepare($query);
+
+                                    $buscarmsg->execute();
+
+                                    while($msg = $buscarmsg->fetch(PDO::FETCH_ASSOC)){
+                                    echo "
+                                    <div class='carousel-item msgCard slidePrincipal'>
+                                    <p>" . $msg['msg'] . "</p>
+                                    </div>";
+                                    }
+
+                        
+                        ?>
 
                         
                     </div>
@@ -165,6 +163,8 @@ if (isset($_SESSION['email_funcionario'])) {
                     <!-- <figcaption class="none">imagem ilustrativa</figcaption> -->
                 </figure>
             </div>
+
+            <img src="../assets/ilustracao.png" alt="Foto ilustrativa banner msg">
         </header>
 
         <!-- Conteudo principal da página -->

@@ -38,6 +38,7 @@ if (isset($_SESSION['email_funcionario'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welfare | Agenda</title>
     <link rel="stylesheet" href="./agenda.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="granbox">
@@ -46,9 +47,11 @@ if (isset($_SESSION['email_funcionario'])) {
         <nav>
             <div class="user-profile">
                 <a href="../img/editar_foto.php" class="user-img" aria-label="área de informações do usuário">
-                <?php if (!empty($foto_funcionario)) : ?>
-                    <img src="data:image/jpeg;base64,<?php echo base64_encode($foto_funcionario); ?>" alt="Foto do funcionário">
-                <?php endif; ?>
+                <?php if (!empty($foto_funcionario)){
+                    echo'<img src="data:image/jpeg;base64,'.base64_encode($foto_funcionario).'" alt="Foto do funcionário">';
+                }        
+                    
+                ?>
                 </a>
             </div>
 
@@ -102,23 +105,23 @@ if (isset($_SESSION['email_funcionario'])) {
     </aside>
 
     <section class="infosite">
-            <header>
-                <h2>Agenda</h2>
-            </header>
+        <header>
+            <h2>Agenda</h2>
+        </header>
         <main>
             <!-- Select Area - listagem de datas e Médicos -->
             <div class="select-area">
-                <button class="agendar">
+                <button class="agendar" onclick="popup()" id="drop">
                     Novo agendamento
                     <ion-icon name="add-circle-outline"></ion-icon>
                 </button>
 
-                <div class="buscar-container">
+                <!-- <div class="buscar-container">
                     <input type="search" placeholder="pesquise aqui...">
                     <button class="buscar">
                         <ion-icon name="search-outline"></ion-icon>
                     </button>
-                </div>
+                </div> -->
                 <!-- Select - Medico Cadastrado no sistema -->
                 <select name="medico" id="medico">
                     <option value="">Selecione o médico...</option>
@@ -128,8 +131,6 @@ if (isset($_SESSION['email_funcionario'])) {
                         include_once ('./controleagenda.php');
                         
                         $buscaDados = $buscaMedico;
-
-                        echo'sem erro';
 
                         while($result = $buscaDados->fetch(PDO::FETCH_ASSOC)){
                             echo 
@@ -148,9 +149,9 @@ if (isset($_SESSION['email_funcionario'])) {
                     <?php
                         include_once('./controleagenda.php');
 
-                        for($item = 0; $item<60; $item++)
+                        for($item = 0; $item<30; $item++)
                         {
-                            echo'<option id="select_data">'. $dataAgenda[$item] .'</option>';
+                            echo'<option id="select_data">'.$dataAgenda[$item].'</option>';
                         }
                     ?>
                 </select>
@@ -241,78 +242,70 @@ if (isset($_SESSION['email_funcionario'])) {
         </main>
     </section>
     
-    <style>
-        .popup{
-            position: absolute;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(255, 255, 255, 0.29);
-            backdrop-filter: blur(10px);
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            display: none;
-        }
-    </style>
-    <div class="popup">
+    
+    <div class="popup" id="popup">
         <div class="popup-content">
             <form id="cadpac">
-                <div class="row-form">
+                <button class="close-popup" id="close-popup" onclick="closePopup()">
+                    X
+                </button>
+
+                <div class="row-form cabecalho">
                     <label for="">
                         cpf:
                         <input type="number" id="cpf">
                     </label>
                     <label for="">
                         nome:
-                        <input type="text" id="nome">
+                        <input type="text" id="nome" readonly>
                     </label>
                 </div>
 
                 <div class="row-form">
                     <label for="">
                         email:
-                        <input type="text" id="email">
+                        <input type="text" id="email" readonly>
                     </label>
                     <label for="">
                         contato:
-                        <input type="text" id="nome">
+                        <input type="text" id="contato" readonly>
                     </label>
                     
                 </div>
                 
                 <div class="row-form">
-                    <label for="">
-                        medico:
-                        <select name="medico" id="medico">
-                            <option value="">Selecione o médico...</option>
-                            
+        
+                    <label for="especialidade">
+                        Categoria:
+                        <select id="especialidade" name="especialidade" onchange="buscarOpcoes()" required>
+                            <option value="">Selecione uma categoria</option>
                             <?php
-                            
-                                include_once ('./controleagenda.php');
-                                
-                                $buscaDados = $buscaMedico;
+                                require '../conexao.php';
 
-                                while($result = $buscaDados->fetch(PDO::FETCH_ASSOC)){
-                                    var_dump($result);
-                                    echo 
-                                    '<option id="select_medico" value="'.$id_funcionario.'">'.    
-                                        $nome_funcionario.
-                                    '</option>';
+                                $query = "SELECT id_especialidade, tipo_especialidade FROM especialidade";
+                                $result = $conexao->query($query);
+                                $result->execute();
+
+                                while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                                    echo '<option value="'.$row['tipo_especialidade'].'">'.$row['tipo_especialidade'].'</option>';
                                 }
-                            
                             ?>
                         </select>
                     </label>
-                    <label for="">
-                        especialidade:
-                        <input type="text" id="email">
+                        
+                    
+                    <label for="medico">
+                        Opção:
+                        <select id="selectmedico" name="selectmedico">
+                            <option value="">Selecione um medico...</option>
+                        
+                        </select>
                     </label>
+                        
                 </div>
                 
                 <div class="row-form">
-                    <label for="">
+                    <label>
                         data:
                         <select name="" id="">
                             <option value="">Selecione a data...</option>
@@ -329,7 +322,7 @@ if (isset($_SESSION['email_funcionario'])) {
                         </select>
                         
                     </label>
-                    <label for="">
+                    <label>
                         hora:
                         <select type="text" id="hora">
                             <option value="">Selecione o horario...</option>
@@ -341,6 +334,8 @@ if (isset($_SESSION['email_funcionario'])) {
                         </select>
                     </label>
                 </div>
+
+                <input type="submit" value="Agendar" name="agenda" id="agenda">
             </form>
         </div>
     </div>
@@ -348,6 +343,20 @@ if (isset($_SESSION['email_funcionario'])) {
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        let popup = document.getElementById('popup');
+        let btn = document.getElementById('drop');
+        let close = document.getElementById('close-popup');
 
+        drop.addEventListener('click', ()=>{
+            popup.style.display = 'flex';
+        });
+
+        close.addEventListener('click', ()=>{
+            popup.style.display = 'none';
+        });
+
+    </script>
+    <script src="./busca.js"></script>
 </body>
 </html>
