@@ -8,16 +8,17 @@
     <link rel="stylesheet" href="./esqueci.css">
 </head>
 <body>
- 
-    <div class="container">
+
+    <div class="granbox">
         <main>
-            <form action="" method="post">
+            <form action="./controleesqueceu.php" method="POST">
 
                 <label for="">
                     Digite seu email de recuperação
                     <input type="email" class="email_funcionario" id="email_funcionario">
                 </label>
                 <br>
+                <input type="submit" value="enviar">
             </form>
         </main>
     </div>
