@@ -179,60 +179,30 @@ if (isset($_SESSION['email_funcionario'])) {
                         <span>Julia Vilha</span>
                         <span><button class="cancelar">Cancelar</button></span> <!-- botão chamando função para excluir agendamendo-->
                     </div>
+                    
+                    <?php
+                        require '../conexao.php';
 
-                    <div class="row-data">
-                        <span value="0800/0900">08:00 - 09:00</span>
-                        <span>Andressa Moreira</span>
-                        <span>002</span>
-                        <span>Oftalmolofia</span>
-                        <span>Julia Vilha</span>
-                        <span><button class="cancelar">Cancelar</button></span> <!-- botão chamando função para excluir agendamendo-->
-                    </div>
+                        $query = 'SELECT * FROM consulta';
 
-                    <div class="row-data">
-                        <span value="0800/0900">08:00 - 09:00</span>
-                        <span>Andressa Moreira</span>
-                        <span>002</span>
-                        <span>Oftalmolofia</span>
-                        <span>Julia Vilha</span>
-                        <span><button class="cancelar">Cancelar</button></span> <!-- botão chamando função para excluir agendamendo-->
-                    </div>
-
-                    <div class="row-data">
-                        <span value="0800/0900">08:00 - 09:00</span>
-                        <span>Andressa Moreira</span>
-                        <span>002</span>
-                        <span>Oftalmolofia</span>
-                        <span>Julia Vilha</span>
-                        <span><button class="cancelar">Cancelar</button></span> <!-- botão chamando função para excluir agendamendo-->
-                    </div>
-
-                    <div class="row-data">
-                        <span value="0800/0900">08:00 - 09:00</span>
-                        <span>Andressa Moreira</span>
-                        <span>002</span>
-                        <span>Oftalmolofia</span>
-                        <span>Julia Vilha</span>
-                        <span><button class="cancelar">Cancelar</button></span> <!-- botão chamando função para excluir agendamendo-->
-                    </div>
-
-                    <div class="row-data">
-                        <span value="0800/0900">08:00 - 09:00</span>
-                        <span>Andressa Moreira</span>
-                        <span>002</span>
-                        <span>Oftalmolofia</span>
-                        <span>Julia Vilha</span>
-                        <span><button class="cancelar">Cancelar</button></span> <!-- botão chamando função para excluir agendamendo-->
-                    </div>
-
-                    <div class="row-data">
-                        <span value="0800/0900">08:00 - 09:00</span>
-                        <span>Andressa Moreira</span>
-                        <span>002</span>
-                        <span>Oftalmolofia</span>
-                        <span>Julia Vilha</span>
-                        <span><button class="cancelar">Cancelar</button></span> <!-- botão chamando função para excluir agendamendo-->
-                    </div>
+                        $result = $conexao->prepare($query);
+                        $result->execute();
+                        $result->fetchAll(PDO::FETCH_ASSOC);
+                        
+                        foreach($result as $row){
+                            echo
+                            '<div class=row-data>
+                                <span class="hora">'.$row["hora_consulta"].'</span>
+                                <span>'.$row["nome_paciente"].'</span>
+                                <span>'.$row["id_paciente"].'</span>
+                                <span>'.$row["especialidade"].'</span>
+                                <span>'.$row["nome_medico"].'</span>
+                                <span><button class="cancelar">Cancelar</button></span>
+                            </div>';
+                        }
+                    
+                    
+                    ?>
 
 
                     
@@ -245,7 +215,7 @@ if (isset($_SESSION['email_funcionario'])) {
     
     <div class="popup" id="popup">
         <div class="popup-content">
-            <form id="cadpac">
+            <form id="cadpac" action="./agendarconsulta.php" method="POST">
                 <button class="close-popup" id="close-popup" onclick="closePopup()">
                     X
                 </button>
@@ -305,9 +275,9 @@ if (isset($_SESSION['email_funcionario'])) {
                 </div>
                 
                 <div class="row-form">
-                    <label>
+                    <label for="data">
                         data:
-                        <select name="" id="">
+                        <select name="data" id="data">
                             <option value="">Selecione a data...</option>
                             <?php
                     
@@ -322,9 +292,9 @@ if (isset($_SESSION['email_funcionario'])) {
                         </select>
                         
                     </label>
-                    <label>
+                    <label for="hora">
                         hora:
-                        <select type="text" id="hora">
+                        <select name="hora" id="hora">
                             <option value="">Selecione o horario...</option>
                             <?php
                                 for($i=8; $i<18; $i++){
