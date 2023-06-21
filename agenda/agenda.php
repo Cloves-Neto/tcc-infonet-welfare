@@ -116,17 +116,10 @@ if (isset($_SESSION['email_funcionario'])) {
                     <ion-icon name="add-circle-outline"></ion-icon>
                 </button>
 
-                <!-- <div class="buscar-container">
-                    <input type="search" placeholder="pesquise aqui...">
-                    <button class="buscar">
-                        <ion-icon name="search-outline"></ion-icon>
-                    </button>
-                </div> -->
-
                 <!-- Select - Medico Cadastrado no sistema -->
                 <select name="medico" id="medico">
                     <option value="">Selecione o médico...</option>
-                    <?php
+                    <?php 
                     
                         include_once ('./controleagenda.php');
                         
