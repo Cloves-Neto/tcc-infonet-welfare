@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     selectespecialidade.onchange = () => {
         let selectmedico = document.getElementById('selectmedico');
         let valor = selectespecialidade.value;
-        fetch("http://localhost/welfare/agenda/buscaoption.php?especialidade=" + valor)
+        fetch("http://localhost/welfare1.1/agenda/buscaoption.php?especialidade=" + valor)
             .then(response => {
                 return response.text();
             })
@@ -21,7 +21,7 @@ $(document).ready(function() {
 
         // Requisição AJAX para buscar os dados do paciente
         $.ajax({
-            url: 'http://localhost/welfare/agenda/buscauser.php',
+            url: 'http://localhost/welfare1.1/agenda/buscauser.php',
             type: 'POST',
             dataType: 'json',
             data: { cpf: cpf },
