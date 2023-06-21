@@ -30,7 +30,7 @@ try {
             header('Location: ./home/home.php');
             exit;
         } else {
-            echo "cadastro não encontrado";
+            echo "cadastro não encontrado login1";
         }
     } else {
         // Login inválido
