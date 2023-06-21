@@ -43,12 +43,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($Comando->execute()) {
             // $RetornoJSON = json_encode(array('success' => true));
         } else {
-            $RetornoJSON = json_encode(array('success' => false));
+            header("Location: {$_SERVER['HTTP_REFERER']}");
         }        
     } catch (PDOException $erro) {
         $RetornoJSON = "Erro: " . $erro->getMessage();
     }
     
-    echo $RetornoJSON;
     }
     ?>

@@ -40,7 +40,7 @@ if (isset($_SESSION['email_funcionario'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="./cadastrarpac.css">
     <style>
-        /* Reset */
+         Reset 
         html, body, div, span, applet, object, iframe,
         h1, h3, h4, h5, h6, p, blockquote, pre,
         a, abbr, acronym, address, big, cite, code,
@@ -70,7 +70,6 @@ if (isset($_SESSION['email_funcionario'])) {
             box-sizing: border-box;
             font-family: Arial, Helvetica, sans-serif;
         }
-        /* HTML5 display-role reset for older browsers */
         article, aside, details, figcaption, figure, 
         footer, header, hgroup, menu, nav, section {
             display: block;
@@ -100,7 +99,6 @@ if (isset($_SESSION['email_funcionario'])) {
         }
 
 
-        /* Formatação da Home */
         * {
             padding: 0;
             margin: 0;
@@ -114,14 +112,12 @@ if (isset($_SESSION['email_funcionario'])) {
             font-weight: 600;
             letter-spacing: 2px;
         }
-        /* Organização do container */
         .granbox {
             margin: auto;
             padding: 15px;
             width: 100%;
             max-width: 1440px;
         }
-        /* Organização container */
         .granbox{
             margin: auto;
             padding: 15px;
@@ -137,7 +133,6 @@ if (isset($_SESSION['email_funcionario'])) {
             gap: 10px;
         
         }
-        /* Organização aside - menu */
         aside.menu{
             grid-area: m;
             background-color: rgb(81, 189, 138);
@@ -185,7 +180,6 @@ if (isset($_SESSION['email_funcionario'])) {
             gap: 30px;
         }
 
-        /* Organização da section infosite - conteudo principal */
         section.infosite{
             grid-area: i;    
             padding: 15px;
@@ -215,7 +209,7 @@ if (isset($_SESSION['email_funcionario'])) {
             margin: 10px 0 20px 0;
         }
 
-    </style>
+    </style>*/
 </head>
 <body>
 <div class="granbox">
@@ -318,10 +312,10 @@ if (isset($_SESSION['email_funcionario'])) {
                         echo "<td>" . $row["cep_paciente"] . "</td>";
                         
                                                 // Edit button
-                        echo "<td><a href='edit_patient.php?id=" . $row["cpf_paciente"] . "'>Editar</a></td>";
+                        echo "<td><a href='editar_cadastro.php?cpf_paciente=" . $row["cpf_paciente"] . "'>Editar</a></td>";
                     
                         // Delete button
-                        echo "<td><a href='delete_patient.php?id=" . $row["cpf_paciente"] . "'>Excluir</a></td>";
+                        echo "<td><a href='delete_patient.php?cpf_paciente=" . $row["cpf_paciente"] . "'>Excluir</a></td>";
                     
                       
 

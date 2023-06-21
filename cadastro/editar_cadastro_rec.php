@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bindParam(':cpf_paciente', $cpf_paciente);
 
     if ($stmt->execute()) {
-        header("Location: ../cadastro/cadastrarpac.php");
+        header("Location: ../cadastro/cadastrarpac_rec.php");
     } else {
         echo "Erro ao atualizar os dados.";
     }

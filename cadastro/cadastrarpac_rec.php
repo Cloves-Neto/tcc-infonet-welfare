@@ -302,7 +302,7 @@ if (isset($_SESSION['email_funcionario'])) {
                         echo "<td>" . $row["cep_paciente"] . "</td>";
                         
                                                 // Edit button
-                        echo "<td><a href='editar_cadastro.php?cpf_paciente=" . $row["cpf_paciente"] . "'>Editar</a></td>";
+                        echo "<td><a href='editar_cadastro_rec.php?cpf_paciente=" . $row["cpf_paciente"] . "'>Editar</a></td>";
                     
                         // Delete button
                         echo "<td><a href='delete_patient.php?cpf_paciente=" . $row["cpf_paciente"] . "'>Excluir</a></td>";
