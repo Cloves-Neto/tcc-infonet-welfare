@@ -9,7 +9,7 @@ body{
 .infosite header h2{
     font-size: 3rem;
     font-weight: 800;
-    color: var(--corPrincipal);
+    color: var(--corSuporte);
 }
 section.infosite main .select-area{
     width: 100%;
