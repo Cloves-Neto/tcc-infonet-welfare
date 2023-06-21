@@ -122,10 +122,10 @@ if (isset($_SESSION['email_funcionario'])) {
                         <ion-icon name="search-outline"></ion-icon>
                     </button>
                 </div> -->
+
                 <!-- Select - Medico Cadastrado no sistema -->
                 <select name="medico" id="medico">
                     <option value="">Selecione o médico...</option>
-                    
                     <?php
                     
                         include_once ('./controleagenda.php');
