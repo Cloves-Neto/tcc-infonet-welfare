@@ -26,7 +26,9 @@ if (isset($_SESSION['email_funcionario'])) {
         $hora = $_POST['hora'];
 
         // Insere os dados no banco de dados
-        $query = "INSERT INTO consulta (cpf_paciente, nome_paciente, contato_paciente, email, contato, especialidade, id_medico, especialidade,) VALUES (:cpf, :nome, :contato, :email)";
+        $query = "INSERT INTO consulta (cpf_paciente, nome_paciente, email, contato_paciente, id_especialidade, id_medico, data_con, hora_con)
+        VALUES (:cpf, :nome, :contato, :email, :especialidade, :id_medico, ':data', :hora)";
+
         $stmt = $conexao->prepare($query);
         $stmt->bindParam(':cpf', $cpf);
         $stmt->bindParam(':nome', $nome);
