@@ -12,20 +12,23 @@ section.infosite{
     grid-template-areas: 
     'ih'
     'im';
-    grid-template-rows: 30% 70%;
+    grid-template-rows: 20% 80%;
     grid-template-columns: 100%;
 }   
 section.infosite header{
     grid-area: ih;
     padding: 5px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
 section.infosite header .titulo-pagina{
     width: 100%;
-    text-align: start;
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--corPrincipal);
+    display: flex;
+    justify-content: flex-start;
+    font-size: 3rem;
+    color: var(--corSuporte);
+    font-weight: bold;
+    text-transform: capitalize;
+
 } 
 
 section.infosite main{
@@ -33,6 +36,5 @@ section.infosite main{
     background-color: white;
     padding: 5px;
     display: flex;
-    flex-direction: column;
     gap: 10px;
 }

@@ -30,17 +30,16 @@ if (isset($_SESSION['email_funcionario'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../cargo/cargo.css">
+    <link rel="stylesheet" href="./especialidade.css">
     <title>Welfare | Especalidade </title>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
     <script>
         $(function() {
             $("#editPopup").dialog({
@@ -79,66 +78,69 @@ if (isset($_SESSION['email_funcionario'])) {
 </head>
 <body>
     <div class="granbox">
+        <!-- Menu lateral do sistema (Home adm) -->
         <aside class="menu">
-        <nav>
-        <div class="user-profile">
-            <a href="../img/editar_foto.php" class="user-img" aria-label="área de informações do usuário">
-            <?php if (!empty($foto_funcionario)) : ?>
-                <img src="data:image/jpeg;base64,<?php echo base64_encode($foto_funcionario); ?>" alt="Foto do funcionário">
-            <?php endif; ?>
-            </a>
-        </div>
+            <nav>
+            <div class="user-profile">
+                <a href="../img/editar_foto.php" class="user-img" aria-label="área de informações do usuário">
+                <?php 
+                    if(!empty($foto_funcionario)){
+                    echo'<img src="data:image/jpeg;base64,'.base64_encode($foto_funcionario).'" alt="Foto do funcionário">';
+                    }
+                ?>
+                </a>
+            </div>
 
 
-            <ul>
-                <li>
-                    <ion-icon name="home-outline"></ion-icon>
-                    <a href="../home/home-adm.php">Início</a>
-                </li>
-                <li>
-                    <ion-icon name="megaphone-outline"></ion-icon>
-                    <a href="../mensagem/mensagem.php">Mensagem</a>
-                </li>
-                <li>
-                    <ion-icon name="person-add-outline"></ion-icon>
-                    <a href="../cadastro/cadastrarpac.php">Paciente</a>
-                </li>
-                
-                <li>
-                    <ion-icon name="pulse-outline"></ion-icon>
-                    <a href="../especialidade/especialidade.php">Especialidade</a>
-                </li>
-                
-                <li>
-                    <ion-icon name="alert-circle-outline"></ion-icon>
-                    <a href="../cargo/cargo.php">Cargo</a>
-                </li>
-                <li>
-                    <ion-icon name="duplicate-outline"></ion-icon>
-                    <a href="../registro/registro.html">Funcionario</a>
-                </li>
-                <li>
-                    <ion-icon name="calendar-number-outline"></ion-icon>
-                    <a href="../agenda/agenda.php">Agenda</a>
-                </li>
-                <li>
-                    <ion-icon name="bar-chart-outline"></ion-icon>
-                    <a href="../financeiro/financeiro.php">Financeiro</a>
-                </li>
-                <li>
-                    <ion-icon name="reader-outline"></ion-icon>
-                    <a href="../relatorio/relatorio.php">Relatório</a>
-                </li>
-            </ul>
+                <ul>
+                    <li>
+                        <ion-icon name="home-outline"></ion-icon>
+                        <a href="../home/home-adm.php">Início</a>
+                    </li>
+                    <li>
+                        <ion-icon name="megaphone-outline"></ion-icon>
+                        <a href="../mensagem/mensagem.php">Mensagem</a>
+                    </li>
+                    <li>
+                        <ion-icon name="person-add-outline"></ion-icon>
+                        <a href="../cadastro/cadastrarpac.php">Paciente</a>
+                    </li>
+                    
+                    <li>
+                        <ion-icon name="pulse-outline"></ion-icon>
+                        <a href="../especialidade/especialidade.php">Especialidade</a>
+                    </li>
+                    
+                    <li>
+                        <ion-icon name="alert-circle-outline"></ion-icon>
+                        <a href="../cargo/cargo.php">Cargo</a>
+                    </li>
+                    <li>
+                        <ion-icon name="duplicate-outline"></ion-icon>
+                        <a href="../registro/registro.html">Funcionario</a>
+                    </li>
+                    <li>
+                        <ion-icon name="calendar-number-outline"></ion-icon>
+                        <a href="../agenda/agenda.php">Agenda</a>
+                    </li>
+                    <li>
+                        <ion-icon name="bar-chart-outline"></ion-icon>
+                        <a href="../financeiro/financeiro.php">Financeiro</a>
+                    </li>
+                    <li>
+                        <ion-icon name="reader-outline"></ion-icon>
+                        <a href="../relatorio/relatorio.php">Relatório</a>
+                    </li>
+                </ul>
 
-            <a class="sair" href="../index.php">
-                <ion-icon name="exit-outline"></ion-icon>
-            </a>
-        </nav>
+                <a class="sair" href="../index.php">
+                    <ion-icon name="exit-outline"></ion-icon>
+                </a>
+            </nav>
         </aside>
         <section class="infosite">
             <header>
-                <h2>Especialidade</h2>
+                <h2 class="titulo-pagina">Especialidade</h2>
             </header>
             <main>
                 <div class="cadastrar-area">

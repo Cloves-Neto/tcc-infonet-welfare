@@ -1,4 +1,145 @@
+@import url(../reset.css);
+@import url(../nav.css);
+@import url(../layout.css);
+@import url(../var.css);
 
+::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;        /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--corPrincipal);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid rgb(227, 227, 227);;  /* creates padding around scroll thumb */
+}
+
+body{
+    overflow: hidden;
+}
+
+.infosite main{
+  width: 100%;
+  height: 100%;
+  flex-direction: column !important;
+  justify-content: unset;
+  /* background-color: var(--corPrincipal) !important; */
+}
+.infosite main table{
+  width: 100%;
+  height: 150%;
+
+  background-color: white;
+  border-radius: 5px;
+}
+.infosite main table tr{
+  border: solid 1px var(--corSuporte);
+  height: 40px;
+  display: flex;
+  align-items: center;
+
+}
+.infosite main table tr th{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--corPrincipal);
+  color: white;
+  border-right: solid 2px white;
+  padding: 5px;
+  font-size: .8rem;
+  font-weight: bolder;
+
+}
+.infosite main table tr th:nth-last-child(1){
+  border: none;
+}
+.infosite main table tr td{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  gap: 10px;
+  text-align: center;
+  justify-content: center;
+  background-color: white;
+  color: var(--corSuporte);
+  border-right: solid 2px var(--corSuporte);
+  padding: 5px;
+  font-size: 12px;
+  font-weight: 500;
+} 
+.infosite main table tr td:nth-last-child(1){
+  border: none;
+}
+.popbtn{
+  width: 200px;
+  height: 60px;
+  background-color: white;
+  color: var(--corSuporte);
+  border: solid 1px var(--corSuporte);
+  border-radius: 100px;
+  cursor: pointer;
+  margin: auto;
+  display: flex;
+  font-size: .8em;
+  text-transform: uppercase;
+  flex-direction: row;
+  gap: 5px;
+  padding-left: 15px;
+  align-items: center;
+  transition: .2s ease-in-out;
+}
+.popbtn ion-icon{
+  font-size: 1.2rem;
+}
+.popbtn:hover{
+  background-color: var(--corSuporte);
+  color: white;
+  transition: .2s ease-in-out;
+}
+.abtn{
+  display: inline-flex;
+  color: #000000 !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(192, 192, 192);
+  border: solid 1px grey;
+  transition: .2s ease-in-out;
+
+}
+.abtn ion-icon{
+  font-size: 20px;
+  color: rgb(97, 97, 97);
+}
+.abtn:hover ion-icon{
+  color: white;
+}
+
+
+.abtn:hover.edita{
+  background-color: rgb(15, 62, 181);
+  transition: .2s ease-in-out;
+}
+
+.abtn:hover.deleta{
+  background-color:  red;
+  transition: .2s ease-in-out;
+}
+
+
+/* 
   table {
     width: 100%;
     background-color:rgb(81, 189, 138);
@@ -67,19 +208,22 @@
     }
 
     .popup-content {
-      background-color: rgb(81, 189, 138);
-      width: 400px;
+      background-color: white;
+      width: 500px;
       height: 95vh;
+      border-radius: 10px;
       padding: 35px 20px 20px 20px;
       position: relative;
       overflow-y: scroll;
-
     }
 
 
     .popup-content .titulo-form{
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       margin-bottom: 15px;
+      color: var(--corSuporte);
+      font-weight: bolder;
+
     }
 
     .popup-content #cad_pac{
@@ -91,15 +235,53 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      padding: 5px;
-
-
+      padding: 10px;
+      gap: 5px;
     }
 
     .popup-content #cad_pac .wrapper h5{
       font-size: 1.2rem;
-      font-weight: 500;
+      font-weight: bolder;
       margin-bottom: 15px;
+      margin-top: 25px;
+      text-align: center;
+      width: 100%;
+      height: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+      background-color: var(--corSuporte);
+      color: white;
+      padding: 5px;
+    }
+    .popup-content #cad_pac .wrapper h5 small{
+      font-size: .8rem;
+    }
+
+    .wrapper{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .wrapper.button button{
+      width: 200px;
+      height: 60px;
+      background-color: rgb(217, 217, 217);
+      color: rgb(161, 157, 157);
+      border: none;
+      outline: none;
+      border-radius: 100px;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      font-weight: bolder;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .wrapper.button button:hover{
+      background-color: var(--corPrincipal);
+      color: white;
     }
 
     .wrapper .lbl_container{
@@ -108,6 +290,37 @@
       gap: 5px;
       width: 100%;
       height: 60px;
+      color: var(--corSuporte);
+      font-size: 1rem;
+      font-weight: bolder;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+    .wrapper .lbl_container input{
+      width: 100%;
+      height: 30px;
+      border: none;
+      border-bottom: solid 2px var(--corPrincipal);
+      padding: 5px;
+      color: var(--corSuporte);
+      outline: none;
+    }
+    .wrapper .lbl_container div {
+      display: flex;
+      gap: 5px;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .wrapper .lbl_container div input[type="radio"]{
+      width: 15px;
+      height: 15px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    .wrapper .lbl_container div label{    
+      color: var(--corPrincipal);
+      cursor: pointer;
     }
 
     /* botao fechar */
@@ -154,4 +367,4 @@
         color: #000000;
     }
 
-    
+     */
