@@ -1,7 +1,7 @@
 
 <?php
 include '../conexao.php';
-
+session_start ();
 // CPF recebido através da requisição AJAX
 $cpf = $_POST['cpf'];
 // $cpf = 47825938801;
