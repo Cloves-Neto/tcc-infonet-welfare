@@ -261,7 +261,17 @@ if (isset($_SESSION['email_funcionario'])) {
                         Opção:
                         <select id="selectmedico" name="selectmedico">
                             <option value="">Selecione um medico...</option>
-                        
+                            <?php
+                                require '../conexao.php';
+
+                                $query = "SELECT id_funcionario, nome_funcionario FROM funcionario where cargo_funcionario = 3" ;
+                                $result = $conexao->query($query);
+                                $result->execute();
+
+                                while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                                    echo '<option value="'.$row['id_funcionario'].'">'.$row['nome_funcionario'].'</option>';
+                                }
+                            ?>
                         </select>
                     </label>
                         

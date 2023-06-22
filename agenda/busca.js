@@ -1,18 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    let selectespecialidade = document.getElementById('especialidade');
-    
-    selectespecialidade.onchange = () => {
-        let selectmedico = document.getElementById('selectmedico');
-        let valor = selectespecialidade.value;
-        fetch("http://localhost/welfare/agenda/buscaoption.php?especialidade=" + valor)
-            .then(response => {
-                return response.text();
-            })
-            .then(content => {
-                selectmedico.innerHTML = content;
-            });
-    }
-});
 
 
 $(document).ready(function() {
