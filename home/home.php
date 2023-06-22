@@ -148,6 +148,16 @@ if (isset($_SESSION['email_funcionario'])) {
         </header>
 
         <main>
+            <div>
+                <a href="../agenda/agenda_rec.php">
+                    <span>
+                        icone
+                    </span>
+                    <?php
+                        echo "<span class='datalist'>".date('F j')."</span>";
+                    ?>
+                </a>
+            </div>
             <div class="botoes">
                 <a class="btn-agendar" href="../agenda/agenda_rec.php">Agendar</a>
                 <a class="btn-cadastrar" href="../cadastro/cadastrarpac_rec.php">Cadastrar</a>

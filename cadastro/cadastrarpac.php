@@ -1,34 +1,4 @@
-<?php
-session_start(); // Inicia a sessão
 
-include_once "../conexao.php";
-
-// Verifica se o usuário está logado e recupera o nome
-if (isset($_SESSION['email_funcionario'])) {
-    $email_funcionario = $_SESSION['email_funcionario'];
-
-    // Consulta o banco de dados para obter o nome e a foto do funcionário com base no email
-    $query = "SELECT nome_funcionario, foto_funcionario FROM funcionario WHERE email_funcionario = :email";
-    $stmt = $conexao->prepare($query);
-    $stmt->bindValue(':email', $email_funcionario);
-    $stmt->execute();
-
-    // Verifica se encontrou um funcionário com o email fornecido
-    if ($stmt->rowCount() > 0) {
-        $dados_funcionario = $stmt->fetch(PDO::FETCH_ASSOC);
-        $nome_funcionario = $dados_funcionario['nome_funcionario'];
-        $foto_funcionario = $dados_funcionario['foto_funcionario'];
-    } else {
-        // Redireciona o usuário para a página de login ou trata o caso em que o usuário não está logado
-        header("Location: index.php");
-        exit();
-    }
-} else {
-    // Redireciona o usuário para a página de login ou trata o caso em que o usuário não está logado
-    header("Location: index.php");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +10,7 @@ if (isset($_SESSION['email_funcionario'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="./cadastrarpac.css">
     <style>
-         Reset 
+        /* Reset */
         html, body, div, span, applet, object, iframe,
         h1, h3, h4, h5, h6, p, blockquote, pre,
         a, abbr, acronym, address, big, cite, code,
@@ -70,6 +40,7 @@ if (isset($_SESSION['email_funcionario'])) {
             box-sizing: border-box;
             font-family: Arial, Helvetica, sans-serif;
         }
+        /* HTML5 display-role reset for older browsers */
         article, aside, details, figcaption, figure, 
         footer, header, hgroup, menu, nav, section {
             display: block;
@@ -99,25 +70,28 @@ if (isset($_SESSION['email_funcionario'])) {
         }
 
 
+        /* Formatação da Home */
         * {
-            padding: 0;
+            /* padding: 0;
             margin: 0;
             box-sizing: border-box;
-            font-size: 1rem;
+            font-size: 1rem; */
             font-family: Arial, Helvetica, sans-serif;
         }
         a {
             text-decoration: none;
-            color: white;
+            color:white;
             font-weight: 600;
             letter-spacing: 2px;
         }
+        /* Organização do container */
         .granbox {
             margin: auto;
             padding: 15px;
             width: 100%;
             max-width: 1440px;
         }
+        /* Organização container */
         .granbox{
             margin: auto;
             padding: 15px;
@@ -133,6 +107,7 @@ if (isset($_SESSION['email_funcionario'])) {
             gap: 10px;
         
         }
+        /* Organização aside - menu */
         aside.menu{
             grid-area: m;
             background-color: rgb(81, 189, 138);
@@ -180,6 +155,7 @@ if (isset($_SESSION['email_funcionario'])) {
             gap: 30px;
         }
 
+        /* Organização da section infosite - conteudo principal */
         section.infosite{
             grid-area: i;    
             padding: 15px;
@@ -209,85 +185,77 @@ if (isset($_SESSION['email_funcionario'])) {
             margin: 10px 0 20px 0;
         }
 
-    </style>*/
+    </style>
 </head>
 <body>
 <div class="granbox">
-<aside class="menu">
-<nav>
-        <div class="user-profile">
-            <a href="../img/editar_foto.php" class="user-img" aria-label="área de informações do usuário">
-            <?php if (!empty($foto_funcionario)) : ?>
-                <img src="data:image/jpeg;base64,<?php echo base64_encode($foto_funcionario); ?>" alt="Foto do funcionário">
-            <?php endif; ?>
-            </a>
-        </div>
-
-
+        <aside class="menu">
+            <nav>
+            <div class="user-profile">
+                <a href="../img/editar_foto.php" class="user-img" aria-label="area de informaçãoes do usuario">
+                    <img src="../assets/user.png" alt="imagem de usuario">
+                </a>
+            </div>
             <ul>
-                <li>
-                    <ion-icon name="home-outline"></ion-icon>
+                 <li>
                     <a href="../home/home-adm.php">Início</a>
                 </li>
                 <li>
-                    <ion-icon name="megaphone-outline"></ion-icon>
                     <a href="../mensagem/mensagem.php">Mensagem</a>
                 </li>
                 <li>
-                    <ion-icon name="person-add-outline"></ion-icon>
                     <a href="../cadastro/cadastrarpac.php">Paciente</a>
                 </li>
                 
                 <li>
-                    <ion-icon name="pulse-outline"></ion-icon>
                     <a href="../especialidade/especialidade.php">Especialidade</a>
                 </li>
                 
                 <li>
-                    <ion-icon name="alert-circle-outline"></ion-icon>
                     <a href="../cargo/cargo.php">Cargo</a>
                 </li>
                 <li>
-                    <ion-icon name="duplicate-outline"></ion-icon>
                     <a href="../registro/registro.html">Funcionario</a>
                 </li>
                 <li>
-                    <ion-icon name="calendar-number-outline"></ion-icon>
                     <a href="../agenda/agenda.php">Agenda</a>
                 </li>
-                <li>
-                    <ion-icon name="bar-chart-outline"></ion-icon>
+                <!-- <li>
                     <a href="../financeiro/financeiro.php">Financeiro</a>
                 </li>
                 <li>
-                    <ion-icon name="reader-outline"></ion-icon>
                     <a href="../relatorio/relatorio.php">Relatório</a>
+                </li> -->
+                <li>
+                    <a href="../index.php">
+                        <ion-icon name="exit-outline" style="color: white; "></ion-icon>
+                    </a>
                 </li>
             </ul>
-
-            <a class="sair" href="../index.php">
-                <ion-icon name="exit-outline"></ion-icon>
-            </a>
-        </nav>
+            </nav>
         </aside>
 
     <div class="info">
         <!-- titulo da sessao -->
-        <h2 style="text-align: center;">cadastrar paciente</h2>
+        <div class="h2">
+            <h2  style="text-align: center;">cadastrar paciente</h2>
+        </div>  
         <!-- tabela de info -->
         <table>
-            <tr>
-                <th>Nome do Paciente</th>
-                <th>Data de Nascimento</th>
-                <th>CPF Paciente</th>
-                <th>Sexo</th>
-                <th>Contato</th>
-                <th>Email</th>
-                <th>Nome Responsável</th>
-                <th>Data de Nascimento</th>
-                <th>RG Responsável</th>
-                <th>CEP</th>
-
+            <tr class="head">
+                
+                    <td class="cabecario">Nome do Paciente</td>
+                    <td class="cabecario">Data de Nascimento</td>
+                    <td class="cabecario">CPF Paciente</td>
+                    <td class="cabecario">Sexo</td>
+                    <td class="cabecario">Contato</td>
+                    <td class="cabecario">Email</td>
+                    <td class="cabecario">Nome Responsável</td>
+                    <td class="cabecario">Data de Nascimento</td>
+                    <td class="cabecario">RG Responsável</td>
+                    <td class="cabecario">CEP</td>
+                    <td class="cabecario">ações</td>
+                
             </tr>
             <?php
                 require "./conexao.php";
@@ -300,25 +268,25 @@ if (isset($_SESSION['email_funcionario'])) {
                 if (count($rows) > 0) {
                     foreach ($rows as $row) {
                         echo "<tr>";
-                        echo "<td>" . $row["nome_paciente"] . "</td>";
-                        echo "<td>" . $row["dt_nascimento_paciente"] . "</td>";
-                        echo "<td>" . $row["cpf_paciente"] . "</td>";
-                        echo "<td>" . $row["sexo_paciente"] . "</td>";
-                        echo "<td>" . $row["contato_paciente"] . "</td>";
-                        echo "<td>" . $row["email"] . "</td>";
-                        echo "<td>" . $row["nome_responsavel"] . "</td>";
-                        echo "<td>" . $row["dt_nascimento_responsavel"] . "</td>";
-                        echo "<td>" . $row["cpf_responsavel"] . "</td>";
-                        echo "<td>" . $row["cep_paciente"] . "</td>";
-                        
-                                                // Edit button
-                        echo "<td><a href='editar_cadastro.php?cpf_paciente=" . $row["cpf_paciente"] . "'>Editar</a></td>";
-                    
-                        // Delete button
-                        echo "<td><a href='delete_patient.php?cpf_paciente=" . $row["cpf_paciente"] . "'>Excluir</a></td>";
-                    
-                      
 
+                        echo "<td class='nome_paciente'>" . $row["nome_paciente"] . "</td>";
+                        echo "<td class='dt_nascimento'>" . $row["dt_nascimento_paciente"] . "</td>";
+                        echo "<td class='cpf_paciente'>" . $row["cpf_paciente"] . "</td>";
+                        echo "<td class='sexo_paciente' >" . $row["sexo_paciente"] . "</td>";
+                        echo "<td class='contato_paciente'>" . $row["contato_paciente"] . "</td>";
+                        echo "<td class='email'>" . $row["email"] . "</td>";
+                        echo "<td class='nome responsavel'>" . $row["nome_responsavel"] . "</td>";
+                        echo "<td class='dt_nascimento_responsavel'>" . $row["dt_nascimento_responsavel"] . "</td>";
+                        echo "<td class='cpf_responsavel'>" . $row["cpf_responsavel"] . "</td>";
+                        echo "<td class='cep_paciente'>" . $row["cep_paciente"] . "</td>";
+                    
+                        
+                        // Edit button
+                        echo "<td><a class='editar' href='edit_patient.php?id=" . $row["cpf_paciente"] . "'>Editar</a> <a class='excluir' href='delete_patient.php?id=" . $row["cpf_paciente"] . "'>Excluir</a> </td>";
+                    
+                        // // Delete button
+                        // echo "<td></td>";
+                    
                         echo "</tr>";
                     }
                     
@@ -329,7 +297,7 @@ if (isset($_SESSION['email_funcionario'])) {
         </table>
         <br><br>
         <!-- btn chama pop up -->
-        <button onclick="openPopup()">Cadastrar paciente</button>
+        <button class="btn" onclick="openPopup()">Cadastrar paciente</button>
         <!-- pop up drop form -->
         <div id="popup" class="popup">
             <div class="popup-content">
@@ -367,6 +335,7 @@ if (isset($_SESSION['email_funcionario'])) {
                         </div>
                         
                     </label>
+                    <br>
 
                     <h5>INFORMAÇÕES DO RESPONSÁVEL</h5>
                     <label class="lbl_container" for="nome_responsavel">
@@ -426,7 +395,7 @@ if (isset($_SESSION['email_funcionario'])) {
                 <div id="resposta"></div> 
 
                 <!-- BOTÃO CADASTRAR -->
-                <div class="button wrapper" >
+                <div class="button">
                     <input type="submit" id="cadastrar" name="cadastrar" value="cadastrar">
                 </div>
                 
