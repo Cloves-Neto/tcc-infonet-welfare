@@ -20,13 +20,13 @@ try {
         $_SESSION['email_funcionario'] = $usuario['email_funcionario'];
         $_SESSION['senha_funcionario'] = $usuario['senha_funcionario'];
 
-        if ($usuario['cargo_funcionario'] == '0001') {
+        if ($usuario['cargo_funcionario'] == '1') {
             header('Location: ./home/home-adm.php');
             exit;
-        } elseif ($usuario['cargo_funcionario'] == '0002') {
-            header('Location: ../home/home.php');
+        } elseif ($usuario['cargo_funcionario'] == '2') {
+            header('Location: ./home/home.php');
             exit;
-        } elseif ($usuario['cargo_funcionario'] == '0003') {
+        } elseif ($usuario['cargo_funcionario'] == '3') {
             header('Location: ./home/home.php');
             exit;
         } else {

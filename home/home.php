@@ -40,9 +40,10 @@ if (isset($_SESSION['email_funcionario'])) {
     <title>Welfare | Adm</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="./home-adm-style.css">
-    
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -50,50 +51,12 @@ if (isset($_SESSION['email_funcionario'])) {
 <div class="granbox">
     <!-- Menu lateral do sistema (Home adm) -->
     <aside class="menu">
-        <nav>
-        <div class="user-profile">
-            <a href="../img/editar_foto.php" class="user-img" aria-label="área de informações do usuário">
-            <?php if (!empty($foto_funcionario)) : ?>
-                <img src="data:image/jpeg;base64,<?php echo base64_encode($foto_funcionario); ?>" alt="Foto do funcionário">
-            <?php endif; ?>
-            </a>
-        </div>
 
-
-            <ul>
-                <li>
-                    <ion-icon name="home-outline"></ion-icon>
-                    <a href="../home/home.php">Início</a>
-                </li>
-
-                <li>
-                    <ion-icon name="person-add-outline"></ion-icon>
-                    <a href="../cadastro/cadastrarpac_rec.php">Paciente</a>
-                </li>
-                
-                <li>
-                    <ion-icon name="calendar-number-outline"></ion-icon>
-                    <a href="../agenda/agenda_rec.php">Agenda</a>
-                </li>
-                <!-- <li>
-                    <ion-icon name="bar-chart-outline"></ion-icon>
-                    <a href="../financeiro/financeiro.php">Financeiro</a>
-                </li>
-                <li>
-                    <ion-icon name="reader-outline"></ion-icon>
-                    <a href="../relatorio/relatorio.php">Relatório</a>
-                </li> -->
-            </ul>
-
-            <a class="sair" href="../index.php">
-                <ion-icon name="exit-outline"></ion-icon>
-            </a>
-        </nav>
     </aside>
     
     <!-- Conteudo principal da página -->
     <section class="infosite">
-        <!-- Header -->
+        <!-- Header titulo e display de msg-->
         <header class="infoheader">
             <!-- Banner de mensagens -->
             <h2 class="mensagem">Olá, seja bem-vindo <?php echo $nome_funcionario ?></h2>
@@ -114,20 +77,20 @@ if (isset($_SESSION['email_funcionario'])) {
 
                             //==============RETORNA DADOS DO BD EM ARRAY=================//  
                                 
-                                     $bd = $conexao;
+                                    $bd = $conexao;
 
-                                     $query = "SELECT * FROM `mensagem`";
-                                    
-                                     $buscarmsg = $bd->prepare($query);
-                                    
-                                     $buscarmsg->execute();
-                                    
-                                     while($msg = $buscarmsg->fetch(PDO::FETCH_ASSOC)){
-                                     echo "
-                                     <div class='carousel-item msgCard slidePrincipal'>
-                                             <p>" . $msg['msg'] . "</p>
-                                     </div>";
-                                     }
+                                    $query = "SELECT * FROM `mensagem`";
+                                
+                                    $buscarmsg = $bd->prepare($query);
+                                
+                                    $buscarmsg->execute();
+                                
+                                    while($msg = $buscarmsg->fetch(PDO::FETCH_ASSOC)){
+                                    echo "
+                                    <div class='carousel-item msgCard slidePrincipal'>
+                                            <p>" . $msg['msg'] . "</p>
+                                    </div>";
+                                    }
 
                             ?>
 
@@ -146,7 +109,7 @@ if (isset($_SESSION['email_funcionario'])) {
                 
             </div>
         </header>
-
+        <!-- Main conteúdo -->
         <main>
             <div>
                 <a href="../agenda/agenda_rec.php">
@@ -163,17 +126,10 @@ if (isset($_SESSION['email_funcionario'])) {
                 <a class="btn-cadastrar" href="../cadastro/cadastrarpac_rec.php">Cadastrar</a>
             </div>
         </main>
-
-
-        
-            
-        </main>
     </section>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
-
+<script src="../nav.js"></script>
 <!-- <script>
     $(document).ready(function() {
 
@@ -188,8 +144,6 @@ if (isset($_SESSION['email_funcionario'])) {
                 $('#msgContainer').html(data);
             }
         });
-
-    
     });
 </script> -->
 </body>
