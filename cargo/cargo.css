@@ -3,20 +3,115 @@
 @import url(../layout.css);
 @import url(../var.css);
 
+::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;        /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--corPrincipal);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid rgb(227, 227, 227);;  /* creates padding around scroll thumb */
+}
+
 section.infosite header{
     grid-area: ih;
-    background-color: aqua;
+    background-color: var(--corPrincipal);
 }
 section.infosite main{
     grid-area: im;
-    background-color: cadetblue;
+    background-color: white;
     padding: 10px;
 }
-section.infosite main .cadastrar-area{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    height: 60px;
-    margin: 10px 0 20px 0;
+
+.infosite header{
+  background-color: white !important;
+}
+
+.infosite header h2{
+  font-size: 3em;
+  font-weight: 600;
+  color: var(--corSuporte);
+}
+
+.cadastrar-area{
+  width: 50%;
+  height: 120px;
+  border-radius: 10px;
+  background-color: white;
+  border: solid 3px var(--corPrincipal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--corPrincipal);
+  gap: 5px;   
+  flex-direction: column !important;
+  padding: 5px;
+  font-size: 2rem;
+  letter-spacing: 2px;
+
+}
+form input[type="text"]{
+  border: none;
+  padding: 5px;
+  color: var(--corPrincipal);
+  border-bottom: solid 2px var(--corPrincipal);
+  width: 300px;
+  outline: none;
+}
+form input[type="submit"]{
+  width: 200px;
+  height: 30px;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  margin-left: 10px;    
+  background-color: var(--corPrincipal);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+a.edit-link{
+  display: inline-flex;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  padding: 2px;
+  width: 80px;
+  background-color: rgb(102, 175, 235);
+  color: rgb(255, 255, 255);
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+a.excluir{  
+  display: inline-flex;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  padding: 2px;
+  width: 80px;
+  background-color: rgb(219, 74, 74);
+  color: rgb(255, 255, 255);
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.esp{
+  color: var(--corSuporte);
+  font-size: 1.4rem;
+  cursor: pointer;
+  text-transform: capitalize;
+  margin-right: 10px;
+  padding: 10px;
 }

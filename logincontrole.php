@@ -20,17 +20,17 @@ try {
         $_SESSION['email_funcionario'] = $usuario['email_funcionario'];
         $_SESSION['senha_funcionario'] = $usuario['senha_funcionario'];
 
-        if ($usuario['cargo_funcionario'] == '1') {
+        if ($usuario['cargo_funcionario'] == '0001') {
             header('Location: ./home/home-adm.php');
             exit;
-        } elseif ($usuario['cargo_funcionario'] == '2') {
+        } elseif ($usuario['cargo_funcionario'] == '0002') {
             header('Location: ../home/home.php');
             exit;
-        } elseif ($usuario['cargo_funcionario'] == '3') {
+        } elseif ($usuario['cargo_funcionario'] == '0003') {
             header('Location: ./home/home.php');
             exit;
         } else {
-            echo "cadastro não encontrado login1";
+            echo "cadastro não encontrado";
         }
     } else {
         // Login inválido

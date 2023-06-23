@@ -101,7 +101,7 @@ if (isset($_POST['cpf_paciente'])) {
         <script>
             alert('Paciente excluído com sucesso!');
             setTimeout(() => {
-                window.location.href = 'http://localhost/welfare/cadastro/cadastrarpac.php';
+                window.location.href = 'http://localhost/welfare/cadastro/cadastrarpac_rec.php';
             }, 1000);
         </script>
         ";

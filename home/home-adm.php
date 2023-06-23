@@ -93,14 +93,14 @@ if (isset($_SESSION['email_funcionario'])) {
                     <ion-icon name="calendar-number-outline"></ion-icon>
                     <a href="../agenda/agenda.php">Agenda</a>
                 </li>
-                <li>
+                <!-- <li>
                     <ion-icon name="bar-chart-outline"></ion-icon>
                     <a href="../financeiro/financeiro.php">Financeiro</a>
                 </li>
                 <li>
                     <ion-icon name="reader-outline"></ion-icon>
                     <a href="../relatorio/relatorio.php">Relatório</a>
-                </li>
+                </li> -->
             </ul>
 
             <a class="sair" href="../index.php">

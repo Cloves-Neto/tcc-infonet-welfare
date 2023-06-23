@@ -15,7 +15,7 @@ $(document).ready(function() {
                     // Atualiza os inputs com os dados do paciente
                     $('#nome').val(data.nome_paciente);
                     $('#contato').val(data.contato_paciente);
-                    $('#email').val(data.email);
+                    $('#email_paciente').val(data.email_paciente);
                 } else {
                     // Limpa os inputs caso o paciente não seja encontrado
                     $('#nome').val('');

@@ -80,64 +80,64 @@ if (isset($_SESSION['email_funcionario'])) {
     <div class="granbox">
         <!-- Menu lateral do sistema (Home adm) -->
         <aside class="menu">
-            <nav>
-            <div class="user-profile">
-                <a href="../img/editar_foto.php" class="user-img" aria-label="área de informações do usuário">
-                <?php 
-                    if(!empty($foto_funcionario)){
-                    echo'<img src="data:image/jpeg;base64,'.base64_encode($foto_funcionario).'" alt="Foto do funcionário">';
-                    }
-                ?>
-                </a>
-            </div>
+        <nav>
+        <div class="user-profile">
+            <a href="../img/editar_foto.php" class="user-img" aria-label="área de informações do usuário">
+            <?php 
+                if(!empty($foto_funcionario)){
+                echo'<img src="data:image/jpeg;base64,'.base64_encode($foto_funcionario).'" alt="Foto do funcionário">';
+                }
+            ?>
+            </a>
+        </div>
 
 
-                <ul>
-                    <li>
-                        <ion-icon name="home-outline"></ion-icon>
-                        <a href="../home/home-adm.php">Início</a>
-                    </li>
-                    <li>
-                        <ion-icon name="megaphone-outline"></ion-icon>
-                        <a href="../mensagem/mensagem.php">Mensagem</a>
-                    </li>
-                    <li>
-                        <ion-icon name="person-add-outline"></ion-icon>
-                        <a href="../cadastro/cadastrarpac.php">Paciente</a>
-                    </li>
-                    
-                    <li>
-                        <ion-icon name="pulse-outline"></ion-icon>
-                        <a href="../especialidade/especialidade.php">Especialidade</a>
-                    </li>
-                    
-                    <li>
-                        <ion-icon name="alert-circle-outline"></ion-icon>
-                        <a href="../cargo/cargo.php">Cargo</a>
-                    </li>
-                    <li>
-                        <ion-icon name="duplicate-outline"></ion-icon>
-                        <a href="../registro/registro.html">Funcionario</a>
-                    </li>
-                    <li>
-                        <ion-icon name="calendar-number-outline"></ion-icon>
-                        <a href="../agenda/agenda.php">Agenda</a>
-                    </li>
-                    <li>
-                        <ion-icon name="bar-chart-outline"></ion-icon>
-                        <a href="../financeiro/financeiro.php">Financeiro</a>
-                    </li>
-                    <li>
-                        <ion-icon name="reader-outline"></ion-icon>
-                        <a href="../relatorio/relatorio.php">Relatório</a>
-                    </li>
-                </ul>
+            <ul>
+                <li>
+                    <ion-icon name="home-outline"></ion-icon>
+                    <a href="../home/home-adm.php">Início</a>
+                </li>
+                <li>
+                    <ion-icon name="megaphone-outline"></ion-icon>
+                    <a href="../mensagem/mensagem.php">Mensagem</a>
+                </li>
+                <li>
+                    <ion-icon name="person-add-outline"></ion-icon>
+                    <a href="../cadastro/cadastrarpac.php">Paciente</a>
+                </li>
+                
+                <li>
+                    <ion-icon name="pulse-outline"></ion-icon>
+                    <a href="../especialidade/especialidade.php">Especialidade</a>
+                </li>
+                
+                <li>
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                    <a href="../cargo/cargo.php">Cargo</a>
+                </li>
+                <li>
+                    <ion-icon name="duplicate-outline"></ion-icon>
+                    <a href="../registro/registro.html">Funcionario</a>
+                </li>
+                <li>
+                    <ion-icon name="calendar-number-outline"></ion-icon>
+                    <a href="../agenda/agenda.php">Agenda</a>
+                </li>
+                <!-- <li>
+                    <ion-icon name="bar-chart-outline"></ion-icon>
+                    <a href="../financeiro/financeiro.php">Financeiro</a>
+                </li>
+                <li>
+                    <ion-icon name="reader-outline"></ion-icon>
+                    <a href="../relatorio/relatorio.php">Relatório</a>
+                </li> -->
+            </ul>
 
-                <a class="sair" href="../index.php">
-                    <ion-icon name="exit-outline"></ion-icon>
-                </a>
-            </nav>
-        </aside>
+            <a class="sair" href="../index.php">
+                <ion-icon name="exit-outline"></ion-icon>
+            </a>
+        </nav>
+    </aside>
         <section class="infosite">
             <header>
                 <h2 class="titulo-pagina">Especialidade</h2>
@@ -145,7 +145,7 @@ if (isset($_SESSION['email_funcionario'])) {
             <main>
                 <div class="cadastrar-area">
                     <?php
-                echo "<h2>Adicionar nova especialidade</h2>";
+                    echo "<h2>Adicionar nova especialidade</h2>";
 
                     // Hidden div that contains the add form
                     echo "<div id='addFormContainer'>";
@@ -168,10 +168,10 @@ if (isset($_SESSION['email_funcionario'])) {
                         if (count($rows) > 0) {
                             foreach ($rows as $row) {
                                 echo "<tr>";
-                                echo "<td>" . $row["tipo_especialidade"] . "</td>";
+                                echo "<td class='esp'>" . $row["tipo_especialidade"] . "</td>";
                                 echo "<td><a href='#' class='edit-link' data-id_especialidade='" . $row["id_especialidade"] . "'>Editar</a></td>";
-                                echo "<td><a href='#' onclick='confirmDelete(" . $row["id_especialidade"] . ")'>Excluir</a></td>";
-                                echo "</tr>";
+                                echo "<td><a href='#' class='excluir' onclick='confirmDelete(" . $row["id_especialidade"] . ")'>Excluir</a></td>";
+                                echo "</tr>";   
                             }
                         } else {
                             echo "<tr><td colspan='3'>Nenhum resultado encontrado.</td></tr>";

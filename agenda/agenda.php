@@ -87,14 +87,14 @@ if (isset($_SESSION['email_funcionario'])) {
                         <ion-icon name="calendar-number-outline"></ion-icon>
                         <a href="../agenda/agenda.php">Agenda</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <ion-icon name="bar-chart-outline"></ion-icon>
                         <a href="../financeiro/financeiro.php">Financeiro</a>
                     </li>
                     <li>
                         <ion-icon name="reader-outline"></ion-icon>
                         <a href="../relatorio/relatorio.php">Relatório</a>
-                    </li>
+                    </li> -->
                 </ul>
 
                 <a class="sair" href="../index.php">
@@ -158,7 +158,7 @@ if (isset($_SESSION['email_funcionario'])) {
                     <div class="row-data cabecalho">
                         <span>Horario</span>
                         <span>Paciente</span>
-                        <span>RMED</span>
+                        <span> CPF</span>
                         <span>Especialidade</span>
                         <span>Médico</span>
                         <span>-----</span> <!-- botão chamando função para excluir agendamendo-->
@@ -167,7 +167,7 @@ if (isset($_SESSION['email_funcionario'])) {
                     <div class=row-data>
                         <span class="hora">08:00 - 09:00</span>
                         <span>Andressa Moreira</span>
-                        <span>001</span>
+                        <span>45689765982</span>
                         <span>Oftalmolofia</span>
                         <span>Julia Vilha</span>
                         <span><button class="cancelar">Cancelar</button></span> <!-- botão chamando função para excluir agendamendo-->
@@ -187,17 +187,13 @@ if (isset($_SESSION['email_funcionario'])) {
                             '<div class=row-data>
                                 <span class="hora">'.$row["hora_consulta"].'</span>
                                 <span>'.$row["nome_paciente"].'</span>
-                                <span>'.$row["id_paciente"].'</span>
-                                <span>'.$row["especialidade"].'</span>
+                                <span>'.$row["cpf"].'</span>
+                                <span>'.$row["especialidade_medico"].'</span>
                                 <span>'.$row["nome_medico"].'</span>
-                                <span><button class="cancelar">Cancelar</button></span>
+                                <span><a href="cancela.php" class="cancelar">Cancelar</a></span>
                             </div>';
                         }
-                    
-                    
                     ?>
-
-
                     
                 </div>
             </div>
@@ -208,7 +204,7 @@ if (isset($_SESSION['email_funcionario'])) {
     
     <div class="popup" id="popup">
         <div class="popup-content">
-            <form id="cadpac" action="./agendarconsulta.php" method="POST">
+            <form id="cadpac" action="./agendarconsulta.php" method="GET">
                 <button class="close-popup" id="close-popup" onclick="closePopup()">
                     X
                 </button>
@@ -216,22 +212,23 @@ if (isset($_SESSION['email_funcionario'])) {
                 <div class="row-form cabecalho">
                     <label for="">
                         cpf:
-                        <input type="number" id="cpf">
+                        <input type="number" id="cpf" name="cpf" >
                     </label>
                     <label for="">
                         nome:
-                        <input type="text" id="nome" readonly>
+                        <input type="text" id="nome" name="nome" readonly>
                     </label>
                 </div>
 
                 <div class="row-form">
                     <label for="">
                         email:
-                        <input type="text" id="email" readonly>
+                        <input type="text" id="email_paciente" name="email_paciente">
                     </label>
+                    
                     <label for="">
                         contato:
-                        <input type="text" id="contato" readonly>
+                        <input type="text" id="contato" name="contato">
                     </label>
                     
                 </div>
@@ -280,30 +277,32 @@ if (isset($_SESSION['email_funcionario'])) {
                 <div class="row-form">
                     <label for="data">
                         data:
-                        <select name="data" id="data">
+                        <select name="data" id="data" required>
                             <option value="">Selecione a data...</option>
-                            <?php
-                    
-                                include_once('./controleagenda.php');
-        
-                                for($item = 0; $item<60; $item++)
-                                {
-                                    echo'<option id="select_data">'. $dataAgenda[$item].'</option>';
-                                }
-                            ?>
-                        ?>
+                            <option value="2023/06/22">2023/06/22</option>
+                            <option value="2023/06/23">2023/06/23</option>
+                            <option value="2023/06/24">2023/06/24</option>
+                            <option value="2023/06/25">2023/06/25</option>
+                            <option value="2023/06/26">2023/06/26</option>
+                            <option value="2023/06/27">2023/06/27</option>
+                            <option value="2023/06/28">2023/06/28</option>
+                            <option value="2023/06/29">2023/06/29</option>
+                            <option value="2023/06/30">2023/06/30</option>
+                            
+                
                         </select>
                         
                     </label>
+
                     <label for="hora">
                         hora:
                         <select name="hora" id="hora">
                             <option value="">Selecione o horario...</option>
-                            <?php
-                                for($i=8; $i<18; $i++){
-                                    echo'<option value="'.$i.'">'.$i.':00h'.' ás '.($i+1).':00h'.'</option>';
-                                }
-                            ?>
+                            <option value="08:00 as 09:00">08:00 as 09:00</option>
+                            <option value="09:00 as 10:00">09:00 as 10:00</option>
+                            <option value="10:00 as 11:00">10:00 as 11:00</option>
+                            <option value="11:00 as 12:00">11:00 as 12:00</option>
+                            <option value="12:00 as 13:00">12:00 as 13:00</option>
                         </select>
                     </label>
                 </div>
@@ -313,7 +312,7 @@ if (isset($_SESSION['email_funcionario'])) {
         </div>
     </div>
 </div>
-
+    <script src="./busca.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script>
@@ -330,6 +329,5 @@ if (isset($_SESSION['email_funcionario'])) {
         });
 
     </script>
-    <script src="./busca.js"></script>
 </body>
 </html>

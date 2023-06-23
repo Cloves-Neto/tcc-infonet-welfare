@@ -149,7 +149,7 @@ if (isset($_SESSION['email_funcionario'])) {
                                 echo "<td>" . $row["cep_paciente"] . "</td>";
                                 echo "<td>
                                         <a class='abtn edita' href='editar_cadastro_rec.php?cpf_paciente=" . $row["cpf_paciente"] . "'><ion-icon name='color-wand-outline'></ion-icon></a>
-                                        <a class='abtn deleta' href='delete_patient.php?cpf_paciente=" . $row["cpf_paciente"] . "'>t<ion-icon name='trash-outline'></ion-icon></a>
+                                        <a class='abtn deleta' href='delete_patient_rec.php?cpf_paciente=" . $row["cpf_paciente"] . "'><ion-icon name='trash-outline'></ion-icon></a>
                                     </td>";
                             echo "</tr>";
                         }
@@ -170,101 +170,105 @@ if (isset($_SESSION['email_funcionario'])) {
                 
                 <form method="post" id="cad_pac" name="cad_pac">
 
-                <div class="wrapper">
-                    <h5>INFORMAÇÕES DO PACIENTE</h5>
-                    
-                    <label class="lbl_container" for="nome_paciente" >
-                        Nome
-                        <input type="text" id="nome_paciente" name="nome_paciente">
-                    </label>
-                    <label class="lbl_container" for="dt_nascimento_paciente">
-                        Data de nascimento
-                        <input type="date" id="dt_nascimento_paciente" name="dt_nascimento_paciente">
-                    </label>
-                    <label class="lbl_container" for="cpf_paciente">
-                        CPF
-                        <input type="text" id="cpf_paciente" name="cpf_paciente">
-                    </label>
-                    <label class="lbl_container" for="rg_paciente">
-                        RG
-                        <input type="text" id="rg_paciente" name="rg_paciente">
-                    </label>
-                    <label>
-                        Sexo
-                        <div>
-                            <input type="radio" id="sexo_paciente" name="sexo_paciente" value="f" >Feminino
-                            <input type="radio" id="sexo_paciente" name="sexo_paciente" value="m">Masculino
-                            <input type="radio" id="sexo_paciente" name="sexo_paciente" value="o">Outro 
-                        </div>
+                    <div class="wrapper">
+                        <h5>INFORMAÇÕES DO PACIENTE</h5>
                         
-                    </label>
+                        <label class="lbl_container" for="nome_paciente" >
+                            Nome
+                            <input type="text" id="nome_paciente" name="nome_paciente">
+                        </label>
+                        <label class="lbl_container" for="dt_nascimento_paciente">
+                            Data de nascimento
+                            <input type="date" id="dt_nascimento_paciente" name="dt_nascimento_paciente">
+                        </label>
+                        <label class="lbl_container" for="cpf_paciente">
+                            CPF
+                            <input type="text" id="cpf_paciente" name="cpf_paciente">
+                        </label>
+                        <label class="lbl_container" for="rg_paciente">
+                            RG
+                            <input type="text" id="rg_paciente" name="rg_paciente">
+                        </label>
+                        <label class="lbl_container">
+                            Sexo
+                            <div>
+                                <input type="radio" id="fem" name="sexo_paciente" value="f"><label for="fem">Feminino </label>
+                                <input type="radio" id="mas" name="sexo_paciente" value="m"><label for="mas">Masculino</label> 
+                                <input type="radio" id="out" name="sexo_paciente" value="o"><label for="out">Outro</label> 
+                            </div>
+                            
+                        </label>
 
-                    <h5>
-                        INFORMAÇÕES DO RESPONSÁVEL
-                    </h5>
+                        <h5>
+                            INFORMAÇÕES DO RESPONSÁVEL
+                            <small>** somete se for menor de 18 anos **</small>
+                        </h5>
+                        
+
+                        
+                        <label class="lbl_container" for="nome_responsavel">
+                            Nome
+                            <input type="text" id="nome_responsavel" name="nome_responsavel">
+                        </label>
+                        <label class="lbl_container" for="dt_nascimento_responsavel">
+                            Data de nascimento
+                            <input type="date" id="dt_nascimento_responsavel" name="dt_nascimento_responsavel">
+                        </label>
+                        <label class="lbl_container" for="cpf_responsavel">
+                            CPF
+                            <input type="text" id="cpf_responsavel" name="cpf_responsavel">
+                        </label>
+                        <label class="lbl_container" for="rg_responsavel">
+                            RG
+                            <input type="text" id="rg_responsavel" name="rg_responsavel">
+                        </label>
+                        <label class="lbl_container">
+                            Sexo 
+                            <div>
+                                <input type="radio" id="fem" name="sexo_responsavel" value="f"><label for="fem">Feminino </label>
+                                <input type="radio" id="mas" name="sexo_responsavel" value="m"><label for="mas">Masculino</label> 
+                                <input type="radio" id="out" name="sexo_responsavel" value="o"><label for="out">Outro</label> 
+                            </div>
+                        </label>
+
+                        <h5>INFORMAÇÕES PARA CONTATO</h5>
+                        <label class="lbl_container" for="contato_paciente">
+                            Telefone
+                            <input type="text" id="contato_paciente" name="contato_paciente">
+                        </label>
+                        <label class="lbl_container" for="email_paciente">
+                            Email
+                            <input type="text" id="email_paciente" name="email_paciente">
+                        </label>
+
+                        <h5>INFORMAÇÕES DE ENDEREÇO</h5>
+                        <label class="lbl_container" for="uf">
+                            UF
+                            <input type="text" id="uf" name="uf">
+                        </label>
+                        <label class="lbl_container" for="logradouro">
+                            Logadouro
+                            <input type="text" id="logradouro" name="logradouro">
+                        </label>
+                        <label class="lbl_container" for="cep_paciente">
+                            CEP
+                            <input type="text" id="cep_paciente" name="cep_paciente">
+                        </label>
+                        <label class="lbl_container" for="numero_casa_paciente">
+                            N°
+                            <input type="text" id="numero_casa_paciente" name="numero_casa_paciente">
+                        </label>
+                    </div>
+
+                    <div id="resposta"></div> 
+
                     
-
-                    
-                    <label class="lbl_container" for="nome_responsavel">
-                        Nome
-                        <input type="text" id="nome_responsavel" name="nome_responsavel">
-                    </label>
-                    <label class="lbl_container" for="dt_nascimento_responsavel">
-                        Data de nascimento
-                        <input type="date" id="dt_nascimento_responsavel" name="dt_nascimento_responsavel">
-                    </label>
-                    <label class="lbl_container" for="cpf_responsavel">
-                        CPF
-                        <input type="text" id="cpf_responsavel" name="cpf_responsavel">
-                    </label>
-                    <label class="lbl_container" for="rg_responsavel">
-                        RG
-                        <input type="text" id="rg_responsavel" name="rg_responsavel">
-                    </label>
-                    <label class="lbl_container" for="">
-                        Sexo <br>
-                        <div>
-                        <input type="radio" id="sexo_responsavel" name="sexo_responsavel" value="f">Feminino 
-                        <input type="radio" id="sexo_responsavel" name="sexo_responsavel" value="m">Masculino 
-                        <input type="radio" id="sexo_responsavel" name="sexo_responsavel" value="o">Outro 
-                        </div>
-                    </label>
-
-                    <h5>INFORMAÇÕES PARA CONTATO</h5>
-                    <label class="lbl_container" for="contato_paciente">
-                        Telefone
-                        <input type="text" id="contato_paciente" name="contato_paciente">
-                    </label>
-                    <label class="lbl_container" for="email">
-                        Email
-                        <input type="text" id="email" name="email">
-                    </label>
-
-                    <h5>INFORMAÇÕES DE ENDEREÇO</h5>
-                    <label class="lbl_container" for="uf">
-                        UF
-                        <input type="text" id="uf" name="uf">
-                    </label>
-                    <label class="lbl_container" for="logradouro">
-                        Logadouro
-                        <input type="text" id="logradouro" name="logradouro">
-                    </label>
-                    <label class="lbl_container" for="cep_paciente">
-                        CEP
-                        <input type="text" id="cep_paciente" name="cep_paciente">
-                    </label>
-                    <label class="lbl_container" for="numero_casa_paciente">
-                        N°
-                        <input type="text" id="numero_casa_paciente" name="numero_casa_paciente">
-                    </label>
-                </div>
-
-                <div id="resposta"></div> 
-
-                <!-- BOTÃO CADASTRAR -->
-                <div class="button wrapper" >
-                    <input type="submit" id="cadastrar" name="cadastrar" value="cadastrar">
-                </div>
+                    <!-- BOTÃO CADASTRAR -->
+                    <div class="button wrapper" >
+                        <button type="submit" id="cadastrar" name="cadastrar">
+                            Cadastrar
+                        </button>
+                    </div>
                 
                 </form>
                 

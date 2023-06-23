@@ -86,14 +86,14 @@ if (isset($_SESSION['email_funcionario'])) {
                         <ion-icon name="calendar-number-outline"></ion-icon>
                         <a href="../agenda/agenda.php">Agenda</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <ion-icon name="bar-chart-outline"></ion-icon>
                         <a href="../financeiro/financeiro.php">Financeiro</a>
                     </li>
                     <li>
                         <ion-icon name="reader-outline"></ion-icon>
                         <a href="../relatorio/relatorio.php">Relatório</a>
-                    </li>
+                    </li> -->
                 </ul>
 
                 <a class="sair" href="../index.php">
@@ -148,7 +148,7 @@ if (isset($_SESSION['email_funcionario'])) {
                                 echo "<td>" . $row["cpf_responsavel"] . "</td>";
                                 echo "<td>" . $row["cep_paciente"] . "</td>";
                                 echo "<td>
-                                        <a class='abtn edita' href='editar_cadastro_rec.php?cpf_paciente=" . $row["cpf_paciente"] . "'><ion-icon name='color-wand-outline'></ion-icon></a>
+                                        <a class='abtn edita' href='editar_cadastro.php?cpf_paciente=" . $row["cpf_paciente"] . "'><ion-icon name='color-wand-outline'></ion-icon></a>
                                         <a class='abtn deleta' href='delete_patient.php?cpf_paciente=" . $row["cpf_paciente"] . "'><ion-icon name='trash-outline'></ion-icon></a>
                                     </td>";
                             echo "</tr>";
@@ -234,9 +234,9 @@ if (isset($_SESSION['email_funcionario'])) {
                         Telefone
                         <input type="number" id="contato_paciente" name="contato_paciente">
                     </label>
-                    <label class="lbl_container" for="email">
+                    <label class="lbl_container" for="email_paciente">
                         Email
-                        <input type="email" id="email" name="email">
+                        <input type="email" id="email_paciente" name="email_paciente">
                     </label>
 
                     <h5>INFORMAÇÕES DE ENDEREÇO</h5>

@@ -79,13 +79,15 @@ if (isset($_SESSION['email_funcionario'])) {
 </head>
 <body>
     <div class="granbox">
-        <aside class="menu">
+    <aside class="menu">
         <nav>
         <div class="user-profile">
             <a href="../img/editar_foto.php" class="user-img" aria-label="área de informações do usuário">
-            <?php if (!empty($foto_funcionario)) : ?>
-                <img src="data:image/jpeg;base64,<?php echo base64_encode($foto_funcionario); ?>" alt="Foto do funcionário">
-            <?php endif; ?>
+            <?php 
+                if(!empty($foto_funcionario)){
+                echo'<img src="data:image/jpeg;base64,'.base64_encode($foto_funcionario).'" alt="Foto do funcionário">';
+                }
+            ?>
             </a>
         </div>
 
@@ -121,21 +123,21 @@ if (isset($_SESSION['email_funcionario'])) {
                     <ion-icon name="calendar-number-outline"></ion-icon>
                     <a href="../agenda/agenda.php">Agenda</a>
                 </li>
-                <li>
+                <!-- <li>
                     <ion-icon name="bar-chart-outline"></ion-icon>
                     <a href="../financeiro/financeiro.php">Financeiro</a>
                 </li>
                 <li>
                     <ion-icon name="reader-outline"></ion-icon>
                     <a href="../relatorio/relatorio.php">Relatório</a>
-                </li>
+                </li> -->
             </ul>
 
             <a class="sair" href="../index.php">
                 <ion-icon name="exit-outline"></ion-icon>
             </a>
         </nav>
-        </aside>
+    </aside>
         <section class="infosite">
             <header>
                 <h2>Cargo</h2>
@@ -166,9 +168,9 @@ if (isset($_SESSION['email_funcionario'])) {
                         if (count($rows) > 0) {
                             foreach ($rows as $row) {
                                 echo "<tr>";
-                                echo "<td>" . $row["cargo_funcionario"] . "</td>";
+                                echo "<td class='esp'>" . $row["cargo_funcionario"] . "</td>";
                                 echo "<td><a href='#' class='edit-link' data-id_cargo='" . $row["id_cargo"] . "'>Editar</a></td>";
-                                echo "<td><a href='#' onclick='confirmDelete(" . $row["id_cargo"] . ")'>Excluir</a></td>";
+                                echo "<td><a href='#' class='excluir' onclick='confirmDelete(" . $row["id_cargo"] . ")'>Excluir</a></td>";
                                 echo "</tr>";
                             }
                         } else {

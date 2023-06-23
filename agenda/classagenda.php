@@ -11,7 +11,7 @@ public function buscaMedico(){
 
         require "../conexao.php";
 
-        $query = "SELECT * FROM `medico`" ;
+        $query = "SELECT * FROM `funcionario` WHERE `cargo_funcionario` = 3" ;
 
         $buscarDados = $conexao->query($query);
 
