@@ -1,20 +1,20 @@
 # PROJETO DE TCC - WELFARE (SISTEMA DE GERENCIAMENTO ONLINE P/ CLINICA HOSPITALARES)
 
 
-// ---------- Informações pertinentes para o desenvolvimento ------- //
+---------- Informações pertinentes para o desenvolvimento ------- 
 
 -> CORES:
         - 
         -
         -
         -
-================================================================
+        
+----------------------------------------------------------
 -> FONTE:
-
         -
         -
 
---------- Tamanhos de fonte --------
+-> Tamanhos de fonte:
 
         - Titulos : 1.8 rem  /  2 rem
         - Subtitulos : 1.4 rem
